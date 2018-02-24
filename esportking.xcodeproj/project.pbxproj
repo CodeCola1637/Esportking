@@ -1,0 +1,1205 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		020EE795E4898BF9CD4E194D /* libPods-esportkingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */; };
+		BE45F95C2029E21200482824 /* CCBigButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F95B2029E21200482824 /* CCBigButton.m */; };
+		BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F95E2029F16000482824 /* CCRegisterManager.m */; };
+		BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F9612029F17800482824 /* CCRegisterRequest.m */; };
+		BE45F9652029F19B00482824 /* CCSMSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F9642029F19B00482824 /* CCSMSRequest.m */; };
+		BE45F9692029F98000482824 /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F9682029F98000482824 /* NSString+Check.m */; };
+		BE45F96D202A00F600482824 /* CCModifyUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F96C202A00F600482824 /* CCModifyUserInfoViewController.m */; };
+		BE45F970202A027800482824 /* CCTitleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F96F202A027800482824 /* CCTitleItem.m */; };
+		BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BA620302D1800890485 /* PGIndexBannerSubiew.m */; };
+		BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BA720302D1800890485 /* NewPagedFlowView.m */; };
+		BE4A1BB020302FBC00890485 /* CCHomePageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BAF20302FBC00890485 /* CCHomePageManager.m */; };
+		BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BB320307E7200890485 /* HomeCollectionLayout.m */; };
+		BE4A1BB820307FD300890485 /* CCBannerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BB720307FD300890485 /* CCBannerCollectionViewCell.m */; };
+		BE4A1BBB20307FE400890485 /* CCNavigationCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BBA20307FE400890485 /* CCNavigationCollectionViewCell.m */; };
+		BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BBD2030800B00890485 /* CCGameItemCollectionViewCell.m */; };
+		BE4A1BC22033D2A400890485 /* CCGetGameInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BC12033D2A400890485 /* CCGetGameInfoRequest.m */; };
+		BE4A1BC62033D31E00890485 /* CCGameInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BC52033D31E00890485 /* CCGameInfoService.m */; };
+		BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BC82035441F00890485 /* UIImageView+SDWebImage.m */; };
+		BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BCB20384F0D00890485 /* CCLeftViewController.m */; };
+		BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BCF2038507F00890485 /* CCHeadTableViewCell.m */; };
+		BE4A1BD32038509000890485 /* CCImgTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD22038509000890485 /* CCImgTitleTableViewCell.m */; };
+		BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */; };
+		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
+		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
+		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
+		BEAC5D70202C3695000BF808 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D6E202C3695000BF808 /* JXTAlertController.m */; };
+		BEAC5D83202C3EEC000BF808 /* PGDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D72202C3EEC000BF808 /* PGDatePicker.m */; };
+		BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D73202C3EEC000BF808 /* UIColor+PGHex.m */; };
+		BEAC5D85202C3EEC000BF808 /* PGDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D74202C3EEC000BF808 /* PGDatePickerView.m */; };
+		BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D76202C3EEC000BF808 /* NSCalendar+PGCurrent.m */; };
+		BEAC5D87202C3EEC000BF808 /* PGDatePickManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D77202C3EEC000BF808 /* PGDatePickManager.m */; };
+		BEAC5D88202C3EEC000BF808 /* NSBundle+PGDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D79202C3EEC000BF808 /* NSBundle+PGDatePicker.m */; };
+		BEAC5D89202C3EEC000BF808 /* NSDate+PGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D7D202C3EEC000BF808 /* NSDate+PGCategory.m */; };
+		BEAC5D8A202C3EEC000BF808 /* PGDatePickManagerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D81202C3EEC000BF808 /* PGDatePickManagerHeaderView.m */; };
+		BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D8E202C4031000BF808 /* CCModifyUserInfoRequest.m */; };
+		BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA0D2026FABC00ED4E2D /* CCTopbarView.m */; };
+		BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA13202701FA00ED4E2D /* CCRefreshTableView.m */; };
+		BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA162027020800ED4E2D /* CCRefreshCollectionView.m */; };
+		BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA1B2027082000ED4E2D /* CCHomeViewController.m */; };
+		BEAFDA1F2027083000ED4E2D /* CCScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */; };
+		BEAFDA222027083A00ED4E2D /* CCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA212027083A00ED4E2D /* CCMessageViewController.m */; };
+		BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA3420270F8300ED4E2D /* UIColor+Hex.m */; };
+		BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA38202711EF00ED4E2D /* CCLoginViewController.m */; };
+		BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA3B202718B000ED4E2D /* CCTextField.m */; };
+		BEAFDA4920273FF100ED4E2D /* CCLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA4820273FF100ED4E2D /* CCLoginManager.m */; };
+		BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA4C2027416800ED4E2D /* CCBaseRequest.m */; };
+		BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA5020274A6000ED4E2D /* CCLoginRequest.m */; };
+		BEAFDA54202756F100ED4E2D /* CCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA53202756F100ED4E2D /* CCRegisterViewController.m */; };
+		BEAFDA57202759BE00ED4E2D /* CCBigTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA56202759BE00ED4E2D /* CCBigTextFieldView.m */; };
+		BEE005AC2025793B006813E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AB2025793B006813E3 /* main.m */; };
+		BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AE2025793B006813E3 /* AppDelegate.m */; };
+		BEE005B52025793B006813E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE005B32025793B006813E3 /* Main.storyboard */; };
+		BEE005B72025793B006813E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE005B62025793B006813E3 /* Assets.xcassets */; };
+		BEE005C52025793B006813E3 /* esportkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005C42025793B006813E3 /* esportkingTests.m */; };
+		BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC9BA620257EDC002CE000 /* CCLanunchConfig.m */; };
+		BEFC9BAA20259546002CE000 /* CCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC9BA920259546002CE000 /* CCBaseViewController.m */; };
+		BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC9BAD20259A30002CE000 /* CCRootViewController.m */; };
+		BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC9BB520259E31002CE000 /* UILabel+Create.m */; };
+		BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95C9202D82D70081D88B /* CCAccountService.m */; };
+		BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95CC202D91C90081D88B /* CCHomePageRequest.m */; };
+		BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D1202D92C30081D88B /* CCGameModel.m */; };
+		BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D4202D92CD0081D88B /* CCUserModel.m */; };
+		C16171E712D307C824E94520 /* libPods-esportking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 794446AB076BD7FEE1438A20 /* libPods-esportking.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEE005C12025793B006813E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEE0059F2025793B006813E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEE005A62025793B006813E3;
+			remoteInfo = esportking;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-esportkingTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C88E37E1E818AA395ECFF26 /* Pods-esportking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esportking/Pods-esportking.debug.xcconfig"; sourceTree = "<group>"; };
+		794446AB076BD7FEE1438A20 /* libPods-esportking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-esportking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FF25FBEB3799DB5CF7C6023 /* Pods-esportking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportking.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportking/Pods-esportking.release.xcconfig"; sourceTree = "<group>"; };
+		B20808B77B95339B008DA989 /* Pods-esportkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.release.xcconfig"; sourceTree = "<group>"; };
+		B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE45F95A2029E21200482824 /* CCBigButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBigButton.h; sourceTree = "<group>"; };
+		BE45F95B2029E21200482824 /* CCBigButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBigButton.m; sourceTree = "<group>"; };
+		BE45F95D2029F16000482824 /* CCRegisterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRegisterManager.h; sourceTree = "<group>"; };
+		BE45F95E2029F16000482824 /* CCRegisterManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRegisterManager.m; sourceTree = "<group>"; };
+		BE45F9602029F17800482824 /* CCRegisterRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRegisterRequest.h; sourceTree = "<group>"; };
+		BE45F9612029F17800482824 /* CCRegisterRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRegisterRequest.m; sourceTree = "<group>"; };
+		BE45F9632029F19B00482824 /* CCSMSRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSMSRequest.h; sourceTree = "<group>"; };
+		BE45F9642029F19B00482824 /* CCSMSRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSMSRequest.m; sourceTree = "<group>"; };
+		BE45F9662029F3EC00482824 /* CCRegisterTypeDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRegisterTypeDefine.h; sourceTree = "<group>"; };
+		BE45F9672029F98000482824 /* NSString+Check.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
+		BE45F9682029F98000482824 /* NSString+Check.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		BE45F96B202A00F600482824 /* CCModifyUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCModifyUserInfoViewController.h; sourceTree = "<group>"; };
+		BE45F96C202A00F600482824 /* CCModifyUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCModifyUserInfoViewController.m; sourceTree = "<group>"; };
+		BE45F96E202A027800482824 /* CCTitleItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTitleItem.h; sourceTree = "<group>"; };
+		BE45F96F202A027800482824 /* CCTitleItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTitleItem.m; sourceTree = "<group>"; };
+		BE4A1BA620302D1800890485 /* PGIndexBannerSubiew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGIndexBannerSubiew.m; sourceTree = "<group>"; };
+		BE4A1BA720302D1800890485 /* NewPagedFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPagedFlowView.m; sourceTree = "<group>"; };
+		BE4A1BA820302D1800890485 /* PGIndexBannerSubiew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGIndexBannerSubiew.h; sourceTree = "<group>"; };
+		BE4A1BA920302D1800890485 /* NewPagedFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
+		BE4A1BAE20302FBC00890485 /* CCHomePageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCHomePageManager.h; sourceTree = "<group>"; };
+		BE4A1BAF20302FBC00890485 /* CCHomePageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHomePageManager.m; sourceTree = "<group>"; };
+		BE4A1BB320307E7200890485 /* HomeCollectionLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionLayout.m; sourceTree = "<group>"; };
+		BE4A1BB420307E7200890485 /* HomeCollectionLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionLayout.h; sourceTree = "<group>"; };
+		BE4A1BB620307FD300890485 /* CCBannerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBannerCollectionViewCell.h; sourceTree = "<group>"; };
+		BE4A1BB720307FD300890485 /* CCBannerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBannerCollectionViewCell.m; sourceTree = "<group>"; };
+		BE4A1BB920307FE400890485 /* CCNavigationCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNavigationCollectionViewCell.h; sourceTree = "<group>"; };
+		BE4A1BBA20307FE400890485 /* CCNavigationCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNavigationCollectionViewCell.m; sourceTree = "<group>"; };
+		BE4A1BBC2030800B00890485 /* CCGameItemCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGameItemCollectionViewCell.h; sourceTree = "<group>"; };
+		BE4A1BBD2030800B00890485 /* CCGameItemCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGameItemCollectionViewCell.m; sourceTree = "<group>"; };
+		BE4A1BC02033D2A400890485 /* CCGetGameInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetGameInfoRequest.h; sourceTree = "<group>"; };
+		BE4A1BC12033D2A400890485 /* CCGetGameInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetGameInfoRequest.m; sourceTree = "<group>"; };
+		BE4A1BC42033D31E00890485 /* CCGameInfoService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGameInfoService.h; sourceTree = "<group>"; };
+		BE4A1BC52033D31E00890485 /* CCGameInfoService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGameInfoService.m; sourceTree = "<group>"; };
+		BE4A1BC72035441F00890485 /* UIImageView+SDWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDWebImage.h"; sourceTree = "<group>"; };
+		BE4A1BC82035441F00890485 /* UIImageView+SDWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SDWebImage.m"; sourceTree = "<group>"; };
+		BE4A1BCA20384F0D00890485 /* CCLeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLeftViewController.h; sourceTree = "<group>"; };
+		BE4A1BCB20384F0D00890485 /* CCLeftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLeftViewController.m; sourceTree = "<group>"; };
+		BE4A1BCE2038507F00890485 /* CCHeadTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCHeadTableViewCell.h; sourceTree = "<group>"; };
+		BE4A1BCF2038507F00890485 /* CCHeadTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHeadTableViewCell.m; sourceTree = "<group>"; };
+		BE4A1BD12038508F00890485 /* CCImgTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCImgTitleTableViewCell.h; sourceTree = "<group>"; };
+		BE4A1BD22038509000890485 /* CCImgTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCImgTitleTableViewCell.m; sourceTree = "<group>"; };
+		BE4A1BD5203854CD00890485 /* CCBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBaseTableViewCell.h; sourceTree = "<group>"; };
+		BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBaseTableViewCell.m; sourceTree = "<group>"; };
+		BE78493320394D90000E7C00 /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
+		BE78493420394D90000E7C00 /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
+		BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchTableViewCell.h; sourceTree = "<group>"; };
+		BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchTableViewCell.m; sourceTree = "<group>"; };
+		BE78493B20394FBC000E7C00 /* CCSearchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchRequest.h; sourceTree = "<group>"; };
+		BE78493C20394FBC000E7C00 /* CCSearchRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchRequest.m; sourceTree = "<group>"; };
+		BEAC5D6E202C3695000BF808 /* JXTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertController.m; sourceTree = "<group>"; };
+		BEAC5D6F202C3695000BF808 /* JXTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertController.h; sourceTree = "<group>"; };
+		BEAC5D72202C3EEC000BF808 /* PGDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePicker.m; sourceTree = "<group>"; };
+		BEAC5D73202C3EEC000BF808 /* UIColor+PGHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PGHex.m"; sourceTree = "<group>"; };
+		BEAC5D74202C3EEC000BF808 /* PGDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickerView.m; sourceTree = "<group>"; };
+		BEAC5D75202C3EEC000BF808 /* NSDate+PGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PGCategory.h"; sourceTree = "<group>"; };
+		BEAC5D76202C3EEC000BF808 /* NSCalendar+PGCurrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+PGCurrent.m"; sourceTree = "<group>"; };
+		BEAC5D77202C3EEC000BF808 /* PGDatePickManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickManager.m; sourceTree = "<group>"; };
+		BEAC5D78202C3EEC000BF808 /* PGDatePickManagerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManagerHeaderView.h; sourceTree = "<group>"; };
+		BEAC5D79202C3EEC000BF808 /* NSBundle+PGDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+PGDatePicker.m"; sourceTree = "<group>"; };
+		BEAC5D7A202C3EEC000BF808 /* UIColor+PGHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PGHex.h"; sourceTree = "<group>"; };
+		BEAC5D7B202C3EEC000BF808 /* PGDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePicker.h; sourceTree = "<group>"; };
+		BEAC5D7C202C3EEC000BF808 /* PGEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGEnumeration.h; sourceTree = "<group>"; };
+		BEAC5D7D202C3EEC000BF808 /* NSDate+PGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PGCategory.m"; sourceTree = "<group>"; };
+		BEAC5D7E202C3EEC000BF808 /* PGDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickerView.h; sourceTree = "<group>"; };
+		BEAC5D7F202C3EEC000BF808 /* NSCalendar+PGCurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+PGCurrent.h"; sourceTree = "<group>"; };
+		BEAC5D80202C3EEC000BF808 /* NSBundle+PGDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+PGDatePicker.h"; sourceTree = "<group>"; };
+		BEAC5D81202C3EEC000BF808 /* PGDatePickManagerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickManagerHeaderView.m; sourceTree = "<group>"; };
+		BEAC5D82202C3EEC000BF808 /* PGDatePickManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManager.h; sourceTree = "<group>"; };
+		BEAC5D8D202C4031000BF808 /* CCModifyUserInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCModifyUserInfoRequest.h; sourceTree = "<group>"; };
+		BEAC5D8E202C4031000BF808 /* CCModifyUserInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCModifyUserInfoRequest.m; sourceTree = "<group>"; };
+		BEAFDA0C2026FABC00ED4E2D /* CCTopbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTopbarView.h; sourceTree = "<group>"; };
+		BEAFDA0D2026FABC00ED4E2D /* CCTopbarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTopbarView.m; sourceTree = "<group>"; };
+		BEAFDA12202701FA00ED4E2D /* CCRefreshTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRefreshTableView.h; sourceTree = "<group>"; };
+		BEAFDA13202701FA00ED4E2D /* CCRefreshTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRefreshTableView.m; sourceTree = "<group>"; };
+		BEAFDA152027020800ED4E2D /* CCRefreshCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRefreshCollectionView.h; sourceTree = "<group>"; };
+		BEAFDA162027020800ED4E2D /* CCRefreshCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRefreshCollectionView.m; sourceTree = "<group>"; };
+		BEAFDA182027022500ED4E2D /* CCRefreshProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRefreshProtocol.h; sourceTree = "<group>"; };
+		BEAFDA1A2027082000ED4E2D /* CCHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCHomeViewController.h; sourceTree = "<group>"; };
+		BEAFDA1B2027082000ED4E2D /* CCHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHomeViewController.m; sourceTree = "<group>"; };
+		BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreViewController.h; sourceTree = "<group>"; };
+		BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreViewController.m; sourceTree = "<group>"; };
+		BEAFDA202027083A00ED4E2D /* CCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageViewController.h; sourceTree = "<group>"; };
+		BEAFDA212027083A00ED4E2D /* CCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageViewController.m; sourceTree = "<group>"; };
+		BEAFDA3320270F8300ED4E2D /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		BEAFDA3420270F8300ED4E2D /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		BEAFDA37202711EF00ED4E2D /* CCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginViewController.h; sourceTree = "<group>"; };
+		BEAFDA38202711EF00ED4E2D /* CCLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoginViewController.m; sourceTree = "<group>"; };
+		BEAFDA3A202718B000ED4E2D /* CCTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTextField.h; sourceTree = "<group>"; };
+		BEAFDA3B202718B000ED4E2D /* CCTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTextField.m; sourceTree = "<group>"; };
+		BEAFDA4720273FF100ED4E2D /* CCLoginManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginManager.h; sourceTree = "<group>"; };
+		BEAFDA4820273FF100ED4E2D /* CCLoginManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoginManager.m; sourceTree = "<group>"; };
+		BEAFDA4A2027406200ED4E2D /* CCNetworkDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNetworkDefine.h; sourceTree = "<group>"; };
+		BEAFDA4B2027416800ED4E2D /* CCBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBaseRequest.h; sourceTree = "<group>"; };
+		BEAFDA4C2027416800ED4E2D /* CCBaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBaseRequest.m; sourceTree = "<group>"; };
+		BEAFDA4E2027484300ED4E2D /* CCCommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCommonDefine.h; sourceTree = "<group>"; };
+		BEAFDA4F20274A6000ED4E2D /* CCLoginRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginRequest.h; sourceTree = "<group>"; };
+		BEAFDA5020274A6000ED4E2D /* CCLoginRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoginRequest.m; sourceTree = "<group>"; };
+		BEAFDA52202756F100ED4E2D /* CCRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRegisterViewController.h; sourceTree = "<group>"; };
+		BEAFDA53202756F100ED4E2D /* CCRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRegisterViewController.m; sourceTree = "<group>"; };
+		BEAFDA55202759BE00ED4E2D /* CCBigTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBigTextFieldView.h; sourceTree = "<group>"; };
+		BEAFDA56202759BE00ED4E2D /* CCBigTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBigTextFieldView.m; sourceTree = "<group>"; };
+		BEE005A72025793B006813E3 /* esportking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esportking.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE005AB2025793B006813E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEE005AD2025793B006813E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BEE005AE2025793B006813E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BEE005B42025793B006813E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEE005B62025793B006813E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEE005BB2025793B006813E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE005C02025793B006813E3 /* esportkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = esportkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE005C42025793B006813E3 /* esportkingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = esportkingTests.m; sourceTree = "<group>"; };
+		BEE005C62025793B006813E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEFC9BA520257EDC002CE000 /* CCLanunchConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLanunchConfig.h; sourceTree = "<group>"; };
+		BEFC9BA620257EDC002CE000 /* CCLanunchConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLanunchConfig.m; sourceTree = "<group>"; };
+		BEFC9BA820259546002CE000 /* CCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBaseViewController.h; sourceTree = "<group>"; };
+		BEFC9BA920259546002CE000 /* CCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBaseViewController.m; sourceTree = "<group>"; };
+		BEFC9BAB20259951002CE000 /* CCEsportking.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCEsportking.pch; path = esportking/CCEsportking.pch; sourceTree = SOURCE_ROOT; };
+		BEFC9BAC20259A30002CE000 /* CCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRootViewController.h; sourceTree = "<group>"; };
+		BEFC9BAD20259A30002CE000 /* CCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRootViewController.m; sourceTree = "<group>"; };
+		BEFC9BB320259C9F002CE000 /* CCUIStandard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUIStandard.h; sourceTree = "<group>"; };
+		BEFC9BB420259E31002CE000 /* UILabel+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Create.h"; sourceTree = "<group>"; };
+		BEFC9BB520259E31002CE000 /* UILabel+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Create.m"; sourceTree = "<group>"; };
+		BEFF95C8202D82D70081D88B /* CCAccountService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAccountService.h; sourceTree = "<group>"; };
+		BEFF95C9202D82D70081D88B /* CCAccountService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAccountService.m; sourceTree = "<group>"; };
+		BEFF95CB202D91C90081D88B /* CCHomePageRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCHomePageRequest.h; sourceTree = "<group>"; };
+		BEFF95CC202D91C90081D88B /* CCHomePageRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHomePageRequest.m; sourceTree = "<group>"; };
+		BEFF95D0202D92C30081D88B /* CCGameModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGameModel.h; sourceTree = "<group>"; };
+		BEFF95D1202D92C30081D88B /* CCGameModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGameModel.m; sourceTree = "<group>"; };
+		BEFF95D3202D92CD0081D88B /* CCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserModel.h; sourceTree = "<group>"; };
+		BEFF95D4202D92CD0081D88B /* CCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEE005A42025793B006813E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C16171E712D307C824E94520 /* libPods-esportking.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE005BD2025793B006813E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020EE795E4898BF9CD4E194D /* libPods-esportkingTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10378A7DD0D99825B70D26ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				794446AB076BD7FEE1438A20 /* libPods-esportking.a */,
+				23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE45F9592029E1F500482824 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				BE45F95A2029E21200482824 /* CCBigButton.h */,
+				BE45F95B2029E21200482824 /* CCBigButton.m */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		BE45F96A202A00D200482824 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BE45F96B202A00F600482824 /* CCModifyUserInfoViewController.h */,
+				BE45F96C202A00F600482824 /* CCModifyUserInfoViewController.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		BE45F971202A028200482824 /* TItleItem */ = {
+			isa = PBXGroup;
+			children = (
+				BE45F96E202A027800482824 /* CCTitleItem.h */,
+				BE45F96F202A027800482824 /* CCTitleItem.m */,
+			);
+			path = TItleItem;
+			sourceTree = "<group>";
+		};
+		BE4A1BA520302D1800890485 /* NewPagedFlowView */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BA820302D1800890485 /* PGIndexBannerSubiew.h */,
+				BE4A1BA620302D1800890485 /* PGIndexBannerSubiew.m */,
+				BE4A1BA920302D1800890485 /* NewPagedFlowView.h */,
+				BE4A1BA720302D1800890485 /* NewPagedFlowView.m */,
+			);
+			path = NewPagedFlowView;
+			sourceTree = "<group>";
+		};
+		BE4A1BAD20302FAB00890485 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BAE20302FBC00890485 /* CCHomePageManager.h */,
+				BE4A1BAF20302FBC00890485 /* CCHomePageManager.m */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		BE4A1BB12030692E00890485 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BCD2038506100890485 /* Cell */,
+				BEAFDA1A2027082000ED4E2D /* CCHomeViewController.h */,
+				BEAFDA1B2027082000ED4E2D /* CCHomeViewController.m */,
+				BE4A1BB620307FD300890485 /* CCBannerCollectionViewCell.h */,
+				BE4A1BB720307FD300890485 /* CCBannerCollectionViewCell.m */,
+				BE4A1BB920307FE400890485 /* CCNavigationCollectionViewCell.h */,
+				BE4A1BBA20307FE400890485 /* CCNavigationCollectionViewCell.m */,
+				BE4A1BBC2030800B00890485 /* CCGameItemCollectionViewCell.h */,
+				BE4A1BBD2030800B00890485 /* CCGameItemCollectionViewCell.m */,
+				BE4A1BCA20384F0D00890485 /* CCLeftViewController.h */,
+				BE4A1BCB20384F0D00890485 /* CCLeftViewController.m */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		BE4A1BB220307E7200890485 /* HomeCollectionLayout */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BB320307E7200890485 /* HomeCollectionLayout.m */,
+				BE4A1BB420307E7200890485 /* HomeCollectionLayout.h */,
+			);
+			path = HomeCollectionLayout;
+			sourceTree = "<group>";
+		};
+		BE4A1BBF2033D28B00890485 /* GetGame */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BC02033D2A400890485 /* CCGetGameInfoRequest.h */,
+				BE4A1BC12033D2A400890485 /* CCGetGameInfoRequest.m */,
+			);
+			path = GetGame;
+			sourceTree = "<group>";
+		};
+		BE4A1BC32033D30500890485 /* GameInfo */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BC42033D31E00890485 /* CCGameInfoService.h */,
+				BE4A1BC52033D31E00890485 /* CCGameInfoService.m */,
+			);
+			path = GameInfo;
+			sourceTree = "<group>";
+		};
+		BE4A1BCD2038506100890485 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BCE2038507F00890485 /* CCHeadTableViewCell.h */,
+				BE4A1BCF2038507F00890485 /* CCHeadTableViewCell.m */,
+				BE4A1BD12038508F00890485 /* CCImgTitleTableViewCell.h */,
+				BE4A1BD22038509000890485 /* CCImgTitleTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BE4A1BD4203854B500890485 /* BaseTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BD5203854CD00890485 /* CCBaseTableViewCell.h */,
+				BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */,
+			);
+			path = BaseTableCell;
+			sourceTree = "<group>";
+		};
+		BE78493220394D7C000E7C00 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BE78493620394DA2000E7C00 /* View */,
+				BE78493320394D90000E7C00 /* CCSearchViewController.h */,
+				BE78493420394D90000E7C00 /* CCSearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BE78493620394DA2000E7C00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */,
+				BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BE78493A20394FA8000E7C00 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BE78493B20394FBC000E7C00 /* CCSearchRequest.h */,
+				BE78493C20394FBC000E7C00 /* CCSearchRequest.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BEAC5D6D202C3689000BF808 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BB220307E7200890485 /* HomeCollectionLayout */,
+				BE4A1BA520302D1800890485 /* NewPagedFlowView */,
+				BEAC5D71202C3EEC000BF808 /* PGDatePicker */,
+				BEAC5D6F202C3695000BF808 /* JXTAlertController.h */,
+				BEAC5D6E202C3695000BF808 /* JXTAlertController.m */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		BEAC5D71202C3EEC000BF808 /* PGDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BEAC5D72202C3EEC000BF808 /* PGDatePicker.m */,
+				BEAC5D73202C3EEC000BF808 /* UIColor+PGHex.m */,
+				BEAC5D74202C3EEC000BF808 /* PGDatePickerView.m */,
+				BEAC5D75202C3EEC000BF808 /* NSDate+PGCategory.h */,
+				BEAC5D76202C3EEC000BF808 /* NSCalendar+PGCurrent.m */,
+				BEAC5D77202C3EEC000BF808 /* PGDatePickManager.m */,
+				BEAC5D78202C3EEC000BF808 /* PGDatePickManagerHeaderView.h */,
+				BEAC5D79202C3EEC000BF808 /* NSBundle+PGDatePicker.m */,
+				BEAC5D7A202C3EEC000BF808 /* UIColor+PGHex.h */,
+				BEAC5D7B202C3EEC000BF808 /* PGDatePicker.h */,
+				BEAC5D7C202C3EEC000BF808 /* PGEnumeration.h */,
+				BEAC5D7D202C3EEC000BF808 /* NSDate+PGCategory.m */,
+				BEAC5D7E202C3EEC000BF808 /* PGDatePickerView.h */,
+				BEAC5D7F202C3EEC000BF808 /* NSCalendar+PGCurrent.h */,
+				BEAC5D80202C3EEC000BF808 /* NSBundle+PGDatePicker.h */,
+				BEAC5D81202C3EEC000BF808 /* PGDatePickManagerHeaderView.m */,
+				BEAC5D82202C3EEC000BF808 /* PGDatePickManager.h */,
+			);
+			path = PGDatePicker;
+			sourceTree = "<group>";
+		};
+		BEAC5D8B202C4005000BF808 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFDA4F20274A6000ED4E2D /* CCLoginRequest.h */,
+				BEAFDA5020274A6000ED4E2D /* CCLoginRequest.m */,
+				BE45F9602029F17800482824 /* CCRegisterRequest.h */,
+				BE45F9612029F17800482824 /* CCRegisterRequest.m */,
+				BE45F9632029F19B00482824 /* CCSMSRequest.h */,
+				BE45F9642029F19B00482824 /* CCSMSRequest.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BEAC5D8C202C4012000BF808 /* Modify */ = {
+			isa = PBXGroup;
+			children = (
+				BEAC5D8D202C4031000BF808 /* CCModifyUserInfoRequest.h */,
+				BEAC5D8E202C4031000BF808 /* CCModifyUserInfoRequest.m */,
+			);
+			path = Modify;
+			sourceTree = "<group>";
+		};
+		BEAFDA10202701A900ED4E2D /* RefreshTableView */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFDA12202701FA00ED4E2D /* CCRefreshTableView.h */,
+				BEAFDA13202701FA00ED4E2D /* CCRefreshTableView.m */,
+			);
+			path = RefreshTableView;
+			sourceTree = "<group>";
+		};
+		BEAFDA11202701EE00ED4E2D /* RefreshCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFDA152027020800ED4E2D /* CCRefreshCollectionView.h */,
+				BEAFDA162027020800ED4E2D /* CCRefreshCollectionView.m */,
+			);
+			path = RefreshCollectionView;
+			sourceTree = "<group>";
+		};
+		BEAFDA19202707EF00ED4E2D /* RootPage */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BB12030692E00890485 /* HomePage */,
+				BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */,
+				BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */,
+				BEAFDA202027083A00ED4E2D /* CCMessageViewController.h */,
+				BEAFDA212027083A00ED4E2D /* CCMessageViewController.m */,
+			);
+			path = RootPage;
+			sourceTree = "<group>";
+		};
+		BEAFDA36202711DE00ED4E2D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFDA37202711EF00ED4E2D /* CCLoginViewController.h */,
+				BEAFDA38202711EF00ED4E2D /* CCLoginViewController.m */,
+				BEAFDA52202756F100ED4E2D /* CCRegisterViewController.h */,
+				BEAFDA53202756F100ED4E2D /* CCRegisterViewController.m */,
+				BE45F9662029F3EC00482824 /* CCRegisterTypeDefine.h */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BEAFDA3D202718CB00ED4E2D /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFDA3A202718B000ED4E2D /* CCTextField.h */,
+				BEAFDA3B202718B000ED4E2D /* CCTextField.m */,
+				BEAFDA55202759BE00ED4E2D /* CCBigTextFieldView.h */,
+				BEAFDA56202759BE00ED4E2D /* CCBigTextFieldView.m */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		BEAFDA4220273F2700ED4E2D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFDA4720273FF100ED4E2D /* CCLoginManager.h */,
+				BEAFDA4820273FF100ED4E2D /* CCLoginManager.m */,
+				BE45F95D2029F16000482824 /* CCRegisterManager.h */,
+				BE45F95E2029F16000482824 /* CCRegisterManager.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BEAFDA4320273F4700ED4E2D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BC32033D30500890485 /* GameInfo */,
+				BEFF95C7202D82A00081D88B /* Account */,
+				BEAFDA4E2027484300ED4E2D /* CCCommonDefine.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BEE0059E2025793B006813E3 = {
+			isa = PBXGroup;
+			children = (
+				BEE005A92025793B006813E3 /* esportking */,
+				BEE005C32025793B006813E3 /* esportkingTests */,
+				BEE005A82025793B006813E3 /* Products */,
+				FE6259164A87DD5C4CAA9BC3 /* Pods */,
+				10378A7DD0D99825B70D26ED /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BEE005A82025793B006813E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEE005A72025793B006813E3 /* esportking.app */,
+				BEE005C02025793B006813E3 /* esportkingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEE005A92025793B006813E3 /* esportking */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF95CF202D927A0081D88B /* Model */,
+				BEAC5D6D202C3689000BF808 /* Third */,
+				BEAFDA4320273F4700ED4E2D /* Common */,
+				BEFC9BA420257E60002CE000 /* Config */,
+				BEFC9BA020257E29002CE000 /* UI */,
+				BEFC9B9E20257E29002CE000 /* Logic */,
+				BEFC9BA320257E29002CE000 /* Util */,
+				BEE005AD2025793B006813E3 /* AppDelegate.h */,
+				BEE005AE2025793B006813E3 /* AppDelegate.m */,
+				BEFC9BAB20259951002CE000 /* CCEsportking.pch */,
+				BEE005B32025793B006813E3 /* Main.storyboard */,
+				BEE005B62025793B006813E3 /* Assets.xcassets */,
+				BEE005BB2025793B006813E3 /* Info.plist */,
+				BEE005AA2025793B006813E3 /* Supporting Files */,
+			);
+			path = esportking;
+			sourceTree = "<group>";
+		};
+		BEE005AA2025793B006813E3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEE005AB2025793B006813E3 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEE005C32025793B006813E3 /* esportkingTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEE005C42025793B006813E3 /* esportkingTests.m */,
+				BEE005C62025793B006813E3 /* Info.plist */,
+			);
+			path = esportkingTests;
+			sourceTree = "<group>";
+		};
+		BEFC9B9E20257E29002CE000 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BAD20302FAB00890485 /* HomePage */,
+				BEAFDA4220273F2700ED4E2D /* Login */,
+				BEFC9B9F20257E29002CE000 /* Network */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		BEFC9B9F20257E29002CE000 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BE78493A20394FA8000E7C00 /* Search */,
+				BE4A1BBF2033D28B00890485 /* GetGame */,
+				BEFF95CE202D91CD0081D88B /* HomePage */,
+				BEAC5D8C202C4012000BF808 /* Modify */,
+				BEAC5D8B202C4005000BF808 /* Login */,
+				BEAFDA4A2027406200ED4E2D /* CCNetworkDefine.h */,
+				BEAFDA4B2027416800ED4E2D /* CCBaseRequest.h */,
+				BEAFDA4C2027416800ED4E2D /* CCBaseRequest.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BEFC9BA020257E29002CE000 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BEFC9BA120257E29002CE000 /* Common */,
+				BEFC9BA220257E29002CE000 /* Pages */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		BEFC9BA120257E29002CE000 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BE4A1BD4203854B500890485 /* BaseTableCell */,
+				BE45F971202A028200482824 /* TItleItem */,
+				BE45F9592029E1F500482824 /* Button */,
+				BEAFDA3D202718CB00ED4E2D /* TextField */,
+				BEAFDA11202701EE00ED4E2D /* RefreshCollectionView */,
+				BEAFDA10202701A900ED4E2D /* RefreshTableView */,
+				BEFC9BB320259C9F002CE000 /* CCUIStandard.h */,
+				BEFC9BA820259546002CE000 /* CCBaseViewController.h */,
+				BEFC9BA920259546002CE000 /* CCBaseViewController.m */,
+				BEAFDA0C2026FABC00ED4E2D /* CCTopbarView.h */,
+				BEAFDA0D2026FABC00ED4E2D /* CCTopbarView.m */,
+				BEAFDA182027022500ED4E2D /* CCRefreshProtocol.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BEFC9BA220257E29002CE000 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				BE78493220394D7C000E7C00 /* Search */,
+				BE45F96A202A00D200482824 /* User */,
+				BEAFDA36202711DE00ED4E2D /* Login */,
+				BEAFDA19202707EF00ED4E2D /* RootPage */,
+				BEFC9BAC20259A30002CE000 /* CCRootViewController.h */,
+				BEFC9BAD20259A30002CE000 /* CCRootViewController.m */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		BEFC9BA320257E29002CE000 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BEFC9BB420259E31002CE000 /* UILabel+Create.h */,
+				BEFC9BB520259E31002CE000 /* UILabel+Create.m */,
+				BEAFDA3320270F8300ED4E2D /* UIColor+Hex.h */,
+				BEAFDA3420270F8300ED4E2D /* UIColor+Hex.m */,
+				BE45F9672029F98000482824 /* NSString+Check.h */,
+				BE45F9682029F98000482824 /* NSString+Check.m */,
+				BE4A1BC72035441F00890485 /* UIImageView+SDWebImage.h */,
+				BE4A1BC82035441F00890485 /* UIImageView+SDWebImage.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		BEFC9BA420257E60002CE000 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BEFC9BA520257EDC002CE000 /* CCLanunchConfig.h */,
+				BEFC9BA620257EDC002CE000 /* CCLanunchConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		BEFF95C7202D82A00081D88B /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF95C8202D82D70081D88B /* CCAccountService.h */,
+				BEFF95C9202D82D70081D88B /* CCAccountService.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		BEFF95CE202D91CD0081D88B /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF95CB202D91C90081D88B /* CCHomePageRequest.h */,
+				BEFF95CC202D91C90081D88B /* CCHomePageRequest.m */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		BEFF95CF202D927A0081D88B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF95D0202D92C30081D88B /* CCGameModel.h */,
+				BEFF95D1202D92C30081D88B /* CCGameModel.m */,
+				BEFF95D3202D92CD0081D88B /* CCUserModel.h */,
+				BEFF95D4202D92CD0081D88B /* CCUserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE6259164A87DD5C4CAA9BC3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C88E37E1E818AA395ECFF26 /* Pods-esportking.debug.xcconfig */,
+				7FF25FBEB3799DB5CF7C6023 /* Pods-esportking.release.xcconfig */,
+				B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */,
+				B20808B77B95339B008DA989 /* Pods-esportkingTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEE005A62025793B006813E3 /* esportking */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE005C92025793B006813E3 /* Build configuration list for PBXNativeTarget "esportking" */;
+			buildPhases = (
+				253C072FE827182C7F7BC500 /* [CP] Check Pods Manifest.lock */,
+				BEE005A32025793B006813E3 /* Sources */,
+				BEE005A42025793B006813E3 /* Frameworks */,
+				BEE005A52025793B006813E3 /* Resources */,
+				E3EFF00C00B7EC5F855DF571 /* [CP] Embed Pods Frameworks */,
+				6245A6E5F05BAB72A9A1201E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = esportking;
+			productName = esportking;
+			productReference = BEE005A72025793B006813E3 /* esportking.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEE005BF2025793B006813E3 /* esportkingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE005CC2025793B006813E3 /* Build configuration list for PBXNativeTarget "esportkingTests" */;
+			buildPhases = (
+				94883B193ABB596A1D823B64 /* [CP] Check Pods Manifest.lock */,
+				BEE005BC2025793B006813E3 /* Sources */,
+				BEE005BD2025793B006813E3 /* Frameworks */,
+				BEE005BE2025793B006813E3 /* Resources */,
+				FA330F1849F50F978A57E8E7 /* [CP] Embed Pods Frameworks */,
+				09628C3A3BA6EAEB758737F0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEE005C22025793B006813E3 /* PBXTargetDependency */,
+			);
+			name = esportkingTests;
+			productName = esportkingTests;
+			productReference = BEE005C02025793B006813E3 /* esportkingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEE0059F2025793B006813E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = wan353;
+				TargetAttributes = {
+					BEE005A62025793B006813E3 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 57BMH7YMKU;
+						ProvisioningStyle = Automatic;
+					};
+					BEE005BF2025793B006813E3 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2R8R279WE9;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BEE005A62025793B006813E3;
+					};
+				};
+			};
+			buildConfigurationList = BEE005A22025793B006813E3 /* Build configuration list for PBXProject "esportking" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEE0059E2025793B006813E3;
+			productRefGroup = BEE005A82025793B006813E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEE005A62025793B006813E3 /* esportking */,
+				BEE005BF2025793B006813E3 /* esportkingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEE005A52025793B006813E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE005B72025793B006813E3 /* Assets.xcassets in Resources */,
+				BEE005B52025793B006813E3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE005BE2025793B006813E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		09628C3A3BA6EAEB758737F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		253C072FE827182C7F7BC500 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-esportking-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6245A6E5F05BAB72A9A1201E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-esportking/Pods-esportking-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
+				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NMCVideoFilter.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-esportking/Pods-esportking-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94883B193ABB596A1D823B64 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-esportkingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3EFF00C00B7EC5F855DF571 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-esportking/Pods-esportking-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA330F1849F50F978A57E8E7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEE005A32025793B006813E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */,
+				BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */,
+				BEAC5D85202C3EEC000BF808 /* PGDatePickerView.m in Sources */,
+				BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */,
+				BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */,
+				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
+				BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */,
+				BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */,
+				BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */,
+				BEFC9BAA20259546002CE000 /* CCBaseViewController.m in Sources */,
+				BE4A1BC62033D31E00890485 /* CCGameInfoService.m in Sources */,
+				BE4A1BB020302FBC00890485 /* CCHomePageManager.m in Sources */,
+				BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */,
+				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
+				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
+				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
+				BEAC5D87202C3EEC000BF808 /* PGDatePickManager.m in Sources */,
+				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
+				BE4A1BD32038509000890485 /* CCImgTitleTableViewCell.m in Sources */,
+				BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */,
+				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
+				BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */,
+				BEAC5D83202C3EEC000BF808 /* PGDatePicker.m in Sources */,
+				BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */,
+				BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */,
+				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
+				BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */,
+				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
+				BEAC5D8A202C3EEC000BF808 /* PGDatePickManagerHeaderView.m in Sources */,
+				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
+				BEAC5D70202C3695000BF808 /* JXTAlertController.m in Sources */,
+				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
+				BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */,
+				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
+				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,
+				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
+				BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */,
+				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,
+				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
+				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
+				BEAFDA222027083A00ED4E2D /* CCMessageViewController.m in Sources */,
+				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
+				BEE005AC2025793B006813E3 /* main.m in Sources */,
+				BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */,
+				BE4A1BC22033D2A400890485 /* CCGetGameInfoRequest.m in Sources */,
+				BE45F9652029F19B00482824 /* CCSMSRequest.m in Sources */,
+				BEAC5D88202C3EEC000BF808 /* NSBundle+PGDatePicker.m in Sources */,
+				BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */,
+				BE45F96D202A00F600482824 /* CCModifyUserInfoViewController.m in Sources */,
+				BE4A1BBB20307FE400890485 /* CCNavigationCollectionViewCell.m in Sources */,
+				BEAFDA1F2027083000ED4E2D /* CCScoreViewController.m in Sources */,
+				BE45F95C2029E21200482824 /* CCBigButton.m in Sources */,
+				BEAFDA57202759BE00ED4E2D /* CCBigTextFieldView.m in Sources */,
+				BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */,
+				BEAFDA4920273FF100ED4E2D /* CCLoginManager.m in Sources */,
+				BEAC5D89202C3EEC000BF808 /* NSDate+PGCategory.m in Sources */,
+				BE4A1BB820307FD300890485 /* CCBannerCollectionViewCell.m in Sources */,
+				BEAFDA54202756F100ED4E2D /* CCRegisterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE005BC2025793B006813E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE005C52025793B006813E3 /* esportkingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEE005C22025793B006813E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEE005A62025793B006813E3 /* esportking */;
+			targetProxy = BEE005C12025793B006813E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEE005B32025793B006813E3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEE005B42025793B006813E3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEE005C72025793B006813E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BEE005C82025793B006813E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEE005CA2025793B006813E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C88E37E1E818AA395ECFF26 /* Pods-esportking.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 57BMH7YMKU;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
+				INFOPLIST_FILE = esportking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wan353.esportking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BEE005CB2025793B006813E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FF25FBEB3799DB5CF7C6023 /* Pods-esportking.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 57BMH7YMKU;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
+				INFOPLIST_FILE = esportking/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wan353.esportking;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BEE005CD2025793B006813E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2R8R279WE9;
+				INFOPLIST_FILE = esportkingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wan353.esportkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/esportking.app/esportking";
+			};
+			name = Debug;
+		};
+		BEE005CE2025793B006813E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B20808B77B95339B008DA989 /* Pods-esportkingTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 2R8R279WE9;
+				INFOPLIST_FILE = esportkingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wan353.esportkingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/esportking.app/esportking";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEE005A22025793B006813E3 /* Build configuration list for PBXProject "esportking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE005C72025793B006813E3 /* Debug */,
+				BEE005C82025793B006813E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE005C92025793B006813E3 /* Build configuration list for PBXNativeTarget "esportking" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE005CA2025793B006813E3 /* Debug */,
+				BEE005CB2025793B006813E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE005CC2025793B006813E3 /* Build configuration list for PBXNativeTarget "esportkingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE005CD2025793B006813E3 /* Debug */,
+				BEE005CE2025793B006813E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEE0059F2025793B006813E3 /* Project object */;
+}
