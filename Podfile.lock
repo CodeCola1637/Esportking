@@ -17,6 +17,7 @@ PODS:
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
   - CWLateralSlide (1.5.7)
+  - M80AttributedLabel (1.6.3)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
   - mob_sharesdk (4.0.9):
@@ -37,12 +38,24 @@ PODS:
     - mob_sharesdk/ShareSDK
     - MOBFoundation
   - MOBFoundation (3.1.1)
-  - NIMSDK (4.7.3)
+  - NIMKit (1.8.0):
+    - NIMKit/Lite (= 1.8.0)
+  - NIMKit/Core (1.8.0):
+    - M80AttributedLabel (>= 1.6.3)
+    - SDWebImage (>= 4.0.0)
+    - Toast (>= 3.0)
+    - TZImagePickerController (>= 1.7.7)
+  - NIMKit/Lite (1.8.0):
+    - NIMKit/Core
+    - NIMSDK_LITE (~> 4.1.0)
+  - NIMSDK_LITE (4.1.0)
   - PGPickerView (1.2.5)
   - SCLAlertView-Objective-C (1.1.3)
   - SDWebImage (4.3.0):
     - SDWebImage/Core (= 4.3.0)
   - SDWebImage/Core (4.3.0)
+  - Toast (4.0.0)
+  - TZImagePickerController (2.0.0.5)
 
 DEPENDENCIES:
   - AFNetwork (~> 0.1.0)
@@ -54,7 +67,7 @@ DEPENDENCIES:
   - mob_sharesdk/ShareSDKPlatforms/SinaWeibo
   - mob_sharesdk/ShareSDKPlatforms/WeChat
   - mob_sharesdk/ShareSDKUI
-  - NIMSDK
+  - NIMKit
   - PGPickerView
   - SCLAlertView-Objective-C
   - SDWebImage (~> 4.3.0)
@@ -63,15 +76,19 @@ SPEC CHECKSUMS:
   AFNetwork: 0dbdb2ffb4a7770b3d1802dc85b50ab31263f2c2
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   CWLateralSlide: cf07de13cc00d29b1a47c4ca77619a17fe1e3464
+  M80AttributedLabel: d06543195d3e451d2ea62ad76d04aa9cea7661d4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   mob_sharesdk: dba24818a6d9328581ed24a64635070e0896dc1a
   MOBFoundation: 981288b6bdff2e1a97ef05db6fceff982306a385
-  NIMSDK: 7b74eb783b4273d43890dda61178388935565fc3
+  NIMKit: 77326c7645e18b6517afa402caf0a90898429672
+  NIMSDK_LITE: e182c79e958bfdd58821fcfb380fc58088242ec4
   PGPickerView: 9108fb2b52ba5ec40cccddb1d480fd7ab7b1bb0b
   SCLAlertView-Objective-C: 917836fb2349afa58edc43d592d22d21d46bb2a4
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TZImagePickerController: d5d2fa1a8e4d93ab0ada161db5beba60b2294d99
 
-PODFILE CHECKSUM: bff6ab542aa56f3099aec73056f03d55717c2013
+PODFILE CHECKSUM: 172a7d8122eee9fe63a3f0e2115c7c67ca543ff9
 
 COCOAPODS: 1.4.0

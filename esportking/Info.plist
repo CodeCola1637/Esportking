@@ -67,6 +67,13 @@
 	<string>2d9c6d88ccd9f5d61258a9d591322a01</string>
 	<key>MOBAppkey</key>
 	<string>229f822531dd0</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>用于语音通话</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -18,7 +18,7 @@ target 'esportking' do
   pod 'AFNetwork', '~> 0.1.0'
   
   #Chat
-  pod 'NIMSDK'
+  pod 'NIMKit'
   
   #UI
   pod 'MJRefresh', '~> 3.1.15.3'

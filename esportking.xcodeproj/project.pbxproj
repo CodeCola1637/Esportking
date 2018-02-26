@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		020EE795E4898BF9CD4E194D /* libPods-esportkingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */; };
+		BE451465204451220096A8CC /* CCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE451464204451220096A8CC /* CCMessageViewController.m */; };
+		BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE451468204451880096A8CC /* CCSessionListViewController.m */; };
+		BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45146B204451CA0096A8CC /* CCSessionViewController.m */; };
 		BE45F95C2029E21200482824 /* CCBigButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F95B2029E21200482824 /* CCBigButton.m */; };
 		BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F95E2029F16000482824 /* CCRegisterManager.m */; };
 		BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45F9612029F17800482824 /* CCRegisterRequest.m */; };
@@ -59,7 +62,6 @@
 		BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA162027020800ED4E2D /* CCRefreshCollectionView.m */; };
 		BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA1B2027082000ED4E2D /* CCHomeViewController.m */; };
 		BEAFDA1F2027083000ED4E2D /* CCScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */; };
-		BEAFDA222027083A00ED4E2D /* CCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA212027083A00ED4E2D /* CCMessageViewController.m */; };
 		BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA3420270F8300ED4E2D /* UIColor+Hex.m */; };
 		BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA38202711EF00ED4E2D /* CCLoginViewController.m */; };
 		BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA3B202718B000ED4E2D /* CCTextField.m */; };
@@ -101,6 +103,12 @@
 		7FF25FBEB3799DB5CF7C6023 /* Pods-esportking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportking.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportking/Pods-esportking.release.xcconfig"; sourceTree = "<group>"; };
 		B20808B77B95339B008DA989 /* Pods-esportkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE451463204451220096A8CC /* CCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageViewController.h; sourceTree = "<group>"; };
+		BE451464204451220096A8CC /* CCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageViewController.m; sourceTree = "<group>"; };
+		BE451467204451880096A8CC /* CCSessionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSessionListViewController.h; sourceTree = "<group>"; };
+		BE451468204451880096A8CC /* CCSessionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSessionListViewController.m; sourceTree = "<group>"; };
+		BE45146A204451CA0096A8CC /* CCSessionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSessionViewController.h; sourceTree = "<group>"; };
+		BE45146B204451CA0096A8CC /* CCSessionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSessionViewController.m; sourceTree = "<group>"; };
 		BE45F95A2029E21200482824 /* CCBigButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBigButton.h; sourceTree = "<group>"; };
 		BE45F95B2029E21200482824 /* CCBigButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBigButton.m; sourceTree = "<group>"; };
 		BE45F95D2029F16000482824 /* CCRegisterManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRegisterManager.h; sourceTree = "<group>"; };
@@ -206,8 +214,6 @@
 		BEAFDA1B2027082000ED4E2D /* CCHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHomeViewController.m; sourceTree = "<group>"; };
 		BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreViewController.h; sourceTree = "<group>"; };
 		BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreViewController.m; sourceTree = "<group>"; };
-		BEAFDA202027083A00ED4E2D /* CCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageViewController.h; sourceTree = "<group>"; };
-		BEAFDA212027083A00ED4E2D /* CCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageViewController.m; sourceTree = "<group>"; };
 		BEAFDA3320270F8300ED4E2D /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		BEAFDA3420270F8300ED4E2D /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		BEAFDA37202711EF00ED4E2D /* CCLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginViewController.h; sourceTree = "<group>"; };
@@ -283,6 +289,19 @@
 				23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE4514662044514B0096A8CC /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BE451463204451220096A8CC /* CCMessageViewController.h */,
+				BE451464204451220096A8CC /* CCMessageViewController.m */,
+				BE451467204451880096A8CC /* CCSessionListViewController.h */,
+				BE451468204451880096A8CC /* CCSessionListViewController.m */,
+				BE45146A204451CA0096A8CC /* CCSessionViewController.h */,
+				BE45146B204451CA0096A8CC /* CCSessionViewController.m */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		BE45F9592029E1F500482824 /* Button */ = {
@@ -574,11 +593,10 @@
 		BEAFDA19202707EF00ED4E2D /* RootPage */ = {
 			isa = PBXGroup;
 			children = (
+				BE4514662044514B0096A8CC /* Message */,
 				BE4A1BB12030692E00890485 /* HomePage */,
 				BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */,
 				BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */,
-				BEAFDA202027083A00ED4E2D /* CCMessageViewController.h */,
-				BEAFDA212027083A00ED4E2D /* CCMessageViewController.m */,
 			);
 			path = RootPage;
 			sourceTree = "<group>";
@@ -880,7 +898,7 @@
 				TargetAttributes = {
 					BEE005A62025793B006813E3 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 2B5V3KE6U9;
+						DevelopmentTeam = AKW4R9EB5U;
 						ProvisioningStyle = Automatic;
 					};
 					BEE005BF2025793B006813E3 = {
@@ -971,7 +989,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-esportking/Pods-esportking-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle",
+				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle",
+				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle",
+				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitSettings.bundle",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
@@ -979,7 +1000,10 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NMCVideoFilter.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitEmoticon.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitSettings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDKUI.bundle",
@@ -1049,6 +1073,7 @@
 				BE49C9FA204299F000B0E34A /* CCTagView.m in Sources */,
 				BEAC5D85202C3EEC000BF808 /* PGDatePickerView.m in Sources */,
 				BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */,
+				BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */,
 				BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
@@ -1074,6 +1099,7 @@
 				BEAC5D83202C3EEC000BF808 /* PGDatePicker.m in Sources */,
 				BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */,
 				BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */,
+				BE451465204451220096A8CC /* CCMessageViewController.m in Sources */,
 				BE49C9EE20427F1C00B0E34A /* CCTagModel.m in Sources */,
 				BE49C9E520427C0000B0E34A /* CCUserTagTableViewCell.m in Sources */,
 				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
@@ -1085,6 +1111,7 @@
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
 				BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
+				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
 				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,
 				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
 				BE49C9EB20427F1200B0E34A /* CCCommentModel.m in Sources */,
@@ -1092,7 +1119,6 @@
 				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
-				BEAFDA222027083A00ED4E2D /* CCMessageViewController.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
 				BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */,
@@ -1243,7 +1269,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 2B5V3KE6U9;
+				DEVELOPMENT_TEAM = AKW4R9EB5U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
 				INFOPLIST_FILE = esportking/Info.plist;
@@ -1259,7 +1285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 2B5V3KE6U9;
+				DEVELOPMENT_TEAM = AKW4R9EB5U;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
 				INFOPLIST_FILE = esportking/Info.plist;

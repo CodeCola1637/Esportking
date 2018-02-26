@@ -16,6 +16,7 @@
 #import "CCUserPriceTableViewCell.h"
 #import "CCUserTagTableViewCell.h"
 #import "CCUserCommentTableViewCell.h"
+#import "CCSessionViewController.h"
 
 #define kFirstIdentify      @"first"
 #define kSecondIdentify     @"second"
@@ -63,11 +64,12 @@
 {
     [self.topbarView setBackgroundColor:BgColor_Clear];
     [self addTopPopBackButton];
+    [self.view bringSubviewToFront:self.topbarView];
 }
 
 - (void)configContent
 {
-    [self setContentWithTopOffset:0 bottomOffset:0];
+    [self setContentWithTopOffset:-LMStatusBarHeight bottomOffset:0];
     
     [self.contentView addSubview:self.tableView];
     [self.contentView addSubview:self.msgButton];
@@ -93,7 +95,9 @@
 #pragma mark - action
 - (void)onClickMsgButton:(UIButton *)button
 {
-    
+    NIMSession *session = [NIMSession session:[NSString stringWithFormat:@"test_%llu", self.userID] type:NIMSessionTypeP2P];
+    CCSessionViewController *vc = [[CCSessionViewController alloc] initWithSession:session title:self.gameModel.userModel.name];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)onClickOrderButton:(UIButton *)button

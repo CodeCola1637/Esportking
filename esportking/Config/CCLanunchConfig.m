@@ -17,6 +17,9 @@
 #import <WXApi.h>
 #import <WeiboSDK.h>
 #import <AFNetwork.h>
+#import <NIMSDK/NIMSDK.h>
+
+#define kNetEaseIMKey   @"68aff658e680c288555f2b42c1286b99"
 
 @implementation CCLanunchConfig
 
@@ -29,6 +32,7 @@
 + (void)configAfterLogin
 {
     [self configAFNetworkToken];
+    [self configIMSDK];
 }
 
 + (void)configShareSDK
@@ -115,6 +119,18 @@
     [[AFNetwork shareManager].requestSerializer setValue:[UIDevice currentDevice].model forHTTPHeaderField:@"os_model"];
     [[AFNetwork shareManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] forHTTPHeaderField:@"version"];
     [[AFNetwork shareManager].requestSerializer setValue:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forHTTPHeaderField:@"device_id"];
+}
+
++ (void)configIMSDK
+{
+    NIMSDKOption *option = [NIMSDKOption optionWithAppKey:kNetEaseIMKey];
+    [[NIMSDK sharedSDK] registerWithOption:option];
+    [[[NIMSDK sharedSDK] loginManager] login:[NSString stringWithFormat:@"test_%llu", CCAccountServiceInstance.userID] token:CCAccountServiceInstance.imToken completion:^(NSError * _Nullable error) {
+        if (error)
+        {
+            NSLog(@"[IM Error] %@", error.localizedDescription);
+        }
+    }];
 }
 
 + (void)configAFNetworkToken

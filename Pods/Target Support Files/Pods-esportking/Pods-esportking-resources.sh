@@ -85,14 +85,20 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle"
+  install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle"
+  install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle"
+  install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitSettings.bundle"
+  install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
-  install_resource "${PODS_ROOT}/NIMSDK/NIMAVChat/Resources/NMCVideoFilter.bundle"
+  install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle"
+  install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle"
+  install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitSettings.bundle"
+  install_resource "${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Required/ShareSDK.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle"
   install_resource "${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle"
