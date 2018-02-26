@@ -67,6 +67,17 @@
     [_tableView.mj_header beginRefreshing];
 }
 
+- (void)reloadData
+{
+    [_tableView reloadData];
+}
+
+- (void)endRefresh
+{
+    [_tableView.mj_header endRefreshing];
+    [_tableView.mj_footer endRefreshing];
+}
+
 #pragma mark -
 - (void)onHeaderRefresh
 {

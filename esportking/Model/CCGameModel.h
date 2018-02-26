@@ -30,6 +30,10 @@
 @property (strong, nonatomic) NSString      *recordUrl;
 @property (strong, nonatomic) NSString      *createTime;
 
+@property (assign, nonatomic) uint64_t      successRate;    // 胜率
+@property (assign, nonatomic) uint64_t      totalCount;     // 接单数
+@property (assign, nonatomic) uint64_t      score;          // 评分
+
 - (void)setGameInfo:(NSDictionary *)info;
 
 @end

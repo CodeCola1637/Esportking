@@ -30,6 +30,10 @@
     self.maxLevel   = gameDict[@"max_dan"];
     self.recordUrl  = gameDict[@"military_succ"];
     self.createTime = gameDict[@"create_time"];
+    
+    self.successRate = [gameDict[@"successRate"] unsignedIntegerValue];
+    self.totalCount  = [gameDict[@"totalCount"] unsignedIntegerValue];
+    self.score       = [gameDict[@"score"] unsignedIntegerValue];
 }
 
 @end
