@@ -92,6 +92,7 @@
     }];
     [self.finishButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.ageItem.mas_bottom).offset(CCPXToPoint(100));
+        make.centerX.equalTo(self.contentView);
     }];
     
     [self.modifyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -245,6 +246,7 @@
         [_headImgView.layer setCornerRadius:CCPXToPoint(50)];
         [_headImgView setUserInteractionEnabled:YES];
         [_headImgView setContentMode:UIViewContentModeScaleAspectFill];
+        [_headImgView setClipsToBounds:YES];
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapHeaderImgView:)];
         [_headImgView addGestureRecognizer:gesture];
     }

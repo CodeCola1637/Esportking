@@ -46,7 +46,7 @@
 
 // 栅格定义
 #define CCOnePoint  1.f
-#define CCPXToPoint(n) ceilf(n/2.f)
+#define CCPXToPoint(n) ceilf((n)/2.f)
 
 // 通用左右间距
 #define CCHorMargin CCPXToPoint(32)
@@ -99,6 +99,7 @@
 #define BgColor_Clear  [UIColor clearColor]
 #define BgColor_Purple ([UIColor colorWithARGBHex:0xff6956ff])
 #define BgColor_Yellow ([UIColor colorWithARGBHex:0xffffc600])
+#define BgColor_Blue   ([UIColor blueColor])
 
 #define BgColor_Orange ([UIColor colorWithARGBHex:0xffffac00])
 #define BgColor_Green  ([UIColor colorWithARGBHex:0xff12b68f])

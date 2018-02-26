@@ -12,6 +12,7 @@
 #import "CCNavigationCollectionViewCell.h"
 #import "CCGameItemCollectionViewCell.h"
 #import "CCLeftViewController.h"
+#import "CCUserDetailViewController.h"
 
 #import "CCHomePageManager.h"
 #import "CCAccountService.h"
@@ -88,7 +89,8 @@
 #pragma mark - CCBannerDelegate
 - (void)didSelectBannerWithModel:(CCGameModel *)model
 {
-    
+    CCUserDetailViewController *vc = [[CCUserDetailViewController alloc] initWithUserID:model.userModel.userID gameID:model.gameID userGameID:model.userGameID];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - CCNavigationDelegate
@@ -102,7 +104,9 @@
 {
     if (indexPath.section == 2)
     {
-        
+        CCGameModel *model = [_manager getAllNormalList][indexPath.row];
+        CCUserDetailViewController *vc = [[CCUserDetailViewController alloc] initWithUserID:model.userModel.userID gameID:model.gameID userGameID:model.userGameID];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

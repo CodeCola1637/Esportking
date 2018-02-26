@@ -16,6 +16,7 @@
 #define ChangePwd       @"/app/user/changePassword"
 #define ModifyUser      @"/app/user/updateInfo"
 
+#define GetDetailInfo   @"/app/home/detail"
 #define HomePage        @"/app/home"
 #define Search          @"/app/home/search"
 

@@ -7,12 +7,15 @@
 //
 
 #import "CCLeftViewController.h"
+#import "CCModifyUserInfoViewController.h"
 #import "CCHeadTableViewCell.h"
 #import "CCImgTitleTableViewCell.h"
+
 #import <UIViewController+CWLateralSlide.h>
 
 typedef enum : NSUInteger {
-    ITEM_MONEY = 1,
+    ITEM_USER,
+    ITEM_MONEY,
     ITEM_ORDER,
     ITEM_COMEIN,
     ITEM_INVITE,
@@ -89,9 +92,9 @@ typedef enum : NSUInteger {
     {
         CCImgTitleTableViewCell *titleCell = [tableView dequeueReusableCellWithIdentifier:kItemIndentify];
         [titleCell setIcon:_iconArray[indexPath.row-1] andTitle:_titleArray[indexPath.row-1]];
-        titleCell.tag = indexPath.row;
         cell = titleCell;
     }
+    cell.tag = indexPath.row;
     return cell;
 }
 
@@ -101,6 +104,12 @@ typedef enum : NSUInteger {
     [cell setSelected:NO];
     switch (cell.tag)
     {
+        case ITEM_USER:
+        {
+            CCModifyUserInfoViewController *vc = [[CCModifyUserInfoViewController alloc] initWithType:MODIFYTYPE_MODIFY];
+            [self cw_pushViewController:vc];
+        }
+            break;
         case ITEM_MONEY:
         {
             
@@ -146,7 +155,7 @@ typedef enum : NSUInteger {
         [_tableView registerClass:[CCHeadTableViewCell class] forCellReuseIdentifier:kHeaderIndentify];
         [_tableView registerClass:[CCImgTitleTableViewCell class] forCellReuseIdentifier:kItemIndentify];
         
-        _tableView.separatorStyle = UITableViewCellAccessoryNone;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }
