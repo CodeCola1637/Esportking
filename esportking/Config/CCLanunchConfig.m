@@ -107,7 +107,8 @@
 {
     [AFNetwork shareManager].requestSerializer = [AFJSONRequestSerializer serializer];
     [AFNetwork shareManager].responseSerializer = [AFJSONResponseSerializer serializer];
-    
+
+    [AFNetwork shareManager].requestSerializer.timeoutInterval = 5.f;
     [[AFNetwork shareManager].requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [[AFNetwork shareManager].requestSerializer setValue:@"2" forHTTPHeaderField:@"client_type"];
     [[AFNetwork shareManager].requestSerializer setValue:[UIDevice currentDevice].systemVersion forHTTPHeaderField:@"os_version"];
