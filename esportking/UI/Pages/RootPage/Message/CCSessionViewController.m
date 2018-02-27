@@ -48,9 +48,10 @@
     [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:0];
     
     [self.contentView addSubview:self.chatVC.view];
-    [self.chatVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
-    }];
+    [self.chatVC.view setFrame:self.contentView.bounds];
+//    [self.chatVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.contentView);
+//    }];
 }
 
 @end
