@@ -58,6 +58,7 @@
     [super viewDidLoad];
     [self configTopBar];
     [self configContent];
+    [self.tableView beginHeaderRefreshing];
 }
 
 - (void)configTopBar

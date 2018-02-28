@@ -31,3 +31,7 @@ typedef enum : NSUInteger {
     ORDERTYPE_BYHOUR,
     ORDERTYPE_BOTH,
 } ORDERTYPE;
+
+typedef enum : NSUInteger {
+    GAMEID_WANGZHE = 1,
+} GAMEID;

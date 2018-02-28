@@ -70,6 +70,7 @@
 - (void)reloadData
 {
     [_tableView reloadData];
+    [self endRefresh];
 }
 
 - (void)endRefresh

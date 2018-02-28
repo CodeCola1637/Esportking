@@ -13,6 +13,7 @@
 #import "CCGameItemCollectionViewCell.h"
 #import "CCLeftViewController.h"
 #import "CCUserDetailViewController.h"
+#import "CCBeautyViewController.h"
 
 #import "CCHomePageManager.h"
 #import "CCAccountService.h"
@@ -49,6 +50,8 @@
             [weakSelf leftSlide];
         }
     }];
+    
+    [self.collectionView beginHeaderRefreshing];
 }
 
 - (void)configTopbar
@@ -96,7 +99,32 @@
 #pragma mark - CCNavigationDelegate
 - (void)didSelectNavigationCategory:(CATEGORY)category
 {
-    
+    switch (category) {
+        case CATEGORY_NEARBY:
+        {
+            
+        }
+            break;
+        case CATEGORY_CAR:
+        {
+            
+        }
+            break;
+        case CATEGORY_BEAUTY:
+        {
+            CCBeautyViewController *vc = [CCBeautyViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case CATEGORY_STUDY:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -161,12 +189,12 @@
 #pragma mark - CCRefreshDelegate
 - (void)onHeaderRefresh
 {
-    [self.manager startRefreshWithGameID:1 gender:0];
+    [self.manager startRefreshWithGameID:GAMEID_WANGZHE gender:0];
 }
 
 - (void)onFooterRefresh
 {
-    [self.manager startLoadMoreWithGameID:1 gender:0];
+    [self.manager startLoadMoreWithGameID:GAMEID_WANGZHE gender:0];
 }
 
 #pragma mark - CCHomePageDelegate

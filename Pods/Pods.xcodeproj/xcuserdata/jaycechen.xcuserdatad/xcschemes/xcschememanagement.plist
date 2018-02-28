@@ -19,40 +19,60 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>MJRefresh.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>Masonry.xcscheme</key>
+		<key>M80AttributedLabel.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>PGPickerView.xcscheme</key>
+		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>Pods-esportking.xcscheme</key>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>NIMKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>Pods-esportkingTests.xcscheme</key>
+		<key>PGPickerView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>SCLAlertView-Objective-C.xcscheme</key>
+		<key>Pods-esportking.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>Pods-esportkingTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+		<key>SCLAlertView-Objective-C.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>TZImagePickerController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>Toast.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
 		</dict>
 	</dict>
 </dict>
