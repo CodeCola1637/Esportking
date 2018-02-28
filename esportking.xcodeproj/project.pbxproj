@@ -84,6 +84,21 @@
 		BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D1202D92C30081D88B /* CCGameModel.m */; };
 		BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D4202D92CD0081D88B /* CCUserModel.m */; };
 		C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */; };
+		C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */; };
+		C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88C204656BB00258CC6 /* UIViewController+ZJScrollPageController.m */; };
+		C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88E204656BB00258CC6 /* ZJContentView.m */; };
+		C0D4F89B204656BC00258CC6 /* ZJScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F890204656BB00258CC6 /* ZJScrollPageView.m */; };
+		C0D4F89C204656BC00258CC6 /* ZJScrollSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F893204656BB00258CC6 /* ZJScrollSegmentView.m */; };
+		C0D4F89D204656BC00258CC6 /* ZJSegmentStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F895204656BB00258CC6 /* ZJSegmentStyle.m */; };
+		C0D4F89E204656BC00258CC6 /* ZJTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F897204656BB00258CC6 /* ZJTitleView.m */; };
+		C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8A120465ABA00258CC6 /* CCPageContainerViewController.m */; };
+		C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8A5204692B700258CC6 /* CCOrderViewController.m */; };
+		C0D4F8AA204695E000258CC6 /* CCOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8A9204695E000258CC6 /* CCOrderTableViewCell.m */; };
+		C0D4F8B12046A39600258CC6 /* CCOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8B02046A39600258CC6 /* CCOrderRequest.m */; };
+		C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8B42046A7C900258CC6 /* CCMoneyViewController.m */; };
+		C0D4F8B92046A7F500258CC6 /* CCMoneyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8B82046A7F500258CC6 /* CCMoneyTableViewCell.m */; };
+		C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8BC2046AA1A00258CC6 /* CCMoneyRequest.m */; };
+		C0D4F8C12046AB9000258CC6 /* CCWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C02046AB9000258CC6 /* CCWalletViewController.m */; };
 		C16171E712D307C824E94520 /* libPods-esportking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 794446AB076BD7FEE1438A20 /* libPods-esportking.a */; };
 /* End PBXBuildFile section */
 
@@ -263,6 +278,37 @@
 		BEFF95D4202D92CD0081D88B /* CCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserModel.m; sourceTree = "<group>"; };
 		C0D4F88520464B4F00258CC6 /* CCBeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBeautyViewController.h; sourceTree = "<group>"; };
 		C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBeautyViewController.m; sourceTree = "<group>"; };
+		C0D4F889204656BB00258CC6 /* UIView+ZJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJFrame.h"; sourceTree = "<group>"; };
+		C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZJFrame.m"; sourceTree = "<group>"; };
+		C0D4F88B204656BB00258CC6 /* UIViewController+ZJScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZJScrollPageController.h"; sourceTree = "<group>"; };
+		C0D4F88C204656BB00258CC6 /* UIViewController+ZJScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZJScrollPageController.m"; sourceTree = "<group>"; };
+		C0D4F88D204656BB00258CC6 /* ZJContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJContentView.h; sourceTree = "<group>"; };
+		C0D4F88E204656BB00258CC6 /* ZJContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJContentView.m; sourceTree = "<group>"; };
+		C0D4F88F204656BB00258CC6 /* ZJScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageView.h; sourceTree = "<group>"; };
+		C0D4F890204656BB00258CC6 /* ZJScrollPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollPageView.m; sourceTree = "<group>"; };
+		C0D4F891204656BB00258CC6 /* ZJScrollPageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageViewDelegate.h; sourceTree = "<group>"; };
+		C0D4F892204656BB00258CC6 /* ZJScrollSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollSegmentView.h; sourceTree = "<group>"; };
+		C0D4F893204656BB00258CC6 /* ZJScrollSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollSegmentView.m; sourceTree = "<group>"; };
+		C0D4F894204656BB00258CC6 /* ZJSegmentStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSegmentStyle.h; sourceTree = "<group>"; };
+		C0D4F895204656BB00258CC6 /* ZJSegmentStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSegmentStyle.m; sourceTree = "<group>"; };
+		C0D4F896204656BB00258CC6 /* ZJTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTitleView.h; sourceTree = "<group>"; };
+		C0D4F897204656BB00258CC6 /* ZJTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTitleView.m; sourceTree = "<group>"; };
+		C0D4F8A020465ABA00258CC6 /* CCPageContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPageContainerViewController.h; sourceTree = "<group>"; };
+		C0D4F8A120465ABA00258CC6 /* CCPageContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPageContainerViewController.m; sourceTree = "<group>"; };
+		C0D4F8A4204692B700258CC6 /* CCOrderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderViewController.h; sourceTree = "<group>"; };
+		C0D4F8A5204692B700258CC6 /* CCOrderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderViewController.m; sourceTree = "<group>"; };
+		C0D4F8A8204695E000258CC6 /* CCOrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderTableViewCell.h; sourceTree = "<group>"; };
+		C0D4F8A9204695E000258CC6 /* CCOrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderTableViewCell.m; sourceTree = "<group>"; };
+		C0D4F8AF2046A39600258CC6 /* CCOrderRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderRequest.h; sourceTree = "<group>"; };
+		C0D4F8B02046A39600258CC6 /* CCOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderRequest.m; sourceTree = "<group>"; };
+		C0D4F8B32046A7C900258CC6 /* CCMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMoneyViewController.h; sourceTree = "<group>"; };
+		C0D4F8B42046A7C900258CC6 /* CCMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMoneyViewController.m; sourceTree = "<group>"; };
+		C0D4F8B72046A7F500258CC6 /* CCMoneyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMoneyTableViewCell.h; sourceTree = "<group>"; };
+		C0D4F8B82046A7F500258CC6 /* CCMoneyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMoneyTableViewCell.m; sourceTree = "<group>"; };
+		C0D4F8BB2046AA1A00258CC6 /* CCMoneyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMoneyRequest.h; sourceTree = "<group>"; };
+		C0D4F8BC2046AA1A00258CC6 /* CCMoneyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMoneyRequest.m; sourceTree = "<group>"; };
+		C0D4F8BF2046AB9000258CC6 /* CCWalletViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWalletViewController.h; sourceTree = "<group>"; };
+		C0D4F8C02046AB9000258CC6 /* CCWalletViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCWalletViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,6 +566,7 @@
 		BEAC5D6D202C3689000BF808 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4F888204656BB00258CC6 /* ZJScrollPageView */,
 				BE4A1BB220307E7200890485 /* HomeCollectionLayout */,
 				BE4A1BA520302D1800890485 /* NewPagedFlowView */,
 				BEAC5D71202C3EEC000BF808 /* PGDatePicker */,
@@ -719,6 +766,8 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4F8BA2046AA0800258CC6 /* Money */,
+				C0D4F8AE2046A30E00258CC6 /* Order */,
 				BE49C9D82042707200B0E34A /* UserDetail */,
 				BE78493A20394FA8000E7C00 /* Search */,
 				BE4A1BBF2033D28B00890485 /* GetGame */,
@@ -744,6 +793,7 @@
 		BEFC9BA120257E29002CE000 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4F89F20465A1E00258CC6 /* PageContainer */,
 				BE49C9FB2042A88F00B0E34A /* Star */,
 				BE49C9F7204299E100B0E34A /* Tag */,
 				BE49C9F32042916300B0E34A /* Level */,
@@ -767,6 +817,9 @@
 		BEFC9BA220257E29002CE000 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				C0D4F8BE2046AB6900258CC6 /* Wallet */,
+				C0D4F8B22046A7B700258CC6 /* Money */,
+				C0D4F8A3204692AA00258CC6 /* Order */,
 				C0D4F88420464B3B00258CC6 /* Beauty */,
 				BE49C9D42042704600B0E34A /* UserDetail */,
 				BE78493220394D7C000E7C00 /* Search */,
@@ -843,6 +896,102 @@
 				C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */,
 			);
 			path = Beauty;
+			sourceTree = "<group>";
+		};
+		C0D4F888204656BB00258CC6 /* ZJScrollPageView */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F889204656BB00258CC6 /* UIView+ZJFrame.h */,
+				C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */,
+				C0D4F88B204656BB00258CC6 /* UIViewController+ZJScrollPageController.h */,
+				C0D4F88C204656BB00258CC6 /* UIViewController+ZJScrollPageController.m */,
+				C0D4F88D204656BB00258CC6 /* ZJContentView.h */,
+				C0D4F88E204656BB00258CC6 /* ZJContentView.m */,
+				C0D4F88F204656BB00258CC6 /* ZJScrollPageView.h */,
+				C0D4F890204656BB00258CC6 /* ZJScrollPageView.m */,
+				C0D4F891204656BB00258CC6 /* ZJScrollPageViewDelegate.h */,
+				C0D4F892204656BB00258CC6 /* ZJScrollSegmentView.h */,
+				C0D4F893204656BB00258CC6 /* ZJScrollSegmentView.m */,
+				C0D4F894204656BB00258CC6 /* ZJSegmentStyle.h */,
+				C0D4F895204656BB00258CC6 /* ZJSegmentStyle.m */,
+				C0D4F896204656BB00258CC6 /* ZJTitleView.h */,
+				C0D4F897204656BB00258CC6 /* ZJTitleView.m */,
+			);
+			path = ZJScrollPageView;
+			sourceTree = "<group>";
+		};
+		C0D4F89F20465A1E00258CC6 /* PageContainer */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8A020465ABA00258CC6 /* CCPageContainerViewController.h */,
+				C0D4F8A120465ABA00258CC6 /* CCPageContainerViewController.m */,
+			);
+			path = PageContainer;
+			sourceTree = "<group>";
+		};
+		C0D4F8A3204692AA00258CC6 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8A7204695C500258CC6 /* View */,
+				C0D4F8A4204692B700258CC6 /* CCOrderViewController.h */,
+				C0D4F8A5204692B700258CC6 /* CCOrderViewController.m */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		C0D4F8A7204695C500258CC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8A8204695E000258CC6 /* CCOrderTableViewCell.h */,
+				C0D4F8A9204695E000258CC6 /* CCOrderTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0D4F8AE2046A30E00258CC6 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8AF2046A39600258CC6 /* CCOrderRequest.h */,
+				C0D4F8B02046A39600258CC6 /* CCOrderRequest.m */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		C0D4F8B22046A7B700258CC6 /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8B62046A7E000258CC6 /* View */,
+				C0D4F8B32046A7C900258CC6 /* CCMoneyViewController.h */,
+				C0D4F8B42046A7C900258CC6 /* CCMoneyViewController.m */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		C0D4F8B62046A7E000258CC6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8B72046A7F500258CC6 /* CCMoneyTableViewCell.h */,
+				C0D4F8B82046A7F500258CC6 /* CCMoneyTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0D4F8BA2046AA0800258CC6 /* Money */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8BB2046AA1A00258CC6 /* CCMoneyRequest.h */,
+				C0D4F8BC2046AA1A00258CC6 /* CCMoneyRequest.m */,
+			);
+			path = Money;
+			sourceTree = "<group>";
+		};
+		C0D4F8BE2046AB6900258CC6 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				C0D4F8BF2046AB9000258CC6 /* CCWalletViewController.h */,
+				C0D4F8C02046AB9000258CC6 /* CCWalletViewController.m */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		FE6259164A87DD5C4CAA9BC3 /* Pods */ = {
@@ -1083,6 +1232,7 @@
 			files = (
 				BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */,
 				BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */,
+				C0D4F89D204656BC00258CC6 /* ZJSegmentStyle.m in Sources */,
 				BE49C9FA204299F000B0E34A /* CCTagView.m in Sources */,
 				BEAC5D85202C3EEC000BF808 /* PGDatePickerView.m in Sources */,
 				BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */,
@@ -1095,8 +1245,12 @@
 				BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */,
 				BEFC9BAA20259546002CE000 /* CCBaseViewController.m in Sources */,
 				BE4A1BC62033D31E00890485 /* CCGameInfoService.m in Sources */,
+				C0D4F89B204656BC00258CC6 /* ZJScrollPageView.m in Sources */,
 				BE4A1BB020302FBC00890485 /* CCHomePageManager.m in Sources */,
+				C0D4F8C12046AB9000258CC6 /* CCWalletViewController.m in Sources */,
 				BE49C9D72042705E00B0E34A /* CCUserDetailViewController.m in Sources */,
+				C0D4F8B92046A7F500258CC6 /* CCMoneyTableViewCell.m in Sources */,
+				C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */,
 				BE49C9F22042864300B0E34A /* CCGenderOldView.m in Sources */,
 				BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */,
 				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
@@ -1104,9 +1258,12 @@
 				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
 				BEAC5D87202C3EEC000BF808 /* PGDatePickManager.m in Sources */,
 				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
+				C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
+				C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */,
 				BE49C9E220427BF600B0E34A /* CCUserPriceTableViewCell.m in Sources */,
 				BE4A1BD32038509000890485 /* CCImgTitleTableViewCell.m in Sources */,
+				C0D4F8AA204695E000258CC6 /* CCOrderTableViewCell.m in Sources */,
 				BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */,
 				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
 				BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */,
@@ -1118,29 +1275,36 @@
 				BE49C9E520427C0000B0E34A /* CCUserTagTableViewCell.m in Sources */,
 				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
 				BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */,
+				C0D4F89E204656BC00258CC6 /* ZJTitleView.m in Sources */,
+				C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */,
 				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
 				BEAC5D8A202C3EEC000BF808 /* PGDatePickManagerHeaderView.m in Sources */,
 				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
 				BEAC5D70202C3695000BF808 /* JXTAlertController.m in Sources */,
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
+				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
 				BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
 				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,
 				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
+				C0D4F8B12046A39600258CC6 /* CCOrderRequest.m in Sources */,
 				BE49C9EB20427F1200B0E34A /* CCCommentModel.m in Sources */,
 				BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */,
+				C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */,
 				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
+				C0D4F89C204656BC00258CC6 /* ZJScrollSegmentView.m in Sources */,
 				BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */,
 				BE4A1BC22033D2A400890485 /* CCGetGameInfoRequest.m in Sources */,
 				BE45F9652029F19B00482824 /* CCSMSRequest.m in Sources */,
 				BE49C9F62042917A00B0E34A /* CCLevelView.m in Sources */,
 				BE49C9E820427C0D00B0E34A /* CCUserCommentTableViewCell.m in Sources */,
 				BEAC5D88202C3EEC000BF808 /* NSBundle+PGDatePicker.m in Sources */,
+				C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */,
 				BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */,
 				BE49C9DB2042708A00B0E34A /* CCUserDetailRequest.m in Sources */,
 				BE45F96D202A00F600482824 /* CCModifyUserInfoViewController.m in Sources */,

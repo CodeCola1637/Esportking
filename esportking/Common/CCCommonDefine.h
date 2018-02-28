@@ -15,6 +15,10 @@
 #define CCStrToUrl(str) (str!=nil?[NSURL URLWithString:str]:nil)
 
 typedef enum : NSUInteger {
+    GAMEID_WANGZHE = 1,
+} GAMEID;
+
+typedef enum : NSUInteger {
     GENDER_BOY = 1,
     GENDER_GIRL,
     GENDER_COUNT,
@@ -33,5 +37,12 @@ typedef enum : NSUInteger {
 } ORDERTYPE;
 
 typedef enum : NSUInteger {
-    GAMEID_WANGZHE = 1,
-} GAMEID;
+    ORDERTYPE_SEND,
+    ORDERTYPE_RECV,
+} ORDERTYPE;
+
+typedef enum : NSUInteger {
+    MONEYTYPE_ALL,
+    MONEYTYPE_OUT,
+    MONEYTYPE_IN,
+} MONEYTYPE;
