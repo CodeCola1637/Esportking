@@ -37,9 +37,9 @@ typedef enum : NSUInteger {
 } ORDERTYPE;
 
 typedef enum : NSUInteger {
-    ORDERTYPE_SEND,
-    ORDERTYPE_RECV,
-} ORDERTYPE;
+    ORDERSTATUS_SEND,
+    ORDERSTATUS_RECV,
+} ORDERSTATUS;
 
 typedef enum : NSUInteger {
     MONEYTYPE_ALL,

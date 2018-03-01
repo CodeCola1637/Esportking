@@ -242,7 +242,7 @@
         [_collectionView.collectionView registerClass:[CCNavigationCollectionViewCell class] forCellWithReuseIdentifier:kSecondSection];
         [_collectionView.collectionView registerClass:[CCGameItemCollectionViewCell class] forCellWithReuseIdentifier:kThirdSection];
         [_collectionView.collectionLayout setLineSpacing:CCPXToPoint(12)];
-        [_collectionView.collectionLayout setRowSpacing:0];
+        [_collectionView.collectionLayout setRowSpacing:CCPXToPoint(12)];
         [_collectionView.collectionLayout calculateItemSizeWithWidthBlock:^CGSize(NSIndexPath *indexPath) {
             switch (indexPath.section)
             {

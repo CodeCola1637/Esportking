@@ -7,6 +7,7 @@
 //
 
 #import "CCBaseViewController.h"
+#import "ZJScrollPageViewDelegate.h"
 
 @interface CCPageContainerViewController : CCBaseViewController
 

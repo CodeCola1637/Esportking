@@ -1,39 +1,29 @@
 //
-//  CCOrderViewController.m
+//  CCTryCardViewController.m
 //  esportking
 //
 //  Created by jaycechen on 2018/2/28.
 //  Copyright © 2018年 wan353. All rights reserved.
 //
 
-#import "CCOrderViewController.h"
+#import "CCTryCardViewController.h"
 #import "CCRefreshTableView.h"
-#import "CCOrderTableViewCell.h"
-#import "ZJScrollPageViewDelegate.h"
-#import "CCOrderRequest.h"
+#import "CCTryCardTableViewCell.h"
+
+#import "CCTryCardRequest.h"
 
 #define kIdentify   @"identify"
 
-@interface CCOrderViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate, CCOrderTableViewCellDelegate, ZJScrollPageViewChildVcDelegate>
+@interface CCTryCardViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate>
 
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 
-@property (assign, nonatomic) ORDERSTATUS orderType;
-@property (strong, nonatomic) CCOrderRequest *request;
-@property (strong, nonatomic) NSMutableArray<NSDictionary *> *orderList;
+@property (strong, nonatomic) CCTryCardRequest *request;
+@property (strong, nonatomic) NSMutableArray<NSDictionary *> *cardList;
 
 @end
 
-@implementation CCOrderViewController
-
-- (instancetype)initWithOrderType:(ORDERSTATUS)type
-{
-    if (self = [super init])
-    {
-        self.orderType = type;
-    }
-    return self;
-}
+@implementation CCTryCardViewController
 
 - (void)viewDidLoad
 {
@@ -42,9 +32,15 @@
     [self.tableView beginHeaderRefreshing];
 }
 
+- (void)configTopbar
+{
+    [self addTopPopBackButton];
+    [self addTopbarTitle:@"体验卡"];
+}
+
 - (void)configContent
 {
-    [self setContentWithTopOffset:0 bottomOffset:0];
+    [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:LMLayoutAreaBottomHeight];
     
     [self.contentView addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,24 +53,12 @@
 {
     if (!self.request)
     {
-        self.request = [CCOrderRequest new];
-        self.request.type = self.orderList;
+        self.request = [CCTryCardRequest new];
         [self.request startPostRequestWithDelegate:self];
     }
 }
 
 - (void)onFooterRefresh
-{
-    
-}
-
-#pragma mark - CCOrderTableViewCellDelegate
-- (void)onCancelOrder:(NSDictionary *)dict
-{
-    
-}
-
-- (void)onConfirmOrder:(NSDictionary *)dict
 {
     
 }
@@ -94,7 +78,7 @@
     }
     self.request = nil;
     
-    self.orderList = dict[@"data"];
+    self.cardList = dict[@"data"];
     [self.tableView reloadData];
 }
 
@@ -118,7 +102,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.orderList.count;
+    return self.cardList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,8 +112,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CCOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentify];
-    [cell setOrderDict:self.orderList[indexPath.row] andDelegate:self];
+    CCTryCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentify];
+    [cell setTryCardDict:self.cardList[indexPath.row]];
     return cell;
 }
 
@@ -145,7 +129,7 @@
         [_tableView.tableView setDelegate:self];
         [_tableView.tableView setBackgroundColor:BgColor_Gray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [_tableView.tableView registerClass:[CCOrderTableViewCell class] forCellReuseIdentifier:kIdentify];
+        [_tableView.tableView registerClass:[CCTryCardTableViewCell class] forCellReuseIdentifier:kIdentify];
     }
     return _tableView;
 }

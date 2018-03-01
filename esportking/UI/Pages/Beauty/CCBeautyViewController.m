@@ -130,7 +130,7 @@
         [_collectionView setRefreshDelegate:self];
         [_collectionView.collectionView registerClass:[CCGameItemCollectionViewCell class] forCellWithReuseIdentifier:kIdentify];
         [_collectionView.collectionLayout setLineSpacing:CCPXToPoint(12)];
-        [_collectionView.collectionLayout setRowSpacing:0];
+        [_collectionView.collectionLayout setRowSpacing:CCPXToPoint(12)];
         [_collectionView.collectionLayout calculateItemSizeWithWidthBlock:^CGSize(NSIndexPath *indexPath) {
             CGFloat width = (LM_SCREEN_WIDTH-CCPXToPoint(86))/2.f;
             return CGSizeMake(width, width);

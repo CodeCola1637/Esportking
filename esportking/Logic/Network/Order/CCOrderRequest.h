@@ -10,6 +10,6 @@
 
 @interface CCOrderRequest : CCBaseRequest
 
-@property (assign, nonatomic) ORDERTYPE type;
+@property (assign, nonatomic) ORDERSTATUS type;
 
 @end

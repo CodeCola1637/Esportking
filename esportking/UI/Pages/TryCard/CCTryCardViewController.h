@@ -1,5 +1,5 @@
 //
-//  CCOrderViewController.h
+//  CCTryCardViewController.h
 //  esportking
 //
 //  Created by jaycechen on 2018/2/28.
@@ -8,8 +8,6 @@
 
 #import "CCBaseViewController.h"
 
-@interface CCOrderViewController : CCBaseViewController
-
-- (instancetype)initWithOrderType:(ORDERSTATUS)type;
+@interface CCTryCardViewController : CCBaseViewController
 
 @end
