@@ -20,9 +20,7 @@
     return @{
              @"userName":CCNoNilStr(self.name),
              @"birthday":CCNoNilStr(self.birth),
-             @"gender":@(self.gender),
-             @"files":(self.header?self.header:@""),
-             @"covers":(self.cover?self.cover:@"")
+             @"gender":@(self.gender)
              };
 }
 
