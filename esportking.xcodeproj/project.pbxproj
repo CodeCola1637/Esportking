@@ -84,6 +84,11 @@
 		BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D1202D92C30081D88B /* CCGameModel.m */; };
 		BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D4202D92CD0081D88B /* CCUserModel.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
+		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
+		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
+		C0A1748D20493D9A000B71F3 /* CCScoreStyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748C20493D9A000B71F3 /* CCScoreStyleTableViewCell.m */; };
+		C0A1749020494165000B71F3 /* CCConfirmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748F20494165000B71F3 /* CCConfirmTableViewCell.m */; };
+		C0A1749420494449000B71F3 /* CCTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1749320494449000B71F3 /* CCTitleTableViewCell.m */; };
 		C0B498EE20479D5100BD0D63 /* CCTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */; };
 		C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */; };
 		C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */; };
@@ -282,6 +287,16 @@
 		BEFF95D4202D92CD0081D88B /* CCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserModel.m; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
+		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
+		C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreBannerTableViewCell.m; sourceTree = "<group>"; };
+		C0A1748820493C80000B71F3 /* CCDevideTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCDevideTableViewCell.h; sourceTree = "<group>"; };
+		C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDevideTableViewCell.m; sourceTree = "<group>"; };
+		C0A1748B20493D9A000B71F3 /* CCScoreStyleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreStyleTableViewCell.h; sourceTree = "<group>"; };
+		C0A1748C20493D9A000B71F3 /* CCScoreStyleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreStyleTableViewCell.m; sourceTree = "<group>"; };
+		C0A1748E20494165000B71F3 /* CCConfirmTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCConfirmTableViewCell.h; sourceTree = "<group>"; };
+		C0A1748F20494165000B71F3 /* CCConfirmTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCConfirmTableViewCell.m; sourceTree = "<group>"; };
+		C0A1749220494449000B71F3 /* CCTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTitleTableViewCell.h; sourceTree = "<group>"; };
+		C0A1749320494449000B71F3 /* CCTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTitleTableViewCell.m; sourceTree = "<group>"; };
 		C0B498EC20479D5100BD0D63 /* CCTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTryCardRequest.h; sourceTree = "<group>"; };
 		C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardRequest.m; sourceTree = "<group>"; };
 		C0D4F88520464B4F00258CC6 /* CCBeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBeautyViewController.h; sourceTree = "<group>"; };
@@ -655,10 +670,9 @@
 		BEAFDA19202707EF00ED4E2D /* RootPage */ = {
 			isa = PBXGroup;
 			children = (
+				C0A1748220493B02000B71F3 /* Publish */,
 				BE4514662044514B0096A8CC /* Message */,
 				BE4A1BB12030692E00890485 /* HomePage */,
-				BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */,
-				BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */,
 			);
 			path = RootPage;
 			sourceTree = "<group>";
@@ -808,6 +822,8 @@
 		BEFC9BA120257E29002CE000 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0A1749120494431000B71F3 /* TitleCell */,
+				C0A1748720493C6C000B71F3 /* DevideCell */,
 				C0D4F89F20465A1E00258CC6 /* PageContainer */,
 				BE49C9FB2042A88F00B0E34A /* Star */,
 				BE49C9F7204299E100B0E34A /* Tag */,
@@ -903,6 +919,47 @@
 				BE49C9ED20427F1C00B0E34A /* CCTagModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C0A1748220493B02000B71F3 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1748320493B22000B71F3 /* View */,
+				BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */,
+				BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		C0A1748320493B22000B71F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */,
+				C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */,
+				C0A1748B20493D9A000B71F3 /* CCScoreStyleTableViewCell.h */,
+				C0A1748C20493D9A000B71F3 /* CCScoreStyleTableViewCell.m */,
+				C0A1748E20494165000B71F3 /* CCConfirmTableViewCell.h */,
+				C0A1748F20494165000B71F3 /* CCConfirmTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0A1748720493C6C000B71F3 /* DevideCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1748820493C80000B71F3 /* CCDevideTableViewCell.h */,
+				C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */,
+			);
+			path = DevideCell;
+			sourceTree = "<group>";
+		};
+		C0A1749120494431000B71F3 /* TitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1749220494449000B71F3 /* CCTitleTableViewCell.h */,
+				C0A1749320494449000B71F3 /* CCTitleTableViewCell.m */,
+			);
+			path = TitleCell;
 			sourceTree = "<group>";
 		};
 		C0B498EB20479D3C00BD0D63 /* TryCard */ = {
@@ -1320,6 +1377,7 @@
 				BE49C9E520427C0000B0E34A /* CCUserTagTableViewCell.m in Sources */,
 				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
 				BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */,
+				C0A1749420494449000B71F3 /* CCTitleTableViewCell.m in Sources */,
 				C0D4F89E204656BC00258CC6 /* ZJTitleView.m in Sources */,
 				C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */,
 				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
@@ -1333,6 +1391,7 @@
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
 				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,
+				C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */,
 				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
 				C0D4F8B12046A39600258CC6 /* CCOrderRequest.m in Sources */,
 				C0B498EE20479D5100BD0D63 /* CCTryCardRequest.m in Sources */,
@@ -1343,6 +1402,7 @@
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
+				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
 				C0D4F89C204656BC00258CC6 /* ZJScrollSegmentView.m in Sources */,
 				BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */,
@@ -1358,10 +1418,12 @@
 				BE4A1BBB20307FE400890485 /* CCNavigationCollectionViewCell.m in Sources */,
 				BEAFDA1F2027083000ED4E2D /* CCScoreViewController.m in Sources */,
 				BE45F95C2029E21200482824 /* CCBigButton.m in Sources */,
+				C0A1749020494165000B71F3 /* CCConfirmTableViewCell.m in Sources */,
 				BEAFDA57202759BE00ED4E2D /* CCBigTextFieldView.m in Sources */,
 				C0D4F8C92046DE0900258CC6 /* CCTryCardTableViewCell.m in Sources */,
 				BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */,
 				BEAFDA4920273FF100ED4E2D /* CCLoginManager.m in Sources */,
+				C0A1748D20493D9A000B71F3 /* CCScoreStyleTableViewCell.m in Sources */,
 				BEAC5D89202C3EEC000BF808 /* NSDate+PGCategory.m in Sources */,
 				BE4A1BB820307FD300890485 /* CCBannerCollectionViewCell.m in Sources */,
 				BE49C9FE2042A89E00B0E34A /* CCStarView.m in Sources */,
