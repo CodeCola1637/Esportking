@@ -94,7 +94,7 @@
     transition.type          = kCATransitionMoveIn;//可更改为其他方式
     transition.subtype       = kCATransitionFromTop;//可更改为其他方式
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 
 #pragma mark - CCBannerDelegate

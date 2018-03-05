@@ -48,7 +48,7 @@
 {
     self.backgroundColor = [UIColor clearColor];
     self.searchContainerView = [[UIView alloc] init];
-    self.searchContainerView.backgroundColor = [BgColor_White colorWithAlphaComponent:0.1f];
+    self.searchContainerView.backgroundColor = [BgColor_Black colorWithAlphaComponent:0.1f];
     
     self.searchIconImageView = [[UIImageView alloc] init];
     self.searchIconImageView.image = CCIMG(@"LMR_Topbar_Search");
@@ -72,7 +72,7 @@
     
     self.cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.cancelButton setTitle:@"取消" forState:UIControlStateNormal];
-    [self.cancelButton setTitleColor:FontColor_White forState:UIControlStateNormal];
+    [self.cancelButton setTitleColor:FontColor_Black forState:UIControlStateNormal];
     self.cancelButton.titleLabel.font = Font_Middle;
     [self.cancelButton addTarget:self action:@selector(onCancelButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     

@@ -21,7 +21,6 @@
 @interface CCSearchHistoryView ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak  , nonatomic) id<CCSearchHistoryViewDelegate> delegate;
-@property (strong, nonatomic) UIImageView *emptyImgView;
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 @property (strong, nonatomic) NSArray<NSString *> *historyList;
 
@@ -42,21 +41,13 @@
 
 - (void)setupUI
 {
-    [self addSubview:self.emptyImgView];
     [self addSubview:self.tableView];
-    [self.emptyImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     if (self.historyList.count == 0)
     {
         [self.tableView setHidden:YES];
-    }
-    else
-    {
-        [self.emptyImgView setHidden:YES];
     }
 }
 
@@ -66,11 +57,9 @@
     if (self.historyList.count == 0)
     {
         [self.tableView setHidden:YES];
-        [self.emptyImgView setHidden:NO];
     }
     else
     {
-        [self.emptyImgView setHidden:YES];
         [self.tableView setHidden:NO];
         [self.tableView reloadData];
     }
@@ -142,16 +131,6 @@
 }
 
 #pragma mark - getter
-- (UIImageView *)emptyImgView
-{
-    if (!_emptyImgView)
-    {
-        _emptyImgView = [UIImageView scaleFillImageView];
-        [_emptyImgView setImage:CCIMG(@"Placeholder_Icon")];
-    }
-    return _emptyImgView;
-}
-
 - (CCRefreshTableView *)tableView
 {
     if (!_tableView)

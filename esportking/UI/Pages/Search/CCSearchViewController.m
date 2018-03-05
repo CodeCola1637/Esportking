@@ -11,16 +11,19 @@
 #import "CCSearchTableViewCell.h"
 #import "LMSearchBarView.h"
 #import "CCUserDetailViewController.h"
+#import "CCSearchHistoryView.h"
+#import "CCHistoryService.h"
 
 #import "CCSearchRequest.h"
 
 #define kSearchIdentify @"search"
 
-@interface CCSearchViewController ()<UITableViewDelegate, UITableViewDataSource, CCRefreshDelegate, CCRequestDelegate, LMSearchBarDelegate>
+@interface CCSearchViewController ()<UITableViewDelegate, UITableViewDataSource, CCRefreshDelegate, CCRequestDelegate, LMSearchBarDelegate, CCSearchHistoryViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray<CCGameModel *> *dataList;
 @property (strong, nonatomic) CCSearchRequest *request;
 
+@property (strong, nonatomic) CCSearchHistoryView *historyView;
 @property (strong, nonatomic) LMSearchBarView *searchBarView;
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 
@@ -39,18 +42,25 @@
 {
     [self.topbarView addSubview:self.searchBarView];
     [self.searchBarView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.and.right.equalTo(self.searchBarView).with.insets(UIEdgeInsetsZero);
-        make.top.equalTo(self.searchBarView).with.offset(LMStatusBarHeight);
+        make.left.bottom.right.equalTo(self.topbarView).with.insets(UIEdgeInsetsZero);
+        make.top.equalTo(self.topbarView).with.offset(LMStatusBarHeight);
     }];
 }
 
 - (void)configContent
 {
     [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:LMLayoutAreaBottomHeight];
+    
+    [self.contentView addSubview:self.historyView];
     [self.contentView addSubview:self.tableView];
+    
+    [self.historyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView);
     }];
+    [self.tableView setHidden:YES];
 }
 
 #pragma mark - CCRefreshDelegate
@@ -73,6 +83,7 @@
         self.request.gameID = GAMEID_WANGZHE;
         self.request.keywords = keywords;
         [self.request startPostRequestWithDelegate:self];
+        [CCHistoryServiceInstance addSearchHistory:keywords];
     }
     else
     {
@@ -90,9 +101,18 @@
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
+#pragma mark - CCSearchHistoryViewDelegate
+- (void)didSelectSearchHistory:(NSString *)words
+{
+    [self onSearch:words];
+    [self.searchBarView.searchTextField setText:words];
+}
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
+    
     CCGameModel *model = self.dataList[indexPath.row];
     CCUserDetailViewController *vc = [[CCUserDetailViewController alloc] initWithUserID:model.userModel.userID gameID:model.gameID userGameID:model.userGameID];
     [self.navigationController pushViewController:vc animated:YES];
@@ -107,6 +127,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.dataList.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CCPXToPoint(144);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,6 +159,8 @@
         [self.dataList addObject:model];
     }
     
+    [self.historyView setHidden:YES];
+    [self.tableView setHidden:NO];
     [self.tableView reloadData];
     [self endLoading];
 }
@@ -151,6 +178,15 @@
 }
 
 #pragma mark - getter
+- (CCSearchHistoryView *)historyView
+{
+    if (!_historyView)
+    {
+        _historyView = [[CCSearchHistoryView alloc] initWithDelegate:self];
+    }
+    return _historyView;
+}
+
 - (LMSearchBarView *)searchBarView
 {
     if (!_searchBarView)

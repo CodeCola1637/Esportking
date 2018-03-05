@@ -15,6 +15,7 @@
     __weak id<CCRefreshDelegate> _refreshDelegate;
     MJRefreshHeader *_header;
     MJRefreshFooter *_footer;
+    UIImageView *_emptyImgView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -30,6 +31,7 @@
 - (void)setupUI
 {
     _tableView = [[UITableView alloc] initWithFrame:self.frame];
+    [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self addSubview:_tableView];
     
     _header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(onHeaderRefresh)];
@@ -37,6 +39,9 @@
     
     _footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(onFooterRefresh)];
     _tableView.mj_footer = _footer;
+    
+    _emptyImgView = [UIImageView scaleFillImageView];
+    [_emptyImgView setImage:CCIMG(@"Placeholder_Icon")];
 }
 
 - (void)setupConstrain
@@ -71,6 +76,27 @@
 {
     [_tableView reloadData];
     [self endRefresh];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL havingData = NO;
+        NSInteger numberOfSection = [_tableView.dataSource numberOfSectionsInTableView:_tableView];
+        for (NSInteger i=0; i<numberOfSection; i++)
+        {
+            if ([_tableView.dataSource tableView:_tableView numberOfRowsInSection:i])
+            {
+                havingData = YES;
+                break;
+            }
+        }
+        if (!havingData)
+        {
+            _tableView.backgroundView = _emptyImgView;
+        }
+        else
+        {
+            _tableView.backgroundView = nil;
+        }
+    });
 }
 
 - (void)endRefresh

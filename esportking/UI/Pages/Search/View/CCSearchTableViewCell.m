@@ -27,7 +27,7 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
-        
+        [self setupUI];
     }
     return self;
 }
