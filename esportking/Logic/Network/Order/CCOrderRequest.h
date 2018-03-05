@@ -11,5 +11,8 @@
 @interface CCOrderRequest : CCBaseRequest
 
 @property (assign, nonatomic) ORDERSTATUS type;
+@property (assign, nonatomic) uint64_t gameID;
+@property (assign, nonatomic) uint64_t pageNum;
+@property (assign, nonatomic) uint64_t pageSize;
 
 @end

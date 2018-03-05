@@ -13,12 +13,14 @@
 #import "CCOrderRequest.h"
 
 #define kIdentify   @"identify"
+#define kPageSize   20
 
 @interface CCOrderViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate, CCOrderTableViewCellDelegate, ZJScrollPageViewChildVcDelegate>
 
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 
 @property (assign, nonatomic) ORDERSTATUS orderType;
+@property (assign, nonatomic) uint64_t pageNum;
 @property (strong, nonatomic) CCOrderRequest *request;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *orderList;
 
@@ -58,14 +60,25 @@
     if (!self.request)
     {
         self.request = [CCOrderRequest new];
-        self.request.type = self.orderList;
+        self.request.type = self.orderType;
+        self.request.gameID = GAMEID_WANGZHE;
+        self.request.pageNum = 1;
+        self.request.pageSize = kPageSize;
         [self.request startPostRequestWithDelegate:self];
     }
 }
 
 - (void)onFooterRefresh
 {
-    
+    if (!self.request)
+    {
+        self.request = [CCOrderRequest new];
+        self.request.type = self.orderType;
+        self.request.gameID = GAMEID_WANGZHE;
+        self.request.pageNum = self.pageNum+1;
+        self.request.pageSize = kPageSize;
+        [self.request startPostRequestWithDelegate:self];
+    }
 }
 
 #pragma mark - CCOrderTableViewCellDelegate
@@ -92,10 +105,19 @@
     {
         return;
     }
-    self.request = nil;
     
-    self.orderList = dict[@"data"];
+    if (self.request.pageNum == 1)
+    {
+        self.orderList = [[NSMutableArray alloc] initWithArray:dict[@"data"]];
+    }
+    else
+    {
+        [self.orderList = self.orderList addObject:dict[@"data"]];
+    }
+    self.pageNum = self.request.pageNum;
+    
     [self.tableView reloadData];
+    self.request = nil;
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender

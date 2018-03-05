@@ -93,6 +93,48 @@
 {
     self.dataDict = dict;
     self.delegate = del;
+    
+    [self.timeLabel setText:[NSString stringWithFormat:@"时间：%@", dict[@"create_time"]]];
+    [self.locationLabel setText:[NSString stringWithFormat:@"系统区服：%@ %@", ([dict[@"client_type"] intValue]==2?@"iOS":@"安卓"), ([dict[@"service_client_type"] intValue]==1?@"QQ":@"微信")]];
+    [self.duanLabel setText:[NSString stringWithFormat:@"段位信息：%@", dict[@"dan"]]];
+    [self.moneyLabel setText:[NSString stringWithFormat:@"订单金额：¥%.2f", [dict[@"amount"] floatValue]]];
+    
+    int ordStatus = [dict[@"status"] intValue];
+    int payStatus = [dict[@"pay_status"] intValue];
+
+    switch (ordStatus)
+    {
+        case 1:
+        {
+            [self.nameLabel setText:[NSString stringWithFormat:@"接单大神：暂无"]];
+            [self.statusLabel setText:@"待接单"];
+            [self.cancelButton setHidden:NO];
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            
+        }
+            break;
+        case 4:
+        {
+            
+        }
+            break;
+        case 5:
+        {
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - action

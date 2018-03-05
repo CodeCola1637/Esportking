@@ -12,12 +12,18 @@
 
 - (NSString *)subAddress
 {
-    return nil;
+    return GetOrder;
 }
 
 - (NSDictionary *)requestParam
 {
-    return nil;
+    return @{
+             @"type":@(self.type),
+             @"game_id":@(self.type),
+             @"status":@(0),
+             @"pageNumber":@(self.pageNum),
+             @"pageSize":@(self.pageSize),
+             };
 }
 
 @end
