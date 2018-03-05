@@ -33,8 +33,14 @@
     [super viewDidLoad];
     [self configTopbar];
     [self configContent];
-    
-    [self.chatVC.tableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.chatVC.tableView reloadData];
+    });
 }
 
 - (void)configTopbar
@@ -49,6 +55,8 @@
     
     [self.contentView addSubview:self.chatVC.view];
     [self.chatVC.view setFrame:self.contentView.bounds];
+    [self.chatVC.view setNeedsLayout];
+    [self.chatVC.view layoutIfNeeded];
 //    [self.chatVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.equalTo(self.contentView);
 //    }];

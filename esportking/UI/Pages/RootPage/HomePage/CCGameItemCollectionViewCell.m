@@ -50,7 +50,7 @@
 
 - (void)setGameModel:(CCGameModel *)model
 {
-    [self.imgView setImageWithUrl:model.userModel.headUrl placeholder:CCIMG(@"Default_Header")];
+    [self.imgView setImageWithUrl:model.userModel.headUrl placeholder:CCIMG(@"Placeholder_Icon")];
     [self.nickLabel setText:model.userModel.name];
     [self.gameLabel setText:@"王者荣耀"];
 }
