@@ -59,6 +59,11 @@
     [self.subTitleLabel setTextColor:color];
 }
 
+- (void)enableArrow:(BOOL)enable
+{
+    [self.arrowImgView setHidden:!enable];
+}
+
 #pragma mark - getters
 - (UILabel *)titleLabel
 {

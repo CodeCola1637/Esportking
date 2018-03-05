@@ -12,5 +12,6 @@
 
 - (void)setTitle:(NSString *)title subTitle:(NSString *)subTitle subTitleColor:(UIColor *)color;
 - (void)changeSubTitle:(NSString *)subTitle subTitleColor:(UIColor *)color;
+- (void)enableArrow:(BOOL)enable;
 
 @end

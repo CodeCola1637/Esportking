@@ -30,7 +30,7 @@
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     [self.contentView addSubview:self.label];
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(8));
         make.left.equalTo(self.contentView).offset(CCPXToPoint(32));
         make.right.equalTo(self.contentView).offset(-CCPXToPoint(32));
     }];

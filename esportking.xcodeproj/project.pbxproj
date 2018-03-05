@@ -89,6 +89,11 @@
 		C0A1748D20493D9A000B71F3 /* CCScoreStyleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748C20493D9A000B71F3 /* CCScoreStyleTableViewCell.m */; };
 		C0A1749020494165000B71F3 /* CCConfirmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748F20494165000B71F3 /* CCConfirmTableViewCell.m */; };
 		C0A1749420494449000B71F3 /* CCTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1749320494449000B71F3 /* CCTitleTableViewCell.m */; };
+		C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A17497204D20BD000B71F3 /* LMSearchBarView.m */; };
+		C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1749B204D27CA000B71F3 /* UIImageView+Create.m */; };
+		C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1749F204D34D5000B71F3 /* CCHistoryService.m */; };
+		C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174A2204D3792000B71F3 /* CCSearchHistoryView.m */; };
+		C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */; };
 		C0B498EE20479D5100BD0D63 /* CCTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */; };
 		C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */; };
 		C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */; };
@@ -298,6 +303,16 @@
 		C0A1749220494449000B71F3 /* CCTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTitleTableViewCell.h; sourceTree = "<group>"; };
 		C0A1749320494449000B71F3 /* CCTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTitleTableViewCell.m; sourceTree = "<group>"; };
 		C0A17496204CF42C000B71F3 /* CCWordingDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCWordingDefine.h; sourceTree = "<group>"; };
+		C0A17497204D20BD000B71F3 /* LMSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSearchBarView.m; sourceTree = "<group>"; };
+		C0A17498204D20BD000B71F3 /* LMSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSearchBarView.h; sourceTree = "<group>"; };
+		C0A1749A204D27CA000B71F3 /* UIImageView+Create.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Create.h"; sourceTree = "<group>"; };
+		C0A1749B204D27CA000B71F3 /* UIImageView+Create.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Create.m"; sourceTree = "<group>"; };
+		C0A1749E204D34D5000B71F3 /* CCHistoryService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCHistoryService.h; sourceTree = "<group>"; };
+		C0A1749F204D34D5000B71F3 /* CCHistoryService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCHistoryService.m; sourceTree = "<group>"; };
+		C0A174A1204D3792000B71F3 /* CCSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchHistoryView.h; sourceTree = "<group>"; };
+		C0A174A2204D3792000B71F3 /* CCSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchHistoryView.m; sourceTree = "<group>"; };
+		C0A174A7204D397E000B71F3 /* CCCenterTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCenterTitleTableViewCell.h; sourceTree = "<group>"; };
+		C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCenterTitleTableViewCell.m; sourceTree = "<group>"; };
 		C0B498EC20479D5100BD0D63 /* CCTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTryCardRequest.h; sourceTree = "<group>"; };
 		C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardRequest.m; sourceTree = "<group>"; };
 		C0D4F88520464B4F00258CC6 /* CCBeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBeautyViewController.h; sourceTree = "<group>"; };
@@ -576,8 +591,12 @@
 		BE78493620394DA2000E7C00 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C0A17498204D20BD000B71F3 /* LMSearchBarView.h */,
+				C0A17497204D20BD000B71F3 /* LMSearchBarView.m */,
 				BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */,
 				BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */,
+				C0A174A1204D3792000B71F3 /* CCSearchHistoryView.h */,
+				C0A174A2204D3792000B71F3 /* CCSearchHistoryView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -715,6 +734,7 @@
 		BEAFDA4320273F4700ED4E2D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0A1749D204D34B1000B71F3 /* History */,
 				BE4A1BC32033D30500890485 /* GameInfo */,
 				BEFF95C7202D82A00081D88B /* Account */,
 				BEAFDA4E2027484300ED4E2D /* CCCommonDefine.h */,
@@ -877,6 +897,8 @@
 				BE45F9682029F98000482824 /* NSString+Check.m */,
 				BE4A1BC72035441F00890485 /* UIImageView+SDWebImage.h */,
 				BE4A1BC82035441F00890485 /* UIImageView+SDWebImage.m */,
+				C0A1749A204D27CA000B71F3 /* UIImageView+Create.h */,
+				C0A1749B204D27CA000B71F3 /* UIImageView+Create.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -960,6 +982,8 @@
 			children = (
 				C0A1749220494449000B71F3 /* CCTitleTableViewCell.h */,
 				C0A1749320494449000B71F3 /* CCTitleTableViewCell.m */,
+				C0A174A7204D397E000B71F3 /* CCCenterTitleTableViewCell.h */,
+				C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */,
 			);
 			path = TitleCell;
 			sourceTree = "<group>";
@@ -970,6 +994,15 @@
 				C0A17496204CF42C000B71F3 /* CCWordingDefine.h */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		C0A1749D204D34B1000B71F3 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C0A1749E204D34D5000B71F3 /* CCHistoryService.h */,
+				C0A1749F204D34D5000B71F3 /* CCHistoryService.m */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		C0B498EB20479D3C00BD0D63 /* TryCard */ = {
@@ -1350,6 +1383,7 @@
 				BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */,
 				BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */,
 				C0D4F8C52046DDF000258CC6 /* CCTryCardViewController.m in Sources */,
+				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
 				BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */,
@@ -1367,6 +1401,7 @@
 				BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */,
 				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
 				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
+				C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */,
 				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
 				BEAC5D87202C3EEC000BF808 /* PGDatePickManager.m in Sources */,
 				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
@@ -1392,8 +1427,10 @@
 				C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */,
 				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
 				BEAC5D8A202C3EEC000BF808 /* PGDatePickManagerHeaderView.m in Sources */,
+				C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */,
 				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
 				BEAC5D70202C3695000BF808 /* JXTAlertController.m in Sources */,
+				C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */,
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
 				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
 				BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */,
@@ -1420,6 +1457,7 @@
 				BE45F9652029F19B00482824 /* CCSMSRequest.m in Sources */,
 				BE49C9F62042917A00B0E34A /* CCLevelView.m in Sources */,
 				BE49C9E820427C0D00B0E34A /* CCUserCommentTableViewCell.m in Sources */,
+				C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */,
 				BEAC5D88202C3EEC000BF808 /* NSBundle+PGDatePicker.m in Sources */,
 				C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */,
 				BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */,

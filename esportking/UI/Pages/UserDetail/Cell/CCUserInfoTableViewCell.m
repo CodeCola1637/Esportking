@@ -85,7 +85,7 @@
 {
     self.logicModel = model;
     
-    [self.headImgView setImageWithUrl:model.userModel.headUrl placeholder:CCIMG(@"Placeholder_Icon")];
+    [self.headImgView setImageWithUrl:model.userModel.headUrl placeholder:CCIMG(@"Default_Header")];
     [self.nameLabel setText:model.userModel.name];
     [self.genderView setGender:model.userModel.gender andOld:model.userModel.age];
     [self.locationLabel setText:model.serverName];
