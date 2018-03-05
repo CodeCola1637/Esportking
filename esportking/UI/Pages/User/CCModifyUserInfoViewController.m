@@ -11,6 +11,7 @@
 #import "CCBigButton.h"
 #import "UILabel+Create.h"
 #import "CCModifyUserInfoRequest.h"
+#import "CCUploadImgRequest.h"
 
 #import <SCLAlertView.h>
 #import "JXTAlertController.h"
@@ -18,7 +19,7 @@
 
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface CCModifyUserInfoViewController ()<CCTitleItemDelegate, PGDatePickerDelegate, CCRequestDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CCModifyUserInfoViewController ()<CCTitleItemDelegate, PGDatePickerDelegate, CCRequestDelegate, CCUploadImgDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     NSString    *_nick;
     GENDER      _gender;
@@ -169,10 +170,6 @@
     _request.name = _nick;
     _request.gender = _gender;
     _request.birth = _birth;
-    if (_header)
-    {
-        _request.header = UIImagePNGRepresentation(_header);
-    }
     [_request startPostRequestWithDelegate:self];
     [self beginLoading];
 }
@@ -182,7 +179,10 @@
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
     _header = [info objectForKey:UIImagePickerControllerEditedImage];
-    [self.headImgView setImage:_header];
+    CCUploadImgRequest *uploadReq = [CCUploadImgRequest new];
+    uploadReq.uploadKey = @"files";
+    uploadReq.uploadImage = _header;
+    [uploadReq startUploadWithUrl:[NSString stringWithFormat:@"%@%@", RootAddress, ModifyUser] andDelegate:self];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -234,7 +234,19 @@
     }
     _request = nil;
     [self endLoading];
-    
+}
+
+#pragma mark - CCUploadImgDelegate
+- (void)onUploadSuccess:(NSDictionary *)dict
+{
+    [self.headImgView setImage:_header];
+    [self endLoading];
+}
+
+- (void)onUploadFailed:(NSInteger)errCode errMsg:(NSString *)msg
+{
+    [self showToast:msg];
+    [self endLoading];
 }
 
 #pragma mark - getters
@@ -243,6 +255,7 @@
     if (!_headImgView)
     {
         _headImgView = [UIImageView new];
+        [_headImgView setImage:CCIMG(@"Default_Header")];
         [_headImgView.layer setCornerRadius:CCPXToPoint(50)];
         [_headImgView setUserInteractionEnabled:YES];
         [_headImgView setContentMode:UIViewContentModeScaleAspectFill];

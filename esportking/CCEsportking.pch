@@ -16,6 +16,7 @@
 #import "CCUIStandard.h"
 #import "UIImageView+SDWebImage.h"
 #import "UILabel+Create.h"
+#import "UIImageView+Create.h"
 #import "CCAccountService.h"
 
 #endif /* CCEsportking_pch */

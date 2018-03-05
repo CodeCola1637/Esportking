@@ -13,8 +13,6 @@
 
 @property (strong, nonatomic) NSString  *name;
 @property (strong, nonatomic) NSString  *birth;
-@property (strong, nonatomic) NSData    *header;
-@property (strong, nonatomic) NSData    *cover;
 @property (assign, nonatomic) GENDER    gender;
 
 @end

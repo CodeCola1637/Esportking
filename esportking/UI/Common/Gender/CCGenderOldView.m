@@ -73,8 +73,7 @@
 {
     if (!_genderImgView)
     {
-        _genderImgView = [UIImageView new];
-        [_genderImgView setContentMode:UIViewContentModeScaleAspectFill];
+        _genderImgView = [UIImageView scaleFillImageView];
     }
     return _genderImgView;
 }
