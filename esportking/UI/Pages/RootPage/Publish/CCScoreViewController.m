@@ -21,6 +21,11 @@
 #define kForthIdentify       @"forth"
 #define kFivthIdentify       @"fivth"
 
+#define kSystemTag           11
+#define kLocationTag         12
+#define kDanTag              13
+#define kCountTag            14
+
 @interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSArray *heightList;
@@ -37,18 +42,49 @@
 
 - (void)configTopbar
 {
-    
+    [self addTopbarTitle:@"上分"];
 }
 
 - (void)configContent
 {
-    
+    [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:0];
+    [self.contentView addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[CCTitleTableViewCell class]])
+    {
+        switch (cell.tag) {
+            case kSystemTag:
+            {
+                
+            }
+                break;
+            case kLocationTag:
+            {
+                
+            }
+                break;
+            case kDanTag:
+            {
+                
+            }
+                break;
+            case kCountTag:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -92,7 +128,45 @@
         [tableCell setContentText:@"说明："];
         cell = tableCell;
     }
-    
+    else if (indexPath.row == 9)
+    {
+        CCConfirmTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kForthIdentify];
+        [tableCell setPrice:0 andDelegate:self];
+        cell = tableCell;
+    }
+    else if (indexPath.row == 8 || indexPath.row == 10)
+    {
+        CCDevideTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kFivthIdentify];
+        cell = tableCell;
+    }
+    else if (indexPath.row == 4)
+    {
+        CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
+        [tableCell setTitle:@"选择系统" subTitle:@"请选择" subTitleColor:FontColor_Gray];
+        tableCell.tag = kSystemTag;
+        cell = tableCell;
+    }
+    else if (indexPath.row == 5)
+    {
+        CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
+        [tableCell setTitle:@"选择区服" subTitle:@"请选择" subTitleColor:FontColor_Gray];
+        tableCell.tag = kLocationTag;
+        cell = tableCell;
+    }
+    else if (indexPath.row == 6)
+    {
+        CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
+        [tableCell setTitle:@"选择段位" subTitle:@"请选择" subTitleColor:FontColor_Gray];
+        tableCell.tag = kDanTag;
+        cell = tableCell;
+    }
+    else if (indexPath.row == 7)
+    {
+        CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
+        [tableCell setTitle:@"选择局数" subTitle:@"请选择" subTitleColor:FontColor_Gray];
+        tableCell.tag = kCountTag;
+        cell = tableCell;
+    }
     
     return cell;
 }
