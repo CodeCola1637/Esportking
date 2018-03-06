@@ -24,8 +24,8 @@ target 'esportking' do
   pod 'MJRefresh', '~> 3.1.15.3'
   pod 'Masonry', '~> 1.1.0'
   pod 'SDWebImage', '~> 4.3.0'
-  pod 'SCLAlertView-Objective-C'
-  pod 'PGPickerView'
+  pod 'zhPopupController', '~> 1.0.2'
+  pod 'TKAlert&TKActionSheet'
   pod 'CWLateralSlide', '~> 1.5.7'
   
   target 'esportkingTests' do

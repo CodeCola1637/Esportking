@@ -47,15 +47,6 @@
 		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
 		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
 		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
-		BEAC5D70202C3695000BF808 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D6E202C3695000BF808 /* JXTAlertController.m */; };
-		BEAC5D83202C3EEC000BF808 /* PGDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D72202C3EEC000BF808 /* PGDatePicker.m */; };
-		BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D73202C3EEC000BF808 /* UIColor+PGHex.m */; };
-		BEAC5D85202C3EEC000BF808 /* PGDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D74202C3EEC000BF808 /* PGDatePickerView.m */; };
-		BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D76202C3EEC000BF808 /* NSCalendar+PGCurrent.m */; };
-		BEAC5D87202C3EEC000BF808 /* PGDatePickManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D77202C3EEC000BF808 /* PGDatePickManager.m */; };
-		BEAC5D88202C3EEC000BF808 /* NSBundle+PGDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D79202C3EEC000BF808 /* NSBundle+PGDatePicker.m */; };
-		BEAC5D89202C3EEC000BF808 /* NSDate+PGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D7D202C3EEC000BF808 /* NSDate+PGCategory.m */; };
-		BEAC5D8A202C3EEC000BF808 /* PGDatePickManagerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D81202C3EEC000BF808 /* PGDatePickManagerHeaderView.m */; };
 		BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAC5D8E202C4031000BF808 /* CCModifyUserInfoRequest.m */; };
 		BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA0D2026FABC00ED4E2D /* CCTopbarView.m */; };
 		BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA13202701FA00ED4E2D /* CCRefreshTableView.m */; };
@@ -83,6 +74,12 @@
 		BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95CC202D91C90081D88B /* CCHomePageRequest.m */; };
 		BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D1202D92C30081D88B /* CCGameModel.m */; };
 		BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D4202D92CD0081D88B /* CCUserModel.m */; };
+		C05409FA204E763200C8154E /* zhAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409F6204E763200C8154E /* zhAlertView.m */; };
+		C05409FB204E763200C8154E /* zhPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409F8204E763200C8154E /* zhPickerView.m */; };
+		C05409FE204E787A00C8154E /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409FD204E787A00C8154E /* UIView+Layout.m */; };
+		C0540A01204E83C500C8154E /* NSString+zh_SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A00204E83C500C8154E /* NSString+zh_SafeAccess.m */; };
+		C0540A04204E840800C8154E /* NSDate+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A03204E840800C8154E /* NSDate+Extend.m */; };
+		C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A05204E846300C8154E /* NSArray+zh_SafeAccess.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -212,25 +209,6 @@
 		BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchTableViewCell.m; sourceTree = "<group>"; };
 		BE78493B20394FBC000E7C00 /* CCSearchRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchRequest.h; sourceTree = "<group>"; };
 		BE78493C20394FBC000E7C00 /* CCSearchRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchRequest.m; sourceTree = "<group>"; };
-		BEAC5D6E202C3695000BF808 /* JXTAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertController.m; sourceTree = "<group>"; };
-		BEAC5D6F202C3695000BF808 /* JXTAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertController.h; sourceTree = "<group>"; };
-		BEAC5D72202C3EEC000BF808 /* PGDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePicker.m; sourceTree = "<group>"; };
-		BEAC5D73202C3EEC000BF808 /* UIColor+PGHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PGHex.m"; sourceTree = "<group>"; };
-		BEAC5D74202C3EEC000BF808 /* PGDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickerView.m; sourceTree = "<group>"; };
-		BEAC5D75202C3EEC000BF808 /* NSDate+PGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PGCategory.h"; sourceTree = "<group>"; };
-		BEAC5D76202C3EEC000BF808 /* NSCalendar+PGCurrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+PGCurrent.m"; sourceTree = "<group>"; };
-		BEAC5D77202C3EEC000BF808 /* PGDatePickManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickManager.m; sourceTree = "<group>"; };
-		BEAC5D78202C3EEC000BF808 /* PGDatePickManagerHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManagerHeaderView.h; sourceTree = "<group>"; };
-		BEAC5D79202C3EEC000BF808 /* NSBundle+PGDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+PGDatePicker.m"; sourceTree = "<group>"; };
-		BEAC5D7A202C3EEC000BF808 /* UIColor+PGHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PGHex.h"; sourceTree = "<group>"; };
-		BEAC5D7B202C3EEC000BF808 /* PGDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePicker.h; sourceTree = "<group>"; };
-		BEAC5D7C202C3EEC000BF808 /* PGEnumeration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGEnumeration.h; sourceTree = "<group>"; };
-		BEAC5D7D202C3EEC000BF808 /* NSDate+PGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PGCategory.m"; sourceTree = "<group>"; };
-		BEAC5D7E202C3EEC000BF808 /* PGDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickerView.h; sourceTree = "<group>"; };
-		BEAC5D7F202C3EEC000BF808 /* NSCalendar+PGCurrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+PGCurrent.h"; sourceTree = "<group>"; };
-		BEAC5D80202C3EEC000BF808 /* NSBundle+PGDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+PGDatePicker.h"; sourceTree = "<group>"; };
-		BEAC5D81202C3EEC000BF808 /* PGDatePickManagerHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PGDatePickManagerHeaderView.m; sourceTree = "<group>"; };
-		BEAC5D82202C3EEC000BF808 /* PGDatePickManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGDatePickManager.h; sourceTree = "<group>"; };
 		BEAC5D8D202C4031000BF808 /* CCModifyUserInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCModifyUserInfoRequest.h; sourceTree = "<group>"; };
 		BEAC5D8E202C4031000BF808 /* CCModifyUserInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCModifyUserInfoRequest.m; sourceTree = "<group>"; };
 		BEAFDA0C2026FABC00ED4E2D /* CCTopbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTopbarView.h; sourceTree = "<group>"; };
@@ -290,6 +268,18 @@
 		BEFF95D1202D92C30081D88B /* CCGameModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGameModel.m; sourceTree = "<group>"; };
 		BEFF95D3202D92CD0081D88B /* CCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserModel.h; sourceTree = "<group>"; };
 		BEFF95D4202D92CD0081D88B /* CCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserModel.m; sourceTree = "<group>"; };
+		C05409F5204E763200C8154E /* zhAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhAlertView.h; sourceTree = "<group>"; };
+		C05409F6204E763200C8154E /* zhAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhAlertView.m; sourceTree = "<group>"; };
+		C05409F7204E763200C8154E /* zhPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhPickerView.h; sourceTree = "<group>"; };
+		C05409F8204E763200C8154E /* zhPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhPickerView.m; sourceTree = "<group>"; };
+		C05409FC204E787A00C8154E /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		C05409FD204E787A00C8154E /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
+		C05409FF204E83C500C8154E /* NSString+zh_SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+zh_SafeAccess.h"; sourceTree = "<group>"; };
+		C0540A00204E83C500C8154E /* NSString+zh_SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+zh_SafeAccess.m"; sourceTree = "<group>"; };
+		C0540A02204E840800C8154E /* NSDate+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extend.h"; sourceTree = "<group>"; };
+		C0540A03204E840800C8154E /* NSDate+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extend.m"; sourceTree = "<group>"; };
+		C0540A05204E846300C8154E /* NSArray+zh_SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+zh_SafeAccess.m"; sourceTree = "<group>"; };
+		C0540A06204E846300C8154E /* NSArray+zh_SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+zh_SafeAccess.h"; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -613,38 +603,12 @@
 		BEAC5D6D202C3689000BF808 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				C05409F2204E763200C8154E /* zhPopUpController */,
 				C0D4F888204656BB00258CC6 /* ZJScrollPageView */,
 				BE4A1BB220307E7200890485 /* HomeCollectionLayout */,
 				BE4A1BA520302D1800890485 /* NewPagedFlowView */,
-				BEAC5D71202C3EEC000BF808 /* PGDatePicker */,
-				BEAC5D6F202C3695000BF808 /* JXTAlertController.h */,
-				BEAC5D6E202C3695000BF808 /* JXTAlertController.m */,
 			);
 			path = Third;
-			sourceTree = "<group>";
-		};
-		BEAC5D71202C3EEC000BF808 /* PGDatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				BEAC5D72202C3EEC000BF808 /* PGDatePicker.m */,
-				BEAC5D73202C3EEC000BF808 /* UIColor+PGHex.m */,
-				BEAC5D74202C3EEC000BF808 /* PGDatePickerView.m */,
-				BEAC5D75202C3EEC000BF808 /* NSDate+PGCategory.h */,
-				BEAC5D76202C3EEC000BF808 /* NSCalendar+PGCurrent.m */,
-				BEAC5D77202C3EEC000BF808 /* PGDatePickManager.m */,
-				BEAC5D78202C3EEC000BF808 /* PGDatePickManagerHeaderView.h */,
-				BEAC5D79202C3EEC000BF808 /* NSBundle+PGDatePicker.m */,
-				BEAC5D7A202C3EEC000BF808 /* UIColor+PGHex.h */,
-				BEAC5D7B202C3EEC000BF808 /* PGDatePicker.h */,
-				BEAC5D7C202C3EEC000BF808 /* PGEnumeration.h */,
-				BEAC5D7D202C3EEC000BF808 /* NSDate+PGCategory.m */,
-				BEAC5D7E202C3EEC000BF808 /* PGDatePickerView.h */,
-				BEAC5D7F202C3EEC000BF808 /* NSCalendar+PGCurrent.h */,
-				BEAC5D80202C3EEC000BF808 /* NSBundle+PGDatePicker.h */,
-				BEAC5D81202C3EEC000BF808 /* PGDatePickManagerHeaderView.m */,
-				BEAC5D82202C3EEC000BF808 /* PGDatePickManager.h */,
-			);
-			path = PGDatePicker;
 			sourceTree = "<group>";
 		};
 		BEAC5D8B202C4005000BF808 /* Login */ = {
@@ -889,6 +853,14 @@
 		BEFC9BA320257E29002CE000 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C0540A06204E846300C8154E /* NSArray+zh_SafeAccess.h */,
+				C0540A05204E846300C8154E /* NSArray+zh_SafeAccess.m */,
+				C0540A02204E840800C8154E /* NSDate+Extend.h */,
+				C0540A03204E840800C8154E /* NSDate+Extend.m */,
+				C05409FF204E83C500C8154E /* NSString+zh_SafeAccess.h */,
+				C0540A00204E83C500C8154E /* NSString+zh_SafeAccess.m */,
+				C05409FC204E787A00C8154E /* UIView+Layout.h */,
+				C05409FD204E787A00C8154E /* UIView+Layout.m */,
 				BEFC9BB420259E31002CE000 /* UILabel+Create.h */,
 				BEFC9BB520259E31002CE000 /* UILabel+Create.m */,
 				BEAFDA3320270F8300ED4E2D /* UIColor+Hex.h */,
@@ -943,6 +915,17 @@
 				BE49C9ED20427F1C00B0E34A /* CCTagModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C05409F2204E763200C8154E /* zhPopUpController */ = {
+			isa = PBXGroup;
+			children = (
+				C05409F5204E763200C8154E /* zhAlertView.h */,
+				C05409F6204E763200C8154E /* zhAlertView.m */,
+				C05409F7204E763200C8154E /* zhPickerView.h */,
+				C05409F8204E763200C8154E /* zhPickerView.m */,
+			);
+			path = zhPopUpController;
 			sourceTree = "<group>";
 		};
 		C0A1748220493B02000B71F3 /* Publish */ = {
@@ -1204,7 +1187,7 @@
 				TargetAttributes = {
 					BEE005A62025793B006813E3 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = AKW4R9EB5U;
+						DevelopmentTeam = 2B5V3KE6U9;
 						ProvisioningStyle = Automatic;
 					};
 					BEE005BF2025793B006813E3 = {
@@ -1376,9 +1359,9 @@
 			files = (
 				BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */,
 				BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */,
+				C0540A04204E840800C8154E /* NSDate+Extend.m in Sources */,
 				C0D4F89D204656BC00258CC6 /* ZJSegmentStyle.m in Sources */,
 				BE49C9FA204299F000B0E34A /* CCTagView.m in Sources */,
-				BEAC5D85202C3EEC000BF808 /* PGDatePickerView.m in Sources */,
 				BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */,
 				BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */,
 				BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */,
@@ -1386,6 +1369,7 @@
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
+				C05409FB204E763200C8154E /* zhPickerView.m in Sources */,
 				BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */,
 				BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */,
 				BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */,
@@ -1400,10 +1384,12 @@
 				BE49C9F22042864300B0E34A /* CCGenderOldView.m in Sources */,
 				BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */,
 				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
+				C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */,
 				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
 				C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */,
 				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
-				BEAC5D87202C3EEC000BF808 /* PGDatePickManager.m in Sources */,
+				C0540A01204E83C500C8154E /* NSString+zh_SafeAccess.m in Sources */,
+				C05409FA204E763200C8154E /* zhAlertView.m in Sources */,
 				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
 				C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
@@ -1414,7 +1400,6 @@
 				BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */,
 				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
 				BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */,
-				BEAC5D83202C3EEC000BF808 /* PGDatePicker.m in Sources */,
 				BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */,
 				BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */,
 				BE451465204451220096A8CC /* CCMessageViewController.m in Sources */,
@@ -1426,14 +1411,11 @@
 				C0D4F89E204656BC00258CC6 /* ZJTitleView.m in Sources */,
 				C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */,
 				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
-				BEAC5D8A202C3EEC000BF808 /* PGDatePickManagerHeaderView.m in Sources */,
 				C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */,
 				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
-				BEAC5D70202C3695000BF808 /* JXTAlertController.m in Sources */,
 				C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */,
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
 				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
-				BEAC5D86202C3EEC000BF808 /* NSCalendar+PGCurrent.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
@@ -1442,6 +1424,7 @@
 				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
 				C0D4F8B12046A39600258CC6 /* CCOrderRequest.m in Sources */,
 				C0B498EE20479D5100BD0D63 /* CCTryCardRequest.m in Sources */,
+				C05409FE204E787A00C8154E /* UIView+Layout.m in Sources */,
 				BE49C9EB20427F1200B0E34A /* CCCommentModel.m in Sources */,
 				BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */,
 				C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */,
@@ -1452,13 +1435,11 @@
 				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
 				C0D4F89C204656BC00258CC6 /* ZJScrollSegmentView.m in Sources */,
-				BEAC5D84202C3EEC000BF808 /* UIColor+PGHex.m in Sources */,
 				BE4A1BC22033D2A400890485 /* CCGetGameInfoRequest.m in Sources */,
 				BE45F9652029F19B00482824 /* CCSMSRequest.m in Sources */,
 				BE49C9F62042917A00B0E34A /* CCLevelView.m in Sources */,
 				BE49C9E820427C0D00B0E34A /* CCUserCommentTableViewCell.m in Sources */,
 				C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */,
-				BEAC5D88202C3EEC000BF808 /* NSBundle+PGDatePicker.m in Sources */,
 				C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */,
 				BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */,
 				BE49C9DB2042708A00B0E34A /* CCUserDetailRequest.m in Sources */,
@@ -1472,7 +1453,6 @@
 				BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */,
 				BEAFDA4920273FF100ED4E2D /* CCLoginManager.m in Sources */,
 				C0A1748D20493D9A000B71F3 /* CCScoreStyleTableViewCell.m in Sources */,
-				BEAC5D89202C3EEC000BF808 /* NSDate+PGCategory.m in Sources */,
 				BE4A1BB820307FD300890485 /* CCBannerCollectionViewCell.m in Sources */,
 				BE49C9FE2042A89E00B0E34A /* CCStarView.m in Sources */,
 				BEAFDA54202756F100ED4E2D /* CCRegisterViewController.m in Sources */,
@@ -1605,7 +1585,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = AKW4R9EB5U;
+				DEVELOPMENT_TEAM = 2B5V3KE6U9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
 				INFOPLIST_FILE = esportking/Info.plist;
@@ -1621,7 +1601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = AKW4R9EB5U;
+				DEVELOPMENT_TEAM = 2B5V3KE6U9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
 				INFOPLIST_FILE = esportking/Info.plist;

@@ -13,19 +13,18 @@
 #import "CCModifyUserInfoRequest.h"
 #import "CCUploadImgRequest.h"
 
-#import <SCLAlertView.h>
-#import "JXTAlertController.h"
-#import "PGDatePickManager.h"
+#import "zhPickerView.h"
+#import <zhPopupController.h>
+#import <TKAlert&TKActionSheet/TKAlert&TKActionSheet.h>
 
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface CCModifyUserInfoViewController ()<CCTitleItemDelegate, PGDatePickerDelegate, CCRequestDelegate, CCUploadImgDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-{
-    NSString    *_nick;
-    GENDER      _gender;
-    NSString    *_birth;
-    UIImage     *_header;
-}
+@interface CCModifyUserInfoViewController ()<CCTitleItemDelegate, CCRequestDelegate, CCUploadImgDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) NSString      *nick;
+@property (strong, nonatomic) NSString      *birth;
+@property (strong, nonatomic) UIImage       *header;
+@property (assign, nonatomic) GENDER        gender;
 
 @property (assign, nonatomic) MODIFYTYPE    type;
 @property (strong, nonatomic) UIImageView   *headImgView;
@@ -115,49 +114,62 @@
 
 - (void)onClickNameItem
 {
-    SCLAlertView *alert = [SCLAlertView new];
-    [alert setHorizontalButtons:YES];
+    TKTextFieldAlertViewController *textFieldAlertView = [[TKTextFieldAlertViewController alloc] initWithTitle:@"昵称" placeholder:@"请输入昵称"];
     
-    SCLTextView *textField = [alert addTextField:@"请输入昵称"];
-    alert.hideAnimationType = SCLAlertViewHideAnimationSlideOutToTop;
-    [alert addButton:@"确认" actionBlock:^{
-        if (textField.text.length != 0)
+    CCWeakSelf(weakSelf);
+    __weak typeof(textFieldAlertView) weakAlertView = textFieldAlertView;
+    [textFieldAlertView addButtonWithTitle:@"取消" block:^(NSUInteger index) {
+        
+    }];
+    [textFieldAlertView addButtonWithTitle:@"确定"  block:^(NSUInteger index) {
+        if (weakAlertView.textField.text.length != 0)
         {
-            [self.nameItem changeSubTitle:textField.text subTitleColor:FontColor_Black];
+            weakSelf.nick = weakAlertView.textField.text;
+            [weakSelf.nameItem changeSubTitle:weakAlertView.textField.text subTitleColor:FontColor_Black];
         }
     }];
-    [alert showEdit:self title:@"昵称" subTitle:nil closeButtonTitle:@"取消" duration:0];
+    [textFieldAlertView show];
 }
 
 - (void)onClickSexItem
 {
-    [UIAlertController mj_showActionSheetWithTitle:nil message:nil appearanceProcess:^(JXTAlertController * _Nonnull alertMaker) {
-        alertMaker.addActionDefaultTitle(@"男").addActionDefaultTitle(@"女").addActionDefaultTitle(@"取消");
-    } actionsBlock:^(NSInteger buttonIndex, UIAlertAction * _Nonnull action, JXTAlertController * _Nonnull alertSelf) {
-        
-        if (buttonIndex == 0)
-        {
-            _gender = GENDER_BOY;
-            [self.sexItem changeSubTitle:@"男" subTitleColor:FontColor_Black];
-        }
-        else if (buttonIndex == 1)
-        {
-            _gender = GENDER_GIRL;
-            [self.sexItem changeSubTitle:@"女" subTitleColor:FontColor_Black];
-        }
+    CCWeakSelf(weakSelf);
+    TKActionSheetController *uActionSheet = [TKActionSheetController sheetWithTitle:nil];
+    [uActionSheet addButtonWithTitle:@"男" block:^(NSUInteger index) {
+        weakSelf.gender = GENDER_BOY;
+        [weakSelf.sexItem changeSubTitle:@"男" subTitleColor:FontColor_Black];
     }];
+    [uActionSheet addButtonWithTitle:@"女" block:^(NSUInteger index) {
+        weakSelf.gender = GENDER_GIRL;
+        [weakSelf.sexItem changeSubTitle:@"女" subTitleColor:FontColor_Black];
+    }];
+    [uActionSheet setCancelButtonWithTitle:@"取消" block:^(NSUInteger index) {
+        
+    }];
+    [uActionSheet showInViewController:self animated:YES completion:nil];
 }
 
 - (void)onClickAgeItem
 {
-    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
-    datePickManager.isShadeBackgroud = true;
-    PGDatePicker *datePicker = datePickManager.datePicker;
-    datePicker.delegate = self;
-    datePicker.datePickerType = PGPickerViewType1;
-    datePicker.isHiddenMiddleText = false;
-    datePicker.datePickerMode = PGDatePickerModeDate;
-    [self presentViewController:datePickManager animated:false completion:nil];
+    CCWeakSelf(weakSelf);
+    
+    CGRect rect = CGRectMake(0, 0, self.view.width, 275);
+    zhPickerView *pView = [[zhPickerView alloc] initWithFrame:rect];
+    
+    pView.saveClickedBlock = ^(zhPickerView *pickerView) {
+        weakSelf.birth = pickerView.selectedTimeString;
+        [weakSelf.ageItem changeSubTitle:weakSelf.birth subTitleColor:FontColor_Black];
+        [weakSelf.zh_popupController dismiss];
+    };
+    
+    pView.cancelClickedBlock = ^(zhPickerView *pickerView) {
+        [weakSelf.zh_popupController dismiss];
+    };
+    
+    self.zh_popupController = [zhPopupController new];
+    self.zh_popupController.layoutType = zhPopupLayoutTypeBottom;
+    self.zh_popupController.dismissOnMaskTouched = NO;
+    [self.zh_popupController presentContentView:pView];
 }
 
 - (void)onClickFinishButton:(UIButton *)button
@@ -205,13 +217,6 @@
     {
         [self onClickAgeItem];
     }
-}
-
-#pragma mark - PGDatePickerDelegate
-- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents
-{
-    _birth = [NSString stringWithFormat:@"%ld年%ld月%ld日", dateComponents.year, dateComponents.month, dateComponents.day];
-    [self.ageItem changeSubTitle:_birth subTitleColor:FontColor_Black];
 }
 
 #pragma mark - CCRequestDelegate
