@@ -80,6 +80,7 @@
 		C0540A01204E83C500C8154E /* NSString+zh_SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A00204E83C500C8154E /* NSString+zh_SafeAccess.m */; };
 		C0540A04204E840800C8154E /* NSDate+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A03204E840800C8154E /* NSDate+Extend.m */; };
 		C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A05204E846300C8154E /* NSArray+zh_SafeAccess.m */; };
+		C0540A0B204E979200C8154E /* CCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A0A204E979200C8154E /* CCPickerView.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -280,6 +281,8 @@
 		C0540A03204E840800C8154E /* NSDate+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extend.m"; sourceTree = "<group>"; };
 		C0540A05204E846300C8154E /* NSArray+zh_SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+zh_SafeAccess.m"; sourceTree = "<group>"; };
 		C0540A06204E846300C8154E /* NSArray+zh_SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+zh_SafeAccess.h"; sourceTree = "<group>"; };
+		C0540A09204E979200C8154E /* CCPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPickerView.h; sourceTree = "<group>"; };
+		C0540A0A204E979200C8154E /* CCPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPickerView.m; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -808,6 +811,7 @@
 		BEFC9BA120257E29002CE000 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0540A08204E976F00C8154E /* PickView */,
 				C0A1749120494431000B71F3 /* TitleCell */,
 				C0A1748720493C6C000B71F3 /* DevideCell */,
 				C0D4F89F20465A1E00258CC6 /* PageContainer */,
@@ -926,6 +930,15 @@
 				C05409F8204E763200C8154E /* zhPickerView.m */,
 			);
 			path = zhPopUpController;
+			sourceTree = "<group>";
+		};
+		C0540A08204E976F00C8154E /* PickView */ = {
+			isa = PBXGroup;
+			children = (
+				C0540A09204E979200C8154E /* CCPickerView.h */,
+				C0540A0A204E979200C8154E /* CCPickerView.m */,
+			);
+			path = PickView;
 			sourceTree = "<group>";
 		};
 		C0A1748220493B02000B71F3 /* Publish */ = {
@@ -1417,6 +1430,7 @@
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
 				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
+				C0540A0B204E979200C8154E /* CCPickerView.m in Sources */,
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
 				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,

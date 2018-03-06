@@ -8,12 +8,15 @@
 
 #import "CCScoreViewController.h"
 #import "CCRefreshTableView.h"
+#import "CCPickerView.h"
 
 #import "CCScoreBannerTableViewCell.h"
 #import "CCScoreStyleTableViewCell.h"
 #import "CCTitleTableViewCell.h"
 #import "CCConfirmTableViewCell.h"
 #import "CCDevideTableViewCell.h"
+
+#import <zhPopupController.h>
 
 #define kFirstIdentify       @"first"
 #define kSecondIdentify      @"second"
@@ -26,7 +29,7 @@
 #define kDanTag              13
 #define kCountTag            14
 
-@interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate, CCConfirmTableViewCellDelegate>
 
 @property (strong, nonatomic) NSArray *heightList;
 @property (strong, nonatomic) CCRefreshTableView *tableView;
@@ -38,6 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configTopbar];
+    [self configContent];
 }
 
 - (void)configTopbar
@@ -54,6 +59,12 @@
     }];
 }
 
+#pragma mark - CCConfirmTableViewCellDelegate
+- (void)onSelectOrder
+{
+    
+}
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -63,7 +74,7 @@
         switch (cell.tag) {
             case kSystemTag:
             {
-                
+                [self showPickerWithData:@[Wording_System_iOS_Platform_QQ, Wording_System_iOS_Platform_WX, Wording_System_Android_Platform_QQ, Wording_System_Android_Platform_WX] andCell:(CCTitleTableViewCell *)cell];
             }
                 break;
             case kLocationTag:
@@ -73,12 +84,12 @@
                 break;
             case kDanTag:
             {
-                
+                [self showPickerWithData:@[Wording_Dan_QingTong, Wording_Dan_BaiYin, Wording_Dan_HuangJin, Wording_Dan_BOJIN, Wording_Dan_ZuanShi, Wording_Dan_XingYao, Wording_Dan_WangZhe] andCell:(CCTitleTableViewCell *)cell];
             }
                 break;
             case kCountTag:
             {
-                
+                [self showPickerWithData:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"] andCell:(CCTitleTableViewCell *)cell];
             }
                 break;
             default:
@@ -169,6 +180,22 @@
     }
     
     return cell;
+}
+
+#pragma mark - private
+- (void)showPickerWithData:(NSArray<NSString *> *)dataList andCell:(CCTitleTableViewCell *)cell
+{
+    CCWeakSelf(weakSelf);
+    CCPickerView *pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:dataList saveBlock:^(NSString *content) {
+        [cell changeSubTitle:content subTitleColor:FontColor_Black];
+        [weakSelf.zh_popupController dismiss];
+    } cancelBlock:^{
+        [weakSelf.zh_popupController dismiss];
+    }];
+    self.zh_popupController = [zhPopupController new];
+    self.zh_popupController.layoutType = zhPopupLayoutTypeBottom;
+    self.zh_popupController.dismissOnMaskTouched = NO;
+    [self.zh_popupController presentContentView:pickerView];
 }
 
 #pragma mark - getter

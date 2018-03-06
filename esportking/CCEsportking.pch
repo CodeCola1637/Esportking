@@ -14,6 +14,7 @@
 
 #import "CCCommonDefine.h"
 #import "CCUIStandard.h"
+#import "CCWordingDefine.h"
 
 #import "UIImageView+SDWebImage.h"
 #import "UILabel+Create.h"
