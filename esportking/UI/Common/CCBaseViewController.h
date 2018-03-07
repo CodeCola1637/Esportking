@@ -11,6 +11,7 @@
 
 @interface CCBaseViewController : UIViewController
 
+@property (strong, nonatomic) UIImageView *backgroundImgView;
 @property (strong, nonatomic) CCTopbarView *topbarView;
 @property (strong, nonatomic) UIView *contentView;
 

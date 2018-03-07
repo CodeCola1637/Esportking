@@ -22,6 +22,11 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:BgColor_White];
     
+    _backgroundImgView = [UIImageView scaleFillImageView];
+    [self.view addSubview:_backgroundImgView];
+    [_backgroundImgView setFrame:self.view.bounds];
+    [_backgroundImgView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    
     _topbarView = [[CCTopbarView alloc] init];
     [self.view addSubview:_topbarView];
     
