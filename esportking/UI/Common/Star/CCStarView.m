@@ -10,6 +10,7 @@
 
 @interface CCStarView ()
 
+@property (weak  , nonatomic) id<CCStarViewDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray<UIImageView *> *starImgViewList;
 
 @end
@@ -18,21 +19,24 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
+    return [self initWithFrame:frame starGap:0];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame starGap:(CGFloat)gap
+{
     if (self = [super initWithFrame:frame])
     {
-        [self setupUI];
+        [self setupUIWithGap:gap];
     }
     return self;
 }
 
-- (void)setupUI
+- (void)setupUIWithGap:(CGFloat)gap
 {
     for (UIImageView *imgView in self.starImgViewList)
     {
         [self addSubview:imgView];
     }
-    
-    CGFloat gap = 0;
     
     [self.starImgViewList[0] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
@@ -73,6 +77,29 @@
     }
 }
 
+- (void)setEnableTouch:(BOOL)enable del:(id<CCStarViewDelegate>)del
+{
+    _delegate = del;
+    
+    for (UIImageView *imgView in self.starImgViewList)
+    {
+        [imgView setUserInteractionEnabled:enable];
+    }
+}
+
+#pragma mark - touch
+- (void)onTapStar:(UITapGestureRecognizer *)gesture
+{
+    UIImageView *view = (UIImageView *)gesture.view;
+    NSUInteger index = [self.starImgViewList indexOfObject:view];
+    
+    if (index!=NSNotFound)
+    {
+        [self setEvaluateStarCount:(uint32_t)index+1];
+        [self.delegate didSelectStarCount:(uint32_t)index+1];
+    }
+}
+
 #pragma mark - getter
 - (NSMutableArray<UIImageView *> *)starImgViewList
 {
@@ -81,8 +108,9 @@
         _starImgViewList = [NSMutableArray new];
         for (int i=0; i<5; i++)
         {
-            UIImageView *starImgView = [UIImageView new];
-            [starImgView setContentMode:UIViewContentModeScaleAspectFill];
+            UIImageView *starImgView = [UIImageView scaleFillImageView];
+            UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapStar:)];
+            [starImgView addGestureRecognizer:gesture];
             [_starImgViewList addObject:starImgView];
         }
     }

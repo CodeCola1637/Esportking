@@ -40,9 +40,8 @@
 {
     if (!_imgView)
     {
-        _imgView = [UIImageView new];
-        [_imgView setContentMode:UIViewContentModeScaleAspectFill];
-        [_imgView setClipsToBounds:YES];
+        _imgView = [UIImageView scaleFillImageView];
+        [_imgView setImage:CCIMG(@"Score_Banner")];
     }
     return _imgView;
 }

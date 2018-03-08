@@ -62,6 +62,7 @@
     [_cancelButton addTarget:self action:@selector(cancelClicked) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_cancelButton];
     
+    self.selectData = self.dataList[0];
     [_pickerView selectRow:0 inComponent:0 animated:YES];
     [self.titleLabel setText:self.dataList[0]];
 }

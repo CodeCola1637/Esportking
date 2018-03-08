@@ -46,7 +46,7 @@
 
 // 栅格定义
 #define CCOnePoint  1.f
-#define CCPXToPoint(n) ceilf((n)/2.f)
+#define CCPXToPoint(n) ceilf((n)/2.f*[UIScreen mainScreen].bounds.size.width/375)
 
 // 通用左右间距
 #define CCHorMargin CCPXToPoint(32)
@@ -79,6 +79,7 @@
 ////文字颜色规范
 #define FontColor_Purple ([UIColor colorWithARGBHex:0xff6956ff])
 #define FontColor_Yellow ([UIColor colorWithARGBHex:0xffffc600])
+#define FontColor_Gold   ([UIColor colorWithARGBHex:0xffffe353])
 #define FontColor_LightBlue ([UIColor colorWithARGBHex:0xff56ffed])
 #define FontColor_Red ([UIColor colorWithARGBHex:0xffff0000])
 #define FontColor_Beige ([UIColor colorWithARGBHex:0xfffdf7ae])
@@ -99,6 +100,7 @@
 #define BgColor_Clear  [UIColor clearColor]
 #define BgColor_Purple ([UIColor colorWithARGBHex:0xff6956ff])
 #define BgColor_Yellow ([UIColor colorWithARGBHex:0xffffc600])
+#define BgColor_Gold   ([UIColor colorWithARGBHex:0xffffe353])
 #define BgColor_Blue   ([UIColor blueColor])
 
 #define BgColor_Orange ([UIColor colorWithARGBHex:0xffffac00])

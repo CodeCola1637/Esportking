@@ -58,22 +58,31 @@
         make.right.bottom.equalTo(self.gameButton);
         make.width.height.mas_equalTo(CCPXToPoint(32));
     }];
+    [self.scoreButton setBackgroundColor:BgColor_Gold];
     [self.gameSelectView setHidden:YES];
 }
 
 - (void)setDelegate:(id<CCScoreStyleTableViewCellDelegate>)del
 {
-    self.delegate = del;
+    _delegate = del;
 }
 
 #pragma mark - action
 - (void)onClickScoreButton:(UIButton *)button
 {
+    [self.scoreButton setBackgroundColor:BgColor_Gold];
+    [self.gameButton setBackgroundColor:BgColor_White];
+    [self.scoreSelectView setHidden:NO];
+    [self.gameSelectView setHidden:YES];
     [self.delegate didSelectScoreStyle:SCORESTYLE_SCORE];
 }
 
 - (void)onClickGameButton:(UIButton *)button
 {
+    [self.scoreButton setBackgroundColor:BgColor_White];
+    [self.gameButton setBackgroundColor:BgColor_Gold];
+    [self.scoreSelectView setHidden:YES];
+    [self.gameSelectView setHidden:NO];
     [self.delegate didSelectScoreStyle:SCORESTYLE_GAME];
 }
 
@@ -84,7 +93,10 @@
     {
         _scoreButton = [UIButton new];
         [_scoreButton setTitle:@"上分专车" forState:UIControlStateNormal];
+        [_scoreButton setTitleColor:FontColor_Black forState:UIControlStateNormal];
         [_scoreButton.layer setCornerRadius:CCPXToPoint(12)];
+        [_scoreButton.layer setBorderColor:BgColor_Gold.CGColor];
+        [_scoreButton.layer setBorderWidth:1.f];
         [_scoreButton addTarget:self action:@selector(onClickScoreButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _scoreButton;
@@ -96,7 +108,10 @@
     {
         _gameButton = [UIButton new];
         [_gameButton setTitle:@"娱乐专车" forState:UIControlStateNormal];
+        [_gameButton setTitleColor:FontColor_Black forState:UIControlStateNormal];
         [_gameButton.layer setCornerRadius:CCPXToPoint(12)];
+        [_gameButton.layer setBorderColor:BgColor_Gold.CGColor];
+        [_gameButton.layer setBorderWidth:1.f];
         [_gameButton addTarget:self action:@selector(onClickGameButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _gameButton;
@@ -107,7 +122,7 @@
     if (!_scoreSelectView)
     {
         _scoreSelectView = [UIImageView new];
-        [_scoreSelectView setImage:CCIMG(@"")];
+        [_scoreSelectView setImage:CCIMG(@"Selected_Icon")];
     }
     return _scoreSelectView;
 }
@@ -117,7 +132,7 @@
     if (!_gameSelectView)
     {
         _gameSelectView = [UIImageView new];
-        [_gameSelectView setImage:CCIMG(@"")];
+        [_gameSelectView setImage:CCIMG(@"Selected_Icon")];
     }
     return _gameSelectView;
 }

@@ -74,6 +74,10 @@
 		BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95CC202D91C90081D88B /* CCHomePageRequest.m */; };
 		BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D1202D92C30081D88B /* CCGameModel.m */; };
 		BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D4202D92CD0081D88B /* CCUserModel.m */; };
+		C0148A33205114560055D545 /* CCScoreWaitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A32205114560055D545 /* CCScoreWaitViewController.m */; };
+		C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A38205116A00055D545 /* CCOrderStageView.m */; };
+		C0148A4020512EB60055D545 /* UIView+Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A3F20512EB60055D545 /* UIView+Wave.m */; };
+		C0148A4820513B540055D545 /* CCUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A4720513B540055D545 /* CCUserView.m */; };
 		C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C041DDDB204FEEB80072CE3F /* CCLoginImgUtil.m */; };
 		C05409FA204E763200C8154E /* zhAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409F6204E763200C8154E /* zhAlertView.m */; };
 		C05409FB204E763200C8154E /* zhPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409F8204E763200C8154E /* zhPickerView.m */; };
@@ -271,6 +275,14 @@
 		BEFF95D1202D92C30081D88B /* CCGameModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGameModel.m; sourceTree = "<group>"; };
 		BEFF95D3202D92CD0081D88B /* CCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserModel.h; sourceTree = "<group>"; };
 		BEFF95D4202D92CD0081D88B /* CCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserModel.m; sourceTree = "<group>"; };
+		C0148A31205114560055D545 /* CCScoreWaitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreWaitViewController.h; sourceTree = "<group>"; };
+		C0148A32205114560055D545 /* CCScoreWaitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreWaitViewController.m; sourceTree = "<group>"; };
+		C0148A37205116A00055D545 /* CCOrderStageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderStageView.h; sourceTree = "<group>"; };
+		C0148A38205116A00055D545 /* CCOrderStageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderStageView.m; sourceTree = "<group>"; };
+		C0148A3E20512EB60055D545 /* UIView+Wave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Wave.h"; sourceTree = "<group>"; };
+		C0148A3F20512EB60055D545 /* UIView+Wave.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Wave.m"; sourceTree = "<group>"; };
+		C0148A4620513B540055D545 /* CCUserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserView.h; sourceTree = "<group>"; };
+		C0148A4720513B540055D545 /* CCUserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserView.m; sourceTree = "<group>"; };
 		C041DDDA204FEEB80072CE3F /* CCLoginImgUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginImgUtil.h; sourceTree = "<group>"; };
 		C041DDDB204FEEB80072CE3F /* CCLoginImgUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoginImgUtil.m; sourceTree = "<group>"; };
 		C05409F5204E763200C8154E /* zhAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhAlertView.h; sourceTree = "<group>"; };
@@ -818,6 +830,7 @@
 		BEFC9BA120257E29002CE000 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C0148A4520513B2E0055D545 /* UserView */,
 				C0540A0C204EB83100C8154E /* ShowView */,
 				C0540A08204E976F00C8154E /* PickView */,
 				C0A1749120494431000B71F3 /* TitleCell */,
@@ -883,6 +896,8 @@
 				BE4A1BC82035441F00890485 /* UIImageView+SDWebImage.m */,
 				C0A1749A204D27CA000B71F3 /* UIImageView+Create.h */,
 				C0A1749B204D27CA000B71F3 /* UIImageView+Create.m */,
+				C0148A3E20512EB60055D545 /* UIView+Wave.h */,
+				C0148A3F20512EB60055D545 /* UIView+Wave.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -929,6 +944,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C0148A4520513B2E0055D545 /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				C0148A4620513B540055D545 /* CCUserView.h */,
+				C0148A4720513B540055D545 /* CCUserView.m */,
+			);
+			path = UserView;
+			sourceTree = "<group>";
+		};
 		C041DDD9204FEE930072CE3F /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +997,8 @@
 				C0A1748320493B22000B71F3 /* View */,
 				BEAFDA1D2027083000ED4E2D /* CCScoreViewController.h */,
 				BEAFDA1E2027083000ED4E2D /* CCScoreViewController.m */,
+				C0148A31205114560055D545 /* CCScoreWaitViewController.h */,
+				C0148A32205114560055D545 /* CCScoreWaitViewController.m */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -986,6 +1012,8 @@
 				C0A1748C20493D9A000B71F3 /* CCScoreStyleTableViewCell.m */,
 				C0A1748E20494165000B71F3 /* CCConfirmTableViewCell.h */,
 				C0A1748F20494165000B71F3 /* CCConfirmTableViewCell.m */,
+				C0148A37205116A00055D545 /* CCOrderStageView.h */,
+				C0148A38205116A00055D545 /* CCOrderStageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1451,6 +1479,7 @@
 				C0D4F89E204656BC00258CC6 /* ZJTitleView.m in Sources */,
 				C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */,
 				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
+				C0148A33205114560055D545 /* CCScoreWaitViewController.m in Sources */,
 				C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */,
 				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
 				C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */,
@@ -1472,6 +1501,7 @@
 				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
+				C0148A4820513B540055D545 /* CCUserView.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
@@ -1481,6 +1511,7 @@
 				BE49C9F62042917A00B0E34A /* CCLevelView.m in Sources */,
 				BE49C9E820427C0D00B0E34A /* CCUserCommentTableViewCell.m in Sources */,
 				C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */,
+				C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */,
 				C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */,
 				C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */,
 				BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */,
@@ -1490,6 +1521,7 @@
 				BEAFDA1F2027083000ED4E2D /* CCScoreViewController.m in Sources */,
 				BE45F95C2029E21200482824 /* CCBigButton.m in Sources */,
 				C0A1749020494165000B71F3 /* CCConfirmTableViewCell.m in Sources */,
+				C0148A4020512EB60055D545 /* UIView+Wave.m in Sources */,
 				BEAFDA57202759BE00ED4E2D /* CCBigTextFieldView.m in Sources */,
 				C0D4F8C92046DE0900258CC6 /* CCTryCardTableViewCell.m in Sources */,
 				BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */,
