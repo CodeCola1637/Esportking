@@ -15,6 +15,7 @@
 #import "CCLoginManager.h"
 #import "CCBigButton.h"
 #import "CCAccountService.h"
+#import "CCLoginImgUtil.h"
 
 #import <ShareSDK/ShareSDK.h>
 
@@ -72,6 +73,7 @@
 {
     [self.topbarView setHidden:YES];
     [self setContentWithTopOffset:LMLayoutAreaTopHeight bottomOffset:LMLayoutAreaBottomHeight];
+    [self.backgroundImgView setImage:[CCLoginImgUtil getLoginImgForSize:[UIScreen mainScreen].bounds.size]];
 }
 
 - (void)setup
@@ -280,7 +282,7 @@
         [_phoneInput setKeyboardType:UIKeyboardTypePhonePad];
         [_phoneInput setFont:Font_Large];
         [_phoneInput setTextColor:FontColor_Black];
-        [_phoneInput setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入手机号" attributes:@{NSForegroundColorAttributeName:FontColor_Gray}]];
+        [_phoneInput setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入手机号" attributes:@{NSForegroundColorAttributeName:FontColor_Black}]];
     }
     return _phoneInput;
 }
@@ -295,7 +297,7 @@
         [_passwordInput setFont:Font_Large];
         [_passwordInput setTextColor:FontColor_Black];
         [_passwordInput setSecureTextEntry:YES];
-        [_passwordInput setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"密码（6-20位）" attributes:@{NSForegroundColorAttributeName:FontColor_Gray}]];
+        [_passwordInput setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"密码（6-20位）" attributes:@{NSForegroundColorAttributeName:FontColor_Black}]];
     }
     return _passwordInput;
 }
@@ -324,7 +326,7 @@
 {
     if (!_forgetLabel)
     {
-        _forgetLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Yellow];
+        _forgetLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_forgetLabel setText:@"忘记密码？"];
         [_forgetLabel setUserInteractionEnabled:YES];
         
@@ -349,7 +351,7 @@
 {
     if (!_noneLable)
     {
-        _noneLable = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_DeepDark];
+        _noneLable = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_noneLable setText:@"还没有账号？"];
     }
     return _noneLable;
@@ -373,7 +375,7 @@
 {
     if (!_thirdLoginLabel)
     {
-        _thirdLoginLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_DeepGray];
+        _thirdLoginLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
     }
     return _thirdLoginLabel;
 }

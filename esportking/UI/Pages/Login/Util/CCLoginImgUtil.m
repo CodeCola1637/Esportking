@@ -12,7 +12,22 @@
 
 + (UIImage *)getLoginImgForSize:(CGSize)size
 {
-    return nil;
+    CGFloat ratio = size.height/size.width;
+    CGFloat ratio1 = 1.78;
+    CGFloat ratio2 = 1.96;
+    
+    NSString *imgName = nil;
+    
+    if (ABS(ratio-ratio1) < ABS(ratio-ratio2))
+    {
+        imgName = @"Login_BG_Ratio_178";
+    }
+    else
+    {
+        imgName = @"Login_BG_Ratio_196";
+    }
+
+    return CCIMG(imgName);
 }
 
 @end

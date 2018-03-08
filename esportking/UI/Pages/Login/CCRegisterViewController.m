@@ -14,6 +14,7 @@
 #import "CCBigTextFieldView.h"
 #import "CCBigButton.h"
 #import "NSString+Check.h"
+#import "CCLoginImgUtil.h"
 
 @interface CCRegisterViewController ()<CCRegisterDelegate>
 
@@ -71,6 +72,8 @@
 
 - (void)setupContent
 {
+    [self.backgroundImgView setImage:[CCLoginImgUtil getLoginImgForSize:[UIScreen mainScreen].bounds.size]];
+    
     [self.contentView addSubview:self.devideView];
     [self.contentView addSubview:self.mobileField];
     [self.contentView addSubview:self.getSMSCodeButton];
@@ -230,7 +233,7 @@
     if (!_devideView)
     {
         _devideView = [UIView new];
-        [_devideView setBackgroundColor:BgColor_LightGray];
+        [_devideView setBackgroundColor:BgColor_Clear];
     }
     return _devideView;
 }
@@ -244,7 +247,7 @@
         [_mobileField setFont:Font_Large];
         [_mobileField setTextColor:FontColor_Black];
         [_mobileField setKeyboardType:UIKeyboardTypeNumberPad];
-        [_mobileField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入手机号" attributes:@{NSForegroundColorAttributeName:FontColor_Gray}]];
+        [_mobileField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入手机号" attributes:@{NSForegroundColorAttributeName:FontColor_Black}]];
     }
     return _mobileField;
 }
@@ -280,7 +283,7 @@
     {
         _verfyTextField = [CCBigTextFieldView new];
         [_verfyTextField.textField setKeyboardType:UIKeyboardTypeNumberPad];
-        [_verfyTextField.textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入验证码" attributes:@{NSForegroundColorAttributeName:FontColor_Gray}]];
+        [_verfyTextField.textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"请输入验证码" attributes:@{NSForegroundColorAttributeName:FontColor_Black}]];
     }
     return _verfyTextField;
 }
@@ -293,7 +296,7 @@
         [_pwdTextField.textField setLimitText:20];
         [_pwdTextField.textField setSecureTextEntry:YES];
         [_pwdTextField.textField setKeyboardType:UIKeyboardTypeASCIICapableNumberPad];
-        [_pwdTextField.textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"密码（6-20位）" attributes:@{NSForegroundColorAttributeName:FontColor_Gray}]];
+        [_pwdTextField.textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"密码（6-20位）" attributes:@{NSForegroundColorAttributeName:FontColor_Black}]];
     }
     return _pwdTextField;
 }
@@ -306,7 +309,7 @@
         [_confirmPwdTextField.textField setLimitText:20];
         [_confirmPwdTextField.textField setSecureTextEntry:YES];
         [_confirmPwdTextField.textField setKeyboardType:UIKeyboardTypeASCIICapableNumberPad];
-        [_confirmPwdTextField.textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"确认密码" attributes:@{NSForegroundColorAttributeName:FontColor_Gray}]];
+        [_confirmPwdTextField.textField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"确认密码" attributes:@{NSForegroundColorAttributeName:FontColor_Black}]];
     }
     return _confirmPwdTextField;
 }

@@ -12,6 +12,7 @@
 #import "UILabel+Create.h"
 #import "CCModifyUserInfoRequest.h"
 #import "CCUploadImgRequest.h"
+#import "CCLoginImgUtil.h"
 
 #import "zhPickerView.h"
 #import <zhPopupController.h>
@@ -65,6 +66,10 @@
 - (void)configContent
 {
     [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:LMLayoutAreaBottomHeight];
+    if (_type == MODIFYTYPE_REGISTER)
+    {
+        [self.backgroundImgView setImage:[CCLoginImgUtil getLoginImgForSize:[UIScreen mainScreen].bounds.size]];
+    }
     
     [self.contentView addSubview:self.headImgView];
     [self.contentView addSubview:self.nameItem];
