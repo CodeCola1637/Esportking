@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger {
-    SCORESTYLE_SCORE = 1,
-    SCORESTYLE_GAME,
-} SCORESTYLE;
-
 @protocol CCScoreStyleTableViewCellDelegate<NSObject>
 
 - (void)didSelectScoreStyle:(SCORESTYLE)style;

@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) UIPickerView *pickerView;
 
-- (instancetype)initWithFrame:(CGRect)frame data:(NSArray<NSString *> *)dataList saveBlock:(void(^)(NSString *content))saveBlock cancelBlock:(void(^)(void))cancelBlock;
+- (instancetype)initWithFrame:(CGRect)frame data:(NSArray<NSString *> *)dataList saveBlock:(void(^)(NSString *content, NSInteger selectIndex))saveBlock cancelBlock:(void(^)(void))cancelBlock;
 
 @end

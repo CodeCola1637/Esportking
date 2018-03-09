@@ -15,11 +15,7 @@
 
 @interface CCScoreWaitViewController ()
 
-@property (strong, nonatomic) NSString *serviceStr;
-@property (strong, nonatomic) NSString *systemStr;
-@property (strong, nonatomic) NSString *danStr;
-@property (assign, nonatomic) uint32_t count;
-@property (assign, nonatomic) uint32_t money;
+@property (strong, nonatomic) CCScoreModel *scoreModel;
 
 @property (strong, nonatomic) UILabel *serviceLabel;
 @property (strong, nonatomic) UILabel *systemLabel;
@@ -42,15 +38,11 @@
 
 @implementation CCScoreWaitViewController
 
-- (instancetype)initWithService:(NSString *)service system:(NSString *)system dan:(NSString *)dan count:(uint32_t)count money:(uint32_t)money
+- (instancetype)initWithScoreModel:(CCScoreModel *)model
 {
     if (self = [super init])
     {
-        _serviceStr = service;
-        _systemStr = system;
-        _danStr = dan;
-        _count = count;
-        _money = money;
+        self.scoreModel = model;
     }
     return self;
 }
@@ -202,7 +194,7 @@
         _serviceLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_serviceLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"发车方式：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:self.serviceStr attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getSytleStr:self.scoreModel.style] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
         [_serviceLabel setAttributedText:artStr];
     }
     return _serviceLabel;
@@ -215,7 +207,7 @@
         _systemLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_systemLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"系统区服：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:self.systemStr attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", [CCScoreModel getSystemStr:self.scoreModel.system], [CCScoreModel getPlatformStr:self.scoreModel.platform]] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
         [_systemLabel setAttributedText:artStr];
     }
     return _systemLabel;
@@ -227,9 +219,18 @@
     {
         _danLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_danLabel setTextAlignment:NSTextAlignmentLeft];
-        NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"段位信息：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:self.danStr attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-        [_danLabel setAttributedText:artStr];
+        if (self.scoreModel.style == SCORESTYLE_GAME)
+        {
+            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"段位信息：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
+            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getLevelStr:self.scoreModel.level] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+            [_danLabel setAttributedText:artStr];
+        }
+        else
+        {
+            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"开始段位：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
+            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getDetailLevelStr:self.scoreModel.startLevel] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+            [_danLabel setAttributedText:artStr];
+        }
     }
     return _danLabel;
 }
@@ -240,9 +241,18 @@
     {
         _countLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_countLabel setTextAlignment:NSTextAlignmentLeft];
-        NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"服务局数：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d局", self.count] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-        [_countLabel setAttributedText:artStr];
+        if (self.scoreModel.style == SCORESTYLE_GAME)
+        {
+            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"服务局数：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
+            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d局", self.scoreModel.count] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+            [_countLabel setAttributedText:artStr];
+        }
+        else
+        {
+            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"目标段位：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
+            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getDetailLevelStr:self.scoreModel.endLevel] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+            [_countLabel setAttributedText:artStr];
+        }
     }
     return _countLabel;
 }
@@ -254,7 +264,7 @@
         _moneyLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_moneyLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"订单金额：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", self.money] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", [self.scoreModel calCulateMoney]] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
         [_moneyLabel setAttributedText:artStr];
     }
     return _moneyLabel;

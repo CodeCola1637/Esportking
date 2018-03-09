@@ -1,16 +1,17 @@
 //
-//  CCPickerView.m
+//  CCDanPickerView.m
 //  esportking
 //
-//  Created by jaycechen on 2018/3/6.
+//  Created by jaycechen on 2018/3/9.
 //  Copyright © 2018年 wan353. All rights reserved.
 //
 
-#import "CCPickerView.h"
+#import "CCDanPickerView.h"
 
-@interface CCPickerView ()<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface CCDanPickerView ()<UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (strong, nonatomic) NSArray<NSString *> *dataList;
+@property (strong, nonatomic) NSArray<NSString *> *firstComponentList;
+@property (strong, nonatomic) NSArray<NSArray<NSString *> *> *secondComponentList;
 @property (strong, nonatomic) void(^saveBlock)(NSString *content, NSInteger selectIndex);
 @property (strong, nonatomic) void(^cancelBlock)(void);
 
@@ -20,13 +21,14 @@
 
 @end
 
-@implementation CCPickerView
+@implementation CCDanPickerView
 
-- (instancetype)initWithFrame:(CGRect)frame data:(NSArray<NSString *> *)dataList saveBlock:(void(^)(NSString *content, NSInteger selectIndex))saveBlock cancelBlock:(void(^)(void))cancelBlock
+- (instancetype)initWithFrame:(CGRect)frame saveBlock:(void(^)(NSString *content, NSInteger selectIndex))saveBlock cancelBlock:(void(^)(void))cancelBlock
 {
     if (self = [super initWithFrame:frame])
     {
-        self.dataList = dataList;
+        self.firstComponentList = Wording_Dan_List;
+        self.secondComponentList = Wording_Dan_List_Detail;
         self.saveBlock = saveBlock;
         self.cancelBlock = cancelBlock;
         [self setupUI];
@@ -62,7 +64,8 @@
     [self addSubview:_cancelButton];
     
     [_pickerView selectRow:0 inComponent:0 animated:YES];
-    [self.titleLabel setText:self.dataList[0]];
+    [_pickerView selectRow:0 inComponent:1 animated:YES];
+    [self.titleLabel setText:self.secondComponentList[0][0]];
 }
 
 - (void)layoutSubviews {
@@ -90,10 +93,11 @@
 #pragma mark - action
 - (void)saveClicked
 {
-    NSInteger index = [self.pickerView selectedRowInComponent:0];
+    NSInteger firstIndex = [self.pickerView selectedRowInComponent:0];
+    NSInteger secondIndex = [self.pickerView selectedRowInComponent:1];
     if (self.saveBlock)
     {
-        self.saveBlock(self.dataList[index], index+1);
+        self.saveBlock(self.secondComponentList[firstIndex][secondIndex], (firstIndex+1)*100+secondIndex+1);
     }
 }
 
@@ -108,23 +112,37 @@
 #pragma mark - UIPickerViewDelegate
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [self.titleLabel setText:self.dataList[row]];
+    if (component == 0)
+    {
+        [self.pickerView reloadComponent:1];
+        [self.pickerView selectRow:0 inComponent:1 animated:NO];
+    }
+    
+    [self.titleLabel setText:self.secondComponentList[[self.pickerView selectedRowInComponent:0]][[self.pickerView selectedRowInComponent:1]]];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return self.dataList[row];
+    if (component == 0)
+    {
+        return self.firstComponentList[row];
+    }
+    return self.secondComponentList[[self.pickerView selectedRowInComponent:0]][row];
 }
 
 #pragma mark - UIPickerViewDataSource
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return self.dataList.count;
+    if (component == 0)
+    {
+        return self.firstComponentList.count;
+    }
+    return self.secondComponentList[[self.pickerView selectedRowInComponent:0]].count;
 }
 
 @end

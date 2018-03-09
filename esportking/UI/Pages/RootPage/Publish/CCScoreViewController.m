@@ -8,9 +8,12 @@
 
 #import "CCScoreViewController.h"
 #import "CCScoreWaitViewController.h"
+
+#import "CCScoreModel.h"
+
 #import "CCRefreshTableView.h"
 #import "CCPickerView.h"
-
+#import "CCDanPickerView.h"
 #import "CCScoreBannerTableViewCell.h"
 #import "CCScoreStyleTableViewCell.h"
 #import "CCTitleTableViewCell.h"
@@ -29,14 +32,12 @@
 #define kLocationTag         12
 #define kDanTag              13
 #define kCountTag            14
+#define kStartDanTag         15
+#define kEndDanTag           16
 
 @interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate, CCConfirmTableViewCellDelegate, CCScoreStyleTableViewCellDelegate>
 
-@property (assign, nonatomic) SCORESTYLE style;
-@property (strong, nonatomic) NSString *systemStr;
-@property (strong, nonatomic) NSString *locationStr;
-@property (strong, nonatomic) NSString *danStr;
-@property (assign, nonatomic) uint32_t count;
+@property (strong, nonatomic) CCScoreModel *scoreModel;
 
 @property (strong, nonatomic) NSArray *heightList;
 @property (strong, nonatomic) CCRefreshTableView *tableView;
@@ -48,6 +49,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.scoreModel = [CCScoreModel new];
+    self.scoreModel.style = SCORESTYLE_SCORE;
+    
     [self configTopbar];
     [self configContent];
 }
@@ -69,14 +74,21 @@
 #pragma mark - CCScoreStyleTableViewCellDelegate
 - (void)didSelectScoreStyle:(SCORESTYLE)style
 {
-    _style = style;
+    if (self.scoreModel.style != style)
+    {
+        self.scoreModel.style = style;
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - CCConfirmTableViewCellDelegate
 - (void)onSelectOrder
 {
-    CCScoreWaitViewController *vc = [[CCScoreWaitViewController alloc] initWithService:(_style == SCORESTYLE_SCORE?@"上分专车":@"娱乐专车") system:self.systemStr dan:self.danStr count:0 money:0];
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([self.scoreModel checkInfoCompleted])
+    {
+        CCScoreWaitViewController *vc = [[CCScoreWaitViewController alloc] initWithScoreModel:self.scoreModel];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -87,16 +99,16 @@
     
     if ([cell isKindOfClass:[CCTitleTableViewCell class]])
     {
-        CCPickerView *pickerView = nil;
+        UIView *pickerView = nil;
         CCWeakSelf(weakSelf);
         
         switch (cell.tag) {
             case kSystemTag:
             {
-                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[Wording_System_iOS_Platform_QQ, Wording_System_iOS_Platform_WX, Wording_System_Android_Platform_QQ, Wording_System_Android_Platform_WX] saveBlock:^(NSString *content) {
+                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[Wording_System_iOS, Wording_System_Andorid] saveBlock:^(NSString *content, NSInteger selectIndex) {
                     
-                    weakSelf.systemStr = content;
-                    [(CCTitleTableViewCell *)cell changeSubTitle:content subTitleColor:FontColor_Black];
+                    weakSelf.scoreModel.system = selectIndex;
+                    [weakSelf.tableView reloadData];
                     [weakSelf.zh_popupController dismiss];
                 } cancelBlock:^{
                     [weakSelf.zh_popupController dismiss];
@@ -105,15 +117,22 @@
                 break;
             case kLocationTag:
             {
-                
+                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[Wording_Platform_QQ, Wording_Platform_WX] saveBlock:^(NSString *content, NSInteger selectIndex) {
+                    
+                    weakSelf.scoreModel.platform = selectIndex;
+                    [weakSelf.tableView reloadData];
+                    [weakSelf.zh_popupController dismiss];
+                } cancelBlock:^{
+                    [weakSelf.zh_popupController dismiss];
+                }];
             }
                 break;
             case kDanTag:
             {
-                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[Wording_Dan_QingTong, Wording_Dan_BaiYin, Wording_Dan_HuangJin, Wording_Dan_BOJIN, Wording_Dan_ZuanShi, Wording_Dan_XingYao, Wording_Dan_WangZhe] saveBlock:^(NSString *content) {
+                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[Wording_Dan_QingTong, Wording_Dan_BaiYin, Wording_Dan_HuangJin, Wording_Dan_BOJIN, Wording_Dan_ZuanShi, Wording_Dan_XingYao, Wording_Dan_WangZhe] saveBlock:^(NSString *content, NSInteger selectIndex) {
                     
-                    weakSelf.danStr = content;
-                    [(CCTitleTableViewCell *)cell changeSubTitle:content subTitleColor:FontColor_Black];
+                    weakSelf.scoreModel.level = selectIndex;
+                    [weakSelf.tableView reloadData];
                     [weakSelf.zh_popupController dismiss];
                 } cancelBlock:^{
                     [weakSelf.zh_popupController dismiss];
@@ -122,10 +141,48 @@
                 break;
             case kCountTag:
             {
-                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"] saveBlock:^(NSString *content) {
+                pickerView = [[CCPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275)  data:@[@"1", @"2", @"3", @"4", @"5"] saveBlock:^(NSString *content, NSInteger selectIndex) {
                     
-                    weakSelf.count = (uint32_t)[content integerValue];
-                    [(CCTitleTableViewCell *)cell changeSubTitle:content subTitleColor:FontColor_Black];
+                    weakSelf.scoreModel.count = (uint32_t)selectIndex;
+                    [weakSelf.tableView reloadData];
+                    [weakSelf.zh_popupController dismiss];
+                } cancelBlock:^{
+                    [weakSelf.zh_popupController dismiss];
+                }];
+            }
+                break;
+            case kStartDanTag:
+            {
+                pickerView = [[CCDanPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275) saveBlock:^(NSString *content, NSInteger selectIndex) {
+                    
+                    if (selectIndex < weakSelf.scoreModel.endLevel || weakSelf.scoreModel.endLevel == 0)
+                    {
+                        weakSelf.scoreModel.startLevel = (uint32_t)selectIndex;
+                        [weakSelf.tableView reloadData];
+                    }
+                    else
+                    {
+                        [weakSelf showToast:@"目标段位必须大于当前段位"];
+                    }
+                    [weakSelf.zh_popupController dismiss];
+                } cancelBlock:^{
+                    [weakSelf.zh_popupController dismiss];
+                }];
+            }
+                break;
+            case kEndDanTag:
+            {
+                pickerView = [[CCDanPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 275) saveBlock:^(NSString *content, NSInteger selectIndex) {
+                    
+                    if (selectIndex > weakSelf.scoreModel.startLevel)
+                    {
+                        weakSelf.scoreModel.endLevel = (uint32_t)selectIndex;
+                        [weakSelf.tableView reloadData];
+                    }
+                    else
+                    {
+                        [weakSelf showToast:@"目标段位必须大于当前段位"];
+                    }
                     [weakSelf.zh_popupController dismiss];
                 } cancelBlock:^{
                     [weakSelf.zh_popupController dismiss];
@@ -173,7 +230,8 @@
     else if (indexPath.row == 1)
     {
         CCDevideTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kFivthIdentify];
-        [tableCell setContentText:@"选择区服"];
+        [tableCell setContentText:@"选择您想要的服务"];
+        [tableCell setBackgroundColor:BgColor_SuperLightGray];
         cell = tableCell;
     }
     else if (indexPath.row == 2)
@@ -185,16 +243,17 @@
     else if (indexPath.row == 3)
     {
         CCDevideTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kFivthIdentify];
-        [tableCell setContentText:@"说明："];
+        [tableCell setContentText:@"说明：娱乐专车是有大神带你开黑，以娱乐为主，不一定100%胜率，想要上分的小伙伴建议乘坐上分专车。"];
+        [tableCell setBackgroundColor:BgColor_SuperLightGray];
         cell = tableCell;
     }
     else if (indexPath.row == 9)
     {
         CCConfirmTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kForthIdentify];
-        [tableCell setPrice:0 andDelegate:self];
+        [tableCell setPrice:[self.scoreModel calCulateMoney] andDelegate:self];
         cell = tableCell;
     }
-    else if (indexPath.row == 8 || indexPath.row == 10)
+    else if (indexPath.row == 8)
     {
         CCDevideTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kFivthIdentify];
         [tableCell setBackgroundColor:FontColor_SuperLightGray];
@@ -203,29 +262,51 @@
     else if (indexPath.row == 4)
     {
         CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
-        [tableCell setTitle:@"选择系统" subTitle:@"请选择" subTitleColor:FontColor_Gray];
+        NSString *system = [CCScoreModel getSystemStr:self.scoreModel.system];
+        [tableCell setTitle:@"选择系统" subTitle:(system?:@"请选择") subTitleColor:(system?FontColor_Black:FontColor_Gray)];
         tableCell.tag = kSystemTag;
         cell = tableCell;
     }
     else if (indexPath.row == 5)
     {
         CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
-        [tableCell setTitle:@"选择区服" subTitle:@"请选择" subTitleColor:FontColor_Gray];
+        NSString *platform = [CCScoreModel getPlatformStr:self.scoreModel.platform];
+        [tableCell setTitle:@"选择区服" subTitle:(platform?:@"请选择") subTitleColor:(platform?FontColor_Black:FontColor_Gray)];
         tableCell.tag = kLocationTag;
         cell = tableCell;
     }
     else if (indexPath.row == 6)
     {
         CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
-        [tableCell setTitle:@"选择段位" subTitle:@"请选择" subTitleColor:FontColor_Gray];
-        tableCell.tag = kDanTag;
+        if (SCORESTYLE_SCORE == self.scoreModel.style)
+        {
+            NSString *startLevel = [CCScoreModel getDetailLevelStr:self.scoreModel.startLevel];
+            [tableCell setTitle:@"当前段位" subTitle:(startLevel?:@"请选择") subTitleColor:(startLevel?FontColor_Black:FontColor_Gray)];
+            tableCell.tag = kStartDanTag;
+        }
+        else
+        {
+            NSString *level = [CCScoreModel getLevelStr:self.scoreModel.level];
+            [tableCell setTitle:@"选择段位" subTitle:(level?:@"请选择") subTitleColor:(level?FontColor_Black:FontColor_Gray)];
+            tableCell.tag = kDanTag;
+        }
         cell = tableCell;
     }
     else if (indexPath.row == 7)
     {
         CCTitleTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kThirdIdentify];
-        [tableCell setTitle:@"选择局数" subTitle:@"请选择" subTitleColor:FontColor_Gray];
-        tableCell.tag = kCountTag;
+        if (SCORESTYLE_SCORE == self.scoreModel.style)
+        {
+            NSString *endLevel = [CCScoreModel getDetailLevelStr:self.scoreModel.endLevel];
+            [tableCell setTitle:@"目标段位" subTitle:(endLevel?:@"请选择") subTitleColor:(endLevel?FontColor_Black:FontColor_Gray)];
+            tableCell.tag = kEndDanTag;
+        }
+        else
+        {
+            NSString *countStr = [CCScoreModel getCountStr:self.scoreModel.count];
+            [tableCell setTitle:@"选择局数" subTitle:(countStr?:@"请选择") subTitleColor:(countStr?FontColor_Black:FontColor_Gray)];
+            tableCell.tag = kCountTag;
+        }
         cell = tableCell;
     }
     
@@ -237,7 +318,7 @@
 {
     if (!_heightList)
     {
-        _heightList = @[@(300), @(64), @(108), @(108), @(96), @(96), @(96), @(96), @(16), @(96), @(16)];
+        _heightList = @[@(300), @(64), @(108), @(108), @(96), @(96), @(96), @(96), @(16), @(96)];
     }
     return _heightList;
 }

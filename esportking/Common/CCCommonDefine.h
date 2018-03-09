@@ -46,3 +46,18 @@ typedef enum : NSUInteger {
     MONEYTYPE_OUT,
     MONEYTYPE_IN,
 } MONEYTYPE;
+
+typedef enum : NSUInteger {
+    SCORESTYLE_SCORE = 1,
+    SCORESTYLE_GAME,
+} SCORESTYLE;
+
+typedef enum : NSUInteger {
+    LEVEL_QINGTONG = 1,
+    LEVEL_BAIYIN,
+    LEVEL_HUANGJIN,
+    LEVEL_BOJIN,
+    LEVEL_ZUANSHI,
+    LEVEL_XINGYAO,
+    LEVEL_WANGZHE,
+} LEVEL;

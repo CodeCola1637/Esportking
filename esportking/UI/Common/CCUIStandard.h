@@ -46,7 +46,7 @@
 
 // 栅格定义
 #define CCOnePoint  1.f
-#define CCPXToPoint(n) ceilf((n)/2.f)
+#define CCPXToPoint(n) ceilf((n)/2.f*LM_SCREEN_WIDTH/375.f)
 
 // 通用左右间距
 #define CCHorMargin CCPXToPoint(32)
