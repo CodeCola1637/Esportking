@@ -9,6 +9,7 @@
 #import "CCScoreWaitViewController.h"
 #import "CCOrderStageView.h"
 #import "UIView+Wave.h"
+#import "CCUserView.h"
 
 #define kRoundWidth CCPXToPoint(164)
 
@@ -32,6 +33,10 @@
 
 @property (strong, nonatomic) UIView *roundView;
 @property (strong, nonatomic) UILabel *displayLabel;
+
+
+@property (strong, nonatomic) CCUserView *userView;
+@property (strong, nonatomic) UIButton *contactButton;
 
 @end
 
@@ -90,6 +95,8 @@
     [self.contentView addSubview:self.roundView];
     [self.contentView addSubview:self.displayLabel];
     [self.contentView addSubview:self.tipsLabel];
+    [self.contentView addSubview:self.userView];
+    [self.contentView addSubview:self.contactButton];
     
     [self.serviceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(CCHorMargin);
@@ -139,10 +146,30 @@
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(90));
     }];
+    
+    [self.contactButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(146));
+        make.centerX.equalTo(self.contentView);
+        make.width.mas_equalTo(CCPXToPoint(410));
+        make.height.mas_equalTo(CCPXToPoint(86));
+    }];
+    [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.contentView);
+        make.bottom.equalTo(self.contactButton.mas_top).offset(-CCPXToPoint(50));
+        make.height.mas_equalTo(UserViewHeight);
+    }];
+    
+    [self.contactButton setHidden:YES];
+    [self.userView setHidden:YES];
 }
 
 #pragma mark - action
 - (void)onClickCancelButton:(UIButton *)button
+{
+    
+}
+
+- (void)onClickContactButton:(UIButton *)button
 {
     
 }
@@ -154,6 +181,17 @@
     [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d\n", count] attributes:@{NSForegroundColorAttributeName:FontColor_Red, NSFontAttributeName:BoldFont_Large}]];
     [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"位大神" attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:BoldFont_Big}]];
     [self.displayLabel setAttributedText:artStr];
+}
+
+- (void)changeToGainOrderState
+{
+    [self.roundView stopWaveAnimation];
+    [self.roundView setHidden:YES];
+    [self.displayLabel setHidden:YES];
+    [self.tipsLabel setHidden:YES];
+    
+    [self.userView setHidden:NO];
+    [self.contactButton setHidden:NO];
 }
 
 #pragma mark - getter
@@ -272,6 +310,30 @@
         [_tipsLabel setText:@"若60秒内没有大神接单，订单将自动取消"];
     }
     return _tipsLabel;
+}
+
+- (CCUserView *)userView
+{
+    if (!_userView)
+    {
+        _userView = [CCUserView new];
+    }
+    return _userView;
+}
+
+- (UIButton *)contactButton
+{
+    if (!_contactButton)
+    {
+        _contactButton = [UIButton new];
+        [_contactButton setTitle:@"联系小伙伴" forState:UIControlStateNormal];
+        [_contactButton setTitleColor:FontColor_Black forState:UIControlStateNormal];
+        [_contactButton.layer setCornerRadius:CCPXToPoint(86)/2.f];
+        [_contactButton.layer setBorderColor:[UIColor colorWithRGBHex:0xfb221c].CGColor];
+        [_contactButton.layer setBorderWidth:CCOnePoint];
+        [_contactButton addTarget:self action:@selector(onClickContactButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _contactButton;
 }
 
 @end

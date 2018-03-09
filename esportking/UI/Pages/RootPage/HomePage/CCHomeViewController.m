@@ -20,6 +20,8 @@
 #import "CCAccountService.h"
 
 #import <UIViewController+CWLateralSlide.h>
+#import <UIButton+WebCache.h>
+#import <MJRefresh.h>
 
 #define kFirstSection   @"first"
 #define kSecondSection  @"second"
@@ -57,8 +59,12 @@
 
 - (void)configTopbar
 {
+    [self.userButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CCIMG(@"Header_Placeholder").size);
+    }];
     [self.topbarView layoutLeftControls:@[self.userButton] spacing:nil];
     [self.topbarView layoutRightControls:@[self.searchButton] spacing:nil];
+    [self.topbarView setBackgroundColor:BgColor_Gold];
     
     UIImageView *imgView = [[UIImageView alloc] initWithImage:CCIMG(@"LOGO")];
     [self.topbarView layoutMidControls:@[imgView] spacing:nil];
@@ -246,6 +252,7 @@
         _collectionView.collectionView.dataSource = self;
         _collectionView.collectionView.delegate = self;
         [_collectionView setRefreshDelegate:self];
+        [_collectionView.collectionView.mj_header setBackgroundColor:BgColor_Gold];
         [_collectionView.collectionView registerClass:[CCBannerCollectionViewCell class] forCellWithReuseIdentifier:kFirstSection];
         [_collectionView.collectionView registerClass:[CCNavigationCollectionViewCell class] forCellWithReuseIdentifier:kSecondSection];
         [_collectionView.collectionView registerClass:[CCGameItemCollectionViewCell class] forCellWithReuseIdentifier:kThirdSection];
@@ -256,7 +263,7 @@
             {
                 case 0:
                 {
-                    return CGSizeMake(LM_SCREEN_WIDTH, CCBannerItemSize.height);
+                    return CGSizeMake(LM_SCREEN_WIDTH, CCBannerItemSize.height+CCPXToPoint(60));
                 }
                     break;
                 case 1:
@@ -302,8 +309,9 @@
     if (!_userButton)
     {
         _userButton = [UIButton new];
-        [_userButton setImage:CCIMG(@"Header_Placeholder") forState:UIControlStateNormal];
-        [_userButton.imageView setImageWithUrl:CCAccountServiceInstance.headUrl placeholder:nil];
+        [_userButton.layer setCornerRadius:CCIMG(@"Header_Placeholder").size.height/2.f];
+        [_userButton.layer setMasksToBounds:YES];
+        [_userButton sd_setBackgroundImageWithURL:[NSURL URLWithString:CCAccountServiceInstance.headUrl] forState:UIControlStateNormal placeholderImage:CCIMG(@"Header_Placeholder")];
         [_userButton addTarget:self action:@selector(onClickUserButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _userButton;

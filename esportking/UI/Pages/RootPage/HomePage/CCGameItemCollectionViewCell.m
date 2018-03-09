@@ -62,7 +62,7 @@
         _imgView = [UIImageView new];
         [_imgView setContentMode:UIViewContentModeScaleAspectFill];
         [_imgView setClipsToBounds:YES];
-        [_imgView.layer setCornerRadius:CCPXToPoint(6)];
+        [_imgView.layer setCornerRadius:CCPXToPoint(10)];
     }
     return _imgView;
 }

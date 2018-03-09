@@ -46,7 +46,7 @@
 
 // 栅格定义
 #define CCOnePoint  1.f
-#define CCPXToPoint(n) ceilf((n)/2.f*[UIScreen mainScreen].bounds.size.width/375)
+#define CCPXToPoint(n) ceilf((n)/2.f)
 
 // 通用左右间距
 #define CCHorMargin CCPXToPoint(32)
@@ -86,10 +86,9 @@
 #define FontColor_DeepGray ([UIColor colorWithARGBHex:0xffa9a9a9])
 #define FontColor_Gray ([UIColor colorWithARGBHex:0xffc7c7c7])
 #define FontColor_LightGray ([UIColor colorWithARGBHex:0xffc2c2c2])
+#define FontColor_SuperLightGray ([UIColor colorWithARGBHex:0xfff2f2f2])
 #define FontColor_DeepDark ([UIColor colorWithARGBHex:0xff848484])
 #define FontColor_White ([UIColor whiteColor])
-
-#define FontColor_SuperLightGray ([[UIColor whiteColor] colorWithAlphaComponent:.1f])
 
 #define FontColor_Black ([UIColor blackColor])
 #define FontColor_Dark ([[UIColor blackColor] colorWithAlphaComponent:.7f])
@@ -108,11 +107,11 @@
 #define BgColor_Pink   ([UIColor colorWithARGBHex:0xfffc3f99])
 #define BgColor_Gray   ([UIColor colorWithARGBHex:0xffc7c7c7])
 #define BgColor_LightGray ([UIColor colorWithARGBHex:0xffc2c2c2])
+#define BgColor_SuperLightGray ([UIColor colorWithARGBHex:0xfff2f2f2])
 #define BgColor_DeepDark ([UIColor colorWithARGBHex:0xff848484])
 #define BgColor_DeepGray ([UIColor colorWithARGBHex:0xffa9a9a9])
 
 #define BgColor_White [UIColor whiteColor]
-#define BgColor_SuperLightGray ([[UIColor whiteColor] colorWithAlphaComponent:.1f])
 
 #define BgColor_Black ([UIColor blackColor])
 
@@ -198,4 +197,4 @@
 #define LMAnimateWithDuration (0.25)
 
 #define CCIMG(str) [UIImage imageNamed:str]
-#define CCBannerItemSize CGSizeMake(180, 180)
+#define CCBannerItemSize CGSizeMake(CCPXToPoint(540), CCPXToPoint(540))

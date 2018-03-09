@@ -29,7 +29,7 @@
     if (!_lineView)
     {
         _lineView = [UIView new];
-        [_lineView setBackgroundColor:BgColor_LightGray];
+        [_lineView setBackgroundColor:BgColor_SuperLightGray];
     }
     return _lineView;
 }

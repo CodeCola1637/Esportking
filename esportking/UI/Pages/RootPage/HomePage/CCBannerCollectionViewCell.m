@@ -16,6 +16,7 @@
 @property (weak  , nonatomic) id<CCBannerDelegate> delegate;
 @property (strong, nonatomic) NSArray<CCGameModel *> *modelList;
 @property (strong, nonatomic) NewPagedFlowView *pageFlowView;
+@property (strong, nonatomic) UIView *bgView;
 
 @end
 
@@ -39,10 +40,17 @@
 
 - (void)setupUI
 {
-    [self setBackgroundColor:BgColor_Yellow];
+    [self.contentView addSubview:self.bgView];
     [self.contentView addSubview:self.pageFlowView];
+    
+    [self.bgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(-1000.f);
+    }];
     [self.pageFlowView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
+        make.top.equalTo(self.contentView).offset(CCPXToPoint(20));
+        make.left.right.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(40));
     }];
 }
 
@@ -59,7 +67,7 @@
     {
         bannerView = [[PGIndexBannerSubiew alloc] init];
         bannerView.tag = index;
-        bannerView.layer.cornerRadius = 4;
+        bannerView.layer.cornerRadius = 5;
         bannerView.layer.masksToBounds = YES;
     }
     CCGameModel *model = self.modelList[index];
@@ -93,6 +101,16 @@
         _pageFlowView.orientation = NewPagedFlowViewOrientationHorizontal;
     }
     return _pageFlowView;
+}
+
+- (UIView *)bgView
+{
+    if (!_bgView)
+    {
+        _bgView = [UIView new];
+        [_bgView setBackgroundColor:BgColor_Gold];
+    }
+    return _bgView;
 }
 
 @end

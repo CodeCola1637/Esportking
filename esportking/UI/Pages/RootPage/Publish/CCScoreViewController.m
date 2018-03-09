@@ -197,6 +197,7 @@
     else if (indexPath.row == 8 || indexPath.row == 10)
     {
         CCDevideTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kFivthIdentify];
+        [tableCell setBackgroundColor:FontColor_SuperLightGray];
         cell = tableCell;
     }
     else if (indexPath.row == 4)
@@ -236,7 +237,7 @@
 {
     if (!_heightList)
     {
-        _heightList = @[@(300), @(64), @(108), @(108), @(120), @(120), @(120), @(120), @(16), @(120), @(16)];
+        _heightList = @[@(300), @(64), @(108), @(108), @(96), @(96), @(96), @(96), @(16), @(96), @(16)];
     }
     return _heightList;
 }
@@ -250,7 +251,7 @@
         [_tableView enableFooter:NO];
         [_tableView.tableView setDataSource:self];
         [_tableView.tableView setDelegate:self];
-        [_tableView.tableView setBackgroundColor:BgColor_Gray];
+        [_tableView.tableView setBackgroundColor:FontColor_SuperLightGray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView.tableView registerClass:[CCScoreBannerTableViewCell class] forCellReuseIdentifier:kFirstIdentify];
         [_tableView.tableView registerClass:[CCScoreStyleTableViewCell class] forCellReuseIdentifier:kSecondIdentify];

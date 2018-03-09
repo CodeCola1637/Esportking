@@ -73,9 +73,13 @@
     [self.starView setEnableTouch:enable del:del];
 }
 
-- (void)setStarCount:(uint32_t)count
+- (void)setUserInfo:(CCUserModel *)model businessCount:(uint32_t)busiCount starCount:(uint32_t)starCount
 {
-    [self.starView setEvaluateStarCount:count];
+    [self.headImgView setImageWithUrl:model.headUrl placeholder:CCIMG(@"Default_Header")];
+    [self.nameLabel setText:model.name];
+    [self.genderView setGender:model.gender andOld:model.age];
+    [self.businessLabel setText:[NSString stringWithFormat:@"已接：%d单", busiCount]];
+    [self.starView setEvaluateStarCount:starCount];
 }
 
 #pragma mark - getter
