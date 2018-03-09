@@ -7,10 +7,12 @@
 //
 
 #import "CCScoreBannerTableViewCell.h"
+#import "CCUserView.h"
 
 @interface CCScoreBannerTableViewCell ()
 
 @property (strong, nonatomic) UIImageView *imgView;
+@property (strong, nonatomic) CCUserView *userView;
 
 @end
 
@@ -35,6 +37,11 @@
     }];
 }
 
+- (void)setEvaluateUserModel:(CCEvaluateUserModel *)model
+{
+    
+}
+
 #pragma mark - getter
 - (UIImageView *)imgView
 {
@@ -44,6 +51,15 @@
         [_imgView setImage:CCIMG(@"Score_Banner")];
     }
     return _imgView;
+}
+
+- (CCUserView *)userView
+{
+    if (!_userView)
+    {
+        _userView = [CCUserView new];
+    }
+    return _userView;
 }
 
 @end

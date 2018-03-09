@@ -37,6 +37,7 @@
 
 @interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate, CCConfirmTableViewCellDelegate, CCScoreStyleTableViewCellDelegate>
 
+@property (strong, nonatomic) CCEvaluateUserModel *userModel;
 @property (strong, nonatomic) CCScoreModel *scoreModel;
 
 @property (strong, nonatomic) NSArray *heightList;
@@ -45,6 +46,15 @@
 @end
 
 @implementation CCScoreViewController
+
+- (instancetype)initWithEvaluateUser:(CCEvaluateUserModel *)user
+{
+    if (self = [super init])
+    {
+        self.userModel = user;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {

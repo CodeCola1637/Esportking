@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCEvaluateUserModel.h"
 
 @interface CCScoreBannerTableViewCell : UITableViewCell
+
+- (void)setEvaluateUserModel:(CCEvaluateUserModel *)model;
 
 @end

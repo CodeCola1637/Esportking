@@ -89,6 +89,7 @@
 		C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A0E204EB8E000C8154E /* CCShowView.m */; };
 		C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D8B20526AFA0007B772 /* CCDanPickerView.m */; };
 		C0606D92205278200007B772 /* CCScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D91205278200007B772 /* CCScoreModel.m */; };
+		C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -307,6 +308,8 @@
 		C0606D8B20526AFA0007B772 /* CCDanPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDanPickerView.m; sourceTree = "<group>"; };
 		C0606D90205278200007B772 /* CCScoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreModel.h; sourceTree = "<group>"; };
 		C0606D91205278200007B772 /* CCScoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreModel.m; sourceTree = "<group>"; };
+		C0606D9420528D9F0007B772 /* CCEvaluateUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEvaluateUserModel.h; sourceTree = "<group>"; };
+		C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEvaluateUserModel.m; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -929,6 +932,8 @@
 				BE49C9ED20427F1C00B0E34A /* CCTagModel.m */,
 				C0606D90205278200007B772 /* CCScoreModel.h */,
 				C0606D91205278200007B772 /* CCScoreModel.m */,
+				C0606D9420528D9F0007B772 /* CCEvaluateUserModel.h */,
+				C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1460,6 +1465,7 @@
 				BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */,
 				BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */,
 				BEFC9BAA20259546002CE000 /* CCBaseViewController.m in Sources */,
+				C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */,
 				BE4A1BC62033D31E00890485 /* CCGameInfoService.m in Sources */,
 				C0D4F89B204656BC00258CC6 /* ZJScrollPageView.m in Sources */,
 				BE4A1BB020302FBC00890485 /* CCHomePageManager.m in Sources */,

@@ -7,7 +7,10 @@
 //
 
 #import "CCBaseViewController.h"
+#import "CCEvaluateUserModel.h"
 
 @interface CCScoreViewController : CCBaseViewController
+
+- (instancetype)initWithEvaluateUser:(CCEvaluateUserModel *)user;
 
 @end
