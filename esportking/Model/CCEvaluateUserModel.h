@@ -10,7 +10,7 @@
 
 @interface CCEvaluateUserModel : CCUserModel
 
-@property (strong, nonatomic) uint32_t orderCount;
-@property (strong, nonatomic) uint32_t starCount;
+@property (assign, nonatomic) uint32_t orderCount;
+@property (assign, nonatomic) uint32_t starCount;
 
 @end
