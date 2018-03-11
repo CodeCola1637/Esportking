@@ -20,6 +20,8 @@ typedef enum : NSUInteger {
 
 @interface CCScoreModel : NSObject
 
+@property (assign, nonatomic) BOOL needReCaculate;
+
 @property (assign, nonatomic) SCORESTYLE style;
 @property (assign, nonatomic) SYSTEM system;
 @property (assign, nonatomic) PLATFORM platform;
@@ -33,7 +35,7 @@ typedef enum : NSUInteger {
 @property (assign, nonatomic) uint32_t count;
 
 - (BOOL)checkInfoCompleted;
-- (uint32_t)calCulateMoney;
+- (void)calCulateMoney:(void(^)(BOOL, uint32_t))calculateBlock;
 
 + (NSString *)getSytleStr:(SCORESTYLE)style;
 + (NSString *)getSystemStr:(SYSTEM)system;

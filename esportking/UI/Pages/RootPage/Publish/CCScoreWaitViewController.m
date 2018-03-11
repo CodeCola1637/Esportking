@@ -264,8 +264,10 @@
         _moneyLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_moneyLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"订单金额：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", [self.scoreModel calCulateMoney]] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-        [_moneyLabel setAttributedText:artStr];
+        [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
+            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", money] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+            [_moneyLabel setAttributedText:artStr];
+        }];
     }
     return _moneyLabel;
 }

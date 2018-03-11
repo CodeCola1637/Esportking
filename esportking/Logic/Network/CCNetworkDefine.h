@@ -19,7 +19,9 @@
 #define GetDetailInfo   @"/app/home/detail"
 #define HomePage        @"/app/home"
 #define Search          @"/app/home/search"
+
 #define GetOrder        @"/app/order/getOrder"
+#define Calculate       @"/app/order/calculator"
 
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"

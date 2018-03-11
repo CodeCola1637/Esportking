@@ -90,6 +90,7 @@
 		C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D8B20526AFA0007B772 /* CCDanPickerView.m */; };
 		C0606D92205278200007B772 /* CCScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D91205278200007B772 /* CCScoreModel.m */; };
 		C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */; };
+		C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FF4205508650060B8A5 /* CCCalculateRequest.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -310,6 +311,8 @@
 		C0606D91205278200007B772 /* CCScoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreModel.m; sourceTree = "<group>"; };
 		C0606D9420528D9F0007B772 /* CCEvaluateUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEvaluateUserModel.h; sourceTree = "<group>"; };
 		C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEvaluateUserModel.m; sourceTree = "<group>"; };
+		C0917FF3205508650060B8A5 /* CCCalculateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCalculateRequest.h; sourceTree = "<group>"; };
+		C0917FF4205508650060B8A5 /* CCCalculateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCalculateRequest.m; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -809,6 +812,7 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C0917FF2205508160060B8A5 /* Calculator */,
 				C0B498EB20479D3C00BD0D63 /* TryCard */,
 				C0D4F8BA2046AA0800258CC6 /* Money */,
 				C0D4F8AE2046A30E00258CC6 /* Order */,
@@ -1012,6 +1016,15 @@
 				C0148A3F20512EB60055D545 /* UIView+Wave.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		C0917FF2205508160060B8A5 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				C0917FF3205508650060B8A5 /* CCCalculateRequest.h */,
+				C0917FF4205508650060B8A5 /* CCCalculateRequest.m */,
+			);
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 		C0A1748220493B02000B71F3 /* Publish */ = {
@@ -1485,6 +1498,7 @@
 				C05409FA204E763200C8154E /* zhAlertView.m in Sources */,
 				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
 				C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */,
+				C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
 				C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */,
 				BE49C9E220427BF600B0E34A /* CCUserPriceTableViewCell.m in Sources */,

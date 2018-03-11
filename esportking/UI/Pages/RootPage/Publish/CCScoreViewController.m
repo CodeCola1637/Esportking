@@ -260,7 +260,10 @@
     else if (indexPath.row == 9)
     {
         CCConfirmTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kForthIdentify];
-        [tableCell setPrice:[self.scoreModel calCulateMoney] andDelegate:self];
+        [tableCell setPrice:0 andDelegate:nil];
+        [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
+            [tableCell setPrice:money andDelegate:self];
+        }];
         cell = tableCell;
     }
     else if (indexPath.row == 8)

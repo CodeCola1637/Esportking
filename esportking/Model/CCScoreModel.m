@@ -7,8 +7,27 @@
 //
 
 #import "CCScoreModel.h"
+#import "CCCalculateRequest.h"
+
+@interface CCScoreModel()<CCRequestDelegate>
+
+@property (strong, nonatomic) void(^calBlock)(BOOL, uint32_t);
+@property (strong, nonatomic) CCCalculateRequest *request;
+@property (assign, nonatomic) uint32_t money;
+
+@end
 
 @implementation CCScoreModel
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        _money = 0;
+        _needReCaculate = YES;
+    }
+    return self;
+}
 
 - (BOOL)checkInfoCompleted
 {
@@ -49,15 +68,124 @@
     return YES;
 }
 
-- (uint32_t)calCulateMoney
+- (void)calCulateMoney:(void(^)(BOOL, uint32_t))calculateBlock;
 {
     if ([self checkInfoCompleted])
     {
-        return 100;
+        if (_needReCaculate)
+        {
+            _calBlock = calculateBlock;
+            _request = [CCCalculateRequest new];
+            if (_style == SCORESTYLE_SCORE)
+            {
+                _request.fromDan = self.startLevel/100;
+                _request.fromDetailLevel = self.startLevel%100;
+                _request.fromDetailStar = self.startLevel%100;
+                
+                _request.toDan = self.endLevel/100;
+                _request.toDetailLevel = self.endLevel%100;
+                _request.toDetailStar = self.endLevel%100;
+            }
+            else
+            {
+                _request.fromDan = self.level;
+                _request.count = self.count;
+            }
+            [_request startPostRequestWithDelegate:self];
+        }
+        else
+        {
+            calculateBlock(YES, _money);
+        }
     }
-    return 0;
+    else
+    {
+        calculateBlock(NO, 0);
+    }
 }
 
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (_request != sender)
+    {
+        return;
+    }
+    _request = nil;
+    
+    _needReCaculate = NO;
+    _money = (uint32_t)[dict[@"data"] unsignedIntegerValue];
+    if (_calBlock)
+    {
+        _calBlock(YES, _money);
+        _calBlock = nil;
+    }
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (_request != sender)
+    {
+        return;
+    }
+    _request = nil;
+    
+    _needReCaculate = YES;
+    _money = 0;
+    if (_calBlock)
+    {
+        _calBlock(YES, _money);
+        _calBlock = nil;
+    }
+}
+
+#pragma mark - setters
+- (void)setStyle:(SCORESTYLE)style
+{
+    if (_style != style)
+    {
+        _style = style;
+        _needReCaculate = YES;
+    }
+}
+
+- (void)setStartLevel:(uint32_t)startLevel
+{
+    if (_startLevel != startLevel)
+    {
+        _startLevel = startLevel;
+        _needReCaculate = YES;
+    }
+}
+
+- (void)setEndLevel:(uint32_t)endLevel
+{
+    if (_endLevel != endLevel)
+    {
+        _endLevel = endLevel;
+        _needReCaculate = YES;
+    }
+}
+
+- (void)setLevel:(LEVEL)level
+{
+    if (_level != level)
+    {
+        _level = level;
+        _needReCaculate = YES;
+    }
+}
+
+- (void)setCount:(uint32_t)count
+{
+    if (_count != count)
+    {
+        _count = count;
+        _needReCaculate = YES;
+    }
+}
+
+#pragma mark - util
 + (NSString *)getSytleStr:(SCORESTYLE)style
 {
     NSString *str = nil;
