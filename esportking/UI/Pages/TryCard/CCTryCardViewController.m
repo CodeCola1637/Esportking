@@ -10,16 +10,22 @@
 #import "CCRefreshTableView.h"
 #import "CCTryCardTableViewCell.h"
 
-#import "CCTryCardRequest.h"
+#import "CCAddTryCardRequest.h"
+#import "CCGetTryCardRequest.h"
+
+#import <TKAlert&TKActionSheet/TKAlert&TKActionSheet.h>
 
 #define kIdentify   @"identify"
+#define kPageSize   10
 
 @interface CCTryCardViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate>
 
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 
-@property (strong, nonatomic) CCTryCardRequest *request;
-@property (strong, nonatomic) NSMutableArray<NSDictionary *> *cardList;
+@property (assign, nonatomic) uint32_t pageIndex;
+@property (strong, nonatomic) CCGetTryCardRequest *getReq;
+@property (strong, nonatomic) CCAddTryCardRequest *addReq;
+@property (strong, nonatomic) NSMutableArray<CCTryCardModel *> *cardList;
 
 @end
 
@@ -28,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configTopbar];
     [self configContent];
     [self.tableView beginHeaderRefreshing];
 }
@@ -36,6 +43,12 @@
 {
     [self addTopPopBackButton];
     [self addTopbarTitle:@"体验卡"];
+    UIButton *button = [UIButton new];
+    [button setTitle:@"添加" forState:UIControlStateNormal];
+    [button.titleLabel setFont:Font_Middle];
+    [button setTitleColor:BgColor_Black forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(onClickAddButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topbarView layoutRightControls:@[button] spacing:nil];
 }
 
 - (void)configContent
@@ -48,19 +61,54 @@
     }];
 }
 
+#pragma mark - Action
+- (void)onClickAddButton:(UIButton *)button
+{
+    TKTextFieldAlertViewController *textFieldAlertView = [[TKTextFieldAlertViewController alloc] initWithTitle:@"昵称" placeholder:@"请输入昵称"];
+    
+    CCWeakSelf(weakSelf);
+    __weak typeof(textFieldAlertView) weakAlertView = textFieldAlertView;
+    [textFieldAlertView addButtonWithTitle:@"取消" block:^(NSUInteger index) {
+        
+    }];
+    [textFieldAlertView addButtonWithTitle:@"确定"  block:^(NSUInteger index) {
+        [weakSelf addTryCard:weakAlertView.textField.text];
+    }];
+    [textFieldAlertView show];
+}
+
+- (void)addTryCard:(NSString *)cardID
+{
+    if (cardID && cardID.length>0)
+    {
+        [self beginLoading];
+        self.addReq = [CCAddTryCardRequest new];
+        self.addReq.cardID = cardID;
+        [self.addReq startPostRequestWithDelegate:self];
+    }
+}
+
 #pragma mark - CCRefreshDelegate
 - (void)onHeaderRefresh
 {
-    if (!self.request)
+    if (!self.getReq || self.getReq.pageIndex!=1)
     {
-        self.request = [CCTryCardRequest new];
-        [self.request startPostRequestWithDelegate:self];
+        self.getReq = [CCGetTryCardRequest new];
+        self.getReq.pageIndex = 1;
+        self.getReq.pageNumber = kPageSize;
+        [self.getReq startPostRequestWithDelegate:self];
     }
 }
 
 - (void)onFooterRefresh
 {
-    
+    if (!self.getReq)
+    {
+        self.getReq = [CCGetTryCardRequest new];
+        self.getReq.pageIndex = _pageIndex+1;
+        self.getReq.pageNumber = kPageSize;
+        [self.getReq startPostRequestWithDelegate:self];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -72,24 +120,43 @@
 #pragma mark - CCRequestDelegate
 - (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
 {
-    if (sender != self.request)
+    if (sender == self.getReq)
     {
-        return;
+        _pageIndex = self.getReq.pageIndex;
+        if (_pageIndex == 1)
+        {
+            self.cardList = self.getReq.cardList;
+        }
+        else
+        {
+            [self.cardList addObjectsFromArray:self.getReq.cardList];
+        }
+        
+        [self.tableView reloadData];
+        self.getReq = nil;
     }
-    self.request = nil;
     
-    self.cardList = dict[@"data"];
-    [self.tableView reloadData];
+    if ([sender isKindOfClass:[CCAddTryCardRequest class]])
+    {
+        self.addReq = nil;
+        self.getReq = nil;
+        [self endLoading];
+        [self.tableView beginHeaderRefreshing];
+    }
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
 {
-    if (sender != self.request)
+    if (sender == self.getReq)
     {
-        return;
+        self.getReq = nil;
     }
-    self.request = nil;
+    if (sender == self.addReq)
+    {
+        self.addReq = nil;
+    }
     
+    [self endLoading];
     [self.tableView endRefresh];
     [self showToast:msg];
 }
@@ -113,7 +180,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CCTryCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentify];
-    [cell setTryCardDict:self.cardList[indexPath.row]];
+    [cell setTryCardModel:self.cardList[indexPath.row]];
     return cell;
 }
 
@@ -127,7 +194,6 @@
         [_tableView setRefreshDelegate:self];
         [_tableView.tableView setDataSource:self];
         [_tableView.tableView setDelegate:self];
-        [_tableView.tableView setBackgroundColor:BgColor_Gray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView.tableView registerClass:[CCTryCardTableViewCell class] forCellReuseIdentifier:kIdentify];
     }

@@ -10,6 +10,8 @@
 
 @interface CCTryCardTableViewCell ()
 
+@property (strong, nonatomic) CCTryCardModel *cardModel;
+
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *numLabel;
 @property (strong, nonatomic) UILabel *statusLabel;
@@ -55,9 +57,9 @@
     }];
 }
 
-- (void)setTryCardDict:(NSDictionary *)dict
+- (void)setTryCardModel:(CCTryCardModel *)cardModel
 {
-    
+    _cardModel = cardModel;
 }
 
 #pragma mark - getter

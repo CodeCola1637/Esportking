@@ -10,6 +10,7 @@
 #import "CCPageContainerViewController.h"
 #import "CCModifyUserInfoViewController.h"
 #import "CCOrderViewController.h"
+#import "CCTryCardViewController.h"
 
 #import "CCHeadTableViewCell.h"
 #import "CCImgTitleTableViewCell.h"
@@ -138,7 +139,8 @@ typedef enum : NSUInteger {
             break;
         case ITEM_TRY:
         {
-            
+            CCTryCardViewController *vc = [CCTryCardViewController new];
+            [self cw_pushViewController:vc];
         }
             break;
         case ITEM_SET:

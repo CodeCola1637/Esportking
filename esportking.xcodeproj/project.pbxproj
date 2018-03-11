@@ -93,6 +93,8 @@
 		C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FF4205508650060B8A5 /* CCCalculateRequest.m */; };
 		C0917FF820550FE00060B8A5 /* CCPublishOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FF720550FE00060B8A5 /* CCPublishOrderRequest.m */; };
 		C0917FFC205517D40060B8A5 /* CCOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FFB205517D40060B8A5 /* CCOrderModel.m */; };
+		C091800020552D100060B8A5 /* CCTryCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FFF20552D100060B8A5 /* CCTryCardModel.m */; };
+		C091800320552E950060B8A5 /* CCAddTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C091800220552E950060B8A5 /* CCAddTryCardRequest.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -104,7 +106,7 @@
 		C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1749F204D34D5000B71F3 /* CCHistoryService.m */; };
 		C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174A2204D3792000B71F3 /* CCSearchHistoryView.m */; };
 		C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */; };
-		C0B498EE20479D5100BD0D63 /* CCTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */; };
+		C0B498EE20479D5100BD0D63 /* CCGetTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B498ED20479D5100BD0D63 /* CCGetTryCardRequest.m */; };
 		C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */; };
 		C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */; };
 		C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88C204656BB00258CC6 /* UIViewController+ZJScrollPageController.m */; };
@@ -319,6 +321,10 @@
 		C0917FF720550FE00060B8A5 /* CCPublishOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPublishOrderRequest.m; sourceTree = "<group>"; };
 		C0917FFA205517D40060B8A5 /* CCOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderModel.h; sourceTree = "<group>"; };
 		C0917FFB205517D40060B8A5 /* CCOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderModel.m; sourceTree = "<group>"; };
+		C0917FFE20552D100060B8A5 /* CCTryCardModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTryCardModel.h; sourceTree = "<group>"; };
+		C0917FFF20552D100060B8A5 /* CCTryCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardModel.m; sourceTree = "<group>"; };
+		C091800120552E950060B8A5 /* CCAddTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAddTryCardRequest.h; sourceTree = "<group>"; };
+		C091800220552E950060B8A5 /* CCAddTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAddTryCardRequest.m; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -342,8 +348,8 @@
 		C0A174A2204D3792000B71F3 /* CCSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchHistoryView.m; sourceTree = "<group>"; };
 		C0A174A7204D397E000B71F3 /* CCCenterTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCenterTitleTableViewCell.h; sourceTree = "<group>"; };
 		C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCenterTitleTableViewCell.m; sourceTree = "<group>"; };
-		C0B498EC20479D5100BD0D63 /* CCTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTryCardRequest.h; sourceTree = "<group>"; };
-		C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardRequest.m; sourceTree = "<group>"; };
+		C0B498EC20479D5100BD0D63 /* CCGetTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetTryCardRequest.h; sourceTree = "<group>"; };
+		C0B498ED20479D5100BD0D63 /* CCGetTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetTryCardRequest.m; sourceTree = "<group>"; };
 		C0D4F88520464B4F00258CC6 /* CCBeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBeautyViewController.h; sourceTree = "<group>"; };
 		C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBeautyViewController.m; sourceTree = "<group>"; };
 		C0D4F889204656BB00258CC6 /* UIView+ZJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJFrame.h"; sourceTree = "<group>"; };
@@ -932,6 +938,7 @@
 		BEFF95CF202D927A0081D88B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C0917FFD20552CFC0060B8A5 /* TryCard */,
 				C0917FF9205517C50060B8A5 /* Order */,
 				BEFF95D0202D92C30081D88B /* CCGameModel.h */,
 				BEFF95D1202D92C30081D88B /* CCGameModel.m */,
@@ -1043,6 +1050,15 @@
 			path = Order;
 			sourceTree = "<group>";
 		};
+		C0917FFD20552CFC0060B8A5 /* TryCard */ = {
+			isa = PBXGroup;
+			children = (
+				C0917FFE20552D100060B8A5 /* CCTryCardModel.h */,
+				C0917FFF20552D100060B8A5 /* CCTryCardModel.m */,
+			);
+			path = TryCard;
+			sourceTree = "<group>";
+		};
 		C0A1748220493B02000B71F3 /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,8 +1126,10 @@
 		C0B498EB20479D3C00BD0D63 /* TryCard */ = {
 			isa = PBXGroup;
 			children = (
-				C0B498EC20479D5100BD0D63 /* CCTryCardRequest.h */,
-				C0B498ED20479D5100BD0D63 /* CCTryCardRequest.m */,
+				C0B498EC20479D5100BD0D63 /* CCGetTryCardRequest.h */,
+				C0B498ED20479D5100BD0D63 /* CCGetTryCardRequest.m */,
+				C091800120552E950060B8A5 /* CCAddTryCardRequest.h */,
+				C091800220552E950060B8A5 /* CCAddTryCardRequest.m */,
 			);
 			path = TryCard;
 			sourceTree = "<group>";
@@ -1544,6 +1562,7 @@
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
 				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
+				C091800020552D100060B8A5 /* CCTryCardModel.m in Sources */,
 				C0540A0B204E979200C8154E /* CCPickerView.m in Sources */,
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
@@ -1551,9 +1570,10 @@
 				C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */,
 				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
 				C0D4F8B12046A39600258CC6 /* CCOrderRequest.m in Sources */,
-				C0B498EE20479D5100BD0D63 /* CCTryCardRequest.m in Sources */,
+				C0B498EE20479D5100BD0D63 /* CCGetTryCardRequest.m in Sources */,
 				C05409FE204E787A00C8154E /* UIView+Layout.m in Sources */,
 				BE49C9EB20427F1200B0E34A /* CCCommentModel.m in Sources */,
+				C091800320552E950060B8A5 /* CCAddTryCardRequest.m in Sources */,
 				BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */,
 				C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */,
 				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,

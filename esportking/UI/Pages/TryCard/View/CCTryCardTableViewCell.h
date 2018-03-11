@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCTryCardModel.h"
 
 @interface CCTryCardTableViewCell : UITableViewCell
 
-- (void)setTryCardDict:(NSDictionary *)dict;
+- (void)setTryCardModel:(CCTryCardModel *)cardModel;
 
 @end

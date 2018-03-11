@@ -56,7 +56,7 @@
 
 - (void)addTopbarTitle:(NSString *)title
 {
-    UILabel *titleLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
+    UILabel *titleLabel = [UILabel createOneLineLabelWithFont:Font_Large color:FontColor_Black];
     [titleLabel setText:title];
     [self.topbarView layoutMidControls:@[titleLabel] spacing:nil];
 }

@@ -24,6 +24,9 @@
 #define Calculate       @"/app/order/calculator"
 #define PublishOrder    @"/app/order/order"
 
+#define GetTryCard      @"/app/experienceCar/getMyExperienceCar"
+#define AddTryCard      @"/app/experienceCar/add"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 
