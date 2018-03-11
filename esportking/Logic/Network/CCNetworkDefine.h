@@ -19,6 +19,7 @@
 #define GetDetailInfo   @"/app/home/detail"
 #define HomePage        @"/app/home"
 #define Search          @"/app/home/search"
+#define Nearby          @"/app/home/nearby"
 
 #define GetOrder        @"/app/order/getOrder"
 #define Calculate       @"/app/order/calculator"

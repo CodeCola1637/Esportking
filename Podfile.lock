@@ -16,6 +16,8 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - AMap3DMap (5.7.0):
+    - AMapFoundation (~> 1.4)
   - AMapFoundation (1.4.3)
   - AMapLocation (2.6.0):
     - AMapFoundation (~> 1.4)
@@ -62,6 +64,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetwork (~> 0.1.0)
+  - AMap3DMap
   - AMapLocation
   - CWLateralSlide (~> 1.5.7)
   - Masonry (~> 1.1.0)
@@ -79,6 +82,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetwork: 0dbdb2ffb4a7770b3d1802dc85b50ab31263f2c2
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  AMap3DMap: 97afc57b88628237d916991ac31795eb7bde3f63
   AMapFoundation: 973682cfe60b92efd73a8ef8f1144fa0fa8e1296
   AMapLocation: 55116a2c8956eab7550cbb56e989aa5cdcc424e3
   CWLateralSlide: cf07de13cc00d29b1a47c4ca77619a17fe1e3464
@@ -95,6 +99,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: d5d2fa1a8e4d93ab0ada161db5beba60b2294d99
   zhPopupController: 411af38e63764130e4ae4ba5cde12c776dc84824
 
-PODFILE CHECKSUM: e22b0362b61f5d1e723cc11a4c4b11a717f7aa7a
+PODFILE CHECKSUM: 056e83b7901ca5ace0388abfa391ae9fe2738a05
 
 COCOAPODS: 1.4.0

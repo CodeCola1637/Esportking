@@ -18,8 +18,11 @@
 #import <WeiboSDK.h>
 #import <AFNetwork.h>
 #import <NIMSDK/NIMSDK.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
 
 #define kNetEaseIMKey   @"68aff658e680c288555f2b42c1286b99"
+#define kGaoDeMapKey    @"849552e95b2953b953747cb113db4dbb"
 
 @implementation CCLanunchConfig
 
@@ -119,6 +122,11 @@
     [[AFNetwork shareManager].requestSerializer setValue:[UIDevice currentDevice].model forHTTPHeaderField:@"os_model"];
     [[AFNetwork shareManager].requestSerializer setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] forHTTPHeaderField:@"version"];
     [[AFNetwork shareManager].requestSerializer setValue:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forHTTPHeaderField:@"device_id"];
+}
+
++ (void)configMap
+{
+    [[AMapServices sharedServices] setApiKey:kGaoDeMapKey];
 }
 
 + (void)configIMSDK

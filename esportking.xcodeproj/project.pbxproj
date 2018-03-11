@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		020EE795E4898BF9CD4E194D /* libPods-esportkingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */; };
+		BE41B609205564110084320C /* CCNearbyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B608205564110084320C /* CCNearbyRequest.m */; };
+		BE41B60D2055661B0084320C /* CCNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60C2055661B0084320C /* CCNearbyViewController.m */; };
+		BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */; };
 		BE451465204451220096A8CC /* CCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE451464204451220096A8CC /* CCMessageViewController.m */; };
 		BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE451468204451880096A8CC /* CCSessionListViewController.m */; };
 		BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45146B204451CA0096A8CC /* CCSessionViewController.m */; };
@@ -145,6 +148,12 @@
 		7FF25FBEB3799DB5CF7C6023 /* Pods-esportking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportking.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportking/Pods-esportking.release.xcconfig"; sourceTree = "<group>"; };
 		B20808B77B95339B008DA989 /* Pods-esportkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE41B607205564110084320C /* CCNearbyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyRequest.h; sourceTree = "<group>"; };
+		BE41B608205564110084320C /* CCNearbyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyRequest.m; sourceTree = "<group>"; };
+		BE41B60B2055661B0084320C /* CCNearbyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyViewController.h; sourceTree = "<group>"; };
+		BE41B60C2055661B0084320C /* CCNearbyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyViewController.m; sourceTree = "<group>"; };
+		BE41B60E20556C380084320C /* CCNearbyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyTableViewCell.h; sourceTree = "<group>"; };
+		BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyTableViewCell.m; sourceTree = "<group>"; };
 		BE451463204451220096A8CC /* CCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageViewController.h; sourceTree = "<group>"; };
 		BE451464204451220096A8CC /* CCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageViewController.m; sourceTree = "<group>"; };
 		BE451467204451880096A8CC /* CCSessionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSessionListViewController.h; sourceTree = "<group>"; };
@@ -416,6 +425,26 @@
 				23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE41B606205562E70084320C /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+				BE41B607205564110084320C /* CCNearbyRequest.h */,
+				BE41B608205564110084320C /* CCNearbyRequest.m */,
+			);
+			path = Nearby;
+			sourceTree = "<group>";
+		};
+		BE41B60A205566070084320C /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+				BE41B60B2055661B0084320C /* CCNearbyViewController.h */,
+				BE41B60C2055661B0084320C /* CCNearbyViewController.m */,
+				BE41B60E20556C380084320C /* CCNearbyTableViewCell.h */,
+				BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */,
+			);
+			path = Nearby;
 			sourceTree = "<group>";
 		};
 		BE4514662044514B0096A8CC /* Message */ = {
@@ -824,6 +853,7 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BE41B606205562E70084320C /* Nearby */,
 				C0917FF2205508160060B8A5 /* Calculator */,
 				C0B498EB20479D3C00BD0D63 /* TryCard */,
 				C0D4F8BA2046AA0800258CC6 /* Money */,
@@ -884,6 +914,7 @@
 		BEFC9BA220257E29002CE000 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				BE41B60A205566070084320C /* Nearby */,
 				C0D4F8C22046DDDB00258CC6 /* TryCard */,
 				C0D4F8BE2046AB6900258CC6 /* Wallet */,
 				C0D4F8B22046A7B700258CC6 /* Money */,
@@ -1416,6 +1447,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-esportking/Pods-esportking-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle",
 				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle",
@@ -1427,6 +1459,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitEmoticon.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitResource.bundle",
@@ -1508,6 +1541,7 @@
 				C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */,
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
+				BE41B609205564110084320C /* CCNearbyRequest.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
 				C05409FB204E763200C8154E /* zhPickerView.m in Sources */,
 				BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */,
@@ -1576,6 +1610,7 @@
 				C091800320552E950060B8A5 /* CCAddTryCardRequest.m in Sources */,
 				BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */,
 				C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */,
+				BE41B60D2055661B0084320C /* CCNearbyViewController.m in Sources */,
 				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
@@ -1583,6 +1618,7 @@
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
 				C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */,
+				BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
 				C0D4F89C204656BC00258CC6 /* ZJScrollSegmentView.m in Sources */,
 				BE4A1BC22033D2A400890485 /* CCGetGameInfoRequest.m in Sources */,

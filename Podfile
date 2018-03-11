@@ -22,6 +22,7 @@ target 'esportking' do
   
   #Map
   pod 'AMapLocation'
+  pod 'AMap3DMap'
   
   #UI
   pod 'MJRefresh', '~> 3.1.15.3'
