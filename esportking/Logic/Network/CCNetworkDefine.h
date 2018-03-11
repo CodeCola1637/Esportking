@@ -22,6 +22,7 @@
 
 #define GetOrder        @"/app/order/getOrder"
 #define Calculate       @"/app/order/calculator"
+#define PublishOrder    @"/app/order/order"
 
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"

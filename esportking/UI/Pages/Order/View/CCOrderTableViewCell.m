@@ -7,10 +7,11 @@
 //
 
 #import "CCOrderTableViewCell.h"
+#import "CCScoreModel.h"
 
 @interface CCOrderTableViewCell ()
 
-@property (strong, nonatomic) NSDictionary *dataDict;
+@property (strong, nonatomic) CCOrderModel *dataModel;
 @property (weak, nonatomic) id<CCOrderTableViewCellDelegate> delegate;
 
 @property (strong, nonatomic) UILabel *timeLabel;
@@ -49,6 +50,8 @@
     [self.contentView addSubview:self.topLineView];
     [self.contentView addSubview:self.bottomLineView];
     [self.contentView addSubview:self.bottomView];
+    [self.bottomView addSubview:self.confirmButton];
+    [self.bottomView addSubview:self.cancelButton];
     
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.contentView).offset(CCPXToPoint(32));
@@ -85,53 +88,118 @@
     }];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.contentView);
-        make.height.mas_equalTo(CCPXToPoint(40));
+        make.height.mas_equalTo(CCPXToPoint(80));
+    }];
+    [self.confirmButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.bottomView).offset(-CCPXToPoint(32));
+        make.centerY.equalTo(self.bottomView);
+        make.height.mas_equalTo(CCPXToPoint(48));
+        make.width.mas_offset(CCPXToPoint(96));
+    }];
+    [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.confirmButton.mas_left).offset(-CCPXToPoint(20));
+        make.centerY.height.equalTo(self.confirmButton);
+        make.width.mas_offset(CCPXToPoint(96));
     }];
 }
 
-- (void)setOrderDict:(NSDictionary *)dict andDelegate:(id<CCOrderTableViewCellDelegate>)del
+- (void)setOrderDict:(CCOrderModel *)model andDelegate:(id<CCOrderTableViewCellDelegate>)del
 {
-    self.dataDict = dict;
+    self.dataModel = model;
     self.delegate = del;
     
-    [self.timeLabel setText:[NSString stringWithFormat:@"时间：%@", dict[@"create_time"]]];
-    [self.locationLabel setText:[NSString stringWithFormat:@"系统区服：%@ %@", ([dict[@"client_type"] intValue]==2?@"iOS":@"安卓"), ([dict[@"service_client_type"] intValue]==1?@"QQ":@"微信")]];
-    [self.duanLabel setText:[NSString stringWithFormat:@"段位信息：%@", dict[@"dan"]]];
-    [self.moneyLabel setText:[NSString stringWithFormat:@"订单金额：¥%.2f", [dict[@"amount"] floatValue]]];
+    [self.timeLabel setText:[NSString stringWithFormat:@"时间：%@", model.createTime]];
+    [self.nameLabel setText:[NSString stringWithFormat:@"接单大神：%@", [self getReceiverNameWithModel:model]]];
+    [self.locationLabel setText:[NSString stringWithFormat:@"系统区服：%@ %@", [CCScoreModel getSystemStr:model.clientType], [CCScoreModel getPlatformStr:model.platformType]]];
+    [self.duanLabel setText:[NSString stringWithFormat:@"段位信息：%@", model.danStr]];
+    [self.moneyLabel setText:[NSString stringWithFormat:@"订单金额：¥%.2f", (CGFloat)model.money]];
     
-    int ordStatus = [dict[@"status"] intValue];
-    int payStatus = [dict[@"pay_status"] intValue];
-
-    switch (ordStatus)
+    switch (model.displayStatus)
     {
-        case 1:
+        case ORDERDISPLAYSTATUS_CANCEL:
         {
-            [self.nameLabel setText:[NSString stringWithFormat:@"接单大神：暂无"]];
+            [self.statusLabel setText:@"已取消"];
+            [self.cancelButton setHidden:YES];
+            [self.confirmButton setHidden:YES];
+        }
+            break;
+        case ORDERDISPLAYSTATUS_BACKMONEY:
+        {
+            [self.statusLabel setText:@"已退款"];
+            [self.cancelButton setHidden:YES];
+            [self.confirmButton setHidden:YES];
+        }
+            break;
+        case ORDERDISPLAYSTATUS_WAITPAY:
+        {
+            [self.statusLabel setText:@"待支付"];
+            [self.cancelButton setHidden:NO];
+            [self.confirmButton setHidden:NO];
+            [self.confirmButton setTitle:@"支付" forState:UIControlStateNormal];
+            [self.cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self.confirmButton.mas_left).offset(-CCPXToPoint(20));
+            }];
+            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(CCPXToPoint(96));
+            }];
+        }
+            break;
+        case ORDERDISPLAYSTATUS_FIALPAY:
+        {
+            [self.statusLabel setText:@"支付失败"];
+            [self.cancelButton setHidden:NO];
+            [self.confirmButton setHidden:NO];
+            [self.confirmButton setTitle:@"支付" forState:UIControlStateNormal];
+            [self.cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self.confirmButton.mas_left).offset(-CCPXToPoint(20));
+            }];
+            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(CCPXToPoint(96));
+            }];
+        }
+            break;
+        case ORDERDISPLAYSTATUS_WIATRECV:
+        {
             [self.statusLabel setText:@"待接单"];
             [self.cancelButton setHidden:NO];
+            [self.confirmButton setHidden:YES];
+            [self.cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.right.equalTo(self.confirmButton.mas_left).offset(0);
+            }];
+            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(0);
+            }];
         }
             break;
-        case 2:
+        case ORDERDISPLAYSTATUS_ONDOING:
         {
-            
+            [self.statusLabel setText:@"进行中"];
+            [self.cancelButton setHidden:YES];
+            [self.confirmButton setHidden:NO];
+            [self.confirmButton setTitle:@"确认完成" forState:UIControlStateNormal];
+            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(CCPXToPoint(144));
+            }];
         }
             break;
-        case 3:
+        case ORDERDISPLAYSTATUS_WAITCOMMENT:
         {
-            
+            [self.statusLabel setText:@"待评价"];
+            [self.cancelButton setHidden:YES];
+            [self.confirmButton setHidden:NO];
+            [self.confirmButton setTitle:@"评价" forState:UIControlStateNormal];
+            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.width.mas_equalTo(CCPXToPoint(96));
+            }];
         }
             break;
-        case 4:
+        case ORDERDISPLAYSTATUS_COMPLETED:
         {
-            
+            [self.statusLabel setText:@"已完成"];
+            [self.cancelButton setHidden:YES];
+            [self.confirmButton setHidden:YES];
         }
             break;
-        case 5:
-        {
-            
-        }
-            break;
-            
         default:
             break;
     }
@@ -140,12 +208,26 @@
 #pragma mark - action
 - (void)onClickCancelButton:(UIButton *)button
 {
-    [self.delegate onCancelOrder:self.dataDict];
+    [self.delegate onCancelOrder:self.dataModel];
 }
 
 - (void)onClickConfirmButton:(UIButton *)button
 {
-    [self.delegate onConfirmOrder:self.dataDict];
+    [self.delegate onConfirmOrder:self.dataModel];
+}
+
+#pragma mark - private
+- (NSString *)getReceiverNameWithModel:(CCOrderModel *)model
+{
+    NSString *recvStr = model.receiverName;
+    if (recvStr && recvStr.length > 0)
+    {
+        return recvStr;
+    }
+    else
+    {
+        return @"暂无";
+    }
 }
 
 #pragma mark - getters
@@ -238,6 +320,8 @@
     if (!_cancelButton)
     {
         _cancelButton = [UIButton new];
+        [_cancelButton setBackgroundColor:[UIColor colorWithRGBHex:0xdedede]];
+        [_cancelButton.layer setCornerRadius:CCPXToPoint(12)];
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(onClickCancelButton:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -249,6 +333,8 @@
     if (!_confirmButton)
     {
         _confirmButton = [UIButton new];
+        [_cancelButton setBackgroundColor:BgColor_Yellow];
+        [_confirmButton.layer setCornerRadius:CCPXToPoint(12)];
         [_confirmButton setTitle:@"接单" forState:UIControlStateNormal];
         [_confirmButton addTarget:self action:@selector(onClickConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
     }

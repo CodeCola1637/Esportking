@@ -19,11 +19,23 @@
 {
     return @{
              @"type":@(self.type),
-             @"game_id":@(self.type),
+             @"game_id":@(self.gameID),
              @"status":@(0),
              @"pageNumber":@(self.pageNum),
              @"pageSize":@(self.pageSize),
              };
+}
+
+- (void)decodeData:(NSDictionary *)resp
+{
+    NSArray *list = resp[@"data"];
+    NSMutableArray *array = [NSMutableArray new];
+    for (int i=0; i<list.count; i++)
+    {
+        CCOrderModel *model = [[CCOrderModel alloc] initWithDict:list[i]];
+        [array addObject:model];
+    }
+    self.orderList = array;
 }
 
 @end

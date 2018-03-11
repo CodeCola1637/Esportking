@@ -9,12 +9,6 @@
 #import "CCLoginManager.h"
 #import "CCLoginRequest.h"
 
-typedef enum : NSUInteger {
-    LOGINTYPE_PHONE = 1,
-    LOGINTYPE_QQ,
-    LOGINTYPE_WX,
-} LOGINTYPE;
-
 @interface CCLoginManager()<CCRequestDelegate>
 
 @property (weak  , nonatomic) id<CCLoginDelegate> delegate;
@@ -39,7 +33,7 @@ typedef enum : NSUInteger {
     if (!_request)
     {
         _request = [CCLoginRequest new];
-        _request.platform = PLATFORM_PHONE;
+        _request.platform = LOGINTYPE_PHONE;
         _request.mobile = mobile;
         _request.password = password;
         [_request startPostRequestWithDelegate:self];
@@ -60,7 +54,7 @@ typedef enum : NSUInteger {
     if (!_request)
     {
         _request = [CCLoginRequest new];
-        _request.platform = PLATFORM_QQ;
+        _request.platform = LOGINTYPE_QQ;
         _request.token = token;
         _request.openID = openID;
         [_request startPostRequestWithDelegate:self];
@@ -81,7 +75,7 @@ typedef enum : NSUInteger {
     if (!_request)
     {
         _request = [CCLoginRequest new];
-        _request.platform = PLATFORM_WX;
+        _request.platform = LOGINTYPE_WX;
         _request.token = token;
         _request.openID = openID;
         [_request startPostRequestWithDelegate:self];

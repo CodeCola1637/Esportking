@@ -24,5 +24,6 @@
 // 子类继承
 - (NSString *)subAddress;
 - (NSDictionary *)requestParam;
+- (void)decodeData:(NSDictionary *)resp;
 
 @end

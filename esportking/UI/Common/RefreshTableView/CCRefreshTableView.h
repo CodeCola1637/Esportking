@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CCRefreshProtocol.h"
+#import "CCDevideTableViewCell.h"
+
+#define DevideIdentify @"devide_identify"
 
 @interface CCRefreshTableView : UIView<CCRefreshProtocol>
 

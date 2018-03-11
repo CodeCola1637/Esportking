@@ -7,9 +7,10 @@
 //
 
 #import "CCBaseViewController.h"
+#import "ZJScrollPageViewDelegate.h"
 
-@interface CCOrderViewController : CCBaseViewController
+@interface CCOrderViewController : CCBaseViewController<ZJScrollPageViewChildVcDelegate>
 
-- (instancetype)initWithOrderType:(ORDERSTATUS)type;
+- (instancetype)initWithOrderType:(ORDERSOURCE)type;
 
 @end

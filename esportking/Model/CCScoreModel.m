@@ -208,17 +208,17 @@
     return str;
 }
 
-+ (NSString *)getSystemStr:(SYSTEM)system
++ (NSString *)getSystemStr:(CLIENTTYPE)system
 {
     NSString *str = nil;
     switch (system)
     {
-        case SYSTEM_iOS:
+        case CLIENTTYPE_IOS:
         {
             str = @"苹果平台";
         }
             break;
-        case SYSTEM_Android:
+        case CLIENTTYPE_ANDROID:
         {
             str = @"安卓平台";
         }
@@ -240,7 +240,7 @@
             str = Wording_Platform_QQ;
         }
             break;
-        case SYSTEM_Android:
+        case PLATFORM_WX:
         {
             str = Wording_Platform_WX;
         }

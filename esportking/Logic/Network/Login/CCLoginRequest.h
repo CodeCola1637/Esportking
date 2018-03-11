@@ -9,10 +9,10 @@
 #import "CCBaseRequest.h"
 
 typedef enum : NSUInteger {
-    PLATFORM_PHONE = 0,
-    PLATFORM_QQ,
-    PLATFORM_WX,
-} PLATFORM;
+    LOGINTYPE_PHONE = 0,
+    LOGINTYPE_QQ,
+    LOGINTYPE_WX,
+} LOGINTYPE;
 
 @interface CCLoginRequest : CCBaseRequest
 
@@ -21,6 +21,6 @@ typedef enum : NSUInteger {
 
 @property (strong, nonatomic) NSString *token;
 @property (strong, nonatomic) NSString *openID;
-@property (assign, nonatomic) PLATFORM platform;
+@property (assign, nonatomic) LOGINTYPE platform;
 
 @end

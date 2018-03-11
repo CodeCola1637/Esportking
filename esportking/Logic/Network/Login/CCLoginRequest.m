@@ -12,7 +12,7 @@
 
 - (NSString *)subAddress
 {
-    if (PLATFORM_PHONE == self.platform)
+    if (LOGINTYPE_PHONE == self.platform)
     {
         return PhoneLogin;
     }
@@ -24,7 +24,7 @@
 
 - (NSDictionary *)requestParam
 {
-    if (PLATFORM_PHONE == self.platform)
+    if (LOGINTYPE_PHONE == self.platform)
     {
         return @{
                  @"mobile":CCNoNilStr(self.mobile),

@@ -91,6 +91,8 @@
 		C0606D92205278200007B772 /* CCScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D91205278200007B772 /* CCScoreModel.m */; };
 		C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */; };
 		C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FF4205508650060B8A5 /* CCCalculateRequest.m */; };
+		C0917FF820550FE00060B8A5 /* CCPublishOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FF720550FE00060B8A5 /* CCPublishOrderRequest.m */; };
+		C0917FFC205517D40060B8A5 /* CCOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FFB205517D40060B8A5 /* CCOrderModel.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -313,6 +315,10 @@
 		C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEvaluateUserModel.m; sourceTree = "<group>"; };
 		C0917FF3205508650060B8A5 /* CCCalculateRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCalculateRequest.h; sourceTree = "<group>"; };
 		C0917FF4205508650060B8A5 /* CCCalculateRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCalculateRequest.m; sourceTree = "<group>"; };
+		C0917FF620550FE00060B8A5 /* CCPublishOrderRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPublishOrderRequest.h; sourceTree = "<group>"; };
+		C0917FF720550FE00060B8A5 /* CCPublishOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPublishOrderRequest.m; sourceTree = "<group>"; };
+		C0917FFA205517D40060B8A5 /* CCOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderModel.h; sourceTree = "<group>"; };
+		C0917FFB205517D40060B8A5 /* CCOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderModel.m; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -926,6 +932,7 @@
 		BEFF95CF202D927A0081D88B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C0917FF9205517C50060B8A5 /* Order */,
 				BEFF95D0202D92C30081D88B /* CCGameModel.h */,
 				BEFF95D1202D92C30081D88B /* CCGameModel.m */,
 				BEFF95D3202D92CD0081D88B /* CCUserModel.h */,
@@ -1025,6 +1032,15 @@
 				C0917FF4205508650060B8A5 /* CCCalculateRequest.m */,
 			);
 			path = Calculator;
+			sourceTree = "<group>";
+		};
+		C0917FF9205517C50060B8A5 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				C0917FFA205517D40060B8A5 /* CCOrderModel.h */,
+				C0917FFB205517D40060B8A5 /* CCOrderModel.m */,
+			);
+			path = Order;
 			sourceTree = "<group>";
 		};
 		C0A1748220493B02000B71F3 /* Publish */ = {
@@ -1164,6 +1180,8 @@
 			children = (
 				C0D4F8AF2046A39600258CC6 /* CCOrderRequest.h */,
 				C0D4F8B02046A39600258CC6 /* CCOrderRequest.m */,
+				C0917FF620550FE00060B8A5 /* CCPublishOrderRequest.h */,
+				C0917FF720550FE00060B8A5 /* CCPublishOrderRequest.m */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1488,6 +1506,7 @@
 				C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */,
 				BE49C9F22042864300B0E34A /* CCGenderOldView.m in Sources */,
 				BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */,
+				C0917FFC205517D40060B8A5 /* CCOrderModel.m in Sources */,
 				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
 				C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */,
 				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
@@ -1568,6 +1587,7 @@
 				BEAFDA4920273FF100ED4E2D /* CCLoginManager.m in Sources */,
 				C0A1748D20493D9A000B71F3 /* CCScoreStyleTableViewCell.m in Sources */,
 				BE4A1BB820307FD300890485 /* CCBannerCollectionViewCell.m in Sources */,
+				C0917FF820550FE00060B8A5 /* CCPublishOrderRequest.m in Sources */,
 				BE49C9FE2042A89E00B0E34A /* CCStarView.m in Sources */,
 				BEAFDA54202756F100ED4E2D /* CCRegisterViewController.m in Sources */,
 			);

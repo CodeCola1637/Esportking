@@ -36,10 +36,13 @@
     return nil;
 }
 
+- (void)decodeData:(NSDictionary *)resp {}
+
 - (void)onResponse:(NSDictionary *)resp
 {
     if ([resp[@"msgCode"] integerValue] == 0)
     {
+        [self decodeData:resp];
         if (_delegate && [_delegate respondsToSelector:@selector(onRequestSuccess:sender:)])
         {
             [_delegate onRequestSuccess:resp sender:self];

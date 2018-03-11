@@ -7,12 +7,16 @@
 //
 
 #import "CCBaseRequest.h"
+#import "CCOrderModel.h"
 
 @interface CCOrderRequest : CCBaseRequest
 
-@property (assign, nonatomic) ORDERSTATUS type;
+@property (assign, nonatomic) ORDERSOURCE type;
 @property (assign, nonatomic) uint64_t gameID;
 @property (assign, nonatomic) uint64_t pageNum;
 @property (assign, nonatomic) uint64_t pageSize;
+
+// resp
+@property (strong, nonatomic) NSArray<CCOrderModel *> *orderList;
 
 @end

@@ -82,6 +82,11 @@
     if (!_pageView)
     {
         ZJSegmentStyle *style = [[ZJSegmentStyle alloc] init];
+        style.segmentHeight = CCPXToPoint(80);
+        style.titleFont = Font_Big;
+        style.normalTitleColor = [UIColor colorWithRGBHex:0x555555];
+        style.selectedTitleColor = FontColor_Black;
+        style.scrollLineColor = BgColor_Yellow;
         //显示滚动条
         style.showLine = YES;
         // 颜色渐变
@@ -92,6 +97,7 @@
         style.autoAdjustTitlesWidth = YES;
         
         _pageView = [[ZJScrollPageView alloc] initWithFrame:self.contentView.bounds segmentStyle:style titles:self.titles parentViewController:self delegate:self];
+        [_pageView.segmentView setBackgroundColor:[UIColor colorWithRGBHex:0xf2f2f2]];
     }
     return _pageView;
 }

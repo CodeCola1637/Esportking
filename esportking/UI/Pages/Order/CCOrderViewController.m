@@ -9,26 +9,29 @@
 #import "CCOrderViewController.h"
 #import "CCRefreshTableView.h"
 #import "CCOrderTableViewCell.h"
-#import "ZJScrollPageViewDelegate.h"
+#import "CCDevideTableViewCell.h"
+
 #import "CCOrderRequest.h"
 
-#define kIdentify   @"identify"
+#define kDataIdentify       @"data_identify"
+#define kDevideIdentify     @"devide_identify"
+
 #define kPageSize   20
 
-@interface CCOrderViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate, CCOrderTableViewCellDelegate, ZJScrollPageViewChildVcDelegate>
+@interface CCOrderViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate, CCOrderTableViewCellDelegate>
 
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 
-@property (assign, nonatomic) ORDERSTATUS orderType;
+@property (assign, nonatomic) ORDERSOURCE orderType;
 @property (assign, nonatomic) uint64_t pageNum;
 @property (strong, nonatomic) CCOrderRequest *request;
-@property (strong, nonatomic) NSMutableArray<NSDictionary *> *orderList;
+@property (strong, nonatomic) NSMutableArray<CCOrderModel *> *orderList;
 
 @end
 
 @implementation CCOrderViewController
 
-- (instancetype)initWithOrderType:(ORDERSTATUS)type
+- (instancetype)initWithOrderType:(ORDERSOURCE)type
 {
     if (self = [super init])
     {
@@ -108,11 +111,11 @@
     
     if (self.request.pageNum == 1)
     {
-        self.orderList = [[NSMutableArray alloc] initWithArray:dict[@"data"]];
+        self.orderList = [[NSMutableArray alloc] initWithArray:self.request.orderList];
     }
     else
     {
-        [self.orderList = self.orderList addObject:dict[@"data"]];
+        [self.orderList addObjectsFromArray:self.request.orderList];
     }
     self.pageNum = self.request.pageNum;
     
@@ -140,19 +143,38 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.orderList.count;
+    if (self.orderList.count > 0)
+    {
+        return self.orderList.count*2-1;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CCPXToPoint(200);
+    if (indexPath.row%2 == 1)
+    {
+        return CCPXToPoint(16);
+    }
+    else
+    {
+        return CCPXToPoint(200);
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CCOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kIdentify];
-    [cell setOrderDict:self.orderList[indexPath.row] andDelegate:self];
-    return cell;
+    if (indexPath.row%2 == 1)
+    {
+        CCDevideTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DevideIdentify];
+        return cell;
+    }
+    else
+    {
+        CCOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDataIdentify];
+        [cell setOrderDict:self.orderList[indexPath.row] andDelegate:self];
+        return cell;
+    }
 }
 
 #pragma mark - getter
@@ -165,9 +187,8 @@
         [_tableView setRefreshDelegate:self];
         [_tableView.tableView setDataSource:self];
         [_tableView.tableView setDelegate:self];
-        [_tableView.tableView setBackgroundColor:BgColor_Gray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [_tableView.tableView registerClass:[CCOrderTableViewCell class] forCellReuseIdentifier:kIdentify];
+        [_tableView.tableView registerClass:[CCOrderTableViewCell class] forCellReuseIdentifier:kDataIdentify];
     }
     return _tableView;
 }

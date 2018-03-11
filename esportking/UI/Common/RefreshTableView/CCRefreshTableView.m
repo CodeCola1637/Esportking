@@ -31,7 +31,9 @@
 - (void)setupUI
 {
     _tableView = [[UITableView alloc] initWithFrame:self.frame];
+    [_tableView setBackgroundColor:BgColor_White];
     [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [_tableView registerClass:[CCDevideTableViewCell class] forCellReuseIdentifier:DevideIdentify];
     [self addSubview:_tableView];
     
     _header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(onHeaderRefresh)];
@@ -41,6 +43,7 @@
     _tableView.mj_footer = _footer;
     
     _emptyImgView = [UIImageView scaleFillImageView];
+    [_emptyImgView setContentMode:UIViewContentModeCenter];
     [_emptyImgView setImage:CCIMG(@"Placeholder_Icon")];
 }
 

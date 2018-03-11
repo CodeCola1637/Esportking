@@ -7,16 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCOrderModel.h"
 
 @protocol CCOrderTableViewCellDelegate <NSObject>
 
-- (void)onCancelOrder:(NSDictionary *)dict;
-- (void)onConfirmOrder:(NSDictionary *)dict;
+- (void)onCancelOrder:(CCOrderModel *)orderModel;
+- (void)onConfirmOrder:(CCOrderModel *)orderModel;
 
 @end
 
 @interface CCOrderTableViewCell : UITableViewCell
 
-- (void)setOrderDict:(NSDictionary *)dict andDelegate:(id<CCOrderTableViewCellDelegate>)del;
+- (void)setOrderDict:(CCOrderModel *)model andDelegate:(id<CCOrderTableViewCellDelegate>)del;
 
 @end

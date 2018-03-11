@@ -8,22 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum : NSUInteger {
-    SYSTEM_iOS = 1,
-    SYSTEM_Android,
-} SYSTEM;
-
-typedef enum : NSUInteger {
-    PLATFORM_QQ = 1,
-    PLATFORM_WX,
-} PLATFORM;
-
 @interface CCScoreModel : NSObject
 
 @property (assign, nonatomic) BOOL needReCaculate;
 
 @property (assign, nonatomic) SCORESTYLE style;
-@property (assign, nonatomic) SYSTEM system;
+@property (assign, nonatomic) CLIENTTYPE system;
 @property (assign, nonatomic) PLATFORM platform;
 
 // 上分专车
@@ -38,7 +28,7 @@ typedef enum : NSUInteger {
 - (void)calCulateMoney:(void(^)(BOOL, uint32_t))calculateBlock;
 
 + (NSString *)getSytleStr:(SCORESTYLE)style;
-+ (NSString *)getSystemStr:(SYSTEM)system;
++ (NSString *)getSystemStr:(CLIENTTYPE)system;
 + (NSString *)getPlatformStr:(PLATFORM)platform;
 
 + (NSString *)getDetailLevelStr:(uint32_t)level;

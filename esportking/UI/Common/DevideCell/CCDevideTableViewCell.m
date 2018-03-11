@@ -28,7 +28,9 @@
 - (void)setupUI
 {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [self setBackgroundColor:BgColor_SuperLightGray];
     [self.contentView addSubview:self.label];
+    
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(8));
         make.left.equalTo(self.contentView).offset(CCPXToPoint(32));

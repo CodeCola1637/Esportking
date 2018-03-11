@@ -7,7 +7,10 @@
 //
 
 #import "CCLeftViewController.h"
+#import "CCPageContainerViewController.h"
 #import "CCModifyUserInfoViewController.h"
+#import "CCOrderViewController.h"
+
 #import "CCHeadTableViewCell.h"
 #import "CCImgTitleTableViewCell.h"
 
@@ -117,7 +120,10 @@ typedef enum : NSUInteger {
             break;
         case ITEM_ORDER:
         {
-            
+            CCOrderViewController *vc1 = [[CCOrderViewController alloc] initWithOrderType:ORDERSOURCE_SEND];
+            CCOrderViewController *vc2 = [[CCOrderViewController alloc] initWithOrderType:ORDERSOURCE_RECV];
+            CCPageContainerViewController *container = [[CCPageContainerViewController alloc] initWithVCs:@[vc1, vc2] subTitles:@[@"我发起的", @"我收到的"] andTitle:@"我的订单"];
+            [self cw_pushViewController:container];
         }
             break;
         case ITEM_COMEIN:
