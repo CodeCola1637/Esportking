@@ -47,6 +47,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## AMapFoundation
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
+## AMapLocation
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
 ## CWLateralSlide
 
 Copyright (c) 2017 CWLateralSlide(https://github.com/ChavezChen/CWLateralSlide), L.L.C. All rights reserved.

@@ -20,6 +20,9 @@ target 'esportking' do
   #Chat
   pod 'NIMKit'
   
+  #Map
+  pod 'AMapLocation'
+  
   #UI
   pod 'MJRefresh', '~> 3.1.15.3'
   pod 'Masonry', '~> 1.1.0'
