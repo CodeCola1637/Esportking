@@ -7,6 +7,7 @@
 //
 
 #import "CCNearbyViewController.h"
+#import "CCUserDetailViewController.h"
 #import "CCRefreshTableView.h"
 #import "CCNearbyTableViewCell.h"
 
@@ -17,12 +18,13 @@
 
 #define kNearbyIdentify @"nearby_identify"
 
-@interface CCNearbyViewController ()<UITableViewDelegate, UITableViewDataSource, CCRefreshDelegate, AMapLocationManagerDelegate>
+@interface CCNearbyViewController ()<UITableViewDelegate, UITableViewDataSource, CCRefreshDelegate, AMapLocationManagerDelegate, CCRequestDelegate>
 
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 @property (strong, nonatomic) MAMapView *mapView;
 @property (strong, nonatomic) AMapLocationManager *locationManager;
 
+@property (strong, nonatomic) CCNearbyRequest *request;
 @property (strong, nonatomic) NSMutableArray<CCGameModel *> *userList;
 
 @end
@@ -32,7 +34,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self configTopbar];
+    [self configContent];
+    [self configLocationManager];
+    [self startSerialLocation];
 }
 
 - (void)configTopbar
@@ -49,10 +54,11 @@
     [self.contentView addSubview:self.tableView];
     [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.contentView);
+        make.bottom.equalTo(self.tableView.mas_top);
     }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(self.contentView);
-        make.height.mas_equalTo(CCPXToPoint(100));
+        make.height.mas_equalTo(CCPXToPoint(300));
     }];
 }
 
@@ -62,9 +68,11 @@
     
     [self.locationManager setDelegate:self];
     
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+    
     [self.locationManager setPausesLocationUpdatesAutomatically:NO];
     
-    [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+    [self.locationManager setAllowsBackgroundLocationUpdates:NO];
 }
 
 - (void)startSerialLocation
@@ -87,21 +95,55 @@
 
 - (void)onFooterRefresh {}
 
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
 {
-    
+    if (_request != sender)
+    {
+        return;
+    }
+    self.userList = _request.userList;
+    [self.tableView reloadData];
+    _request = nil;
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (_request != sender)
+    {
+        return;
+    }
+    _request = nil;
+    [self.tableView reloadData];
+    [self showToast:msg];
 }
 
 #pragma mark - AMapLocationManagerDelegate
 - (void)amapLocationManager:(AMapLocationManager *)manager didFailWithError:(NSError *)error
 {
-    
+    [self showToast:@"定位失败"];
 }
 
 - (void)amapLocationManager:(AMapLocationManager *)manager didUpdateLocation:(CLLocation *)location reGeocode:(AMapLocationReGeocode *)reGeocode
 {
+    [self.mapView setCenterCoordinate:location.coordinate animated:YES];
+    [self stopSerialLocation];
     
+    _request = [CCNearbyRequest new];
+    _request.gameID = GAMEID_WANGZHE;
+    _request.latitude = [NSString stringWithFormat:@"%lf", location.coordinate.latitude];
+    _request.longitude = [NSString stringWithFormat:@"%lf", location.coordinate.longitude];
+    [_request startPostRequestWithDelegate:self];
+}
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO];
+    
+    CCGameModel *model = self.userList[indexPath.row];
+    CCUserDetailViewController *vc = [[CCUserDetailViewController alloc] initWithUserID:model.userModel.userID gameID:model.gameID userGameID:model.userGameID];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -120,6 +162,11 @@
     CCNearbyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kNearbyIdentify];
     [cell setGameModel:self.userList[indexPath.row]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CCPXToPoint(114);
 }
 
 #pragma mark - getter
@@ -144,6 +191,7 @@
     {
         CGRect bounds = self.contentView.bounds;
         _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, bounds.size.height-CCPXToPoint(100))];
+        _mapView.showsUserLocation = YES;
     }
     return _mapView;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "CCRefreshTableView.h"
+#import "CCEmptyView.h"
 
 #import <MJRefresh.h>
 
@@ -15,7 +16,7 @@
     __weak id<CCRefreshDelegate> _refreshDelegate;
     MJRefreshHeader *_header;
     MJRefreshFooter *_footer;
-    UIImageView *_emptyImgView;
+    CCEmptyView *_emptyView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -42,9 +43,7 @@
     _footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(onFooterRefresh)];
     _tableView.mj_footer = _footer;
     
-    _emptyImgView = [UIImageView scaleFillImageView];
-    [_emptyImgView setContentMode:UIViewContentModeCenter];
-    [_emptyImgView setImage:CCIMG(@"Placeholder_Icon")];
+    _emptyView = [CCEmptyView new];
 }
 
 - (void)setupConstrain
@@ -93,7 +92,7 @@
         }
         if (!havingData)
         {
-            _tableView.backgroundView = _emptyImgView;
+            _tableView.backgroundView = _emptyView;
         }
         else
         {

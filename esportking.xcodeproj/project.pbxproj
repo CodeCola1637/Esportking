@@ -90,6 +90,7 @@
 		C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A05204E846300C8154E /* NSArray+zh_SafeAccess.m */; };
 		C0540A0B204E979200C8154E /* CCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A0A204E979200C8154E /* CCPickerView.m */; };
 		C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A0E204EB8E000C8154E /* CCShowView.m */; };
+		C05D4C30205625DE00D9F650 /* CCEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D4C2F205625DE00D9F650 /* CCEmptyView.m */; };
 		C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D8B20526AFA0007B772 /* CCDanPickerView.m */; };
 		C0606D92205278200007B772 /* CCScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D91205278200007B772 /* CCScoreModel.m */; };
 		C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */; };
@@ -318,6 +319,8 @@
 		C0540A0A204E979200C8154E /* CCPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPickerView.m; sourceTree = "<group>"; };
 		C0540A0D204EB8E000C8154E /* CCShowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCShowView.h; sourceTree = "<group>"; };
 		C0540A0E204EB8E000C8154E /* CCShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCShowView.m; sourceTree = "<group>"; };
+		C05D4C2E205625DE00D9F650 /* CCEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEmptyView.h; sourceTree = "<group>"; };
+		C05D4C2F205625DE00D9F650 /* CCEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEmptyView.m; sourceTree = "<group>"; };
 		C0606D8A20526AFA0007B772 /* CCDanPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCDanPickerView.h; sourceTree = "<group>"; };
 		C0606D8B20526AFA0007B772 /* CCDanPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDanPickerView.m; sourceTree = "<group>"; };
 		C0606D90205278200007B772 /* CCScoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreModel.h; sourceTree = "<group>"; };
@@ -885,6 +888,7 @@
 		BEFC9BA120257E29002CE000 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C05D4C2D205625C700D9F650 /* EmptyView */,
 				C0148A4520513B2E0055D545 /* UserView */,
 				C0540A0C204EB83100C8154E /* ShowView */,
 				C0540A08204E976F00C8154E /* PickView */,
@@ -1034,6 +1038,15 @@
 				C0540A0E204EB8E000C8154E /* CCShowView.m */,
 			);
 			path = ShowView;
+			sourceTree = "<group>";
+		};
+		C05D4C2D205625C700D9F650 /* EmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				C05D4C2E205625DE00D9F650 /* CCEmptyView.h */,
+				C05D4C2F205625DE00D9F650 /* CCEmptyView.m */,
+			);
+			path = EmptyView;
 			sourceTree = "<group>";
 		};
 		C0606D9320527E090007B772 /* Category */ = {
@@ -1607,6 +1620,7 @@
 				C0B498EE20479D5100BD0D63 /* CCGetTryCardRequest.m in Sources */,
 				C05409FE204E787A00C8154E /* UIView+Layout.m in Sources */,
 				BE49C9EB20427F1200B0E34A /* CCCommentModel.m in Sources */,
+				C05D4C30205625DE00D9F650 /* CCEmptyView.m in Sources */,
 				C091800320552E950060B8A5 /* CCAddTryCardRequest.m in Sources */,
 				BE4A1BCC20384F0D00890485 /* CCLeftViewController.m in Sources */,
 				C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */,

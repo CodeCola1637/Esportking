@@ -18,7 +18,7 @@
 #define kIdentify   @"identify"
 #define kPageSize   10
 
-@interface CCTryCardViewController ()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate>
+@interface CCTryCardViewController()<UITableViewDataSource, UITableViewDelegate, CCRefreshDelegate, CCRequestDelegate>
 
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 

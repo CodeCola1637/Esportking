@@ -30,6 +30,7 @@
 {
     [self configShareSDK];
     [self configAFNetworkManager];
+    [self configMap];
 }
 
 + (void)configAfterLogin

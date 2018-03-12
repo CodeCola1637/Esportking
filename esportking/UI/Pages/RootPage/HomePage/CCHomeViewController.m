@@ -15,6 +15,7 @@
 #import "CCUserDetailViewController.h"
 #import "CCBeautyViewController.h"
 #import "CCSearchViewController.h"
+#import "CCNearbyViewController.h"
 
 #import "CCHomePageManager.h"
 #import "CCAccountService.h"
@@ -116,7 +117,8 @@
     switch (category) {
         case CATEGORY_NEARBY:
         {
-            
+            CCNearbyViewController *vc = [CCNearbyViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case CATEGORY_CAR:
