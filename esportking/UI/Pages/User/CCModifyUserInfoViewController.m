@@ -36,6 +36,7 @@
 @property (strong, nonatomic) CCBigButton   *finishButton;
 
 @property (strong, nonatomic) CCModifyUserInfoRequest *request;
+@property (strong, nonatomic) CCUploadImgRequest *uploadRequest;
 
 @end
 
@@ -200,6 +201,7 @@
     uploadReq.uploadKey = @"files";
     uploadReq.uploadImage = _header;
     [uploadReq startUploadWithUrl:[NSString stringWithFormat:@"%@%@", RootAddress, ModifyUser] andDelegate:self];
+    self.uploadRequest = uploadReq;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -249,12 +251,14 @@
 #pragma mark - CCUploadImgDelegate
 - (void)onUploadSuccess:(NSDictionary *)dict
 {
+    self.uploadRequest = nil;
     [self.headImgView setImage:_header];
     [self endLoading];
 }
 
 - (void)onUploadFailed:(NSInteger)errCode errMsg:(NSString *)msg
 {
+    self.uploadRequest = nil;
     [self showToast:msg];
     [self endLoading];
 }

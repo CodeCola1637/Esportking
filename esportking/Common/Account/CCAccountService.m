@@ -30,6 +30,7 @@
     _star = dict[@"star"];
     _headUrl = dict[@"picture"];
     _age = [dict[@"age"] unsignedIntValue];
+    _coverUrlList = dict[@"cover"];
     
     _mobile = dict[@"mobile"];
     _imToken = dict[@"im_token"];

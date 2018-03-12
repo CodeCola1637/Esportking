@@ -91,6 +91,10 @@
 		C0540A0B204E979200C8154E /* CCPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A0A204E979200C8154E /* CCPickerView.m */; };
 		C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0540A0E204EB8E000C8154E /* CCShowView.m */; };
 		C05D4C30205625DE00D9F650 /* CCEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D4C2F205625DE00D9F650 /* CCEmptyView.m */; };
+		C05D4C462056660400D9F650 /* CCChangeUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D4C452056660400D9F650 /* CCChangeUserInfoViewController.m */; };
+		C05D4C4A2056668D00D9F650 /* CCAddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D4C492056668D00D9F650 /* CCAddImageView.m */; };
+		C05D4C4D20566FCE00D9F650 /* CCAddImageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D4C4C20566FCE00D9F650 /* CCAddImageListView.m */; };
+		C05D4C502056847300D9F650 /* CCChangeHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D4C4F2056847300D9F650 /* CCChangeHeadView.m */; };
 		C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D8B20526AFA0007B772 /* CCDanPickerView.m */; };
 		C0606D92205278200007B772 /* CCScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D91205278200007B772 /* CCScoreModel.m */; };
 		C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0606D9520528D9F0007B772 /* CCEvaluateUserModel.m */; };
@@ -321,6 +325,14 @@
 		C0540A0E204EB8E000C8154E /* CCShowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCShowView.m; sourceTree = "<group>"; };
 		C05D4C2E205625DE00D9F650 /* CCEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCEmptyView.h; sourceTree = "<group>"; };
 		C05D4C2F205625DE00D9F650 /* CCEmptyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCEmptyView.m; sourceTree = "<group>"; };
+		C05D4C442056660400D9F650 /* CCChangeUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCChangeUserInfoViewController.h; sourceTree = "<group>"; };
+		C05D4C452056660400D9F650 /* CCChangeUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCChangeUserInfoViewController.m; sourceTree = "<group>"; };
+		C05D4C482056668D00D9F650 /* CCAddImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAddImageView.h; sourceTree = "<group>"; };
+		C05D4C492056668D00D9F650 /* CCAddImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAddImageView.m; sourceTree = "<group>"; };
+		C05D4C4B20566FCE00D9F650 /* CCAddImageListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAddImageListView.h; sourceTree = "<group>"; };
+		C05D4C4C20566FCE00D9F650 /* CCAddImageListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAddImageListView.m; sourceTree = "<group>"; };
+		C05D4C4E2056847300D9F650 /* CCChangeHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCChangeHeadView.h; sourceTree = "<group>"; };
+		C05D4C4F2056847300D9F650 /* CCChangeHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCChangeHeadView.m; sourceTree = "<group>"; };
 		C0606D8A20526AFA0007B772 /* CCDanPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCDanPickerView.h; sourceTree = "<group>"; };
 		C0606D8B20526AFA0007B772 /* CCDanPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDanPickerView.m; sourceTree = "<group>"; };
 		C0606D90205278200007B772 /* CCScoreModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreModel.h; sourceTree = "<group>"; };
@@ -475,8 +487,11 @@
 		BE45F96A202A00D200482824 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				C05D4C472056666900D9F650 /* View */,
 				BE45F96B202A00F600482824 /* CCModifyUserInfoViewController.h */,
 				BE45F96C202A00F600482824 /* CCModifyUserInfoViewController.m */,
+				C05D4C442056660400D9F650 /* CCChangeUserInfoViewController.h */,
+				C05D4C452056660400D9F650 /* CCChangeUserInfoViewController.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1049,6 +1064,19 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
+		C05D4C472056666900D9F650 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C05D4C482056668D00D9F650 /* CCAddImageView.h */,
+				C05D4C492056668D00D9F650 /* CCAddImageView.m */,
+				C05D4C4B20566FCE00D9F650 /* CCAddImageListView.h */,
+				C05D4C4C20566FCE00D9F650 /* CCAddImageListView.m */,
+				C05D4C4E2056847300D9F650 /* CCChangeHeadView.h */,
+				C05D4C4F2056847300D9F650 /* CCChangeHeadView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C0606D9320527E090007B772 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -1552,6 +1580,7 @@
 				BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */,
 				C0D4F8C52046DDF000258CC6 /* CCTryCardViewController.m in Sources */,
 				C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */,
+				C05D4C4D20566FCE00D9F650 /* CCAddImageListView.m in Sources */,
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				BE41B609205564110084320C /* CCNearbyRequest.m in Sources */,
@@ -1577,11 +1606,13 @@
 				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
 				C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */,
 				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
+				C05D4C502056847300D9F650 /* CCChangeHeadView.m in Sources */,
 				C0606D92205278200007B772 /* CCScoreModel.m in Sources */,
 				C0540A01204E83C500C8154E /* NSString+zh_SafeAccess.m in Sources */,
 				C05409FA204E763200C8154E /* zhAlertView.m in Sources */,
 				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
 				C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */,
+				C05D4C4A2056668D00D9F650 /* CCAddImageView.m in Sources */,
 				C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
 				C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */,
@@ -1595,6 +1626,7 @@
 				BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */,
 				BE451465204451220096A8CC /* CCMessageViewController.m in Sources */,
 				BE49C9EE20427F1C00B0E34A /* CCTagModel.m in Sources */,
+				C05D4C462056660400D9F650 /* CCChangeUserInfoViewController.m in Sources */,
 				BE49C9E520427C0000B0E34A /* CCUserTagTableViewCell.m in Sources */,
 				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
 				BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */,

@@ -47,8 +47,8 @@
 {
     if (!_headImgView)
     {
-        _headImgView = [UIImageView new];
-        [_headImgView setContentMode:UIViewContentModeScaleAspectFill];
+        _headImgView = [UIImageView scaleFillImageView];
+        [_headImgView.layer setCornerRadius:CCPXToPoint(50)];
         [_headImgView setImageWithUrl:CCAccountServiceInstance.headUrl placeholder:CCIMG(@"Default_Header")];
     }
     return _headImgView;

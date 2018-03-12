@@ -56,7 +56,7 @@
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"[Upload] Failed!");
+        NSLog(@"[Upload] Failed!%@", error.localizedDescription);
         [weakSelf.delegate onUploadFailed:error.code errMsg:error.localizedDescription];
     }];
 }
