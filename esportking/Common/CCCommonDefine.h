@@ -13,6 +13,7 @@
 #define CCWeakSelf(weakSelf) __weak typeof(self) weakSelf = self
 #define CCNoNilStr(str) (str!=nil?str:@"")
 #define CCStrToUrl(str) (str!=nil?[NSURL URLWithString:str]:nil)
+#define CCIsNotNullObj(obj) (obj!=nil && obj!=[NSNull null])
 
 typedef enum : NSUInteger {
     GAMEID_WANGZHE = 1,

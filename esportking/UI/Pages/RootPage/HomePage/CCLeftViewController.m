@@ -8,7 +8,7 @@
 
 #import "CCLeftViewController.h"
 #import "CCPageContainerViewController.h"
-#import "CCModifyUserInfoViewController.h"
+#import "CCChangeUserInfoViewController.h"
 #import "CCOrderViewController.h"
 #import "CCTryCardViewController.h"
 
@@ -110,7 +110,7 @@ typedef enum : NSUInteger {
     {
         case ITEM_USER:
         {
-            CCModifyUserInfoViewController *vc = [[CCModifyUserInfoViewController alloc] initWithType:MODIFYTYPE_MODIFY];
+            CCChangeUserInfoViewController *vc = [[CCChangeUserInfoViewController alloc] init];
             [self cw_pushViewController:vc];
         }
             break;

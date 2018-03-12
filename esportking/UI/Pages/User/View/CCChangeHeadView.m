@@ -45,16 +45,16 @@
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(CCHorMargin);
-        make.top.equalTo(self).offset(CCPXToPoint(30));
     }];
     [self.headItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(CCPXToPoint(10));
         make.bottom.equalTo(self).offset(-CCPXToPoint(10));
     }];
     [self.headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.headItem);
         make.right.equalTo(self.headItem.subTitleLabel);
-        make.width.height.mas_equalTo(CCPXToPoint(90));
+        make.width.height.mas_equalTo(CCPXToPoint(80));
     }];
 }
 
@@ -122,6 +122,7 @@
     if (!_headItem)
     {
         _headItem = [[CCTitleItem alloc] initWithTitle:@"编辑头像" subTitle:nil subTitleColor:nil delegate:self];
+        [_headItem setBackgroundColor:BgColor_White];
     }
     return _headItem;
 }
@@ -132,6 +133,7 @@
     {
         _headImgView = [UIImageView scaleFillImageView];
         [_headImgView.layer setCornerRadius:CCPXToPoint(40)];
+        [_headImgView setImageWithUrl:CCAccountServiceInstance.headUrl placeholder:CCIMG(@"Default_Header")];
     }
     return _headImgView;
 }

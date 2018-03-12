@@ -201,7 +201,7 @@
 - (void)onUploadSuccess:(NSDictionary *)dict
 {
     self.uploadRequest = nil;
-    CCAccountServiceInstance.coverUrlList = dict[@"data"][@"cover"];
+    [CCAccountServiceInstance setUserInfo:dict];
     [self setupContent];
     [self.parentVC endLoading];
 }

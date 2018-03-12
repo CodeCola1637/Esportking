@@ -24,17 +24,18 @@
 
 - (void)setUserInfo:(NSDictionary *)dict
 {
-    _userID = [dict[@"userid"] unsignedIntegerValue];
-    _name = dict[@"userName"];
-    _gender = dict[@"gender"];
-    _star = dict[@"star"];
-    _headUrl = dict[@"picture"];
-    _age = [dict[@"age"] unsignedIntValue];
-    _coverUrlList = dict[@"cover"];
+    _userID = [dict[@"userid"] unsignedIntegerValue]?:_userID;
+    _name = CCIsNotNullObj(dict[@"userName"])?dict[@"userName"]:_name;
+    _gender = dict[@"gender"]?:_gender;
+    _star = CCIsNotNullObj(dict[@"star"])?dict[@"star"]:_star;
+    _headUrl = CCIsNotNullObj(dict[@"picture"])?dict[@"picture"]:_headUrl;
+    _age = [dict[@"age"] unsignedIntValue]?:_age;
+    _coverUrlList = CCIsNotNullObj(dict[@"cover"])?dict[@"cover"]:_coverUrlList;
+    _area = CCIsNotNullObj(dict[@"area"])?dict[@"area"]:_area;
     
-    _mobile = dict[@"mobile"];
-    _imToken = dict[@"im_token"];
-    _token = dict[@"token"];
+    _mobile = CCIsNotNullObj(dict[@"mobile"])?dict[@"mobile"]:_mobile;
+    _imToken = CCIsNotNullObj(dict[@"im_token"])?dict[@"im_token"]:_imToken;
+    _token = CCIsNotNullObj(dict[@"token"])?dict[@"token"]:_token;
 }
 
 - (void)saveLoginDict:(NSDictionary *)dict

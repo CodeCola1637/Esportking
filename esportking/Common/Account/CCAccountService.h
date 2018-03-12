@@ -21,6 +21,7 @@
 @property (assign, nonatomic) uint32_t age;
 @property (strong, nonatomic) NSString *headUrl;
 @property (strong, nonatomic) NSArray<NSString *> *coverUrlList;
+@property (strong, nonatomic) NSString *area;
 
 @property (strong, nonatomic) NSString *mobile;
 @property (strong, nonatomic) NSString *imToken;
