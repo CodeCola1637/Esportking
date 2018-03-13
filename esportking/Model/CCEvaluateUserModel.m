@@ -10,4 +10,18 @@
 
 @implementation CCEvaluateUserModel
 
+- (instancetype)initWithUserModel:(CCUserModel *)userModel
+{
+    if (self = [super init])
+    {
+        self.userID = userModel.userID;
+        self.name = userModel.name;
+        self.star = userModel.star;
+        self.gender = userModel.gender;
+        self.age = userModel.age;
+        self.headUrl = userModel.headUrl;
+    }
+    return self;
+}
+
 @end

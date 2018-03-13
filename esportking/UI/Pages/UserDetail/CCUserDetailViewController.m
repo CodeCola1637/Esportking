@@ -17,6 +17,7 @@
 #import "CCUserTagTableViewCell.h"
 #import "CCUserCommentTableViewCell.h"
 #import "CCSessionViewController.h"
+#import "CCScoreViewController.h"
 
 #define kFirstIdentify      @"first"
 #define kSecondIdentify     @"second"
@@ -103,7 +104,11 @@
 
 - (void)onClickOrderButton:(UIButton *)button
 {
-    
+    CCEvaluateUserModel *userModel = [[CCEvaluateUserModel alloc] initWithUserModel:self.gameModel.userModel];
+    userModel.orderCount = self.gameModel.totalCount;
+    userModel.starCount = self.gameModel.auth;
+    CCScoreViewController *vc = [[CCScoreViewController alloc] initWithEvaluateUser:userModel];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - CCRefreshDelegate

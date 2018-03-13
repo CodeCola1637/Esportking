@@ -7,8 +7,15 @@
 //
 
 #import "CCAccountService.h"
+#import "CCGetInviteCodeRequest.h"
 
 #define kLoginInfo  @"login_info"
+
+@interface CCAccountService ()<CCRequestDelegate>
+
+@property (strong, nonatomic) CCGetInviteCodeRequest *request;
+
+@end
 
 @implementation CCAccountService
 
@@ -20,6 +27,20 @@
         service = [[CCAccountService alloc] init];
     });
     return service;
+}
+
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserLogin) name:CCLoginNotification object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setUserInfo:(NSDictionary *)dict
@@ -72,6 +93,37 @@
 - (NSDictionary *)getLoginDict
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kLoginInfo];
+}
+
+#pragma mark - Notification
+- (void)onUserLogin
+{
+    self.request = [CCGetInviteCodeRequest new];
+    [self.request startGetRequestWithDelegate:self];
+}
+
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (self.request != sender)
+    {
+        return;
+    }
+    self.request = nil;
+    
+    id inviteCode = dict[@"data"][@"invitation_code"];
+    id bindInviteCode = dict[@"data"][@"bind_invitation_code"];
+    self.inviteCode = CCIsNotNullObj(inviteCode)?inviteCode:nil;
+    self.bindInviteCode = CCIsNotNullObj(bindInviteCode)?bindInviteCode:nil;
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (self.request != sender)
+    {
+        return;
+    }
+    self.request = nil;
 }
 
 @end

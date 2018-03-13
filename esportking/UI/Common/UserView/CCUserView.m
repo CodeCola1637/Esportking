@@ -73,13 +73,13 @@
     [self.starView setEnableTouch:enable del:del];
 }
 
-- (void)setUserInfo:(CCUserModel *)model businessCount:(uint32_t)busiCount starCount:(uint32_t)starCount
+- (void)setUserInfo:(CCUserModel *)model businessCount:(uint64_t)busiCount starCount:(uint64_t)starCount
 {
     [self.headImgView setImageWithUrl:model.headUrl placeholder:CCIMG(@"Default_Header")];
     [self.nameLabel setText:model.name];
     [self.genderView setGender:model.gender andOld:model.age];
-    [self.businessLabel setText:[NSString stringWithFormat:@"已接：%d单", busiCount]];
-    [self.starView setEvaluateStarCount:starCount];
+    [self.businessLabel setText:[NSString stringWithFormat:@"已接：%lld单", busiCount]];
+    [self.starView setEvaluateStarCount:(uint32_t)starCount];
 }
 
 #pragma mark - getter
@@ -88,6 +88,7 @@
     if (!_headImgView)
     {
         _headImgView = [UIImageView scaleFillImageView];
+        [_headImgView.layer setCornerRadius:kHeadWidth/2.f];
     }
     return _headImgView;
 }

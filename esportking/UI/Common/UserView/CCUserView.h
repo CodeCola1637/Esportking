@@ -17,6 +17,6 @@
 
 - (void)setEnabelBusiness:(BOOL)enable;
 - (void)setEnableTouch:(BOOL)enable del:(id<CCStarViewDelegate>)del;
-- (void)setUserInfo:(CCUserModel *)model businessCount:(uint32_t)busiCount starCount:(uint32_t)starCount;
+- (void)setUserInfo:(CCUserModel *)model businessCount:(uint64_t)busiCount starCount:(uint64_t)starCount;
 
 @end

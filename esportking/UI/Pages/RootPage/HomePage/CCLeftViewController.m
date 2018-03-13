@@ -11,6 +11,8 @@
 #import "CCChangeUserInfoViewController.h"
 #import "CCOrderViewController.h"
 #import "CCTryCardViewController.h"
+#import "CCWalletViewController.h"
+#import "CCInviteCodeViewController.h"
 
 #import "CCHeadTableViewCell.h"
 #import "CCImgTitleTableViewCell.h"
@@ -116,7 +118,8 @@ typedef enum : NSUInteger {
             break;
         case ITEM_MONEY:
         {
-            
+            CCWalletViewController *vc = [CCWalletViewController new];
+            [self cw_pushViewController:vc];
         }
             break;
         case ITEM_ORDER:
@@ -134,7 +137,8 @@ typedef enum : NSUInteger {
             break;
         case ITEM_INVITE:
         {
-            
+            CCInviteCodeViewController *vc = [CCInviteCodeViewController new];
+            [self cw_pushViewController:vc];
         }
             break;
         case ITEM_TRY:

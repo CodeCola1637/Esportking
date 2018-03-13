@@ -28,8 +28,10 @@
 #define GetTryCard      @"/app/experienceCar/getMyExperienceCar"
 #define AddTryCard      @"/app/experienceCar/add"
 
+#define BindInviteCode  @"/app/user/bindInvitationCode"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
-
+#define GetInviteCode   @"/app/user/getInvitationCode"
 
 #define Error_UnKnown   333

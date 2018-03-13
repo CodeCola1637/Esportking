@@ -10,7 +10,9 @@
 
 @interface CCEvaluateUserModel : CCUserModel
 
-@property (assign, nonatomic) uint32_t orderCount;
-@property (assign, nonatomic) uint32_t starCount;
+@property (assign, nonatomic) uint64_t orderCount;
+@property (assign, nonatomic) uint64_t starCount;
+
+- (instancetype)initWithUserModel:(CCUserModel *)userModel;
 
 @end

@@ -32,14 +32,25 @@
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
     [self.contentView addSubview:self.imgView];
+    [self.contentView addSubview:self.userView];
+    
     [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView);
     }];
+    [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+    [self.userView setHidden:YES];
 }
 
 - (void)setEvaluateUserModel:(CCEvaluateUserModel *)model
 {
-    
+    if (model)
+    {
+        [self.imgView setHidden:YES];
+        [self.userView setHidden:NO];
+        [self.userView setUserInfo:model businessCount:model.orderCount starCount:model.starCount];
+    }
 }
 
 #pragma mark - getter

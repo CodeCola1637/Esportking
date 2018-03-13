@@ -64,6 +64,10 @@
 		BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA5020274A6000ED4E2D /* CCLoginRequest.m */; };
 		BEAFDA54202756F100ED4E2D /* CCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA53202756F100ED4E2D /* CCRegisterViewController.m */; };
 		BEAFDA57202759BE00ED4E2D /* CCBigTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFDA56202759BE00ED4E2D /* CCBigTextFieldView.m */; };
+		BEAFE56320577A9100ED6B5A /* CCComeInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE56220577A9100ED6B5A /* CCComeInViewController.m */; };
+		BEAFE5672057B4D500ED6B5A /* CCInviteCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE5662057B4D500ED6B5A /* CCInviteCodeViewController.m */; };
+		BEAFE56B2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE56A2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m */; };
+		BEAFE56E2057CFE000ED6B5A /* CCBindInviteCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE56D2057CFE000ED6B5A /* CCBindInviteCodeRequest.m */; };
 		BEE005AC2025793B006813E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AB2025793B006813E3 /* main.m */; };
 		BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AE2025793B006813E3 /* AppDelegate.m */; };
 		BEE005B52025793B006813E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE005B32025793B006813E3 /* Main.storyboard */; };
@@ -269,6 +273,14 @@
 		BEAFDA53202756F100ED4E2D /* CCRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRegisterViewController.m; sourceTree = "<group>"; };
 		BEAFDA55202759BE00ED4E2D /* CCBigTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBigTextFieldView.h; sourceTree = "<group>"; };
 		BEAFDA56202759BE00ED4E2D /* CCBigTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBigTextFieldView.m; sourceTree = "<group>"; };
+		BEAFE56120577A9100ED6B5A /* CCComeInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCComeInViewController.h; sourceTree = "<group>"; };
+		BEAFE56220577A9100ED6B5A /* CCComeInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCComeInViewController.m; sourceTree = "<group>"; };
+		BEAFE5652057B4D500ED6B5A /* CCInviteCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCInviteCodeViewController.h; sourceTree = "<group>"; };
+		BEAFE5662057B4D500ED6B5A /* CCInviteCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCInviteCodeViewController.m; sourceTree = "<group>"; };
+		BEAFE5692057CFCF00ED6B5A /* CCGetInviteCodeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetInviteCodeRequest.h; sourceTree = "<group>"; };
+		BEAFE56A2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetInviteCodeRequest.m; sourceTree = "<group>"; };
+		BEAFE56C2057CFE000ED6B5A /* CCBindInviteCodeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBindInviteCodeRequest.h; sourceTree = "<group>"; };
+		BEAFE56D2057CFE000ED6B5A /* CCBindInviteCodeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBindInviteCodeRequest.m; sourceTree = "<group>"; };
 		BEE005A72025793B006813E3 /* esportking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esportking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE005AB2025793B006813E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BEE005AD2025793B006813E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -799,6 +811,35 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		BEAFE560205779E600ED6B5A /* ComeIn */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFE56120577A9100ED6B5A /* CCComeInViewController.h */,
+				BEAFE56220577A9100ED6B5A /* CCComeInViewController.m */,
+			);
+			path = ComeIn;
+			sourceTree = "<group>";
+		};
+		BEAFE5642057B4B500ED6B5A /* InviteCode */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFE5652057B4D500ED6B5A /* CCInviteCodeViewController.h */,
+				BEAFE5662057B4D500ED6B5A /* CCInviteCodeViewController.m */,
+			);
+			path = InviteCode;
+			sourceTree = "<group>";
+		};
+		BEAFE5682057CE3A00ED6B5A /* InviteCode */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFE5692057CFCF00ED6B5A /* CCGetInviteCodeRequest.h */,
+				BEAFE56A2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m */,
+				BEAFE56C2057CFE000ED6B5A /* CCBindInviteCodeRequest.h */,
+				BEAFE56D2057CFE000ED6B5A /* CCBindInviteCodeRequest.m */,
+			);
+			path = InviteCode;
+			sourceTree = "<group>";
+		};
 		BEE0059E2025793B006813E3 = {
 			isa = PBXGroup;
 			children = (
@@ -871,6 +912,7 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BEAFE5682057CE3A00ED6B5A /* InviteCode */,
 				BE41B606205562E70084320C /* Nearby */,
 				C0917FF2205508160060B8A5 /* Calculator */,
 				C0B498EB20479D3C00BD0D63 /* TryCard */,
@@ -933,6 +975,8 @@
 		BEFC9BA220257E29002CE000 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				BEAFE5642057B4B500ED6B5A /* InviteCode */,
+				BEAFE560205779E600ED6B5A /* ComeIn */,
 				BE41B60A205566070084320C /* Nearby */,
 				C0D4F8C22046DDDB00258CC6 /* TryCard */,
 				C0D4F8BE2046AB6900258CC6 /* Wallet */,
@@ -1621,6 +1665,7 @@
 				C0D4F8AA204695E000258CC6 /* CCOrderTableViewCell.m in Sources */,
 				BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */,
 				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
+				BEAFE56B2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m in Sources */,
 				BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */,
 				BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */,
 				BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */,
@@ -1642,6 +1687,7 @@
 				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,
 				C091800020552D100060B8A5 /* CCTryCardModel.m in Sources */,
+				BEAFE56320577A9100ED6B5A /* CCComeInViewController.m in Sources */,
 				C0540A0B204E979200C8154E /* CCPickerView.m in Sources */,
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
@@ -1663,6 +1709,8 @@
 				C0148A4820513B540055D545 /* CCUserView.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
+				BEAFE5672057B4D500ED6B5A /* CCInviteCodeViewController.m in Sources */,
+				BEAFE56E2057CFE000ED6B5A /* CCBindInviteCodeRequest.m in Sources */,
 				C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */,
 				BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,

@@ -235,6 +235,7 @@
     if (indexPath.row == 0)
     {
         CCScoreBannerTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kFirstIdentify];
+        [tableCell setEvaluateUserModel:self.userModel];
         cell = tableCell;
     }
     else if (indexPath.row == 1)
