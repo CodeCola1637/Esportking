@@ -16,7 +16,7 @@
 
 @property (assign, nonatomic) uint64_t userID;
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *gender;
+@property (assign, nonatomic) GENDER gender;
 @property (strong, nonatomic) NSString *star;
 @property (assign, nonatomic) uint32_t age;
 @property (strong, nonatomic) NSString *headUrl;

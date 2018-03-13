@@ -26,7 +26,6 @@
 {
     _userID = [dict[@"userid"] unsignedIntegerValue]?:_userID;
     _name = CCIsNotNullObj(dict[@"userName"])?dict[@"userName"]:_name;
-    _gender = dict[@"gender"]?:_gender;
     _star = CCIsNotNullObj(dict[@"star"])?dict[@"star"]:_star;
     _headUrl = CCIsNotNullObj(dict[@"picture"])?dict[@"picture"]:_headUrl;
     _age = [dict[@"age"] unsignedIntValue]?:_age;
@@ -36,6 +35,26 @@
     _mobile = CCIsNotNullObj(dict[@"mobile"])?dict[@"mobile"]:_mobile;
     _imToken = CCIsNotNullObj(dict[@"im_token"])?dict[@"im_token"]:_imToken;
     _token = CCIsNotNullObj(dict[@"token"])?dict[@"token"]:_token;
+    
+    id gender = dict[@"gender"];
+    if (CCNoNilStr(gender))
+    {
+        if ([gender isKindOfClass:[NSString class]])
+        {
+            if ([gender isEqualToString:@"男"])
+            {
+                _gender = GENDER_BOY;
+            }
+            else if ([gender isEqualToString:@"女"])
+            {
+                _gender = GENDER_GIRL;
+            }
+        }
+        else
+        {
+            _gender = [gender unsignedIntegerValue];
+        }
+    }
 }
 
 - (void)saveLoginDict:(NSDictionary *)dict

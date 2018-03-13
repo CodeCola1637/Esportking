@@ -18,7 +18,11 @@
 #import <zhPopupController.h>
 #import <TKAlert&TKActionSheet/TKAlert&TKActionSheet.h>
 
-@interface CCChangeUserInfoViewController ()<CCTitleItemDelegate>
+@interface CCChangeUserInfoViewController ()<CCTitleItemDelegate, CCRequestDelegate>
+
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *birth;
+@property (assign, nonatomic) GENDER gender;
 
 @property (strong, nonatomic) CCAddImageListView *addListView;
 @property (strong, nonatomic) CCChangeHeadView *headView;
@@ -96,16 +100,24 @@
     if (name && name.length>0)
     {
         [self.nameItem changeSubTitle:name subTitleColor:FontColor_Black];
+        self.name = name;
     }
-    NSString *gender = CCAccountServiceInstance.gender;
-    if (gender && gender.length>0)
+    GENDER gender = CCAccountServiceInstance.gender;
+    if (gender == GENDER_BOY)
     {
-        [self.sexItem changeSubTitle:gender subTitleColor:FontColor_Black];
+        [self.sexItem changeSubTitle:@"男" subTitleColor:FontColor_Black];
+        self.gender = GENDER_BOY;
+    }
+    else if (gender == GENDER_GIRL)
+    {
+        [self.sexItem changeSubTitle:@"女" subTitleColor:FontColor_Black];
+        self.gender = GENDER_GIRL;
     }
     uint32_t age = CCAccountServiceInstance.age;
     if (age>0)
     {
         [self.ageItem changeSubTitle:[NSString stringWithFormat:@"%d", age] subTitleColor:FontColor_Black];
+        self.birth = [NSString stringWithFormat:@"%d", age];
     }
     NSString *area = CCAccountServiceInstance.area;
     if (area && area.length>0)
@@ -117,7 +129,12 @@
 #pragma mark - action
 - (void)onClickSaveButton:(UIButton *)button
 {
-    
+    self.request = [CCModifyUserInfoRequest new];
+    self.request.name = self.name;
+    self.request.birth = self.birth;
+    self.request.gender = self.gender;
+    [self.request startPostRequestWithDelegate:self];
+    [self beginLoading];
 }
 
 #pragma mark - CCTitleItemDelegate
@@ -153,6 +170,7 @@
     [textFieldAlertView addButtonWithTitle:@"确定"  block:^(NSUInteger index) {
         if (weakAlertView.textField.text.length != 0)
         {
+            weakSelf.name = weakAlertView.textField.text;
             [weakSelf.nameItem changeSubTitle:weakAlertView.textField.text subTitleColor:FontColor_Black];
         }
     }];
@@ -164,9 +182,11 @@
     CCWeakSelf(weakSelf);
     TKActionSheetController *uActionSheet = [TKActionSheetController sheetWithTitle:nil];
     [uActionSheet addButtonWithTitle:@"男" block:^(NSUInteger index) {
+        weakSelf.gender = GENDER_BOY;
         [weakSelf.sexItem changeSubTitle:@"男" subTitleColor:FontColor_Black];
     }];
     [uActionSheet addButtonWithTitle:@"女" block:^(NSUInteger index) {
+        weakSelf.gender = GENDER_GIRL;
         [weakSelf.sexItem changeSubTitle:@"女" subTitleColor:FontColor_Black];
     }];
     [uActionSheet setCancelButtonWithTitle:@"取消" block:^(NSUInteger index) {
@@ -183,6 +203,7 @@
     zhPickerView *pView = [[zhPickerView alloc] initWithFrame:rect];
     
     pView.saveClickedBlock = ^(zhPickerView *pickerView) {
+        weakSelf.birth = pickerView.selectedTimeString;
         [weakSelf.ageItem changeSubTitle:pickerView.selectedTimeString subTitleColor:FontColor_Black];
         [weakSelf.zh_popupController dismiss];
     };
@@ -200,6 +221,20 @@
 - (void)onClickLocationItem
 {
     
+}
+
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    [CCAccountServiceInstance setUserInfo:dict[@"data"]];
+    [self endLoading];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    [self endLoading];
+    [self showToast:msg];
 }
 
 #pragma mark - getter
