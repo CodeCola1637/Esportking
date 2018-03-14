@@ -136,6 +136,7 @@
         make.center.equalTo(self.roundView);
     }];
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contentView);
         make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(90));
     }];
     
