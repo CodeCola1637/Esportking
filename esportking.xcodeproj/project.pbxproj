@@ -68,6 +68,7 @@
 		BEAFE5672057B4D500ED6B5A /* CCInviteCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE5662057B4D500ED6B5A /* CCInviteCodeViewController.m */; };
 		BEAFE56B2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE56A2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m */; };
 		BEAFE56E2057CFE000ED6B5A /* CCBindInviteCodeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE56D2057CFE000ED6B5A /* CCBindInviteCodeRequest.m */; };
+		BEAFE5722058015B00ED6B5A /* CCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAFE5712058015B00ED6B5A /* CCSettingViewController.m */; };
 		BEE005AC2025793B006813E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AB2025793B006813E3 /* main.m */; };
 		BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AE2025793B006813E3 /* AppDelegate.m */; };
 		BEE005B52025793B006813E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE005B32025793B006813E3 /* Main.storyboard */; };
@@ -281,6 +282,8 @@
 		BEAFE56A2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetInviteCodeRequest.m; sourceTree = "<group>"; };
 		BEAFE56C2057CFE000ED6B5A /* CCBindInviteCodeRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBindInviteCodeRequest.h; sourceTree = "<group>"; };
 		BEAFE56D2057CFE000ED6B5A /* CCBindInviteCodeRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBindInviteCodeRequest.m; sourceTree = "<group>"; };
+		BEAFE5702058015B00ED6B5A /* CCSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSettingViewController.h; sourceTree = "<group>"; };
+		BEAFE5712058015B00ED6B5A /* CCSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSettingViewController.m; sourceTree = "<group>"; };
 		BEE005A72025793B006813E3 /* esportking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esportking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE005AB2025793B006813E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BEE005AD2025793B006813E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -840,6 +843,15 @@
 			path = InviteCode;
 			sourceTree = "<group>";
 		};
+		BEAFE56F2058014400ED6B5A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BEAFE5702058015B00ED6B5A /* CCSettingViewController.h */,
+				BEAFE5712058015B00ED6B5A /* CCSettingViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		BEE0059E2025793B006813E3 = {
 			isa = PBXGroup;
 			children = (
@@ -975,6 +987,7 @@
 		BEFC9BA220257E29002CE000 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				BEAFE56F2058014400ED6B5A /* Setting */,
 				BEAFE5642057B4B500ED6B5A /* InviteCode */,
 				BEAFE560205779E600ED6B5A /* ComeIn */,
 				BE41B60A205566070084320C /* Nearby */,
@@ -1632,6 +1645,7 @@
 				C05409FB204E763200C8154E /* zhPickerView.m in Sources */,
 				BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */,
 				BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */,
+				BEAFE5722058015B00ED6B5A /* CCSettingViewController.m in Sources */,
 				BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */,
 				BEFC9BAA20259546002CE000 /* CCBaseViewController.m in Sources */,
 				C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */,

@@ -85,7 +85,7 @@
     [self.msgButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(CCPXToPoint(88));
-        make.width.mas_equalTo(LM_ABSOLUTE_SCREEN_WIDTH/3.f);
+        make.width.mas_equalTo(LM_ABSOLUTE_SCREEN_WIDTH/2.f);
     }];
     [self.orderButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.bottom.equalTo(self.contentView);
@@ -274,8 +274,11 @@
         [_msgButton.layer setBorderColor:BgColor_Gray.CGColor];
         [_msgButton.layer setBorderWidth:1.f];
         [_orderButton setBackgroundColor:BgColor_White];
+        [_msgButton setImage:CCIMG(@"Msg_Icon") forState:UIControlStateNormal];
         [_msgButton setTitle:@"私信" forState:UIControlStateNormal];
         [_msgButton setTitleColor:BgColor_Black forState:UIControlStateNormal];
+        [_msgButton setImageEdgeInsets:UIEdgeInsetsMake(0, -5, 0, 5)];
+        [_msgButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, -5)];
         [_msgButton addTarget:self action:@selector(onClickMsgButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _msgButton;

@@ -69,7 +69,15 @@
 
 - (void)configTopbar
 {
-    [self addTopbarTitle:@"上分"];
+    if (self.userModel)
+    {
+        [self addTopPopBackButton];
+        [self addTopbarTitle:@"下单"];
+    }
+    else
+    {
+        [self addTopbarTitle:@"上分"];
+    }
 }
 
 - (void)configContent
@@ -346,6 +354,7 @@
         [_tableView enableFooter:NO];
         [_tableView.tableView setDataSource:self];
         [_tableView.tableView setDelegate:self];
+        [_tableView.tableView setBounces:NO];
         [_tableView.tableView setBackgroundColor:FontColor_SuperLightGray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView.tableView registerClass:[CCScoreBannerTableViewCell class] forCellReuseIdentifier:kFirstIdentify];

@@ -41,23 +41,28 @@
     [self.starImgViewList[0] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self);
+        make.width.equalTo(self.mas_height);
     }];
     [self.starImgViewList[1] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self.starImgViewList[0].mas_right).offset(gap);
+        make.width.equalTo(self.starImgViewList[0]);
     }];
     [self.starImgViewList[2] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self.starImgViewList[1].mas_right).offset(gap);
+        make.width.equalTo(self.starImgViewList[0]);
     }];
     [self.starImgViewList[3] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self.starImgViewList[2].mas_right).offset(gap);
+        make.width.equalTo(self.starImgViewList[0]);
     }];
     [self.starImgViewList[4] mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(self);
         make.left.equalTo(self.starImgViewList[3].mas_right).offset(gap);
         make.right.equalTo(self);
+        make.width.equalTo(self.starImgViewList[0]);
     }];
 }
 

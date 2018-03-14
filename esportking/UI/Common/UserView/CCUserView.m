@@ -45,7 +45,7 @@
         make.width.height.mas_equalTo(kHeadWidth);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headImgView.mas_bottom).offset(CCPXToPoint(16));
+        make.top.equalTo(self.headImgView.mas_bottom).offset(CCPXToPoint(10));
         make.centerX.equalTo(self);
     }];
     [self.genderView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,11 +54,12 @@
         make.height.mas_equalTo(CCPXToPoint(30));
     }];
     [self.businessLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(20));
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(0));
         make.centerX.equalTo(self);
     }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.bottom.equalTo(self);
+        make.height.mas_equalTo(CCPXToPoint(40));
     }];
 }
 
