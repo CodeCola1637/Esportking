@@ -19,8 +19,11 @@
 @property (weak  , nonatomic) id<CCTitleItemDelegate> delegate;
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *subTitleLabel;
+@property (strong, nonatomic) UIImageView *arrowImgView;
+@property (strong, nonatomic) UIView *lineView;
 
 - (instancetype)initWithTitle:(NSString *)title subTitle:(NSString *)subTitle subTitleColor:(UIColor *)color delegate:(id<CCTitleItemDelegate>)del;
 - (void)changeSubTitle:(NSString *)subTitle subTitleColor:(UIColor *)color;
+- (void)setArrowHidden:(BOOL)hidden;
 
 @end

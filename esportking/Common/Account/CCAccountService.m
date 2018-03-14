@@ -50,7 +50,8 @@
     _star = CCIsNotNullObj(dict[@"star"])?dict[@"star"]:_star;
     _headUrl = CCIsNotNullObj(dict[@"picture"])?dict[@"picture"]:_headUrl;
     _age = [dict[@"age"] unsignedIntValue]?:_age;
-    _coverUrlList = CCIsNotNullObj(dict[@"cover"])?dict[@"cover"]:_coverUrlList;
+    NSString *str = CCIsNotNullObj(dict[@"cover"])?dict[@"cover"]:@"";
+    _coverUrlList = [str componentsSeparatedByString:@","];
     _area = CCIsNotNullObj(dict[@"area"])?dict[@"area"]:_area;
     
     _mobile = CCIsNotNullObj(dict[@"mobile"])?dict[@"mobile"]:_mobile;

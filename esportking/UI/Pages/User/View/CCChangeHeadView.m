@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UIImageView *headImgView;
 @property (strong, nonatomic) CCTitleItem *headItem;
+@property (strong, nonatomic) UIView *itemBGView;
 
 @end
 
@@ -40,15 +41,21 @@
     [self setBackgroundColor:BgColor_SuperLightGray];
     
     [self addSubview:self.titleLabel];
-    [self addSubview:self.headItem];
+    [self addSubview:self.itemBGView];
+    [self.itemBGView addSubview:self.headItem];
     [self.headItem addSubview:self.headImgView];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(CCHorMargin);
     }];
-    [self.headItem mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.itemBGView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self);
         make.top.equalTo(self.titleLabel.mas_bottom).offset(CCPXToPoint(10));
+    }];
+    [self.headItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.itemBGView).offset(CCPXToPoint(20));
+        make.right.equalTo(self.itemBGView).offset(-CCPXToPoint(20));
+        make.top.bottom.equalTo(self.itemBGView);
         make.bottom.equalTo(self).offset(-CCPXToPoint(10));
     }];
     [self.headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,6 +130,7 @@
     {
         _headItem = [[CCTitleItem alloc] initWithTitle:@"编辑头像" subTitle:nil subTitleColor:nil delegate:self];
         [_headItem setBackgroundColor:BgColor_White];
+        [_headItem.lineView setHidden:YES];
     }
     return _headItem;
 }
@@ -136,6 +144,16 @@
         [_headImgView setImageWithUrl:CCAccountServiceInstance.headUrl placeholder:CCIMG(@"Default_Header")];
     }
     return _headImgView;
+}
+
+- (UIView *)itemBGView
+{
+    if (!_itemBGView)
+    {
+        _itemBGView = [UIView new];
+        [_itemBGView setBackgroundColor:BgColor_White];
+    }
+    return _itemBGView;
 }
 
 @end

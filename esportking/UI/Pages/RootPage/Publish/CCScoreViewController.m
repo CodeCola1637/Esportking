@@ -7,7 +7,7 @@
 //
 
 #import "CCScoreViewController.h"
-#import "CCScoreWaitViewController.h"
+#import "CCPayViewController.h"
 
 #import "CCScoreModel.h"
 
@@ -104,7 +104,7 @@
 {
     if ([self.scoreModel checkInfoCompleted])
     {
-        CCScoreWaitViewController *vc = [[CCScoreWaitViewController alloc] initWithScoreModel:self.scoreModel];
+        CCPayViewController *vc = [[CCPayViewController alloc] initWithScoreModel:self.scoreModel];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

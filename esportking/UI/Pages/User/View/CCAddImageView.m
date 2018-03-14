@@ -70,7 +70,7 @@
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         
         //设置属性，周期时长
-        [animation setDuration:0.8];
+        [animation setDuration:0.08];
         //抖动角度
         animation.fromValue = @(-M_1_PI/2);
         animation.toValue = @(M_1_PI/2);

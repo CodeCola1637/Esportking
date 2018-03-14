@@ -11,9 +11,6 @@
 
 @interface CCTitleItem ()
 
-@property (strong, nonatomic) UIImageView *arrowImgView;
-@property (strong, nonatomic) UIView *lineView;
-
 @end
 
 @implementation CCTitleItem
@@ -59,6 +56,23 @@
 {
     [self.subTitleLabel setText:subTitle];
     [self.subTitleLabel setTextColor:color];
+}
+
+- (void)setArrowHidden:(BOOL)hidden
+{
+    [self.arrowImgView setHidden:YES];
+    [self.subTitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self);
+        if (hidden)
+        {
+            make.right.equalTo(self.arrowImgView);
+        }
+        else
+        {
+            make.right.equalTo(self.arrowImgView.mas_left).offset(-CCPXToPoint(26));
+        }
+    }];
+
 }
 
 #pragma mark - action
@@ -119,7 +133,7 @@
     if (!_lineView)
     {
         _lineView = [UIView new];
-        [_lineView setBackgroundColor:BgColor_LightGray];
+        [_lineView setBackgroundColor:BgColor_SuperLightGray];
     }
     return _lineView;
 }

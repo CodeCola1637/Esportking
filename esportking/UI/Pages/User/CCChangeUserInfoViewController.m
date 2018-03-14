@@ -78,19 +78,23 @@
     }];
     [self.nameItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.headView.mas_bottom);
-        make.left.right.equalTo(self.contentView);
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
     }];
     [self.sexItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.nameItem.mas_bottom);
-        make.left.right.equalTo(self.contentView);
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
     }];
     [self.ageItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.sexItem.mas_bottom);
-        make.left.right.equalTo(self.contentView);
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
     }];
     [self.locationItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.ageItem.mas_bottom);
-        make.left.right.equalTo(self.contentView);
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
     }];
 }
 

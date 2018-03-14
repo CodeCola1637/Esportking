@@ -11,6 +11,8 @@
 		BE41B609205564110084320C /* CCNearbyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B608205564110084320C /* CCNearbyRequest.m */; };
 		BE41B60D2055661B0084320C /* CCNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60C2055661B0084320C /* CCNearbyViewController.m */; };
 		BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */; };
+		BE45141A2058C4C000EB707E /* CCPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4514192058C4C000EB707E /* CCPayViewController.m */; };
+		BE45141E2058D41000EB707E /* CCPayItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45141D2058D41000EB707E /* CCPayItemView.m */; };
 		BE451465204451220096A8CC /* CCMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE451464204451220096A8CC /* CCMessageViewController.m */; };
 		BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE451468204451880096A8CC /* CCSessionListViewController.m */; };
 		BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE45146B204451CA0096A8CC /* CCSessionViewController.m */; };
@@ -164,6 +166,10 @@
 		BE41B60C2055661B0084320C /* CCNearbyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyViewController.m; sourceTree = "<group>"; };
 		BE41B60E20556C380084320C /* CCNearbyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyTableViewCell.h; sourceTree = "<group>"; };
 		BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyTableViewCell.m; sourceTree = "<group>"; };
+		BE4514182058C4C000EB707E /* CCPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPayViewController.h; sourceTree = "<group>"; };
+		BE4514192058C4C000EB707E /* CCPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPayViewController.m; sourceTree = "<group>"; };
+		BE45141C2058D41000EB707E /* CCPayItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPayItemView.h; sourceTree = "<group>"; };
+		BE45141D2058D41000EB707E /* CCPayItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPayItemView.m; sourceTree = "<group>"; };
 		BE451463204451220096A8CC /* CCMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageViewController.h; sourceTree = "<group>"; };
 		BE451464204451220096A8CC /* CCMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageViewController.m; sourceTree = "<group>"; };
 		BE451467204451880096A8CC /* CCSessionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSessionListViewController.h; sourceTree = "<group>"; };
@@ -475,6 +481,25 @@
 				BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */,
 			);
 			path = Nearby;
+			sourceTree = "<group>";
+		};
+		BE4514172058C4AB00EB707E /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				BE45141B2058D3F800EB707E /* View */,
+				BE4514182058C4C000EB707E /* CCPayViewController.h */,
+				BE4514192058C4C000EB707E /* CCPayViewController.m */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		BE45141B2058D3F800EB707E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE45141C2058D41000EB707E /* CCPayItemView.h */,
+				BE45141D2058D41000EB707E /* CCPayItemView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BE4514662044514B0096A8CC /* Message */ = {
@@ -924,6 +949,7 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BE4514172058C4AB00EB707E /* Pay */,
 				BEAFE5682057CE3A00ED6B5A /* InviteCode */,
 				BE41B606205562E70084320C /* Nearby */,
 				C0917FF2205508160060B8A5 /* Calculator */,
@@ -1658,6 +1684,7 @@
 				C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */,
 				BE49C9F22042864300B0E34A /* CCGenderOldView.m in Sources */,
 				BE4A1BC92035441F00890485 /* UIImageView+SDWebImage.m in Sources */,
+				BE45141A2058C4C000EB707E /* CCPayViewController.m in Sources */,
 				C0917FFC205517D40060B8A5 /* CCOrderModel.m in Sources */,
 				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
 				C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */,
@@ -1733,6 +1760,7 @@
 				BE45F9652029F19B00482824 /* CCSMSRequest.m in Sources */,
 				BE49C9F62042917A00B0E34A /* CCLevelView.m in Sources */,
 				BE49C9E820427C0D00B0E34A /* CCUserCommentTableViewCell.m in Sources */,
+				BE45141E2058D41000EB707E /* CCPayItemView.m in Sources */,
 				C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */,
 				C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */,
 				C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */,
