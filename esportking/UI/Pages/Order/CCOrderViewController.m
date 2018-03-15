@@ -30,6 +30,8 @@
 @property (strong, nonatomic) CCOrderRequest *request;
 @property (strong, nonatomic) NSMutableArray<CCOrderModel *> *orderList;
 
+@property (strong, nonatomic) CCBaseRequest *orderRequest;
+
 @end
 
 @implementation CCOrderViewController
@@ -90,12 +92,49 @@
 #pragma mark - CCOrderTableViewCellDelegate
 - (void)onCancelOrder:(CCOrderModel *)orderModel
 {
+    if (self.orderRequest)
+    {
+        return;
+    }
     
+    CCCancelOrderRequest *req = [CCCancelOrderRequest new];
+    req.orderID = orderModel.orderID;
+    self.orderRequest = req;
+    [req startPostRequestWithDelegate:self];
 }
 
 - (void)onConfirmOrder:(CCOrderModel *)orderModel
 {
-    
+    if (self.orderRequest)
+    {
+        return;
+    }
+    if (self.orderType == ORDERSOURCE_SEND)
+    {
+        if (orderModel.displayStatus==ORDERDISPLAYSTATUS_WAITPAY || orderModel.displayStatus==ORDERDISPLAYSTATUS_FIALPAY)
+        {
+            // 支付
+        }
+        else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_ONDOING)
+        {
+            // 完成
+        }
+        else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_WAITCOMMENT)
+        {
+            // 评价
+        }
+    }
+    else
+    {
+        if (orderModel.displayStatus == ORDERDISPLAYSTATUS_WIATRECV)
+        {
+            // 等待接单
+        }
+        else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_ONDOING)
+        {
+            // 等完成
+        }
+    }
 }
 
 #pragma mark - UITableViewDelegate

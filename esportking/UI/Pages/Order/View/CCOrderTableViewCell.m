@@ -163,14 +163,27 @@
         case ORDERDISPLAYSTATUS_WIATRECV:
         {
             [self.statusLabel setText:@"待接单"];
-            [self.cancelButton setHidden:NO];
-            [self.confirmButton setHidden:YES];
-            [self.cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.right.equalTo(self.confirmButton.mas_left).offset(0);
-            }];
-            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.width.mas_equalTo(0);
-            }];
+            if (source == ORDERSOURCE_SEND)
+            {
+                [self.cancelButton setHidden:NO];
+                [self.confirmButton setHidden:YES];
+                [self.cancelButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.right.equalTo(self.confirmButton.mas_left).offset(0);
+                }];
+                [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(0);
+                }];
+            }
+            else
+            {
+                [self.cancelButton setHidden:YES];
+                [self.confirmButton setHidden:NO];
+                [self.confirmButton setTitle:@"接单" forState:UIControlStateNormal];
+                [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(CCPXToPoint(96));
+                }];
+            }
+            
         }
             break;
         case ORDERDISPLAYSTATUS_ONDOING:
