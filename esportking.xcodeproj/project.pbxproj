@@ -122,6 +122,10 @@
 		C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174A2204D3792000B71F3 /* CCSearchHistoryView.m */; };
 		C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */; };
 		C0B498EE20479D5100BD0D63 /* CCGetTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B498ED20479D5100BD0D63 /* CCGetTryCardRequest.m */; };
+		C0C6AF87205A6D5B00658722 /* CCCancelOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6AF86205A6D5B00658722 /* CCCancelOrderRequest.m */; };
+		C0C6AF8B205A6E3000658722 /* CCReceiveOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6AF8A205A6E3000658722 /* CCReceiveOrderRequest.m */; };
+		C0C6AF8E205A6E7B00658722 /* CCFinishOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6AF8D205A6E7B00658722 /* CCFinishOrderRequest.m */; };
+		C0C6AF91205A702200658722 /* CCGetBalanceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C6AF90205A702200658722 /* CCGetBalanceRequest.m */; };
 		C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */; };
 		C0D4F898204656BC00258CC6 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88A204656BB00258CC6 /* UIView+ZJFrame.m */; };
 		C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F88C204656BB00258CC6 /* UIViewController+ZJScrollPageController.m */; };
@@ -395,6 +399,14 @@
 		C0A174A8204D397E000B71F3 /* CCCenterTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCenterTitleTableViewCell.m; sourceTree = "<group>"; };
 		C0B498EC20479D5100BD0D63 /* CCGetTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetTryCardRequest.h; sourceTree = "<group>"; };
 		C0B498ED20479D5100BD0D63 /* CCGetTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetTryCardRequest.m; sourceTree = "<group>"; };
+		C0C6AF85205A6D5B00658722 /* CCCancelOrderRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCancelOrderRequest.h; sourceTree = "<group>"; };
+		C0C6AF86205A6D5B00658722 /* CCCancelOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCancelOrderRequest.m; sourceTree = "<group>"; };
+		C0C6AF89205A6E3000658722 /* CCReceiveOrderRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCReceiveOrderRequest.h; sourceTree = "<group>"; };
+		C0C6AF8A205A6E3000658722 /* CCReceiveOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCReceiveOrderRequest.m; sourceTree = "<group>"; };
+		C0C6AF8C205A6E7B00658722 /* CCFinishOrderRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCFinishOrderRequest.h; sourceTree = "<group>"; };
+		C0C6AF8D205A6E7B00658722 /* CCFinishOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCFinishOrderRequest.m; sourceTree = "<group>"; };
+		C0C6AF8F205A702200658722 /* CCGetBalanceRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetBalanceRequest.h; sourceTree = "<group>"; };
+		C0C6AF90205A702200658722 /* CCGetBalanceRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetBalanceRequest.m; sourceTree = "<group>"; };
 		C0D4F88520464B4F00258CC6 /* CCBeautyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBeautyViewController.h; sourceTree = "<group>"; };
 		C0D4F88620464B4F00258CC6 /* CCBeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBeautyViewController.m; sourceTree = "<group>"; };
 		C0D4F889204656BB00258CC6 /* UIView+ZJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJFrame.h"; sourceTree = "<group>"; };
@@ -1355,6 +1367,12 @@
 				C0D4F8B02046A39600258CC6 /* CCOrderRequest.m */,
 				C0917FF620550FE00060B8A5 /* CCPublishOrderRequest.h */,
 				C0917FF720550FE00060B8A5 /* CCPublishOrderRequest.m */,
+				C0C6AF85205A6D5B00658722 /* CCCancelOrderRequest.h */,
+				C0C6AF86205A6D5B00658722 /* CCCancelOrderRequest.m */,
+				C0C6AF89205A6E3000658722 /* CCReceiveOrderRequest.h */,
+				C0C6AF8A205A6E3000658722 /* CCReceiveOrderRequest.m */,
+				C0C6AF8C205A6E7B00658722 /* CCFinishOrderRequest.h */,
+				C0C6AF8D205A6E7B00658722 /* CCFinishOrderRequest.m */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1383,6 +1401,8 @@
 			children = (
 				C0D4F8BB2046AA1A00258CC6 /* CCMoneyRequest.h */,
 				C0D4F8BC2046AA1A00258CC6 /* CCMoneyRequest.m */,
+				C0C6AF8F205A702200658722 /* CCGetBalanceRequest.h */,
+				C0C6AF90205A702200658722 /* CCGetBalanceRequest.m */,
 			);
 			path = Money;
 			sourceTree = "<group>";
@@ -1656,6 +1676,7 @@
 				BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */,
 				BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */,
 				C0540A04204E840800C8154E /* NSDate+Extend.m in Sources */,
+				C0C6AF91205A702200658722 /* CCGetBalanceRequest.m in Sources */,
 				C0D4F89D204656BC00258CC6 /* ZJSegmentStyle.m in Sources */,
 				BE49C9FA204299F000B0E34A /* CCTagView.m in Sources */,
 				BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */,
@@ -1665,6 +1686,7 @@
 				C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */,
 				C05D4C4D20566FCE00D9F650 /* CCAddImageListView.m in Sources */,
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
+				C0C6AF87205A6D5B00658722 /* CCCancelOrderRequest.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				BE41B609205564110084320C /* CCNearbyRequest.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
@@ -1698,6 +1720,7 @@
 				BE45F9692029F98000482824 /* NSString+Check.m in Sources */,
 				C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */,
 				C05D4C4A2056668D00D9F650 /* CCAddImageView.m in Sources */,
+				C0C6AF8B205A6E3000658722 /* CCReceiveOrderRequest.m in Sources */,
 				C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
 				C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */,
@@ -1748,6 +1771,7 @@
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
 				C0148A4820513B540055D545 /* CCUserView.m in Sources */,
+				C0C6AF8E205A6E7B00658722 /* CCFinishOrderRequest.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
 				BEAFE5672057B4D500ED6B5A /* CCInviteCodeViewController.m in Sources */,

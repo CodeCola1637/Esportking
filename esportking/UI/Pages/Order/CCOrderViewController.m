@@ -12,6 +12,9 @@
 #import "CCDevideTableViewCell.h"
 
 #import "CCOrderRequest.h"
+#import "CCCancelOrderRequest.h"
+#import "CCReceiveOrderRequest.h"
+#import "CCFinishOrderRequest.h"
 
 #define kDataIdentify       @"data_identify"
 #define kDevideIdentify     @"devide_identify"
@@ -85,12 +88,12 @@
 }
 
 #pragma mark - CCOrderTableViewCellDelegate
-- (void)onCancelOrder:(NSDictionary *)dict
+- (void)onCancelOrder:(CCOrderModel *)orderModel
 {
     
 }
 
-- (void)onConfirmOrder:(NSDictionary *)dict
+- (void)onConfirmOrder:(CCOrderModel *)orderModel
 {
     
 }
@@ -158,7 +161,7 @@
     }
     else
     {
-        return CCPXToPoint(200);
+        return CCPXToPoint(344);
     }
 }
 
@@ -172,7 +175,7 @@
     else
     {
         CCOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDataIdentify];
-        [cell setOrderDict:self.orderList[indexPath.row] andDelegate:self];
+        [cell setOrderDict:self.orderList[indexPath.row] andDelegate:self source:self.orderType];
         return cell;
     }
 }

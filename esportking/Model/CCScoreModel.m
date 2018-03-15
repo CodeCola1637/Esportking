@@ -215,12 +215,12 @@
     {
         case CLIENTTYPE_IOS:
         {
-            str = @"苹果平台";
+            str = Wording_System_iOS;
         }
             break;
         case CLIENTTYPE_ANDROID:
         {
-            str = @"安卓平台";
+            str = Wording_System_Andorid;
         }
             break;
             

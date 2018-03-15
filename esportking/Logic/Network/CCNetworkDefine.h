@@ -24,6 +24,9 @@
 #define GetOrder        @"/app/order/getOrder"
 #define Calculate       @"/app/order/calculator"
 #define PublishOrder    @"/app/order/order"
+#define CancelOrder     @"/app/order/cancelOrder"
+#define ReceiveOrder    @"/app/order/receiveOrder"
+#define FinishOrder     @"/app/order/confirmOrder"
 
 #define GetTryCard      @"/app/experienceCar/getMyExperienceCar"
 #define AddTryCard      @"/app/experienceCar/add"
@@ -33,5 +36,6 @@
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 #define GetInviteCode   @"/app/user/getInvitationCode"
+#define GetBalance      @"/app/account/getBalance"
 
 #define Error_UnKnown   333

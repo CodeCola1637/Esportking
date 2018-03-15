@@ -31,4 +31,9 @@
 // 娱乐专车
 @property (assign, nonatomic) uint32_t gameCount;
 
+
+// resp
+@property (assign, nonatomic) uint32_t notifyCount;
+@property (strong, nonatomic) NSString *orderID;
+
 @end

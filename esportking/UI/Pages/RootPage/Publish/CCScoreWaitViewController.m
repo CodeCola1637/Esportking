@@ -11,10 +11,15 @@
 #import "UIView+Wave.h"
 #import "CCUserView.h"
 
+#import "CCPublishOrderRequest.h"
+
 #define kRoundWidth CCPXToPoint(164)
 
-@interface CCScoreWaitViewController ()
+@interface CCScoreWaitViewController ()<CCRequestDelegate>
 
+@property (strong, nonatomic) NSString *orderID;
+
+@property (assign, nonatomic) uint64_t receverID;
 @property (strong, nonatomic) CCScoreModel *scoreModel;
 
 @property (strong, nonatomic) UILabel *serviceLabel;
@@ -34,14 +39,17 @@
 @property (strong, nonatomic) CCUserView *userView;
 @property (strong, nonatomic) UIButton *contactButton;
 
+@property (strong, nonatomic) CCPublishOrderRequest *orderRequest;
+
 @end
 
 @implementation CCScoreWaitViewController
 
-- (instancetype)initWithScoreModel:(CCScoreModel *)model
+- (instancetype)initWithScoreModel:(CCScoreModel *)model receiverID:(uint64_t)userID
 {
     if (self = [super init])
     {
+        self.receverID = userID;
         self.scoreModel = model;
     }
     return self;
@@ -57,6 +65,7 @@
     [super viewDidLoad];
     [self configTopbar];
     [self configContent];
+    [self publishOrder];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -167,7 +176,65 @@
     
 }
 
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (self.orderRequest != sender)
+    {
+        return;
+    }
+    [self setDisplayCount:self.orderRequest.notifyCount];
+    self.orderID = self.orderRequest.orderID;
+    self.orderRequest = nil;
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (self.orderRequest != sender)
+    {
+        return;
+    }
+    self.orderRequest = nil;
+    [self showToast:msg];
+}
+
 #pragma mark - private
+- (void)publishOrder
+{
+    if (self.orderRequest)
+    {
+        return;
+    }
+    
+    self.orderRequest = [CCPublishOrderRequest new];
+    self.orderRequest.systemPlatformStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getSystemStr:self.scoreModel.system], [CCScoreModel getPlatformStr:self.scoreModel.platform]];
+    self.orderRequest.receiverID = self.receverID;
+    self.orderRequest.gameID = GAMEID_WANGZHE;
+    self.orderRequest.scoreStyle = self.scoreModel.style;
+    self.orderRequest.system = self.scoreModel.system;
+    self.orderRequest.platform = self.scoreModel.platform;
+    if (self.scoreModel.style == SCORESTYLE_SCORE)
+    {
+        self.orderRequest.fromDan = self.scoreModel.startLevel/100;
+        self.orderRequest.fromDetailDan = self.scoreModel.startLevel%100;
+        self.orderRequest.fromStar = self.scoreModel.startLevel%100;
+        
+        self.orderRequest.toDan = self.scoreModel.endLevel/100;
+        self.orderRequest.toDetailDan = self.scoreModel.endLevel%100;
+        self.orderRequest.toStar = self.scoreModel.endLevel%100;
+        
+        self.orderRequest.danStr = [NSString stringWithFormat:@"%@ 到 %@", [CCScoreModel getDetailLevelStr:self.scoreModel.startLevel], [CCScoreModel getDetailLevelStr:self.scoreModel.endLevel]];
+    }
+    else
+    {
+        self.orderRequest.fromDan = self.scoreModel.level;
+        self.orderRequest.gameCount = self.scoreModel.count;
+        
+        self.orderRequest.danStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getLevelStr:self.scoreModel.level], [CCScoreModel getCountStr:self.scoreModel.count]];
+    }
+    [self.orderRequest startPostRequestWithDelegate:self];
+}
+
 - (void)setDisplayCount:(uint32_t)count
 {
     NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"已通知\n" attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:BoldFont_Big}];

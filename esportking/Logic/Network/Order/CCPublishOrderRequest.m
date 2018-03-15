@@ -35,4 +35,10 @@
              };
 }
 
+- (void)decodeData:(NSDictionary *)resp
+{
+    self.notifyCount = (uint32_t)[resp[@"data"][@"amount"] unsignedIntegerValue];
+    self.orderID = resp[@"data"][@"order_number"];
+}
+
 @end

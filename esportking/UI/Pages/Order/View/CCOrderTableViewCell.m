@@ -41,6 +41,8 @@
 
 - (void)setupUI
 {
+    [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
     [self.contentView addSubview:self.timeLabel];
     [self.contentView addSubview:self.statusLabel];
     [self.contentView addSubview:self.nameLabel];
@@ -71,19 +73,19 @@
     }];
     [self.locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.nameLabel);
-        make.top.equalTo(self.nameLabel).offset(CCPXToPoint(6));
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(6));
     }];
     [self.duanLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.locationLabel);
-        make.top.equalTo(self.locationLabel).offset(CCPXToPoint(6));
+        make.top.equalTo(self.locationLabel.mas_bottom).offset(CCPXToPoint(6));
     }];
     [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.duanLabel);
-        make.top.equalTo(self.duanLabel).offset(CCPXToPoint(6));
+        make.top.equalTo(self.duanLabel.mas_bottom).offset(CCPXToPoint(6));
     }];
     [self.bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.topLineView);
-        make.top.equalTo(self.moneyLabel).offset(CCPXToPoint(20));
+        make.top.equalTo(self.moneyLabel.mas_bottom).offset(CCPXToPoint(20));
         make.height.mas_equalTo(CCOnePoint);
     }];
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -103,7 +105,7 @@
     }];
 }
 
-- (void)setOrderDict:(CCOrderModel *)model andDelegate:(id<CCOrderTableViewCellDelegate>)del
+- (void)setOrderDict:(CCOrderModel *)model andDelegate:(id<CCOrderTableViewCellDelegate>)del source:(ORDERSOURCE)source
 {
     self.dataModel = model;
     self.delegate = del;
@@ -310,7 +312,6 @@
     if (!_bottomView)
     {
         _bottomView = [UIView new];
-        [_bottomView setBackgroundColor:BgColor_Gray];
     }
     return _bottomView;
 }
@@ -333,7 +334,7 @@
     if (!_confirmButton)
     {
         _confirmButton = [UIButton new];
-        [_cancelButton setBackgroundColor:BgColor_Yellow];
+        [_confirmButton setBackgroundColor:BgColor_Yellow];
         [_confirmButton.layer setCornerRadius:CCPXToPoint(12)];
         [_confirmButton setTitle:@"接单" forState:UIControlStateNormal];
         [_confirmButton addTarget:self action:@selector(onClickConfirmButton:) forControlEvents:UIControlEventTouchUpInside];

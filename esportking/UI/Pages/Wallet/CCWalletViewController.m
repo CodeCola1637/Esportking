@@ -10,7 +10,12 @@
 #import "CCMoneyViewController.h"
 #import "CCPageContainerViewController.h"
 
-@interface CCWalletViewController ()
+#import "CCGetBalanceRequest.h"
+
+@interface CCWalletViewController ()<CCRequestDelegate>
+
+@property (assign, nonatomic) CGFloat balance;
+@property (strong, nonatomic) CCGetBalanceRequest *request;
 
 @property (strong, nonatomic) UILabel *titleLabel;
 @property (strong, nonatomic) UILabel *moneyLabel;
@@ -27,6 +32,7 @@
     [super viewDidLoad];
     [self configTopbar];
     [self configContent];
+    [self refreshBalance];
 }
 
 - (void)configTopbar
@@ -88,6 +94,48 @@
     
 }
 
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (sender != self.request)
+    {
+        return;
+    }
+    self.balance = self.request.balance;
+    self.request = nil;
+    [self refreshBalanceUI];
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (sender != self.request)
+    {
+        return;
+    }
+    [self showToast:msg];
+    self.request = nil;
+}
+
+#pragma mark - private
+- (void)refreshBalance
+{
+    self.request = [CCGetBalanceRequest new];
+    [self.request startGetRequestWithDelegate:self];
+}
+
+- (void)refreshBalanceUI
+{
+    [self.moneyLabel setText:[NSString stringWithFormat:@"%.2f", self.balance]];
+    if (self.balance > 100)
+    {
+        [self.getMoneyButton setEnabled:YES];
+    }
+    else
+    {
+        [self.getMoneyButton setEnabled:NO];
+    }
+}
+
 #pragma mark - getter
 - (UILabel *)titleLabel
 {
@@ -133,6 +181,7 @@
     if (!_getMoneyButton)
     {
         _getMoneyButton = [UIButton new];
+        [_getMoneyButton setEnabled:NO];
         [_getMoneyButton setBackgroundColor:BgColor_Yellow];
         [_getMoneyButton setTitle:@"马上提现" forState:UIControlStateNormal];
         [_getMoneyButton setTitleColor:FontColor_White forState:UIControlStateNormal];

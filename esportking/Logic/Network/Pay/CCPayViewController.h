@@ -11,6 +11,6 @@
 
 @interface CCPayViewController : CCBaseViewController
 
-- (instancetype)initWithScoreModel:(CCScoreModel *)model;
+- (instancetype)initWithScoreModel:(CCScoreModel *)model receiverID:(uint64_t)userID;
 
 @end

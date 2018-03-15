@@ -104,7 +104,7 @@
 {
     if ([self.scoreModel checkInfoCompleted])
     {
-        CCPayViewController *vc = [[CCPayViewController alloc] initWithScoreModel:self.scoreModel];
+        CCPayViewController *vc = [[CCPayViewController alloc] initWithScoreModel:self.scoreModel receiverID:self.userModel.userID];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

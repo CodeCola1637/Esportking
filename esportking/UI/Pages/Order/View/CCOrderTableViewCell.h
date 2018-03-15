@@ -18,6 +18,6 @@
 
 @interface CCOrderTableViewCell : UITableViewCell
 
-- (void)setOrderDict:(CCOrderModel *)model andDelegate:(id<CCOrderTableViewCellDelegate>)del;
+- (void)setOrderDict:(CCOrderModel *)model andDelegate:(id<CCOrderTableViewCellDelegate>)del source:(ORDERSOURCE)source;
 
 @end

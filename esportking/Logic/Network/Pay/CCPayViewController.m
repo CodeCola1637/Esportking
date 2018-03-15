@@ -14,6 +14,7 @@
 
 @interface CCPayViewController ()<CCTitleItemDelegate, CCPayItemDelegate>
 
+@property (assign, nonatomic) uint64_t receverID;
 @property (strong, nonatomic) CCScoreModel *scoreModel;
 
 @property (strong, nonatomic) UIView *topBGView;
@@ -36,10 +37,11 @@
 
 @implementation CCPayViewController
 
-- (instancetype)initWithScoreModel:(CCScoreModel *)model
+- (instancetype)initWithScoreModel:(CCScoreModel *)model receiverID:(uint64_t)userID
 {
     if (self = [super init])
     {
+        self.receverID = userID;
         self.scoreModel = model;
     }
     return self;
@@ -141,7 +143,7 @@
 #pragma mark - action
 - (void)onClickBottomButton:(UIButton *)button
 {
-    CCScoreWaitViewController *vc = [[CCScoreWaitViewController alloc] initWithScoreModel:self.scoreModel];
+    CCScoreWaitViewController *vc = [[CCScoreWaitViewController alloc] initWithScoreModel:self.scoreModel receiverID:self.receverID];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
