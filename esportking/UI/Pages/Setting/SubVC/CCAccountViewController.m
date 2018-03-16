@@ -57,6 +57,7 @@
     [self.contentView addSubview:self.qqBindItem];
     
     [self.phoneBindItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView);
         make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
         make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
     }];

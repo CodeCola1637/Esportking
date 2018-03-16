@@ -33,6 +33,8 @@
 
 @interface CCUserDetailViewController ()<CCRequestDelegate, CCRefreshDelegate, UITableViewDataSource, UITableViewDelegate, PopupListComponentDelegate>
 
+@property (strong, nonatomic) PopupListComponent *popupList;
+
 @property (assign, nonatomic) uint64_t userID;
 @property (assign, nonatomic) uint64_t gameID;
 @property (assign, nonatomic) uint64_t userGameID;
@@ -114,12 +116,13 @@
     NSArray* listItems = nil;
     listItems = [NSArray arrayWithObjects:
                  [[PopupListComponentItem alloc] initWithCaption:@"举报" image:nil itemId:1 showCaption:YES],
-                 [[PopupListComponentItem alloc] initWithCaption:(self.isBlackUser?@"加入黑名单":@"移除黑名单") image:nil itemId:2 showCaption:YES],
+                 [[PopupListComponentItem alloc] initWithCaption:(self.isBlackUser?@"移除黑名单":@"加入黑名单") image:nil itemId:2 showCaption:YES],
                  nil];
     
     // Optional: override any default properties you want to change, such as:
     popupList.textColor = FontColor_White;
-    [popupList showAnchoredTo:button inView:self.contentView withItems:listItems withDelegate:self];
+    [popupList showAnchoredTo:button inView:self.view withItems:listItems withDelegate:self];
+    self.popupList = popupList;
 }
 
 - (void)onClickMsgButton:(UIButton *)button
@@ -139,15 +142,20 @@
 }
 
 #pragma mark - PopupListComponentDelegate
-- (void)popupListcompoentDidCancel:(PopupListComponent *)sender {}
+- (void)popupListcompoentDidCancel:(PopupListComponent *)sender
+{
+    self.popupList = nil;
+}
 
 - (void)popupListcomponent:(PopupListComponent *)sender choseItemWithId:(int)itemId
 {
-    if (itemId == 0)
+    self.popupList = nil;
+    
+    if (itemId == 1)
     {
         // 举报
     }
-    else if (itemId == 1)
+    else if (itemId == 2)
     {
         // 黑名单
         if (self.isBlackUser)

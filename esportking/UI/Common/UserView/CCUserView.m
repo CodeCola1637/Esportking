@@ -54,12 +54,12 @@
         make.height.mas_equalTo(CCPXToPoint(30));
     }];
     [self.businessLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(0));
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(10));
         make.centerX.equalTo(self);
     }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.bottom.equalTo(self);
-        make.height.mas_equalTo(CCPXToPoint(40));
+        make.height.mas_equalTo(CCPXToPoint(50));
     }];
 }
 

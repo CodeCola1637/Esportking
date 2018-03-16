@@ -11,7 +11,7 @@
 @interface CCGetMyBindRequest : CCBaseRequest
 
 @property (strong, nonatomic) NSString *phone;
-@property (strong, nonatomic) BOOL wxBinded;
-@property (strong, nonatomic) BOOL qqBinded;
+@property (assign, nonatomic) BOOL wxBinded;
+@property (assign, nonatomic) BOOL qqBinded;
 
 @end

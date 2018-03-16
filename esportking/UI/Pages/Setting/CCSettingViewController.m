@@ -31,7 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self configTopbar];
+    [self configContent];
 }
 
 - (void)configTopbar

@@ -10,9 +10,11 @@
 #import "CCPageContainerViewController.h"
 #import "CCChangeUserInfoViewController.h"
 #import "CCOrderViewController.h"
+#import "CCComeInViewController.h"
 #import "CCTryCardViewController.h"
 #import "CCWalletViewController.h"
 #import "CCInviteCodeViewController.h"
+#import "CCSettingViewController.h"
 
 #import "CCHeadTableViewCell.h"
 #import "CCImgTitleTableViewCell.h"
@@ -71,7 +73,7 @@ typedef enum : NSUInteger {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _titleArray.count;
+    return _titleArray.count+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -132,7 +134,8 @@ typedef enum : NSUInteger {
             break;
         case ITEM_COMEIN:
         {
-            
+//            CCComeInViewController *vc = [CCComeInViewController new];
+//            [self cw_pushViewController:vc];
         }
             break;
         case ITEM_INVITE:
@@ -149,7 +152,8 @@ typedef enum : NSUInteger {
             break;
         case ITEM_SET:
         {
-            
+            CCSettingViewController *vc = [CCSettingViewController new];
+            [self cw_pushViewController:vc];
         }
             break;
             

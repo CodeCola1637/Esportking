@@ -10,8 +10,8 @@
 #import "CCStarView.h"
 #import "CCUserModel.h"
 
-#define UserViewHeight              CCPXToPoint(270)
-#define UserViewWithoutBusiHeight   CCPXToPoint(240)
+#define UserViewHeight              CCPXToPoint(300)
+#define UserViewWithoutBusiHeight   CCPXToPoint(250)
 
 @interface CCUserView : UIView
 

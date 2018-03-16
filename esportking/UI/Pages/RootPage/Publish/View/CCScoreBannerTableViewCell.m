@@ -38,7 +38,8 @@
         make.edges.equalTo(self.contentView);
     }];
     [self.userView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.contentView);
+        make.left.right.equalTo(self.contentView);
+        make.centerY.equalTo(self.contentView);
         make.height.mas_equalTo(UserViewHeight);
     }];
     [self.userView setHidden:YES];

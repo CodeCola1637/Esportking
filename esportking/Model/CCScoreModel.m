@@ -272,6 +272,10 @@
 
 + (NSString *)getCountStr:(uint32_t)count
 {
+    if (count == 0)
+    {
+        return nil;
+    }
     return [NSString stringWithFormat:@"%d局", count];
 }
 
