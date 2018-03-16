@@ -118,6 +118,11 @@
         else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_ONDOING)
         {
             // 完成
+            CCFinishOrderRequest *req = [CCFinishOrderRequest new];
+            req.orderID = orderModel.orderID;
+            self.orderRequest = req;
+            [req startPostRequestWithDelegate:self];
+            [self beginLoading];
         }
         else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_WAITCOMMENT)
         {
@@ -129,10 +134,20 @@
         if (orderModel.displayStatus == ORDERDISPLAYSTATUS_WIATRECV)
         {
             // 等待接单
+            CCReceiveOrderRequest *req = [CCReceiveOrderRequest new];
+            req.orderID = orderModel.orderID;
+            self.orderRequest = req;
+            [req startPostRequestWithDelegate:self];
+            [self beginLoading];
         }
         else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_ONDOING)
         {
-            // 等完成
+            // 完成
+            CCFinishOrderRequest *req = [CCFinishOrderRequest new];
+            req.orderID = orderModel.orderID;
+            self.orderRequest = req;
+            [req startPostRequestWithDelegate:self];
+            [self beginLoading];
         }
     }
 }
@@ -146,35 +161,43 @@
 #pragma mark - CCRequestDelegate
 - (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
 {
-    if (sender != self.request)
+    if (sender == self.request)
     {
-        return;
+        if (self.request.pageNum == 1)
+        {
+            self.orderList = [[NSMutableArray alloc] initWithArray:self.request.orderList];
+        }
+        else
+        {
+            [self.orderList addObjectsFromArray:self.request.orderList];
+        }
+        self.pageNum = self.request.pageNum;
+        
+        [self.tableView reloadData];
+        self.request = nil;
     }
-    
-    if (self.request.pageNum == 1)
+    else if (sender == self.orderRequest)
     {
-        self.orderList = [[NSMutableArray alloc] initWithArray:self.request.orderList];
+        [self.tableView beginHeaderRefreshing];
+        [self endLoading];
     }
-    else
-    {
-        [self.orderList addObjectsFromArray:self.request.orderList];
-    }
-    self.pageNum = self.request.pageNum;
-    
-    [self.tableView reloadData];
-    self.request = nil;
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
 {
-    if (sender != self.request)
+    if (sender == self.request)
     {
-        return;
+        self.request = nil;
+        
+        [self.tableView endRefresh];
+        [self showToast:msg];
     }
-    self.request = nil;
-    
-    [self.tableView endRefresh];
-    [self showToast:msg];
+    else if (sender == self.orderRequest)
+    {
+        self.orderRequest = nil;
+        [self endLoading];
+        [self showToast:msg];
+    }
 }
 
 #pragma mark - UITableViewDataSource

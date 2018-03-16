@@ -961,7 +961,6 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BE4514172058C4AB00EB707E /* Pay */,
 				BEAFE5682057CE3A00ED6B5A /* InviteCode */,
 				BE41B606205562E70084320C /* Nearby */,
 				C0917FF2205508160060B8A5 /* Calculator */,
@@ -1025,6 +1024,7 @@
 		BEFC9BA220257E29002CE000 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				BE4514172058C4AB00EB707E /* Pay */,
 				BEAFE56F2058014400ED6B5A /* Setting */,
 				BEAFE5642057B4B500ED6B5A /* InviteCode */,
 				BEAFE560205779E600ED6B5A /* ComeIn */,
