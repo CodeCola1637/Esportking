@@ -7,6 +7,10 @@
 //
 
 #import "CCUserDetailViewController.h"
+
+#import "CCAddBlackUserRequest.h"
+#import "CCDeleteBlackUserRequest.h"
+#import "CCCheckBlackUserRequest.h"
 #import "CCUserDetailRequest.h"
 #import "CCCommentModel.h"
 #import "CCTagModel.h"
@@ -16,20 +20,25 @@
 #import "CCUserPriceTableViewCell.h"
 #import "CCUserTagTableViewCell.h"
 #import "CCUserCommentTableViewCell.h"
+
 #import "CCSessionViewController.h"
 #import "CCScoreViewController.h"
+
+#import "PopupListComponent.h"
 
 #define kFirstIdentify      @"first"
 #define kSecondIdentify     @"second"
 #define kThirdOneIdentify   @"third_one"
 #define kThirdTwoIdentify   @"third_two"
 
-@interface CCUserDetailViewController ()<CCRequestDelegate, CCRefreshDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface CCUserDetailViewController ()<CCRequestDelegate, CCRefreshDelegate, UITableViewDataSource, UITableViewDelegate, PopupListComponentDelegate>
 
 @property (assign, nonatomic) uint64_t userID;
 @property (assign, nonatomic) uint64_t gameID;
 @property (assign, nonatomic) uint64_t userGameID;
+@property (assign, nonatomic) BOOL isBlackUser;
 
+@property (strong, nonatomic) CCBaseRequest *blackRequest;
 @property (strong, nonatomic) CCUserDetailRequest *request;
 @property (strong, nonatomic) CCGameModel *gameModel;
 @property (strong, nonatomic) NSArray<CCCommentModel *> *commentList;
@@ -66,6 +75,10 @@
 {
     [self.topbarView setBackgroundColor:BgColor_Clear];
     [self addTopPopBackButton];
+    UIButton *rightButton = [UIButton new];
+    [rightButton setImage:CCIMG(@"Report_Icon") forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(onClickReportButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topbarView layoutRightControls:@[rightButton] spacing:nil];
     [self.view bringSubviewToFront:self.topbarView];
 }
 
@@ -95,6 +108,20 @@
 }
 
 #pragma mark - action
+- (void)onClickReportButton:(UIButton *)button
+{
+    PopupListComponent *popupList = [[PopupListComponent alloc] init];
+    NSArray* listItems = nil;
+    listItems = [NSArray arrayWithObjects:
+                 [[PopupListComponentItem alloc] initWithCaption:@"举报" image:nil itemId:1 showCaption:YES],
+                 [[PopupListComponentItem alloc] initWithCaption:(self.isBlackUser?@"加入黑名单":@"移除黑名单") image:nil itemId:2 showCaption:YES],
+                 nil];
+    
+    // Optional: override any default properties you want to change, such as:
+    popupList.textColor = FontColor_White;
+    [popupList showAnchoredTo:button inView:self.contentView withItems:listItems withDelegate:self];
+}
+
 - (void)onClickMsgButton:(UIButton *)button
 {
     NIMSession *session = [NIMSession session:[NSString stringWithFormat:@"test_%llu", self.userID] type:NIMSessionTypeP2P];
@@ -111,6 +138,36 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+#pragma mark - PopupListComponentDelegate
+- (void)popupListcompoentDidCancel:(PopupListComponent *)sender {}
+
+- (void)popupListcomponent:(PopupListComponent *)sender choseItemWithId:(int)itemId
+{
+    if (itemId == 0)
+    {
+        // 举报
+    }
+    else if (itemId == 1)
+    {
+        // 黑名单
+        if (self.isBlackUser)
+        {
+            CCDeleteBlackUserRequest *req = [CCDeleteBlackUserRequest new];
+            req.userID = self.userID;
+            self.blackRequest = req;
+            [req startPostRequestWithDelegate:self];
+        }
+        else
+        {
+            CCAddBlackUserRequest *req = [CCAddBlackUserRequest new];
+            req.userID = self.userID;
+            self.blackRequest = req;
+            [req startPostRequestWithDelegate:self];
+        }
+        [self beginLoading];
+    }
+}
+
 #pragma mark - CCRefreshDelegate
 - (void)onHeaderRefresh
 {
@@ -118,11 +175,17 @@
     {
         return;
     }
+    
     _request = [CCUserDetailRequest new];
     _request.userID = self.userID;
     _request.gameID = self.gameID;
     _request.userGameID = self.userGameID;
     [_request startPostRequestWithDelegate:self];
+    
+    CCCheckBlackUserRequest *req = [CCCheckBlackUserRequest new];
+    req.userID = self.userID;
+    [req startPostRequestWithDelegate:self];
+    self.blackRequest = req;
 }
 
 - (void)onFooterRefresh {}
@@ -130,43 +193,66 @@
 #pragma mark - CCRequestDelegate
 - (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
 {
-    if (sender != _request)
+    if (sender == self.request)
     {
-        return;
+        self.request = nil;
+        
+        self.gameModel = [CCGameModel new];
+        [self.gameModel setGameInfo:dict[@"data"][@"user"]];
+        
+        NSArray *cmList = dict[@"data"][@"comments"];
+        NSMutableArray *array = [NSMutableArray new];
+        for (int i=0; i<cmList.count; i++)
+        {
+            [array addObject:[[CCCommentModel alloc] initWithComment:cmList[i]]];
+        }
+        self.commentList = array;
+        
+        NSArray *tgList = dict[@"data"][@"tags"];
+        NSMutableArray *tagArray = [NSMutableArray new];
+        for (int i=0; i<tgList.count; i++)
+        {
+            [tagArray addObject:[[CCTagModel alloc] initWithTagDict:tgList[i]]];
+        }
+        self.tagList = tagArray;
+        
+        [self.tableView endRefresh];
+        [self.tableView reloadData];
     }
-    _request = nil;
-    
-    self.gameModel = [CCGameModel new];
-    [self.gameModel setGameInfo:dict[@"data"][@"user"]];
-    
-    NSArray *cmList = dict[@"data"][@"comments"];
-    NSMutableArray *array = [NSMutableArray new];
-    for (int i=0; i<cmList.count; i++)
+    else if (sender == self.blackRequest)
     {
-        [array addObject:[[CCCommentModel alloc] initWithComment:cmList[i]]];
+        self.blackRequest = nil;
+        if ([sender isKindOfClass:[CCCheckBlackUserRequest class]])
+        {
+            CCCheckBlackUserRequest *req = sender;
+            self.isBlackUser = req.isBlackUser;
+        }
+        else if ([sender isKindOfClass:[CCAddBlackUserRequest class]])
+        {
+            self.isBlackUser = YES;
+        }
+        else if ([sender isKindOfClass:[CCDeleteBlackUserRequest class]])
+        {
+            self.isBlackUser = NO;
+        }
+        [self endLoading];
     }
-    self.commentList = array;
-    
-    NSArray *tgList = dict[@"data"][@"tags"];
-    NSMutableArray *tagArray = [NSMutableArray new];
-    for (int i=0; i<tgList.count; i++)
-    {
-        [tagArray addObject:[[CCTagModel alloc] initWithTagDict:tgList[i]]];
-    }
-    self.tagList = tagArray;
-    
-    [self.tableView endRefresh];
-    [self.tableView reloadData];
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
 {
-    if (sender != _request)
+    if (sender == _request)
     {
-        return;
+        _request = nil;
+        [self.tableView endRefresh];
+        [self showToast:msg];
     }
-    _request = nil;
-    [self.tableView endRefresh];
+    else if (sender == self.blackRequest)
+    {
+        self.blackRequest = nil;
+        [self showToast:msg];
+        [self endLoading];
+    }
 }
 
 #pragma mark - UITableViewDataSource

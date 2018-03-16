@@ -110,6 +110,28 @@
 		C0917FFC205517D40060B8A5 /* CCOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FFB205517D40060B8A5 /* CCOrderModel.m */; };
 		C091800020552D100060B8A5 /* CCTryCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0917FFF20552D100060B8A5 /* CCTryCardModel.m */; };
 		C091800320552E950060B8A5 /* CCAddTryCardRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C091800220552E950060B8A5 /* CCAddTryCardRequest.m */; };
+		C09A654F205BA1CA00FB1B44 /* CCAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A654E205BA1CA00FB1B44 /* CCAccountViewController.m */; };
+		C09A6553205BA59200FB1B44 /* CCGetMyBindRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6552205BA59200FB1B44 /* CCGetMyBindRequest.m */; };
+		C09A6559205BA5E800FB1B44 /* CCBindThirdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6558205BA5E800FB1B44 /* CCBindThirdRequest.m */; };
+		C09A655D205BBF1B00FB1B44 /* CCGetBlackListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A655C205BBF1B00FB1B44 /* CCGetBlackListRequest.m */; };
+		C09A6560205BC38600FB1B44 /* CCBlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A655F205BC38600FB1B44 /* CCBlackListViewController.m */; };
+		C09A6564205BC43900FB1B44 /* CCBlackUserTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6563205BC43900FB1B44 /* CCBlackUserTableViewCell.m */; };
+		C09A6567205BC93500FB1B44 /* CCDeleteBlackUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6566205BC93500FB1B44 /* CCDeleteBlackUserRequest.m */; };
+		C09A656A205BCAF400FB1B44 /* CCAddBlackUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6569205BCAF400FB1B44 /* CCAddBlackUserRequest.m */; };
+		C09A656D205BCB5800FB1B44 /* CCCheckBlackUserRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A656C205BCB5800FB1B44 /* CCCheckBlackUserRequest.m */; };
+		C09A6584205BD0F100FB1B44 /* PopupListComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6572205BD0F100FB1B44 /* PopupListComponent.m */; };
+		C09A6585205BD0F100FB1B44 /* popoverArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A6575205BD0F100FB1B44 /* popoverArrowDown.png */; };
+		C09A6586205BD0F100FB1B44 /* popoverArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A6576205BD0F100FB1B44 /* popoverArrowDown@2x.png */; };
+		C09A6587205BD0F100FB1B44 /* popoverArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A6577205BD0F100FB1B44 /* popoverArrowLeft.png */; };
+		C09A6588205BD0F100FB1B44 /* popoverArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A6578205BD0F100FB1B44 /* popoverArrowLeft@2x.png */; };
+		C09A6589205BD0F100FB1B44 /* popoverArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A6579205BD0F100FB1B44 /* popoverArrowRight.png */; };
+		C09A658A205BD0F100FB1B44 /* popoverArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A657A205BD0F100FB1B44 /* popoverArrowRight@2x.png */; };
+		C09A658B205BD0F100FB1B44 /* popoverArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A657B205BD0F100FB1B44 /* popoverArrowUp.png */; };
+		C09A658C205BD0F100FB1B44 /* popoverArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A657C205BD0F100FB1B44 /* popoverArrowUp@2x.png */; };
+		C09A658D205BD0F100FB1B44 /* popoverBg.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A657D205BD0F100FB1B44 /* popoverBg.png */; };
+		C09A658E205BD0F100FB1B44 /* popoverBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C09A657E205BD0F100FB1B44 /* popoverBg@2x.png */; };
+		C09A658F205BD0F100FB1B44 /* WEPopoverContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6580205BD0F100FB1B44 /* WEPopoverContainerView.m */; };
+		C09A6590205BD0F100FB1B44 /* WEPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09A6582205BD0F100FB1B44 /* WEPopoverController.m */; };
 		C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */; };
 		C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748520493B72000B71F3 /* CCScoreBannerTableViewCell.m */; };
 		C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0A1748920493C80000B71F3 /* CCDevideTableViewCell.m */; };
@@ -374,6 +396,41 @@
 		C0917FFF20552D100060B8A5 /* CCTryCardModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardModel.m; sourceTree = "<group>"; };
 		C091800120552E950060B8A5 /* CCAddTryCardRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAddTryCardRequest.h; sourceTree = "<group>"; };
 		C091800220552E950060B8A5 /* CCAddTryCardRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAddTryCardRequest.m; sourceTree = "<group>"; };
+		C09A654D205BA1CA00FB1B44 /* CCAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAccountViewController.h; sourceTree = "<group>"; };
+		C09A654E205BA1CA00FB1B44 /* CCAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAccountViewController.m; sourceTree = "<group>"; };
+		C09A6551205BA59200FB1B44 /* CCGetMyBindRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetMyBindRequest.h; sourceTree = "<group>"; };
+		C09A6552205BA59200FB1B44 /* CCGetMyBindRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetMyBindRequest.m; sourceTree = "<group>"; };
+		C09A6557205BA5E800FB1B44 /* CCBindThirdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBindThirdRequest.h; sourceTree = "<group>"; };
+		C09A6558205BA5E800FB1B44 /* CCBindThirdRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBindThirdRequest.m; sourceTree = "<group>"; };
+		C09A655B205BBF1B00FB1B44 /* CCGetBlackListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGetBlackListRequest.h; sourceTree = "<group>"; };
+		C09A655C205BBF1B00FB1B44 /* CCGetBlackListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGetBlackListRequest.m; sourceTree = "<group>"; };
+		C09A655E205BC38600FB1B44 /* CCBlackListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBlackListViewController.h; sourceTree = "<group>"; };
+		C09A655F205BC38600FB1B44 /* CCBlackListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBlackListViewController.m; sourceTree = "<group>"; };
+		C09A6562205BC43900FB1B44 /* CCBlackUserTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBlackUserTableViewCell.h; sourceTree = "<group>"; };
+		C09A6563205BC43900FB1B44 /* CCBlackUserTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBlackUserTableViewCell.m; sourceTree = "<group>"; };
+		C09A6565205BC93500FB1B44 /* CCDeleteBlackUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCDeleteBlackUserRequest.h; sourceTree = "<group>"; };
+		C09A6566205BC93500FB1B44 /* CCDeleteBlackUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDeleteBlackUserRequest.m; sourceTree = "<group>"; };
+		C09A6568205BCAF400FB1B44 /* CCAddBlackUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAddBlackUserRequest.h; sourceTree = "<group>"; };
+		C09A6569205BCAF400FB1B44 /* CCAddBlackUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAddBlackUserRequest.m; sourceTree = "<group>"; };
+		C09A656B205BCB5800FB1B44 /* CCCheckBlackUserRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCheckBlackUserRequest.h; sourceTree = "<group>"; };
+		C09A656C205BCB5800FB1B44 /* CCCheckBlackUserRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCheckBlackUserRequest.m; sourceTree = "<group>"; };
+		C09A6571205BD0F100FB1B44 /* PopupListComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupListComponent.h; sourceTree = "<group>"; };
+		C09A6572205BD0F100FB1B44 /* PopupListComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupListComponent.m; sourceTree = "<group>"; };
+		C09A6575205BD0F100FB1B44 /* popoverArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowDown.png; sourceTree = "<group>"; };
+		C09A6576205BD0F100FB1B44 /* popoverArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowDown@2x.png"; sourceTree = "<group>"; };
+		C09A6577205BD0F100FB1B44 /* popoverArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowLeft.png; sourceTree = "<group>"; };
+		C09A6578205BD0F100FB1B44 /* popoverArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowLeft@2x.png"; sourceTree = "<group>"; };
+		C09A6579205BD0F100FB1B44 /* popoverArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowRight.png; sourceTree = "<group>"; };
+		C09A657A205BD0F100FB1B44 /* popoverArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowRight@2x.png"; sourceTree = "<group>"; };
+		C09A657B205BD0F100FB1B44 /* popoverArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverArrowUp.png; sourceTree = "<group>"; };
+		C09A657C205BD0F100FB1B44 /* popoverArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverArrowUp@2x.png"; sourceTree = "<group>"; };
+		C09A657D205BD0F100FB1B44 /* popoverBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popoverBg.png; sourceTree = "<group>"; };
+		C09A657E205BD0F100FB1B44 /* popoverBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popoverBg@2x.png"; sourceTree = "<group>"; };
+		C09A657F205BD0F100FB1B44 /* WEPopoverContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverContainerView.h; sourceTree = "<group>"; };
+		C09A6580205BD0F100FB1B44 /* WEPopoverContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEPopoverContainerView.m; sourceTree = "<group>"; };
+		C09A6581205BD0F100FB1B44 /* WEPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverController.h; sourceTree = "<group>"; };
+		C09A6582205BD0F100FB1B44 /* WEPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WEPopoverController.m; sourceTree = "<group>"; };
+		C09A6583205BD0F100FB1B44 /* WEPopoverParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WEPopoverParentView.h; sourceTree = "<group>"; };
 		C0A1747F2048FA8B000B71F3 /* CCUploadImgRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUploadImgRequest.h; sourceTree = "<group>"; };
 		C0A174802048FA8B000B71F3 /* CCUploadImgRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUploadImgRequest.m; sourceTree = "<group>"; };
 		C0A1748420493B72000B71F3 /* CCScoreBannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreBannerTableViewCell.h; sourceTree = "<group>"; };
@@ -747,6 +804,7 @@
 		BEAC5D6D202C3689000BF808 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				C09A6570205BD0F100FB1B44 /* PopupListComponent */,
 				C05409F2204E763200C8154E /* zhPopUpController */,
 				C0D4F888204656BB00258CC6 /* ZJScrollPageView */,
 				BE4A1BB220307E7200890485 /* HomeCollectionLayout */,
@@ -883,6 +941,8 @@
 		BEAFE56F2058014400ED6B5A /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				C09A6561205BC42300FB1B44 /* View */,
+				C09A654C205BA1B300FB1B44 /* SubVC */,
 				BEAFE5702058015B00ED6B5A /* CCSettingViewController.h */,
 				BEAFE5712058015B00ED6B5A /* CCSettingViewController.m */,
 			);
@@ -961,6 +1021,8 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C09A655A205BBF0600FB1B44 /* BlackList */,
+				C09A6550205BA58000FB1B44 /* Bind */,
 				BEAFE5682057CE3A00ED6B5A /* InviteCode */,
 				BE41B606205562E70084320C /* Nearby */,
 				C0917FF2205508160060B8A5 /* Calculator */,
@@ -1224,6 +1286,92 @@
 				C0917FFF20552D100060B8A5 /* CCTryCardModel.m */,
 			);
 			path = TryCard;
+			sourceTree = "<group>";
+		};
+		C09A654C205BA1B300FB1B44 /* SubVC */ = {
+			isa = PBXGroup;
+			children = (
+				C09A654D205BA1CA00FB1B44 /* CCAccountViewController.h */,
+				C09A654E205BA1CA00FB1B44 /* CCAccountViewController.m */,
+				C09A655E205BC38600FB1B44 /* CCBlackListViewController.h */,
+				C09A655F205BC38600FB1B44 /* CCBlackListViewController.m */,
+			);
+			path = SubVC;
+			sourceTree = "<group>";
+		};
+		C09A6550205BA58000FB1B44 /* Bind */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6551205BA59200FB1B44 /* CCGetMyBindRequest.h */,
+				C09A6552205BA59200FB1B44 /* CCGetMyBindRequest.m */,
+				C09A6557205BA5E800FB1B44 /* CCBindThirdRequest.h */,
+				C09A6558205BA5E800FB1B44 /* CCBindThirdRequest.m */,
+			);
+			path = Bind;
+			sourceTree = "<group>";
+		};
+		C09A655A205BBF0600FB1B44 /* BlackList */ = {
+			isa = PBXGroup;
+			children = (
+				C09A655B205BBF1B00FB1B44 /* CCGetBlackListRequest.h */,
+				C09A655C205BBF1B00FB1B44 /* CCGetBlackListRequest.m */,
+				C09A6565205BC93500FB1B44 /* CCDeleteBlackUserRequest.h */,
+				C09A6566205BC93500FB1B44 /* CCDeleteBlackUserRequest.m */,
+				C09A6568205BCAF400FB1B44 /* CCAddBlackUserRequest.h */,
+				C09A6569205BCAF400FB1B44 /* CCAddBlackUserRequest.m */,
+				C09A656B205BCB5800FB1B44 /* CCCheckBlackUserRequest.h */,
+				C09A656C205BCB5800FB1B44 /* CCCheckBlackUserRequest.m */,
+			);
+			path = BlackList;
+			sourceTree = "<group>";
+		};
+		C09A6561205BC42300FB1B44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6562205BC43900FB1B44 /* CCBlackUserTableViewCell.h */,
+				C09A6563205BC43900FB1B44 /* CCBlackUserTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C09A6570205BD0F100FB1B44 /* PopupListComponent */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6571205BD0F100FB1B44 /* PopupListComponent.h */,
+				C09A6572205BD0F100FB1B44 /* PopupListComponent.m */,
+				C09A6573205BD0F100FB1B44 /* WEPopoverLib */,
+			);
+			path = PopupListComponent;
+			sourceTree = "<group>";
+		};
+		C09A6573205BD0F100FB1B44 /* WEPopoverLib */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6574205BD0F100FB1B44 /* Resources */,
+				C09A657F205BD0F100FB1B44 /* WEPopoverContainerView.h */,
+				C09A6580205BD0F100FB1B44 /* WEPopoverContainerView.m */,
+				C09A6581205BD0F100FB1B44 /* WEPopoverController.h */,
+				C09A6582205BD0F100FB1B44 /* WEPopoverController.m */,
+				C09A6583205BD0F100FB1B44 /* WEPopoverParentView.h */,
+			);
+			path = WEPopoverLib;
+			sourceTree = "<group>";
+		};
+		C09A6574205BD0F100FB1B44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C09A6575205BD0F100FB1B44 /* popoverArrowDown.png */,
+				C09A6576205BD0F100FB1B44 /* popoverArrowDown@2x.png */,
+				C09A6577205BD0F100FB1B44 /* popoverArrowLeft.png */,
+				C09A6578205BD0F100FB1B44 /* popoverArrowLeft@2x.png */,
+				C09A6579205BD0F100FB1B44 /* popoverArrowRight.png */,
+				C09A657A205BD0F100FB1B44 /* popoverArrowRight@2x.png */,
+				C09A657B205BD0F100FB1B44 /* popoverArrowUp.png */,
+				C09A657C205BD0F100FB1B44 /* popoverArrowUp@2x.png */,
+				C09A657D205BD0F100FB1B44 /* popoverBg.png */,
+				C09A657E205BD0F100FB1B44 /* popoverBg@2x.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		C0A1748220493B02000B71F3 /* Publish */ = {
@@ -1536,8 +1684,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09A658B205BD0F100FB1B44 /* popoverArrowUp.png in Resources */,
+				C09A658E205BD0F100FB1B44 /* popoverBg@2x.png in Resources */,
+				C09A6587205BD0F100FB1B44 /* popoverArrowLeft.png in Resources */,
+				C09A658A205BD0F100FB1B44 /* popoverArrowRight@2x.png in Resources */,
+				C09A6588205BD0F100FB1B44 /* popoverArrowLeft@2x.png in Resources */,
+				C09A6585205BD0F100FB1B44 /* popoverArrowDown.png in Resources */,
 				BEE005B72025793B006813E3 /* Assets.xcassets in Resources */,
+				C09A6586205BD0F100FB1B44 /* popoverArrowDown@2x.png in Resources */,
+				C09A6589205BD0F100FB1B44 /* popoverArrowRight.png in Resources */,
 				BEE005B52025793B006813E3 /* Main.storyboard in Resources */,
+				C09A658D205BD0F100FB1B44 /* popoverBg.png in Resources */,
+				C09A658C205BD0F100FB1B44 /* popoverArrowUp@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1673,21 +1831,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09A6584205BD0F100FB1B44 /* PopupListComponent.m in Sources */,
 				BE45F95F2029F16000482824 /* CCRegisterManager.m in Sources */,
 				BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */,
 				C0540A04204E840800C8154E /* NSDate+Extend.m in Sources */,
 				C0C6AF91205A702200658722 /* CCGetBalanceRequest.m in Sources */,
 				C0D4F89D204656BC00258CC6 /* ZJSegmentStyle.m in Sources */,
 				BE49C9FA204299F000B0E34A /* CCTagView.m in Sources */,
+				C09A654F205BA1CA00FB1B44 /* CCAccountViewController.m in Sources */,
 				BE4A1BAB20302D1800890485 /* NewPagedFlowView.m in Sources */,
 				BE45146C204451CA0096A8CC /* CCSessionViewController.m in Sources */,
 				BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */,
 				C0D4F8C52046DDF000258CC6 /* CCTryCardViewController.m in Sources */,
 				C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */,
+				C09A6590205BD0F100FB1B44 /* WEPopoverController.m in Sources */,
 				C05D4C4D20566FCE00D9F650 /* CCAddImageListView.m in Sources */,
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
 				C0C6AF87205A6D5B00658722 /* CCCancelOrderRequest.m in Sources */,
+				C09A6553205BA59200FB1B44 /* CCGetMyBindRequest.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
+				C09A656A205BCAF400FB1B44 /* CCAddBlackUserRequest.m in Sources */,
 				BE41B609205564110084320C /* CCNearbyRequest.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
 				C05409FB204E763200C8154E /* zhPickerView.m in Sources */,
@@ -1721,6 +1884,7 @@
 				C0D4F89A204656BC00258CC6 /* ZJContentView.m in Sources */,
 				C05D4C4A2056668D00D9F650 /* CCAddImageView.m in Sources */,
 				C0C6AF8B205A6E3000658722 /* CCReceiveOrderRequest.m in Sources */,
+				C09A656D205BCB5800FB1B44 /* CCCheckBlackUserRequest.m in Sources */,
 				C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
 				C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */,
@@ -1730,6 +1894,7 @@
 				BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */,
 				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
 				BEAFE56B2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m in Sources */,
+				C09A6564205BC43900FB1B44 /* CCBlackUserTableViewCell.m in Sources */,
 				BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */,
 				BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */,
 				BEAFDA1C2027082000ED4E2D /* CCHomeViewController.m in Sources */,
@@ -1739,11 +1904,13 @@
 				BE49C9E520427C0000B0E34A /* CCUserTagTableViewCell.m in Sources */,
 				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
 				BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */,
+				C09A658F205BD0F100FB1B44 /* WEPopoverContainerView.m in Sources */,
 				C0A1749420494449000B71F3 /* CCTitleTableViewCell.m in Sources */,
 				C0D4F89E204656BC00258CC6 /* ZJTitleView.m in Sources */,
 				C0D4F8B52046A7C900258CC6 /* CCMoneyViewController.m in Sources */,
 				BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */,
 				C0148A33205114560055D545 /* CCScoreWaitViewController.m in Sources */,
+				C09A6559205BA5E800FB1B44 /* CCBindThirdRequest.m in Sources */,
 				C0A174A9204D397E000B71F3 /* CCCenterTitleTableViewCell.m in Sources */,
 				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
 				C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */,
@@ -1768,6 +1935,7 @@
 				C0D4F8A6204692B700258CC6 /* CCOrderViewController.m in Sources */,
 				BE41B60D2055661B0084320C /* CCNearbyViewController.m in Sources */,
 				BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */,
+				C09A6567205BC93500FB1B44 /* CCDeleteBlackUserRequest.m in Sources */,
 				BEFC9BA720257EDC002CE000 /* CCLanunchConfig.m in Sources */,
 				BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */,
 				C0148A4820513B540055D545 /* CCUserView.m in Sources */,
@@ -1777,6 +1945,7 @@
 				BEAFE5672057B4D500ED6B5A /* CCInviteCodeViewController.m in Sources */,
 				BEAFE56E2057CFE000ED6B5A /* CCBindInviteCodeRequest.m in Sources */,
 				C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */,
+				C09A655D205BBF1B00FB1B44 /* CCGetBlackListRequest.m in Sources */,
 				BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */,
 				BEE005AC2025793B006813E3 /* main.m in Sources */,
 				C0D4F89C204656BC00258CC6 /* ZJScrollSegmentView.m in Sources */,
@@ -1793,6 +1962,7 @@
 				BE49C9DB2042708A00B0E34A /* CCUserDetailRequest.m in Sources */,
 				BE45F96D202A00F600482824 /* CCModifyUserInfoViewController.m in Sources */,
 				BE4A1BBB20307FE400890485 /* CCNavigationCollectionViewCell.m in Sources */,
+				C09A6560205BC38600FB1B44 /* CCBlackListViewController.m in Sources */,
 				BEAFDA1F2027083000ED4E2D /* CCScoreViewController.m in Sources */,
 				BE45F95C2029E21200482824 /* CCBigButton.m in Sources */,
 				C0A1749020494165000B71F3 /* CCConfirmTableViewCell.m in Sources */,

@@ -9,8 +9,15 @@
 #import "CCBaseViewController.h"
 #import "CCRegisterTypeDefine.h"
 
+@protocol CCRegisterViewControllerDelegate <NSObject>
+
+@optional
+- (void)onRegisterAndBindPhoneSuccess:(NSString *)phoneNum;
+
+@end
+
 @interface CCRegisterViewController : CCBaseViewController
 
-- (instancetype)initWithType:(REGISTERTYPE)type;
+- (instancetype)initWithType:(REGISTERTYPE)type del:(id<CCRegisterViewControllerDelegate>)del;
 
 @end

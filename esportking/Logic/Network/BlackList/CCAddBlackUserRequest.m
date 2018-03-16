@@ -1,0 +1,25 @@
+//
+//  CCAddBlackUserRequest.m
+//  esportking
+//
+//  Created by jaycechen on 2018/3/16.
+//  Copyright © 2018年 wan353. All rights reserved.
+//
+
+#import "CCAddBlackUserRequest.h"
+
+@implementation CCAddBlackUserRequest
+
+- (NSString *)subAddress
+{
+    return AddBlackUser;
+}
+
+- (NSDictionary *)requestParam
+{
+    return @{
+             @"otherid":@(self.userID)
+             };
+}
+
+@end

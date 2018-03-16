@@ -23,6 +23,8 @@
 @property (assign, nonatomic) uint32_t              fireCount;
 
 @property (assign, nonatomic) REGISTERTYPE          type;
+@property (weak  , nonatomic) id<CCRegisterViewControllerDelegate> delegate;
+
 @property (strong, nonatomic) UIView                *devideView;
 @property (strong, nonatomic) CCTextField           *mobileField;
 @property (strong, nonatomic) UIButton              *getSMSCodeButton;
@@ -36,11 +38,12 @@
 
 @implementation CCRegisterViewController
 
-- (instancetype)initWithType:(REGISTERTYPE)type
+- (instancetype)initWithType:(REGISTERTYPE)type del:(id<CCRegisterViewControllerDelegate>)del
 {
     if (self = [super init])
     {
         self.type = type;
+        self.delegate = del;
         _manager = [[CCRegisterManager alloc] initWithType:type delegate:self];
     }
     return self;
@@ -217,8 +220,17 @@
 - (void)onRegisterSuccess:(NSDictionary *)dict
 {
     [self endLoading];
-    CCModifyUserInfoViewController *vc = [[CCModifyUserInfoViewController alloc] initWithType:MODIFYTYPE_REGISTER];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.delegate onRegisterAndBindPhoneSuccess:self.mobileField.text];
+    
+    if (self.type == REGISTERTYPE_REGISTER)
+    {
+        CCModifyUserInfoViewController *vc = [[CCModifyUserInfoViewController alloc] initWithType:MODIFYTYPE_REGISTER];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)onRegisterFailed:(NSInteger)error errorMsg:(NSString *)msg

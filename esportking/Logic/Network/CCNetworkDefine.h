@@ -33,9 +33,17 @@
 
 #define BindInviteCode  @"/app/user/bindInvitationCode"
 
+#define BindNumber      @"/app/user/bind"
+
+#define DeleteBlackUser @"/app/user/delBlack"
+#define AddBlackUser    @"/app/user/addBlack"
+#define CheckBlackUser  @"/app/user/checkBlack"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 #define GetInviteCode   @"/app/user/getInvitationCode"
 #define GetBalance      @"/app/account/getBalance"
+#define GetMyBind       @"/app/user/getMyBind"
+#define GetMyBlackList  @"/app/user/getMyBlackList"
 
 #define Error_UnKnown   333

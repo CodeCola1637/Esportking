@@ -20,16 +20,32 @@
     {
         return ChangePwd;
     }
+    else if (self.type == REGISTERTYPE_BINDACCOUNT)
+    {
+        return BindNumber;
+    }
     return nil;
 }
 
 - (NSDictionary *)requestParam
 {
-    return @{
-             @"mobile":CCNoNilStr(self.phoneNum),
-             @"password":CCNoNilStr(self.password),
-             @"smsCode":CCNoNilStr(self.smsCode)
-             };
+    if (self.type == REGISTERTYPE_BINDACCOUNT)
+    {
+        return @{
+                 @"mobile":CCNoNilStr(self.phoneNum),
+                 @"password":CCNoNilStr(self.password),
+                 @"smsCode":CCNoNilStr(self.smsCode),
+                 @"type":@(3)
+                 };
+    }
+    else
+    {
+        return @{
+                 @"mobile":CCNoNilStr(self.phoneNum),
+                 @"password":CCNoNilStr(self.password),
+                 @"smsCode":CCNoNilStr(self.smsCode)
+                 };
+    }
 }
 
 @end

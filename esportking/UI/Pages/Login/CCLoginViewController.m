@@ -215,13 +215,13 @@
 
 - (void)onTapForgetLabel:(UIGestureRecognizer *)gesture
 {
-    CCRegisterViewController *vc = [[CCRegisterViewController alloc] initWithType:REGISTERTYPE_RESETPWD];
+    CCRegisterViewController *vc = [[CCRegisterViewController alloc] initWithType:REGISTERTYPE_RESETPWD del:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)onTapRegisterLabel:(UIGestureRecognizer *)gesture
 {
-    CCRegisterViewController *vc = [[CCRegisterViewController alloc] initWithType:REGISTERTYPE_REGISTER];
+    CCRegisterViewController *vc = [[CCRegisterViewController alloc] initWithType:REGISTERTYPE_REGISTER del:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
