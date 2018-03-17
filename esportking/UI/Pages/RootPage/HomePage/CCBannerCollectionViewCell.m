@@ -31,10 +31,18 @@
     return self;
 }
 
+- (void)dealloc
+{
+    _pageFlowView.delegate = nil;
+    _pageFlowView.dataSource = nil;
+    [_pageFlowView.timer invalidate];
+    _pageFlowView.timer = nil;
+}
+
 - (void)setBannerList:(NSArray<CCGameModel *> *)list andDelegate:(id<CCBannerDelegate>)del
 {
     self.delegate = del;
-    self.modelList = list;
+    self.modelList = [list copy];
     [self.pageFlowView reloadData];
 }
 
