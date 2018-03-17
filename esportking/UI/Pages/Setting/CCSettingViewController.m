@@ -8,6 +8,7 @@
 
 #import "CCSettingViewController.h"
 #import "CCAccountViewController.h"
+#import "CCBlackListViewController.h"
 
 #import "AppDelegate.h"
 
@@ -100,7 +101,8 @@
     }
     else if (sender == self.blackUserItem)
     {
-        
+        CCBlackListViewController *vc = [CCBlackListViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (sender == self.helpItem)
     {
