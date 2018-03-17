@@ -127,6 +127,7 @@
         _collectionView = [[CCRefreshCollectionView alloc] init];
         _collectionView.collectionView.dataSource = self;
         _collectionView.collectionView.delegate = self;
+        [_collectionView enableFooter:NO];
         [_collectionView setRefreshDelegate:self];
         [_collectionView.collectionView registerClass:[CCGameItemCollectionViewCell class] forCellWithReuseIdentifier:kIdentify];
         [_collectionView.collectionLayout setLineSpacing:CCPXToPoint(12)];

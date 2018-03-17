@@ -52,7 +52,7 @@
 
 - (void)configContent
 {
-    [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:0];
+    [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:LMLayoutAreaBottomHeight];
     
     [self.contentView addSubview:self.pageView];
     [self.pageView mas_makeConstraints:^(MASConstraintMaker *make) {

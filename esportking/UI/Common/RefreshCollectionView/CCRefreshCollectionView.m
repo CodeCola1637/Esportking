@@ -7,6 +7,8 @@
 //
 
 #import "CCRefreshCollectionView.h"
+#import "CCEmptyView.h"
+
 #import <MJRefresh.h>
 
 @implementation CCRefreshCollectionView
@@ -14,6 +16,7 @@
     __weak id<CCRefreshDelegate> _refreshDelegate;
     MJRefreshHeader *_header;
     MJRefreshFooter *_footer;
+    CCEmptyView *_emptyView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -40,6 +43,8 @@
     
     _footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(onFooterRefresh)];
     _collectionView.mj_footer = _footer;
+    
+    _emptyView = [CCEmptyView new];
 }
 
 - (void)setupConstrain
@@ -74,6 +79,27 @@
 {
     [_collectionView reloadData];
     [self endRefresh];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        BOOL havingData = NO;
+        NSInteger numberOfSection = [_collectionView.dataSource numberOfSectionsInCollectionView:_collectionView];
+        for (NSInteger i=0; i<numberOfSection; i++)
+        {
+            if ([_collectionView.dataSource collectionView:_collectionView numberOfItemsInSection:i])
+            {
+                havingData = YES;
+                break;
+            }
+        }
+        if (!havingData)
+        {
+            _collectionView.backgroundView = _emptyView;
+        }
+        else
+        {
+            _collectionView.backgroundView = nil;
+        }
+    });
 }
 
 - (void)endRefresh

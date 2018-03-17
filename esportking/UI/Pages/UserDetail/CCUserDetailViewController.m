@@ -350,7 +350,7 @@
         [_tableView setRefreshDelegate:self];
         [_tableView.tableView setDataSource:self];
         [_tableView.tableView setDelegate:self];
-        [_tableView.tableView setBackgroundColor:BgColor_Gray];
+//        [_tableView.tableView setBackgroundColor:BgColor_Gray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView.tableView registerClass:[CCUserInfoTableViewCell class] forCellReuseIdentifier:kFirstIdentify];
         [_tableView.tableView registerClass:[CCUserPriceTableViewCell class] forCellReuseIdentifier:kSecondIdentify];

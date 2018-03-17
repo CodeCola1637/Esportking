@@ -237,7 +237,7 @@
     else
     {
         CCOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kDataIdentify];
-        [cell setOrderDict:self.orderList[indexPath.row] andDelegate:self source:self.orderType];
+        [cell setOrderDict:self.orderList[indexPath.row/2] andDelegate:self source:self.orderType];
         return cell;
     }
 }
