@@ -90,7 +90,7 @@
 #define FontColor_DeepDark ([UIColor colorWithARGBHex:0xff848484])
 #define FontColor_White ([UIColor whiteColor])
 
-#define FontColor_Black ([UIColor blackColor])
+#define FontColor_Black ([UIColor colorWithARGBHex:0xff000000])
 #define FontColor_Dark ([[UIColor blackColor] colorWithAlphaComponent:.7f])
 #define FontColor_LightDark ([[UIColor blackColor] colorWithAlphaComponent:.5f])
 #define FontColor_SuperLightDark ([[UIColor blackColor] colorWithAlphaComponent:.3f])

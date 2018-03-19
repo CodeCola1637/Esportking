@@ -388,6 +388,7 @@ static NSString *const kContentOffsetOffKey = @"contentOffset";
     [self.currentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     self.currentView.frame = CGRectMake(currentIndex*width, 0, width, height);
     [self.currentView addSubview:currentController.view];
+    [currentController.view setFrame:self.currentView.bounds];
     [_currentChildVc didMoveToParentViewController:self.parentViewController];
     
     UIViewController *oldController = [self.childVcsDic valueForKey:[NSString stringWithFormat:@"%ld", (long)_oldIndex]];

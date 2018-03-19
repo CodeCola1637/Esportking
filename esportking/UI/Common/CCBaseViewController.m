@@ -29,9 +29,11 @@
     
     _topbarView = [[CCTopbarView alloc] init];
     [self.view addSubview:_topbarView];
+    [_topbarView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     
     _contentView = [[UIView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_contentView];
+    [_contentView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
 }
 
 - (void)setContentWithTopOffset:(CGFloat)topOffset bottomOffset:(CGFloat)bottomOffset

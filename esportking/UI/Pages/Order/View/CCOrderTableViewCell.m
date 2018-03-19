@@ -14,6 +14,9 @@
 @property (strong, nonatomic) CCOrderModel *dataModel;
 @property (weak, nonatomic) id<CCOrderTableViewCellDelegate> delegate;
 
+@property (strong, nonatomic) UIView *topView;
+@property (strong, nonatomic) UIView *bottomView;
+
 @property (strong, nonatomic) UILabel *timeLabel;
 @property (strong, nonatomic) UILabel *statusLabel;
 @property (strong, nonatomic) UILabel *nameLabel;
@@ -24,7 +27,6 @@
 @property (strong, nonatomic) UIView *bottomLineView;
 @property (strong, nonatomic) UIButton *cancelButton;
 @property (strong, nonatomic) UIButton *confirmButton;
-@property (strong, nonatomic) UIView *bottomView;
 
 @end
 
@@ -43,28 +45,33 @@
 {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    [self.contentView addSubview:self.timeLabel];
-    [self.contentView addSubview:self.statusLabel];
+    [self.contentView addSubview:self.topView];
+    [self.topView addSubview:self.timeLabel];
+    [self.topView addSubview:self.statusLabel];
+    [self.topView addSubview:self.topLineView];
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.locationLabel];
     [self.contentView addSubview:self.duanLabel];
     [self.contentView addSubview:self.moneyLabel];
-    [self.contentView addSubview:self.topLineView];
     [self.contentView addSubview:self.bottomLineView];
     [self.contentView addSubview:self.bottomView];
     [self.bottomView addSubview:self.confirmButton];
     [self.bottomView addSubview:self.cancelButton];
     
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.contentView);
+        make.height.mas_equalTo(CCPXToPoint(64));
+    }];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.contentView).offset(CCPXToPoint(32));
+        make.left.equalTo(self.topView).offset(CCPXToPoint(32));
+        make.centerY.equalTo(self.topView);
     }];
     [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.contentView).offset(-CCPXToPoint(32));
-        make.bottom.equalTo(self.timeLabel);
+        make.right.equalTo(self.topView).offset(-CCPXToPoint(32));
+        make.centerY.equalTo(self.topView);
     }];
     [self.topLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.contentView);
-        make.top.equalTo(self.timeLabel.mas_bottom).offset(CCPXToPoint(20));
+        make.left.right.bottom.equalTo(self.topView);
         make.height.mas_equalTo(CCOnePoint);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -246,6 +253,15 @@
 }
 
 #pragma mark - getters
+- (UIView *)topView
+{
+    if (!_topView)
+    {
+        _topView = [UIView new];
+    }
+    return _topView;
+}
+
 - (UILabel *)timeLabel
 {
     if (!_timeLabel)
@@ -305,7 +321,7 @@
     if (!_topLineView)
     {
         _topLineView = [UIView new];
-        [_topLineView setBackgroundColor:BgColor_Gray];
+        [_topLineView setBackgroundColor:BgColor_SuperLightGray];
     }
     return _topLineView;
 }
@@ -315,7 +331,7 @@
     if (!_bottomLineView)
     {
         _bottomLineView = [UIView new];
-        [_bottomLineView setBackgroundColor:BgColor_Gray];
+        [_bottomLineView setBackgroundColor:BgColor_SuperLightGray];
     }
     return _bottomLineView;
 }
@@ -337,6 +353,7 @@
         [_cancelButton setBackgroundColor:[UIColor colorWithRGBHex:0xdedede]];
         [_cancelButton.layer setCornerRadius:CCPXToPoint(12)];
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+        [_cancelButton.titleLabel setFont:Font_Small];
         [_cancelButton addTarget:self action:@selector(onClickCancelButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _cancelButton;
@@ -349,6 +366,7 @@
         _confirmButton = [UIButton new];
         [_confirmButton setBackgroundColor:BgColor_Yellow];
         [_confirmButton.layer setCornerRadius:CCPXToPoint(12)];
+        [_confirmButton.titleLabel setFont:Font_Small];
         [_confirmButton setTitle:@"接单" forState:UIControlStateNormal];
         [_confirmButton addTarget:self action:@selector(onClickConfirmButton:) forControlEvents:UIControlEventTouchUpInside];
     }

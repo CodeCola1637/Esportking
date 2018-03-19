@@ -55,8 +55,8 @@ typedef enum : NSUInteger {
     _iconArray = @[CCIMG(@"Money_Icon"), CCIMG(@"Order_Icon"), CCIMG(@"Comein_Icon"), CCIMG(@"Invite_Icon"), CCIMG(@"Try_Icon"), CCIMG(@"Setting_Icon")];
     _titleArray = @[@"我的钱包", @"我的订单", @"我要入驻", @"邀请码", @"体验卡", @"设置"];
     
-    [self.view setFrame:CGRectMake(0, 0, LM_SCREEN_WIDTH*0.75f, LM_SCREEN_HEIGHT)];
     [self setContentWithTopOffset:0 bottomOffset:0];
+    [self.contentView setFrame:CGRectMake(0, 0, LM_SCREEN_WIDTH*0.75f, LM_SCREEN_HEIGHT)];
     
     [self.contentView addSubview:self.tableView];
     
