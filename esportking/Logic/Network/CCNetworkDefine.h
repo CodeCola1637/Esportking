@@ -39,6 +39,12 @@
 #define AddBlackUser    @"/app/user/addBlack"
 #define CheckBlackUser  @"/app/user/checkBlack"
 
+#define FetchCommentTag @"/app/comment/getCommentTag"
+
+#define AddComment      @"/app/comment/add"
+
+#define FetchUserInfo   @"/app/user/getOther"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 #define GetInviteCode   @"/app/user/getInvitationCode"

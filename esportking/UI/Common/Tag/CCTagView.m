@@ -68,7 +68,7 @@
     self.tagModel = model;
     
     [self.tagLabel setText:model.tagName];
-    [self.countLabel setText:[NSString stringWithFormat:@"%d", model.agreeCount]];
+    [self.countLabel setText:[NSString stringWithFormat:@"%lld", model.agreeCount]];
     if (color)
     {
         [self.countView setBackgroundColor:color];

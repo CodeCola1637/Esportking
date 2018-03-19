@@ -166,6 +166,11 @@
 		C0D4F8C12046AB9000258CC6 /* CCWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C02046AB9000258CC6 /* CCWalletViewController.m */; };
 		C0D4F8C52046DDF000258CC6 /* CCTryCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C42046DDF000258CC6 /* CCTryCardViewController.m */; };
 		C0D4F8C92046DE0900258CC6 /* CCTryCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C82046DE0900258CC6 /* CCTryCardTableViewCell.m */; };
+		C0F0413C205F935B00FF5F78 /* CCJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F0413B205F935B00FF5F78 /* CCJudgeViewController.m */; };
+		C0F04141205FA45C00FF5F78 /* CCCommitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F04140205FA45C00FF5F78 /* CCCommitButton.m */; };
+		C0F04145205FAFCB00FF5F78 /* CCFetchTagRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F04144205FAFCB00FF5F78 /* CCFetchTagRequest.m */; };
+		C0F04149205FB13C00FF5F78 /* CCAddCommentRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F04148205FB13C00FF5F78 /* CCAddCommentRequest.m */; };
+		C0F0414C205FB2D900FF5F78 /* CCFetchUserInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F0414B205FB2D900FF5F78 /* CCFetchUserInfoRequest.m */; };
 		C16171E712D307C824E94520 /* libPods-esportking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 794446AB076BD7FEE1438A20 /* libPods-esportking.a */; };
 /* End PBXBuildFile section */
 
@@ -501,6 +506,16 @@
 		C0D4F8C42046DDF000258CC6 /* CCTryCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardViewController.m; sourceTree = "<group>"; };
 		C0D4F8C72046DE0900258CC6 /* CCTryCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTryCardTableViewCell.h; sourceTree = "<group>"; };
 		C0D4F8C82046DE0900258CC6 /* CCTryCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardTableViewCell.m; sourceTree = "<group>"; };
+		C0F0413A205F935B00FF5F78 /* CCJudgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCJudgeViewController.h; sourceTree = "<group>"; };
+		C0F0413B205F935B00FF5F78 /* CCJudgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCJudgeViewController.m; sourceTree = "<group>"; };
+		C0F0413F205FA45C00FF5F78 /* CCCommitButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCommitButton.h; sourceTree = "<group>"; };
+		C0F04140205FA45C00FF5F78 /* CCCommitButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCCommitButton.m; sourceTree = "<group>"; };
+		C0F04143205FAFCB00FF5F78 /* CCFetchTagRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCFetchTagRequest.h; sourceTree = "<group>"; };
+		C0F04144205FAFCB00FF5F78 /* CCFetchTagRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCFetchTagRequest.m; sourceTree = "<group>"; };
+		C0F04147205FB13C00FF5F78 /* CCAddCommentRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAddCommentRequest.h; sourceTree = "<group>"; };
+		C0F04148205FB13C00FF5F78 /* CCAddCommentRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAddCommentRequest.m; sourceTree = "<group>"; };
+		C0F0414A205FB2D900FF5F78 /* CCFetchUserInfoRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCFetchUserInfoRequest.h; sourceTree = "<group>"; };
+		C0F0414B205FB2D900FF5F78 /* CCFetchUserInfoRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCFetchUserInfoRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -589,6 +604,8 @@
 			children = (
 				BE45F95A2029E21200482824 /* CCBigButton.h */,
 				BE45F95B2029E21200482824 /* CCBigButton.m */,
+				C0F0413F205FA45C00FF5F78 /* CCCommitButton.h */,
+				C0F04140205FA45C00FF5F78 /* CCCommitButton.m */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -629,6 +646,8 @@
 			children = (
 				BE49C9D92042708A00B0E34A /* CCUserDetailRequest.h */,
 				BE49C9DA2042708A00B0E34A /* CCUserDetailRequest.m */,
+				C0F0414A205FB2D900FF5F78 /* CCFetchUserInfoRequest.h */,
+				C0F0414B205FB2D900FF5F78 /* CCFetchUserInfoRequest.m */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";
@@ -1021,6 +1040,8 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C0F04146205FB13000FF5F78 /* Comment */,
+				C0F04142205FAFAE00FF5F78 /* Tag */,
 				C09A655A205BBF0600FB1B44 /* BlackList */,
 				C09A6550205BA58000FB1B44 /* Bind */,
 				BEAFE5682057CE3A00ED6B5A /* InviteCode */,
@@ -1086,6 +1107,7 @@
 		BEFC9BA220257E29002CE000 /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				C0F04139205F932500FF5F78 /* Judge */,
 				BE4514172058C4AB00EB707E /* Pay */,
 				BEAFE56F2058014400ED6B5A /* Setting */,
 				BEAFE5642057B4B500ED6B5A /* InviteCode */,
@@ -1583,6 +1605,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C0F04139205F932500FF5F78 /* Judge */ = {
+			isa = PBXGroup;
+			children = (
+				C0F0413D205F98B400FF5F78 /* View */,
+				C0F0413A205F935B00FF5F78 /* CCJudgeViewController.h */,
+				C0F0413B205F935B00FF5F78 /* CCJudgeViewController.m */,
+			);
+			path = Judge;
+			sourceTree = "<group>";
+		};
+		C0F0413D205F98B400FF5F78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0F04142205FAFAE00FF5F78 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				C0F04143205FAFCB00FF5F78 /* CCFetchTagRequest.h */,
+				C0F04144205FAFCB00FF5F78 /* CCFetchTagRequest.m */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		C0F04146205FB13000FF5F78 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				C0F04147205FB13C00FF5F78 /* CCAddCommentRequest.h */,
+				C0F04148205FB13C00FF5F78 /* CCAddCommentRequest.m */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
 		FE6259164A87DD5C4CAA9BC3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1851,6 +1908,7 @@
 				C09A6553205BA59200FB1B44 /* CCGetMyBindRequest.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				C09A656A205BCAF400FB1B44 /* CCAddBlackUserRequest.m in Sources */,
+				C0F0413C205F935B00FF5F78 /* CCJudgeViewController.m in Sources */,
 				BE41B609205564110084320C /* CCNearbyRequest.m in Sources */,
 				BE45F970202A027800482824 /* CCTitleItem.m in Sources */,
 				C05409FB204E763200C8154E /* zhPickerView.m in Sources */,
@@ -1872,6 +1930,7 @@
 				BE45141A2058C4C000EB707E /* CCPayViewController.m in Sources */,
 				C0917FFC205517D40060B8A5 /* CCOrderModel.m in Sources */,
 				BEAFDA14202701FA00ED4E2D /* CCRefreshTableView.m in Sources */,
+				C0F04141205FA45C00FF5F78 /* CCCommitButton.m in Sources */,
 				C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */,
 				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
 				C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */,
@@ -1920,6 +1979,7 @@
 				C091800020552D100060B8A5 /* CCTryCardModel.m in Sources */,
 				BEAFE56320577A9100ED6B5A /* CCComeInViewController.m in Sources */,
 				C0540A0B204E979200C8154E /* CCPickerView.m in Sources */,
+				C0F04145205FAFCB00FF5F78 /* CCFetchTagRequest.m in Sources */,
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
 				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,
@@ -1927,6 +1987,7 @@
 				BE4A1BAA20302D1800890485 /* PGIndexBannerSubiew.m in Sources */,
 				C0D4F8B12046A39600258CC6 /* CCOrderRequest.m in Sources */,
 				C0B498EE20479D5100BD0D63 /* CCGetTryCardRequest.m in Sources */,
+				C0F04149205FB13C00FF5F78 /* CCAddCommentRequest.m in Sources */,
 				C05409FE204E787A00C8154E /* UIView+Layout.m in Sources */,
 				BE49C9EB20427F1200B0E34A /* CCCommentModel.m in Sources */,
 				C05D4C30205625DE00D9F650 /* CCEmptyView.m in Sources */,
@@ -1942,6 +2003,7 @@
 				C0C6AF8E205A6E7B00658722 /* CCFinishOrderRequest.m in Sources */,
 				BEAFDA3520270F8300ED4E2D /* UIColor+Hex.m in Sources */,
 				C0A1748A20493C80000B71F3 /* CCDevideTableViewCell.m in Sources */,
+				C0F0414C205FB2D900FF5F78 /* CCFetchUserInfoRequest.m in Sources */,
 				BEAFE5672057B4D500ED6B5A /* CCInviteCodeViewController.m in Sources */,
 				BEAFE56E2057CFE000ED6B5A /* CCBindInviteCodeRequest.m in Sources */,
 				C0606D8C20526AFA0007B772 /* CCDanPickerView.m in Sources */,

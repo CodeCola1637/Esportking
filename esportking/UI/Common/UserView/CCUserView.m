@@ -45,26 +45,26 @@
         make.width.height.mas_equalTo(kHeadWidth);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headImgView.mas_bottom).offset(CCPXToPoint(10));
+        make.top.equalTo(self.headImgView.mas_bottom).offset(CCPXToPoint(16));
         make.centerX.equalTo(self);
     }];
     [self.genderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.nameLabel);
-        make.left.equalTo(self.nameLabel.mas_right).offset(CCPXToPoint(4));
-        make.height.mas_equalTo(CCPXToPoint(30));
+        make.left.equalTo(self.nameLabel.mas_right).offset(CCPXToPoint(8));
+        make.height.mas_equalTo(CCPXToPoint(28));
     }];
     [self.businessLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(10));
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(20));
         make.centerX.equalTo(self);
     }];
     [self.starView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.bottom.equalTo(self);
-        make.height.mas_equalTo(CCPXToPoint(50));
+        make.height.mas_equalTo(CCPXToPoint(40));
     }];
 }
 
 #pragma mark - public
-- (void)setEnabelBusiness:(BOOL)enable
+- (void)setEnableBusiness:(BOOL)enable
 {
     [self.businessLabel setHidden:!enable];
 }
@@ -108,7 +108,7 @@
     if (!_genderView)
     {
         _genderView = [CCGenderOldView new];
-        [_genderView.layer setCornerRadius:CCPXToPoint(15)];
+        [_genderView.layer setCornerRadius:CCPXToPoint(14)];
     }
     return _genderView;
 }
@@ -117,7 +117,7 @@
 {
     if (!_businessLabel)
     {
-        _businessLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Gray];
+        _businessLabel = [UILabel createOneLineLabelWithFont:Font_Small color:FontColor_Gray];
     }
     return _businessLabel;
 }
@@ -126,7 +126,7 @@
 {
     if (!_starView)
     {
-        _starView = [[CCStarView alloc] initWithFrame:CGRectMake(0, 0, CCPXToPoint(294), CCPXToPoint(40)) starGap:CCPXToPoint(22)];
+        _starView = [[CCStarView alloc] initWithFrame:CGRectMake(0, 0, CCPXToPoint(288), CCPXToPoint(40)) starGap:CCPXToPoint(22)];
     }
     return _starView;
 }

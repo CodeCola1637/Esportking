@@ -10,12 +10,12 @@
 #import "CCStarView.h"
 #import "CCUserModel.h"
 
-#define UserViewHeight              CCPXToPoint(300)
-#define UserViewWithoutBusiHeight   CCPXToPoint(250)
+#define UserViewHeight              CCPXToPoint(304)
+#define UserViewWithoutBusiHeight   CCPXToPoint(260)
 
 @interface CCUserView : UIView
 
-- (void)setEnabelBusiness:(BOOL)enable;
+- (void)setEnableBusiness:(BOOL)enable;
 - (void)setEnableTouch:(BOOL)enable del:(id<CCStarViewDelegate>)del;
 - (void)setUserInfo:(CCUserModel *)model businessCount:(uint64_t)busiCount starCount:(uint64_t)starCount;
 
