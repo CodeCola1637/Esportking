@@ -17,6 +17,7 @@
 @property (strong, nonatomic) CCLevelView *secondView;
 @property (strong, nonatomic) CCLevelView *thirdView;
 @property (strong, nonatomic) CCLevelView *forthView;
+@property (strong, nonatomic) UIView *devideView;
 
 @end
 
@@ -42,12 +43,13 @@
     [self.contentView addSubview:self.secondView];
     [self.contentView addSubview:self.thirdView];
     [self.contentView addSubview:self.forthView];
+    [self.contentView addSubview:self.devideView];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.contentView).offset(CCPXToPoint(32));
     }];
     [self.evaluateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.titleLabel);
+        make.top.equalTo(self.contentView).offset(CCPXToPoint(36));
         make.right.equalTo(self.contentView).offset(-CCPXToPoint(32));
     }];
     
@@ -68,6 +70,20 @@
         make.left.equalTo(self.thirdView.mas_right).offset(gap*2);
         make.bottom.equalTo(self.firstView);
     }];
+    [self.devideView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.contentView);
+        make.height.mas_equalTo(CCPXToPoint(16));
+    }];
+}
+
+- (void)setGameModel:(CCGameModel *)model
+{
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.1f", model.score] attributes:@{NSForegroundColorAttributeName:FontColor_Gold, NSFontAttributeName:BoldFont_Small}];
+    [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"分 | 累计" attributes:@{NSForegroundColorAttributeName:FontColor_Gray, NSFontAttributeName:BoldFont_Small}]];
+    [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lld", model.totalCount] attributes:@{NSForegroundColorAttributeName:FontColor_Gold, NSFontAttributeName:BoldFont_Small}]];
+    [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"单 | 胜率" attributes:@{NSForegroundColorAttributeName:FontColor_Gray, NSFontAttributeName:BoldFont_Small}]];
+    [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%lld%", model.successRate] attributes:@{NSForegroundColorAttributeName:FontColor_Gold, NSFontAttributeName:BoldFont_Small}]];
+    [self.evaluateLabel setAttributedText:string];
 }
 
 #pragma mark - getter
@@ -75,7 +91,7 @@
 {
     if (!_titleLabel)
     {
-        _titleLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _titleLabel = [UILabel createOneLineLabelWithFont:BoldFont_Middle color:FontColor_Black];
         [_titleLabel setText:@"他的价格"];
     }
     return _titleLabel;
@@ -128,5 +144,14 @@
     return _forthView;
 }
 
+- (UIView *)devideView
+{
+    if (!_devideView)
+    {
+        _devideView = [UIView new];
+        [_devideView setBackgroundColor:BgColor_SuperLightGray];
+    }
+    return _devideView;
+}
 
 @end

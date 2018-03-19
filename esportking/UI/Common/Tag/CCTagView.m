@@ -45,7 +45,7 @@
         make.size.mas_equalTo(TagSize);
     }];
     [self.tagLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self);
+        make.left.equalTo(self).offset(CCPXToPoint(4));
         make.right.equalTo(self.devideLine.mas_left);
         make.centerY.equalTo(self);
     }];
@@ -59,7 +59,9 @@
         make.width.mas_equalTo(CCPXToPoint(76));
     }];
     [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.countView);
+        make.centerY.equalTo(self.countView);
+        make.left.equalTo(self.countView);
+        make.right.equalTo(self.countView).offset(-CCPXToPoint(4));
     }];
 }
 
@@ -82,7 +84,7 @@
 {
     if (!_tagLabel)
     {
-        _tagLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _tagLabel = [UILabel createOneLineLabelWithFont:Font_Small color:FontColor_Black];
     }
     return _tagLabel;
 }
@@ -110,7 +112,7 @@
 {
     if (!_countLabel)
     {
-        _countLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _countLabel = [UILabel createOneLineLabelWithFont:Font_Small color:FontColor_Black];
     }
     return _countLabel;
 }

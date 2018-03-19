@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCGameModel.h"
 
 @interface CCUserPriceTableViewCell : UITableViewCell
+
+- (void)setGameModel:(CCGameModel *)model;
 
 @end

@@ -115,8 +115,7 @@
         if (orderModel.displayStatus==ORDERDISPLAYSTATUS_WAITPAY || orderModel.displayStatus==ORDERDISPLAYSTATUS_FIALPAY)
         {
             // 支付
-            CCJudgeViewController *vc = [[CCJudgeViewController alloc] initWithUserID:orderModel.senderID andGameID:GAMEID_WANGZHE];
-            [self.navigationController pushViewController:vc animated:YES];
+            
         }
         else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_ONDOING)
         {

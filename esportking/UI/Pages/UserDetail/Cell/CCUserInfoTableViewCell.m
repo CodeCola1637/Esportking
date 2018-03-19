@@ -20,6 +20,7 @@
 @property (strong, nonatomic) UIImageView *locationImgView;
 @property (strong, nonatomic) UILabel *locationLabel;
 @property (strong, nonatomic) UILabel *hornorLabel;
+@property (strong, nonatomic) UIView *devideView;
 
 @end
 
@@ -46,6 +47,7 @@
     [self.contentView addSubview:self.locationImgView];
     [self.contentView addSubview:self.locationLabel];
     [self.contentView addSubview:self.hornorLabel];
+    [self.contentView addSubview:self.devideView];
     
     [self.headImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.contentView);
@@ -58,7 +60,7 @@
     [self.genderView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.nameLabel.mas_right).offset(CCPXToPoint(20));
         make.centerY.equalTo(self.nameLabel);
-        make.height.mas_equalTo(CCPXToPoint(30));
+        make.height.mas_equalTo(CCPXToPoint(28));
     }];
     [self.followButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.nameLabel);
@@ -66,30 +68,36 @@
         make.width.mas_equalTo(CCPXToPoint(152));
         make.height.mas_equalTo(CCPXToPoint(58));
     }];
-    [self.locationImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(20));
-        make.left.equalTo(self.nameLabel);
-        make.width.height.mas_equalTo(CCPXToPoint(24));
-    }];
     [self.locationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.locationImgView).offset(CCOnePoint);
+        make.top.equalTo(self.nameLabel.mas_bottom).offset(CCPXToPoint(20));
+        make.left.equalTo(self.locationImgView.mas_right).offset(CCPXToPoint(6));
         make.bottom.equalTo(self.locationImgView);
+    }];
+    [self.locationImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.nameLabel);
+        make.centerY.equalTo(self.locationLabel);
+        make.width.height.mas_equalTo(CCPXToPoint(24));
     }];
     [self.hornorLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.locationLabel);
         make.top.equalTo(self.locationLabel.mas_bottom).offset(CCPXToPoint(20));
+    }];
+    [self.devideView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.contentView);
+        make.height.mas_equalTo(CCPXToPoint(16));
     }];
 }
 
 - (void)setGameModel:(CCGameModel *)model
 {
     self.logicModel = model;
-    
+
     [self.headImgView setImageWithUrl:model.userModel.headUrl placeholder:CCIMG(@"Placeholder_Icon")];
     [self.nameLabel setText:model.userModel.name];
     [self.genderView setGender:model.userModel.gender andOld:model.userModel.age];
-    [self.locationLabel setText:model.serverName];
-    [self.hornorLabel setText:model.maxLevel];
+#warning CC - 这里的两个数据要填充好
+    [self.locationLabel setText:@"广东省 深圳市"];
+    [self.hornorLabel setText:model.honour];
 }
 
 #pragma mark - action
@@ -103,9 +111,7 @@
 {
     if (!_headImgView)
     {
-        _headImgView = [UIImageView new];
-        [_headImgView setContentMode:UIViewContentModeScaleAspectFill];
-        [_headImgView setClipsToBounds:YES];
+        _headImgView = [UIImageView scaleFillImageView];
     }
     return _headImgView;
 }
@@ -124,7 +130,7 @@
     if (!_genderView)
     {
         _genderView = [[CCGenderOldView alloc] init];
-        [_genderView.layer setCornerRadius:CCPXToPoint(15)];
+        [_genderView.layer setCornerRadius:CCPXToPoint(14)];
     }
     return _genderView;
 }
@@ -134,10 +140,13 @@
     if (!_followButton)
     {
         _followButton = [UIButton new];
+        [_followButton.titleLabel setFont:Font_Middle];
         [_followButton.layer setCornerRadius:CCPXToPoint(29)];
         [_followButton setBackgroundColor:BgColor_Yellow];
+        [_followButton setImage:CCIMG(@"Follow_Icon") forState:UIControlStateNormal];
         [_followButton setTitle:@"关注" forState:UIControlStateNormal];
         [_followButton setTitleColor:FontColor_Black forState:UIControlStateNormal];
+        [_followButton addTarget:self action:@selector(onClickFollowButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _followButton;
 }
@@ -146,9 +155,8 @@
 {
     if (!_locationImgView)
     {
-        _locationImgView = [UIImageView new];
-        [_locationImgView setContentMode:UIViewContentModeScaleAspectFill];
-        [_locationImgView setClipsToBounds:YES];
+        _locationImgView = [UIImageView scaleFillImageView];
+        [_locationImgView setImage:CCIMG(@"Location_Icon_Gray")];
     }
     return _locationImgView;
 }
@@ -169,6 +177,16 @@
         _hornorLabel = [UILabel createOneLineLabelWithFont:Font_Small color:FontColor_Gray];
     }
     return _hornorLabel;
+}
+
+- (UIView *)devideView
+{
+    if (!_devideView)
+    {
+        _devideView = [UIView new];
+        [_devideView setBackgroundColor:BgColor_SuperLightGray];
+    }
+    return _devideView;
 }
 
 @end

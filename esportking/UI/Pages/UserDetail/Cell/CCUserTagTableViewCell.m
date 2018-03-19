@@ -91,7 +91,7 @@
 {
     if (!_titleLabel)
     {
-        _titleLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _titleLabel = [UILabel createOneLineLabelWithFont:BoldFont_Middle color:FontColor_Black];
         [_titleLabel setText:@"用户评价"];
     }
     return _titleLabel;

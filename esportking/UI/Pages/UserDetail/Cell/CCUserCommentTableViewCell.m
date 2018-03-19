@@ -124,7 +124,7 @@
 {
     if (!_rateLabel)
     {
-        _rateLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Gray];
+        _rateLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_DeepGray];
     }
     return _rateLabel;
 }
@@ -133,7 +133,7 @@
 {
     if (!_envaluateLabel)
     {
-        _envaluateLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Gray];
+        _envaluateLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_DeepGray];
         [_envaluateLabel setText:@"评分："];
     }
     return _envaluateLabel;
@@ -143,7 +143,7 @@
 {
     if (!_starView)
     {
-        _starView = [CCStarView new];
+        _starView = [[CCStarView alloc] initWithFrame:CGRectZero starGap:CCPXToPoint(4)];
     }
     return _starView;
 }

@@ -76,7 +76,18 @@
 - (void)configTopBar
 {
     [self.topbarView setBackgroundColor:BgColor_Clear];
-    [self addTopPopBackButton];
+    
+    UIImage *image = [CCIMG(@"Topbar_Back") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIButton *leftButton = [[UIButton alloc] init];
+    [leftButton setTintColor:BgColor_White];
+    [leftButton setImage:image forState:UIControlStateNormal];
+    [leftButton setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
+    [leftButton addTarget:self action:@selector(onClickLeftButton:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(30, 30));
+    }];
+    [self.topbarView layoutLeftControls:@[leftButton] spacing:nil];
+    
     UIButton *rightButton = [UIButton new];
     [rightButton setImage:CCIMG(@"Report_Icon") forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(onClickReportButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -110,6 +121,11 @@
 }
 
 #pragma mark - action
+- (void)onClickLeftButton:(UIButton *)button
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)onClickReportButton:(UIButton *)button
 {
     PopupListComponent *popupList = [[PopupListComponent alloc] init];
@@ -290,7 +306,7 @@
     {
         if (indexPath.row == 0)
         {
-            height = CCPXToPoint(306);
+            height = CCPXToPoint(268);
         }
         else
         {
@@ -299,11 +315,11 @@
     }
     else if (indexPath.section == 1)
     {
-        height = CCPXToPoint(306);
+        height = CCPXToPoint(306+16);
     }
     else if (indexPath.section == 0)
     {
-        height = CCPXToPoint(696+188);
+        height = CCPXToPoint(696+208+16);
     }
     return height;
 }
@@ -329,6 +345,7 @@
     else if (indexPath.section == 1)
     {
         CCUserPriceTableViewCell *userCell = [tableView dequeueReusableCellWithIdentifier:kSecondIdentify];
+        [userCell setGameModel:self.gameModel];
         cell = userCell;
     }
     else if (indexPath.section == 0)

@@ -24,7 +24,7 @@
 @property (strong, nonatomic) NSString      *serverName;
 @property (strong, nonatomic) NSString      *skilled;
 @property (strong, nonatomic) NSString      *position;
-@property (strong, nonatomic) NSString      *hornour;
+@property (strong, nonatomic) NSString      *honour;
 @property (strong, nonatomic) NSString      *contact;
 @property (strong, nonatomic) NSString      *maxLevel;
 @property (strong, nonatomic) NSString      *recordUrl;
@@ -32,7 +32,7 @@
 
 @property (assign, nonatomic) uint64_t      successRate;    // 胜率
 @property (assign, nonatomic) uint64_t      totalCount;     // 接单数
-@property (assign, nonatomic) uint64_t      score;          // 评分
+@property (assign, nonatomic) CGFloat       score;          // 评分
 
 - (void)setGameInfo:(NSDictionary *)info;
 

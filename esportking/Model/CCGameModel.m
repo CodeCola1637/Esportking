@@ -25,7 +25,7 @@
     self.serverName = gameDict[@"service_area"];
     self.skilled    = gameDict[@"skilled"];
     self.position   = gameDict[@"position"];
-    self.hornour    = gameDict[@"hornour"];
+    self.honour    = gameDict[@"honour"];
     self.contact    = gameDict[@"contact"];
     self.maxLevel   = gameDict[@"max_dan"];
     self.recordUrl  = gameDict[@"military_succ"];
@@ -33,7 +33,7 @@
     
     self.successRate = [gameDict[@"successRate"] unsignedIntegerValue];
     self.totalCount  = [gameDict[@"totalCount"] unsignedIntegerValue];
-    self.score       = [gameDict[@"score"] unsignedIntegerValue];
+    self.score       = [gameDict[@"score"] floatValue];
 }
 
 @end
