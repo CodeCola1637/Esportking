@@ -54,11 +54,11 @@
     [self.contentView addSubview:self.tableView];
     [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.contentView);
-        make.bottom.equalTo(self.tableView.mas_top);
+        make.height.mas_equalTo(CCPXToPoint(676));
     }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(self.contentView);
-        make.height.mas_equalTo(CCPXToPoint(300));
+        make.top.equalTo(self.mapView.mas_bottom);
     }];
 }
 
@@ -90,7 +90,12 @@
 #pragma mark - CCRefreshDelegate
 - (void)onHeaderRefresh
 {
-    
+    CLLocation *location = self.mapView.userLocation.location;
+    _request = [CCNearbyRequest new];
+    _request.gameID = GAMEID_WANGZHE;
+    _request.latitude = [NSString stringWithFormat:@"%lf", location.coordinate.latitude];
+    _request.longitude = [NSString stringWithFormat:@"%lf", location.coordinate.longitude];
+    [_request startPostRequestWithDelegate:self];
 }
 
 - (void)onFooterRefresh {}
@@ -128,12 +133,7 @@
 {
     [self.mapView setCenterCoordinate:location.coordinate animated:YES];
     [self stopSerialLocation];
-    
-    _request = [CCNearbyRequest new];
-    _request.gameID = GAMEID_WANGZHE;
-    _request.latitude = [NSString stringWithFormat:@"%lf", location.coordinate.latitude];
-    _request.longitude = [NSString stringWithFormat:@"%lf", location.coordinate.longitude];
-    [_request startPostRequestWithDelegate:self];
+    [self onHeaderRefresh];
 }
 
 #pragma mark - UITableViewDelegate
@@ -166,7 +166,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CCPXToPoint(114);
+    return CCPXToPoint(144);
 }
 
 #pragma mark - getter

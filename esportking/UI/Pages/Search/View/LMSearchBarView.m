@@ -51,12 +51,12 @@
     self.searchContainerView.backgroundColor = [BgColor_Black colorWithAlphaComponent:0.1f];
     
     self.searchIconImageView = [[UIImageView alloc] init];
-    self.searchIconImageView.image = CCIMG(@"LMR_Topbar_Search");
+    self.searchIconImageView.image = CCIMG(@"Search_Icon");
     
     
     self.searchTextField = [[UITextField alloc] init];
     self.searchTextField.font = Font_Small;
-    self.searchTextField.textColor = FontColor_White;
+    self.searchTextField.textColor = FontColor_Black;
     self.searchTextField.backgroundColor = BgColor_Clear;
     self.searchTextField.delegate = self;
     self.searchTextField.keyboardType = UIKeyboardTypeDefault;
@@ -139,9 +139,9 @@
     }];
     
     [self.searchIconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.searchContainerView).with.offset(-CCOnePoint);
-        make.bottom.equalTo(self.searchContainerView).with.offset(CCOnePoint);;
-        make.left.equalTo(self.searchContainerView.mas_left).with.offset(CCPXToPoint(12));
+        make.top.equalTo(self.searchContainerView).with.offset(CCPXToPoint(16));
+        make.bottom.equalTo(self.searchContainerView).with.offset(-CCPXToPoint(16));;
+        make.left.equalTo(self.searchContainerView.mas_left).with.offset(CCPXToPoint(16));
         make.width.equalTo(self.searchIconImageView.mas_height);
     }];
     

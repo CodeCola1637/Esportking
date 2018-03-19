@@ -34,6 +34,7 @@
         [self.genderImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.centerView);
             make.centerY.equalTo(self.centerView);
+            make.width.height.mas_equalTo(CCPXToPoint(20));
         }];
         [self.oldLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.genderImgView.mas_right).offset(CCPXToPoint(4));
@@ -82,7 +83,7 @@
 {
     if (!_oldLabel)
     {
-        _oldLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_White];
+        _oldLabel = [UILabel createOneLineLabelWithFont:Font_Small color:FontColor_White];
     }
     return _oldLabel;
 }

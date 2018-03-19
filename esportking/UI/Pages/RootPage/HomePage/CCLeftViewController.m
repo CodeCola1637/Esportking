@@ -80,11 +80,11 @@ typedef enum : NSUInteger {
 {
     if (indexPath.row == 0)
     {
-        return CCPXToPoint(280);
+        return CCPXToPoint(415);
     }
     else
     {
-        return CCPXToPoint(100);
+        return CCPXToPoint(104);
     }
 }
 

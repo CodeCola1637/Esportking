@@ -44,12 +44,12 @@
         make.width.height.mas_equalTo(kHeadWidth);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.headImgView);
-        make.left.equalTo(self.headImgView.mas_right).offset(CCPXToPoint(20));
+        make.top.equalTo(self.contentView).offset(CCPXToPoint(32));
+        make.left.equalTo(self.headImgView.mas_right).offset(CCPXToPoint(28));
         make.right.lessThanOrEqualTo(self.contentView).offset(-CCPXToPoint(32));
     }];
     [self.genderView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.headImgView);
+        make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(32));
         make.left.equalTo(self.nameLabel);
         make.height.mas_equalTo(CCPXToPoint(30));
     }];
@@ -79,7 +79,7 @@
 {
     if (!_nameLabel)
     {
-        _nameLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _nameLabel = [UILabel createOneLineLabelWithFont:BoldFont_Big color:FontColor_Black];
     }
     return _nameLabel;
 }

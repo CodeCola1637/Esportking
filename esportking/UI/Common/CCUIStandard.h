@@ -100,11 +100,11 @@
 #define BgColor_Purple ([UIColor colorWithARGBHex:0xff6956ff])
 #define BgColor_Yellow ([UIColor colorWithARGBHex:0xffffc600])
 #define BgColor_Gold   ([UIColor colorWithARGBHex:0xffffe353])
-#define BgColor_Blue   ([UIColor blueColor])
+#define BgColor_Blue   ([UIColor colorWithARGBHex:0xff84c1ff])
 
 #define BgColor_Orange ([UIColor colorWithARGBHex:0xffffac00])
 #define BgColor_Green  ([UIColor colorWithARGBHex:0xff12b68f])
-#define BgColor_Pink   ([UIColor colorWithARGBHex:0xfffc3f99])
+#define BgColor_Pink   ([UIColor colorWithARGBHex:0xffff90a8])
 #define BgColor_Gray   ([UIColor colorWithARGBHex:0xffc7c7c7])
 #define BgColor_LightGray ([UIColor colorWithARGBHex:0xffc2c2c2])
 #define BgColor_SuperLightGray ([UIColor colorWithARGBHex:0xfff2f2f2])
