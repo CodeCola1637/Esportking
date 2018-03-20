@@ -45,6 +45,11 @@
     [self configData];
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:CCInfoChangeNotification object:nil];
+}
+
 - (void)configTopbar
 {
     [self addTopPopBackButton];

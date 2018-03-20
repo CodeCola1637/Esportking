@@ -27,6 +27,7 @@
 #define CancelOrder     @"/app/order/cancelOrder"
 #define ReceiveOrder    @"/app/order/receiveOrder"
 #define FinishOrder     @"/app/order/confirmOrder"
+#define OrderDetail     @"/app/order/getOrderDetail"
 
 #define GetTryCard      @"/app/experienceCar/getMyExperienceCar"
 #define AddTryCard      @"/app/experienceCar/add"
@@ -44,6 +45,8 @@
 #define AddComment      @"/app/comment/add"
 
 #define FetchUserInfo   @"/app/user/getOther"
+
+#define PayForOrder     @"/app/order/payment"
 
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"

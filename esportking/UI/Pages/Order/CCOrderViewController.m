@@ -182,6 +182,7 @@
     }
     else if (sender == self.orderRequest)
     {
+        self.orderRequest = nil;
         [self.tableView beginHeaderRefreshing];
         [self endLoading];
     }

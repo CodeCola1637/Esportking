@@ -88,6 +88,9 @@
 		C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A38205116A00055D545 /* CCOrderStageView.m */; };
 		C0148A4020512EB60055D545 /* UIView+Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A3F20512EB60055D545 /* UIView+Wave.m */; };
 		C0148A4820513B540055D545 /* CCUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A4720513B540055D545 /* CCUserView.m */; };
+		C03B792B2060ED1600FA3073 /* CCPayForOrderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C03B792A2060ED1600FA3073 /* CCPayForOrderRequest.m */; };
+		C03B792E2060ED2E00FA3073 /* CCResetPayPwdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C03B792D2060ED2E00FA3073 /* CCResetPayPwdRequest.m */; };
+		C03B79312060F1D600FA3073 /* CCOrderDetailRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C03B79302060F1D600FA3073 /* CCOrderDetailRequest.m */; };
 		C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C041DDDB204FEEB80072CE3F /* CCLoginImgUtil.m */; };
 		C05409FA204E763200C8154E /* zhAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409F6204E763200C8154E /* zhAlertView.m */; };
 		C05409FB204E763200C8154E /* zhPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C05409F8204E763200C8154E /* zhPickerView.m */; };
@@ -357,6 +360,12 @@
 		C0148A3F20512EB60055D545 /* UIView+Wave.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Wave.m"; sourceTree = "<group>"; };
 		C0148A4620513B540055D545 /* CCUserView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserView.h; sourceTree = "<group>"; };
 		C0148A4720513B540055D545 /* CCUserView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserView.m; sourceTree = "<group>"; };
+		C03B79292060ED1600FA3073 /* CCPayForOrderRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPayForOrderRequest.h; sourceTree = "<group>"; };
+		C03B792A2060ED1600FA3073 /* CCPayForOrderRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPayForOrderRequest.m; sourceTree = "<group>"; };
+		C03B792C2060ED2E00FA3073 /* CCResetPayPwdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCResetPayPwdRequest.h; sourceTree = "<group>"; };
+		C03B792D2060ED2E00FA3073 /* CCResetPayPwdRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCResetPayPwdRequest.m; sourceTree = "<group>"; };
+		C03B792F2060F1D600FA3073 /* CCOrderDetailRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderDetailRequest.h; sourceTree = "<group>"; };
+		C03B79302060F1D600FA3073 /* CCOrderDetailRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderDetailRequest.m; sourceTree = "<group>"; };
 		C041DDDA204FEEB80072CE3F /* CCLoginImgUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCLoginImgUtil.h; sourceTree = "<group>"; };
 		C041DDDB204FEEB80072CE3F /* CCLoginImgUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCLoginImgUtil.m; sourceTree = "<group>"; };
 		C05409F5204E763200C8154E /* zhAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhAlertView.h; sourceTree = "<group>"; };
@@ -1040,6 +1049,7 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C03B79282060ED0100FA3073 /* Pay */,
 				C0F04146205FB13000FF5F78 /* Comment */,
 				C0F04142205FAFAE00FF5F78 /* Tag */,
 				C09A655A205BBF0600FB1B44 /* BlackList */,
@@ -1192,6 +1202,17 @@
 				C0148A4720513B540055D545 /* CCUserView.m */,
 			);
 			path = UserView;
+			sourceTree = "<group>";
+		};
+		C03B79282060ED0100FA3073 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				C03B79292060ED1600FA3073 /* CCPayForOrderRequest.h */,
+				C03B792A2060ED1600FA3073 /* CCPayForOrderRequest.m */,
+				C03B792C2060ED2E00FA3073 /* CCResetPayPwdRequest.h */,
+				C03B792D2060ED2E00FA3073 /* CCResetPayPwdRequest.m */,
+			);
+			path = Pay;
 			sourceTree = "<group>";
 		};
 		C041DDD9204FEE930072CE3F /* Util */ = {
@@ -1543,6 +1564,8 @@
 				C0C6AF8A205A6E3000658722 /* CCReceiveOrderRequest.m */,
 				C0C6AF8C205A6E7B00658722 /* CCFinishOrderRequest.h */,
 				C0C6AF8D205A6E7B00658722 /* CCFinishOrderRequest.m */,
+				C03B792F2060F1D600FA3073 /* CCOrderDetailRequest.h */,
+				C03B79302060F1D600FA3073 /* CCOrderDetailRequest.m */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -1904,7 +1927,9 @@
 				C09A6590205BD0F100FB1B44 /* WEPopoverController.m in Sources */,
 				C05D4C4D20566FCE00D9F650 /* CCAddImageListView.m in Sources */,
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
+				C03B792E2060ED2E00FA3073 /* CCResetPayPwdRequest.m in Sources */,
 				C0C6AF87205A6D5B00658722 /* CCCancelOrderRequest.m in Sources */,
+				C03B79312060F1D600FA3073 /* CCOrderDetailRequest.m in Sources */,
 				C09A6553205BA59200FB1B44 /* CCGetMyBindRequest.m in Sources */,
 				BE49C9DF20427BDF00B0E34A /* CCUserInfoTableViewCell.m in Sources */,
 				C09A656A205BCAF400FB1B44 /* CCAddBlackUserRequest.m in Sources */,
@@ -1944,6 +1969,7 @@
 				C05D4C4A2056668D00D9F650 /* CCAddImageView.m in Sources */,
 				C0C6AF8B205A6E3000658722 /* CCReceiveOrderRequest.m in Sources */,
 				C09A656D205BCB5800FB1B44 /* CCCheckBlackUserRequest.m in Sources */,
+				C03B792B2060ED1600FA3073 /* CCPayForOrderRequest.m in Sources */,
 				C0917FF5205508650060B8A5 /* CCCalculateRequest.m in Sources */,
 				C0D4F88720464B4F00258CC6 /* CCBeautyViewController.m in Sources */,
 				C0D4F8BD2046AA1A00258CC6 /* CCMoneyRequest.m in Sources */,

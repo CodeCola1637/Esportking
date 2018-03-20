@@ -11,11 +11,14 @@
 
 #import "CCTitleItem.h"
 #import "CCPayItemView.h"
+#import "CCScoreModel.h"
 
-@interface CCPayViewController ()<CCTitleItemDelegate, CCPayItemDelegate>
+#import "CCPayForOrderRequest.h"
 
-@property (assign, nonatomic) uint64_t receverID;
-@property (strong, nonatomic) CCScoreModel *scoreModel;
+@interface CCPayViewController ()<CCTitleItemDelegate, CCPayItemDelegate, CCRequestDelegate>
+
+@property (strong, nonatomic) CCOrderModel *orderModel;
+@property (strong, nonatomic) CCPayForOrderRequest *request;
 
 @property (strong, nonatomic) UIView *topBGView;
 @property (strong, nonatomic) UIView *centerBGView;
@@ -37,12 +40,11 @@
 
 @implementation CCPayViewController
 
-- (instancetype)initWithScoreModel:(CCScoreModel *)model receiverID:(uint64_t)userID
+- (instancetype)initWithOrderModel:(CCOrderModel *)model
 {
     if (self = [super init])
     {
-        self.receverID = userID;
-        self.scoreModel = model;
+        self.orderModel = model;
     }
     return self;
 }
@@ -133,18 +135,23 @@
 
 - (void)configData
 {
-    CCWeakSelf(weakSelf);
-    [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
-        [weakSelf.bottomButton setTitle:[NSString stringWithFormat:@"确认支付%d元", money] forState:UIControlStateNormal];
-    }];
+    [self.bottomButton setTitle:[NSString stringWithFormat:@"确认支付%d元", self.orderModel.money] forState:UIControlStateNormal];
     [self onSelectPayItem:PAYWAY_WX];
 }
 
 #pragma mark - action
 - (void)onClickBottomButton:(UIButton *)button
 {
-    CCScoreWaitViewController *vc = [[CCScoreWaitViewController alloc] initWithScoreModel:self.scoreModel receiverID:self.receverID];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.request)
+    {
+        return;
+    }
+    
+    self.request = [CCPayForOrderRequest new];
+    self.request.orderID = self.orderModel.orderID;
+    self.request.money = self.orderModel.money;
+    self.request.payPwd = 0;
+    [self.request startPostRequestWithDelegate:self];
 }
 
 #pragma mark - CCTitleItemDelegate
@@ -160,6 +167,34 @@
     [self.zfbPayItem setSelected:(way == PAYWAY_ZFB)];
     [self.zhyePayItem setSelected:(way == PAYWAY_ZHYE)];
     [self.cardPayItem setSelected:(way == PAYWAY_CARD)];
+}
+
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (self.request != sender)
+    {
+        return;
+    }
+    self.request = nil;
+    [self endLoading];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray *vcs = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+        [vcs removeObject:sender];
+        [self.navigationController setViewControllers:vcs];
+    });
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (self.request != sender)
+    {
+        return;
+    }
+    self.request = nil;
+    [self endLoading];
+    [self showToast:msg];
 }
 
 #pragma mark - getter
@@ -207,7 +242,7 @@
 {
     if (!_styleItem)
     {
-        _styleItem = [[CCTitleItem alloc] initWithTitle:@"服务类型" subTitle:[CCScoreModel getSytleStr:self.scoreModel.style] subTitleColor:FontColor_Black delegate:self];
+        _styleItem = [[CCTitleItem alloc] initWithTitle:@"服务类型" subTitle:[CCScoreModel getSytleStr:self.orderModel.style] subTitleColor:FontColor_Black delegate:self];
         [_styleItem setArrowHidden:YES];
     }
     return _styleItem;
@@ -217,7 +252,7 @@
 {
     if (!_locationItem)
     {
-        _locationItem = [[CCTitleItem alloc] initWithTitle:@"系统区服" subTitle:[NSString stringWithFormat:@"%@ %@",[CCScoreModel getSystemStr:self.scoreModel.system], [CCScoreModel getPlatformStr:self.scoreModel.platform]] subTitleColor:FontColor_Black delegate:self];
+        _locationItem = [[CCTitleItem alloc] initWithTitle:@"系统区服" subTitle:[NSString stringWithFormat:@"%@ %@",[CCScoreModel getSystemStr:self.orderModel.clientType], [CCScoreModel getPlatformStr:self.orderModel.platformType]] subTitleColor:FontColor_Black delegate:self];
         [_locationItem setArrowHidden:YES];
     }
     return _locationItem;
@@ -227,16 +262,7 @@
 {
     if (!_detailItem)
     {
-        NSString *displayStr = nil;
-        if (self.scoreModel.style == SCORESTYLE_GAME)
-        {
-            displayStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getLevelStr:self.scoreModel.level], [CCScoreModel getCountStr:self.scoreModel.count]];
-        }
-        else
-        {
-            displayStr = [NSString stringWithFormat:@"%@ 到 %@", [CCScoreModel getDetailLevelStr:self.scoreModel.startLevel], [CCScoreModel getDetailLevelStr:self.scoreModel.endLevel]];
-        }
-        _detailItem = [[CCTitleItem alloc] initWithTitle:@"服务内容" subTitle:displayStr subTitleColor:FontColor_Black delegate:self];
+        _detailItem = [[CCTitleItem alloc] initWithTitle:@"服务内容" subTitle:self.orderModel.danStr subTitleColor:FontColor_Black delegate:self];
         [_detailItem setArrowHidden:YES];
     }
     return _detailItem;

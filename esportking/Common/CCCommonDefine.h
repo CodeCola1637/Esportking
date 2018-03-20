@@ -7,7 +7,8 @@
 //
 
 #pragma mark - Notification
-#define CCLoginNotification @"cc_login"
+#define CCLoginNotification         @"cc_login"
+#define CCInfoChangeNotification    @"cc_user_info_change"
 
 #pragma mark - Utils
 #define CCWeakSelf(weakSelf) __weak typeof(self) weakSelf = self

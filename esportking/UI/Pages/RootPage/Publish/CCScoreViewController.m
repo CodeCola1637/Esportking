@@ -8,8 +8,10 @@
 
 #import "CCScoreViewController.h"
 #import "CCPayViewController.h"
+#import "CCScoreWaitViewController.h"
 
 #import "CCScoreModel.h"
+#import "CCPublishOrderRequest.h"
 
 #import "CCRefreshTableView.h"
 #import "CCPickerView.h"
@@ -35,7 +37,9 @@
 #define kStartDanTag         15
 #define kEndDanTag           16
 
-@interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate, CCConfirmTableViewCellDelegate, CCScoreStyleTableViewCellDelegate>
+@interface CCScoreViewController ()<UITableViewDataSource, UITableViewDelegate, CCConfirmTableViewCellDelegate, CCScoreStyleTableViewCellDelegate, CCRequestDelegate>
+
+@property (strong, nonatomic) CCPublishOrderRequest *orderRequest;
 
 @property (strong, nonatomic) CCEvaluateUserModel *userModel;
 @property (strong, nonatomic) CCScoreModel *scoreModel;
@@ -104,8 +108,7 @@
 {
     if ([self.scoreModel checkInfoCompleted])
     {
-        CCPayViewController *vc = [[CCPayViewController alloc] initWithScoreModel:self.scoreModel receiverID:self.userModel.userID];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self publishOrder];
     }
 }
 
@@ -337,6 +340,88 @@
     }
     
     return cell;
+}
+
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (sender != self.orderRequest)
+    {
+        return;
+    }
+    
+    CCOrderModel *model = [CCOrderModel new];
+    model.orderID = self.orderRequest.orderID;
+    model.status = ORDERSTAUTS_WAIT;
+    model.payStatus = ORDERPAYSTAUTS_WAITPAY;
+    model.displayStatus = ORDERDISPLAYSTATUS_WAITPAY;
+    model.style = self.orderRequest.scoreStyle;
+    model.clientType = self.orderRequest.system;
+    model.platformType = self.orderRequest.platform;
+    model.senderID = CCAccountServiceInstance.userID;
+    model.senderName = CCAccountServiceInstance.name;
+    model.receiverID = self.userModel.userID;
+    model.receiverName = self.userModel.name;
+    model.danStr = self.orderRequest.danStr;
+    
+    [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
+        model.money = money;
+    }];
+    
+    CCPayViewController *vc = [[CCPayViewController alloc] initWithOrderModel:model];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    self.orderRequest = nil;
+    [self endLoading];
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (sender != self.orderRequest)
+    {
+        return;
+    }
+    
+    self.orderRequest = nil;
+    [self endLoading];
+    [self showToast:msg];
+}
+
+#pragma mark - private
+- (void)publishOrder
+{
+    if (self.orderRequest)
+    {
+        return;
+    }
+    
+    self.orderRequest = [CCPublishOrderRequest new];
+    self.orderRequest.systemPlatformStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getSystemStr:self.scoreModel.system], [CCScoreModel getPlatformStr:self.scoreModel.platform]];
+    self.orderRequest.receiverID = self.userModel.userID;
+    self.orderRequest.gameID = GAMEID_WANGZHE;
+    self.orderRequest.scoreStyle = self.scoreModel.style;
+    self.orderRequest.system = self.scoreModel.system;
+    self.orderRequest.platform = self.scoreModel.platform;
+    if (self.scoreModel.style == SCORESTYLE_SCORE)
+    {
+        self.orderRequest.fromDan = self.scoreModel.startLevel/100;
+        self.orderRequest.fromDetailDan = self.scoreModel.startLevel%100;
+        self.orderRequest.fromStar = self.scoreModel.startLevel%100;
+        
+        self.orderRequest.toDan = self.scoreModel.endLevel/100;
+        self.orderRequest.toDetailDan = self.scoreModel.endLevel%100;
+        self.orderRequest.toStar = self.scoreModel.endLevel%100;
+        
+        self.orderRequest.danStr = [NSString stringWithFormat:@"%@ 到 %@", [CCScoreModel getDetailLevelStr:self.scoreModel.startLevel], [CCScoreModel getDetailLevelStr:self.scoreModel.endLevel]];
+    }
+    else
+    {
+        self.orderRequest.fromDan = self.scoreModel.level;
+        self.orderRequest.gameCount = self.scoreModel.count;
+        
+        self.orderRequest.danStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getLevelStr:self.scoreModel.level], [CCScoreModel getCountStr:self.scoreModel.count]];
+    }
+    [self.orderRequest startPostRequestWithDelegate:self];
 }
 
 #pragma mark - getter

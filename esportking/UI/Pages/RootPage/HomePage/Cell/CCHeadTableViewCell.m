@@ -22,8 +22,15 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
     {
         [self setupUI];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoChangeNotification:) name:CCInfoChangeNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupUI
@@ -46,6 +53,13 @@
         make.bottom.equalTo(centerView);
         make.centerX.equalTo(centerView);
     }];
+}
+
+#pragma mark - CCInfoChangeNotification
+- (void)onUserInfoChangeNotification:(NSNotification *)notify
+{
+    [_headImgView setImageWithUrl:CCAccountServiceInstance.headUrl placeholder:_headImgView.image];
+    [_nickLabel setText:CCAccountServiceInstance.name];
 }
 
 #pragma mark - getters

@@ -41,6 +41,20 @@
 
 @implementation CCHomeViewController
 
+- (instancetype)init
+{
+    if (self = [super init])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserInfoChangeNotification:) name:CCInfoChangeNotification object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -234,6 +248,12 @@
 {
     [self showToast:msg];
     [self.collectionView endRefresh];
+}
+
+#pragma mark - CCInfoChangeNotification
+- (void)onUserInfoChangeNotification:(NSNotification *)notify
+{
+    [_userButton sd_setBackgroundImageWithURL:[NSURL URLWithString:CCAccountServiceInstance.headUrl] forState:UIControlStateNormal placeholderImage:_userButton.imageView.image];
 }
 
 #pragma mark - getters

@@ -10,22 +10,20 @@
 #import "CCOrderStageView.h"
 #import "UIView+Wave.h"
 #import "CCUserView.h"
+#import "CCScoreModel.h"
 
-#import "CCPublishOrderRequest.h"
+#import "CCOrderDetailRequest.h"
 
 #define kRoundWidth CCPXToPoint(164)
 
 @interface CCScoreWaitViewController ()<CCRequestDelegate>
 
-@property (strong, nonatomic) NSString *orderID;
-
-@property (assign, nonatomic) uint64_t receverID;
-@property (strong, nonatomic) CCScoreModel *scoreModel;
+@property (strong, nonatomic) CCOrderDetailRequest *request;
+@property (strong, nonatomic) CCOrderModel *orderModel;
 
 @property (strong, nonatomic) UILabel *serviceLabel;
 @property (strong, nonatomic) UILabel *systemLabel;
 @property (strong, nonatomic) UILabel *danLabel;
-@property (strong, nonatomic) UILabel *countLabel;
 @property (strong, nonatomic) UILabel *moneyLabel;
 
 @property (strong, nonatomic) UIButton *cancelButton;
@@ -39,18 +37,15 @@
 @property (strong, nonatomic) CCUserView *userView;
 @property (strong, nonatomic) UIButton *contactButton;
 
-@property (strong, nonatomic) CCPublishOrderRequest *orderRequest;
-
 @end
 
 @implementation CCScoreWaitViewController
 
-- (instancetype)initWithScoreModel:(CCScoreModel *)model receiverID:(uint64_t)userID
+- (instancetype)initWithScoreModel:(CCOrderModel *)model
 {
     if (self = [super init])
     {
-        self.receverID = userID;
-        self.scoreModel = model;
+        self.orderModel = model;
     }
     return self;
 }
@@ -65,7 +60,6 @@
     [super viewDidLoad];
     [self configTopbar];
     [self configContent];
-    [self publishOrder];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -89,7 +83,6 @@
     [self.contentView addSubview:self.serviceLabel];
     [self.contentView addSubview:self.systemLabel];
     [self.contentView addSubview:self.danLabel];
-    [self.contentView addSubview:self.countLabel];
     [self.contentView addSubview:self.moneyLabel];
     [self.contentView addSubview:self.cancelButton];
     [self.contentView addSubview:self.stageView];
@@ -114,15 +107,10 @@
         make.right.lessThanOrEqualTo(self.contentView).offset(-CCHorMargin);
         make.top.equalTo(self.systemLabel.mas_bottom).offset(CCPXToPoint(28));
     }];
-    [self.countLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(CCHorMargin);
-        make.right.lessThanOrEqualTo(self.contentView).offset(-CCHorMargin);
-        make.top.equalTo(self.danLabel.mas_bottom).offset(CCPXToPoint(28));
-    }];
     [self.moneyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(CCHorMargin);
         make.right.lessThanOrEqualTo(self.contentView).offset(-CCHorMargin);
-        make.top.equalTo(self.countLabel.mas_bottom).offset(CCPXToPoint(28));
+        make.top.equalTo(self.danLabel.mas_bottom).offset(CCPXToPoint(28));
     }];
     
     [self.stageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -179,62 +167,15 @@
 #pragma mark - CCRequestDelegate
 - (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
 {
-    if (self.orderRequest != sender)
-    {
-        return;
-    }
-    [self setDisplayCount:self.orderRequest.notifyCount];
-    self.orderID = self.orderRequest.orderID;
-    self.orderRequest = nil;
+    
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
 {
-    if (self.orderRequest != sender)
-    {
-        return;
-    }
-    self.orderRequest = nil;
     [self showToast:msg];
 }
 
 #pragma mark - private
-- (void)publishOrder
-{
-    if (self.orderRequest)
-    {
-        return;
-    }
-    
-    self.orderRequest = [CCPublishOrderRequest new];
-    self.orderRequest.systemPlatformStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getSystemStr:self.scoreModel.system], [CCScoreModel getPlatformStr:self.scoreModel.platform]];
-    self.orderRequest.receiverID = self.receverID;
-    self.orderRequest.gameID = GAMEID_WANGZHE;
-    self.orderRequest.scoreStyle = self.scoreModel.style;
-    self.orderRequest.system = self.scoreModel.system;
-    self.orderRequest.platform = self.scoreModel.platform;
-    if (self.scoreModel.style == SCORESTYLE_SCORE)
-    {
-        self.orderRequest.fromDan = self.scoreModel.startLevel/100;
-        self.orderRequest.fromDetailDan = self.scoreModel.startLevel%100;
-        self.orderRequest.fromStar = self.scoreModel.startLevel%100;
-        
-        self.orderRequest.toDan = self.scoreModel.endLevel/100;
-        self.orderRequest.toDetailDan = self.scoreModel.endLevel%100;
-        self.orderRequest.toStar = self.scoreModel.endLevel%100;
-        
-        self.orderRequest.danStr = [NSString stringWithFormat:@"%@ 到 %@", [CCScoreModel getDetailLevelStr:self.scoreModel.startLevel], [CCScoreModel getDetailLevelStr:self.scoreModel.endLevel]];
-    }
-    else
-    {
-        self.orderRequest.fromDan = self.scoreModel.level;
-        self.orderRequest.gameCount = self.scoreModel.count;
-        
-        self.orderRequest.danStr = [NSString stringWithFormat:@"%@ %@", [CCScoreModel getLevelStr:self.scoreModel.level], [CCScoreModel getCountStr:self.scoreModel.count]];
-    }
-    [self.orderRequest startPostRequestWithDelegate:self];
-}
-
 - (void)setDisplayCount:(uint32_t)count
 {
     NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"已通知\n" attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:BoldFont_Big}];
@@ -262,7 +203,7 @@
         _serviceLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_serviceLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"发车方式：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getSytleStr:self.scoreModel.style] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getSytleStr:self.orderModel.style] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
         [_serviceLabel setAttributedText:artStr];
     }
     return _serviceLabel;
@@ -275,7 +216,7 @@
         _systemLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_systemLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"系统区服：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", [CCScoreModel getSystemStr:self.scoreModel.system], [CCScoreModel getPlatformStr:self.scoreModel.platform]] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", [CCScoreModel getSystemStr:self.orderModel.clientType], [CCScoreModel getPlatformStr:self.orderModel.platformType]] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
         [_systemLabel setAttributedText:artStr];
     }
     return _systemLabel;
@@ -287,42 +228,11 @@
     {
         _danLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_danLabel setTextAlignment:NSTextAlignmentLeft];
-        if (self.scoreModel.style == SCORESTYLE_GAME)
-        {
-            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"段位信息：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getLevelStr:self.scoreModel.level] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-            [_danLabel setAttributedText:artStr];
-        }
-        else
-        {
-            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"开始段位：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getDetailLevelStr:self.scoreModel.startLevel] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-            [_danLabel setAttributedText:artStr];
-        }
+        NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"服务详情：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:self.orderModel.danStr attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [_danLabel setAttributedText:artStr];
     }
     return _danLabel;
-}
-
-- (UILabel *)countLabel
-{
-    if (!_countLabel)
-    {
-        _countLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
-        [_countLabel setTextAlignment:NSTextAlignmentLeft];
-        if (self.scoreModel.style == SCORESTYLE_GAME)
-        {
-            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"服务局数：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d局", self.scoreModel.count] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-            [_countLabel setAttributedText:artStr];
-        }
-        else
-        {
-            NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"目标段位：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[CCScoreModel getDetailLevelStr:self.scoreModel.endLevel] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-            [_countLabel setAttributedText:artStr];
-        }
-    }
-    return _countLabel;
 }
 
 - (UILabel *)moneyLabel
@@ -332,10 +242,8 @@
         _moneyLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_Black];
         [_moneyLabel setTextAlignment:NSTextAlignmentLeft];
         NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"订单金额：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-        [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
-            [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", money] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
-            [_moneyLabel setAttributedText:artStr];
-        }];
+        [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", self.orderModel.money] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+        [_moneyLabel setAttributedText:artStr];
     }
     return _moneyLabel;
 }
