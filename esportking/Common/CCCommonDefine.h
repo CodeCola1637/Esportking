@@ -41,6 +41,7 @@ typedef enum : NSUInteger {
 typedef enum : NSUInteger {
     ORDERSOURCE_SEND = 1,
     ORDERSOURCE_RECV,
+    ORDERSOURCE_DOING,
 } ORDERSOURCE;
 
 typedef enum : NSUInteger {

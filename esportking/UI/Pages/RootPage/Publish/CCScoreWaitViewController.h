@@ -7,10 +7,7 @@
 //
 
 #import "CCBaseViewController.h"
-#import "CCOrderModel.h"
 
 @interface CCScoreWaitViewController : CCBaseViewController
-
-- (instancetype)initWithScoreModel:(CCOrderModel *)model;
 
 @end

@@ -24,6 +24,7 @@ typedef enum : NSUInteger {
 
 @property (weak  , nonatomic) id<CCAddImageViewDelegate> delegate;
 @property (assign, nonatomic) ADDIMGSTATUS currentStatus;
+@property (strong, nonatomic) NSString *coverUrl;
 
 - (void)setImage:(UIImage *)img;
 - (void)setImageWithUrl:(NSString *)url placeholder:(UIImage *)placeholder;

@@ -98,7 +98,7 @@
     transition.type          = kCATransitionReveal;//可更改为其他方式
     transition.subtype       = kCATransitionFromBottom;//可更改为其他方式
     [self.navigationController.view.layer addAnimation:transition forKey:nil];
-    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 #pragma mark - CCSearchHistoryViewDelegate

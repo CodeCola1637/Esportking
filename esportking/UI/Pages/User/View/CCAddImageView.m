@@ -57,6 +57,7 @@
 
 - (void)setImageWithUrl:(NSString *)url placeholder:(UIImage *)placeholder
 {
+    _coverUrl = url;
     [self.contentImgView setImageWithUrl:url placeholder:placeholder];
 }
 
@@ -70,7 +71,7 @@
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         
         //设置属性，周期时长
-        [animation setDuration:0.08];
+        [animation setDuration:0.1];
         //抖动角度
         animation.fromValue = @(-M_1_PI/2);
         animation.toValue = @(M_1_PI/2);
@@ -102,6 +103,9 @@
     if (!_contentImgView)
     {
         _contentImgView = [UIImageView scaleFillImageView];
+        [_contentImgView.layer setCornerRadius:CCPXToPoint(6)];
+        [_contentImgView.layer setBorderWidth:CCOnePoint];
+        [_contentImgView.layer setBorderColor:BgColor_SuperLightGray.CGColor];
     }
     return _contentImgView;
 }

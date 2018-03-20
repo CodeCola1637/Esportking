@@ -16,6 +16,10 @@
     [self.userModel setUserInfo:info];
     
     NSDictionary *gameDict = info[@"game"];
+    if (![gameDict isKindOfClass:[NSDictionary class]])
+    {
+        return;
+    }
     self.gameID     = [gameDict[@"game_id"] unsignedIntValue];
     self.userGameID = [gameDict[@"user_game_id"] unsignedIntValue];
     self.clientType = [gameDict[@"client_type"] unsignedIntValue];

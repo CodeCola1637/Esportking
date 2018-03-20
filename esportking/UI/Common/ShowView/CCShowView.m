@@ -36,7 +36,7 @@
 - (void)setupUI
 {
     [self addSubview:self.button];
-    [self.button setFrame:self.frame];
+    [self.button setFrame:self.bounds];
     [self.button setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
 }
 
@@ -64,6 +64,16 @@
             break;
     }
     [self.button setImage:image forState:UIControlStateNormal];
+    if (animated)
+    {
+        [UIView animateWithDuration:.3f animations:^{
+            self.frame = CGRectMake(point.x, point.y, self.width, self.height);
+        }];
+    }
+    else
+    {
+        self.frame = CGRectMake(point.x, point.y, self.width, self.height);
+    }
 }
 
 #pragma mark - action

@@ -76,6 +76,10 @@
 
 - (void)setUserInfo:(CCUserModel *)model businessCount:(uint64_t)busiCount starCount:(uint64_t)starCount
 {
+    if (!model)
+    {
+        return;
+    }
     [self.headImgView setImageWithUrl:model.headUrl placeholder:CCIMG(@"Default_Header")];
     [self.nameLabel setText:model.name];
     [self.genderView setGender:model.gender andOld:model.age];

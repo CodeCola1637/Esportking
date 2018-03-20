@@ -20,7 +20,7 @@
     return @{
              @"type":@(self.type),
              @"game_id":@(self.gameID),
-             @"status":@(0),
+             @"status":@(self.status),
              @"pageNumber":@(self.pageNum),
              @"pageSize":@(self.pageSize),
              };

@@ -15,6 +15,7 @@
 @property (assign, nonatomic) uint64_t gameID;
 @property (assign, nonatomic) uint64_t pageNum;
 @property (assign, nonatomic) uint64_t pageSize;
+@property (assign, nonatomic) uint32_t status;  // 0:所有 2:进行中，默认为0
 
 // resp
 @property (strong, nonatomic) NSArray<CCOrderModel *> *orderList;
