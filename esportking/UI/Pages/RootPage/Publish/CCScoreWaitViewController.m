@@ -7,7 +7,7 @@
 //
 
 #import "CCScoreWaitViewController.h"
-#import "CCSessionViewController.h"
+#import "CCOrderSessionViewController.h"
 
 #import "CCOrderStageView.h"
 #import "UIView+Wave.h"
@@ -159,7 +159,7 @@
 - (void)onClickContactButton:(UIButton *)button
 {
     NIMSession *session = [NIMSession session:[NSString stringWithFormat:@"test_%llu", self.userModel.userModel.userID] type:NIMSessionTypeP2P];
-    CCSessionViewController *vc = [[CCSessionViewController alloc] initWithSession:session title:self.userModel.userModel.name];
+    CCOrderSessionViewController *vc = [[CCOrderSessionViewController alloc] initWithSession:session orderModel:self.orderModel receiver:self.userModel.userModel];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -184,11 +184,22 @@
         
         if (self.orderModel.receiverID != 0)
         {
-            self.userReq = [CCUserDetailRequest new];
-            self.userReq.userID = self.orderModel.receiverID;
-            self.userReq.gameID = GAMEID_WANGZHE;
-            [self.userReq startPostRequestWithDelegate:self];
+            if (self.orderModel.receiverID != CCAccountServiceInstance.userID)
+            {
+                self.userReq = [CCUserDetailRequest new];
+                self.userReq.userID = self.orderModel.receiverID;
+                self.userReq.gameID = GAMEID_WANGZHE;
+                [self.userReq startPostRequestWithDelegate:self];
+            }
+            else
+            {
+                self.userReq = [CCUserDetailRequest new];
+                self.userReq.userID = self.orderModel.senderID;
+                self.userReq.gameID = GAMEID_WANGZHE;
+                [self.userReq startPostRequestWithDelegate:self];
+            }
         }
+        
         self.request = nil;
     }
     else if (self.userReq == sender)

@@ -84,6 +84,7 @@
 		BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95CC202D91C90081D88B /* CCHomePageRequest.m */; };
 		BEFF95D2202D92C30081D88B /* CCGameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D1202D92C30081D88B /* CCGameModel.m */; };
 		BEFF95D5202D92CD0081D88B /* CCUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFF95D4202D92CD0081D88B /* CCUserModel.m */; };
+		C0060C742062057200C1A589 /* CCOrderSessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0060C732062057200C1A589 /* CCOrderSessionViewController.m */; };
 		C0148A33205114560055D545 /* CCScoreWaitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A32205114560055D545 /* CCScoreWaitViewController.m */; };
 		C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A38205116A00055D545 /* CCOrderStageView.m */; };
 		C0148A4020512EB60055D545 /* UIView+Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = C0148A3F20512EB60055D545 /* UIView+Wave.m */; };
@@ -352,6 +353,8 @@
 		BEFF95D1202D92C30081D88B /* CCGameModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGameModel.m; sourceTree = "<group>"; };
 		BEFF95D3202D92CD0081D88B /* CCUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCUserModel.h; sourceTree = "<group>"; };
 		BEFF95D4202D92CD0081D88B /* CCUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCUserModel.m; sourceTree = "<group>"; };
+		C0060C722062057200C1A589 /* CCOrderSessionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderSessionViewController.h; sourceTree = "<group>"; };
+		C0060C732062057200C1A589 /* CCOrderSessionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCOrderSessionViewController.m; sourceTree = "<group>"; };
 		C0148A31205114560055D545 /* CCScoreWaitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCScoreWaitViewController.h; sourceTree = "<group>"; };
 		C0148A32205114560055D545 /* CCScoreWaitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCScoreWaitViewController.m; sourceTree = "<group>"; };
 		C0148A37205116A00055D545 /* CCOrderStageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCOrderStageView.h; sourceTree = "<group>"; };
@@ -604,6 +607,8 @@
 				BE451468204451880096A8CC /* CCSessionListViewController.m */,
 				BE45146A204451CA0096A8CC /* CCSessionViewController.h */,
 				BE45146B204451CA0096A8CC /* CCSessionViewController.m */,
+				C0060C722062057200C1A589 /* CCOrderSessionViewController.h */,
+				C0060C732062057200C1A589 /* CCOrderSessionViewController.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1925,6 +1930,7 @@
 				C0D4F8C52046DDF000258CC6 /* CCTryCardViewController.m in Sources */,
 				C041DDDC204FEEB80072CE3F /* CCLoginImgUtil.m in Sources */,
 				C09A6590205BD0F100FB1B44 /* WEPopoverController.m in Sources */,
+				C0060C742062057200C1A589 /* CCOrderSessionViewController.m in Sources */,
 				C05D4C4D20566FCE00D9F650 /* CCAddImageListView.m in Sources */,
 				C0A1749C204D27CA000B71F3 /* UIImageView+Create.m in Sources */,
 				C03B792E2060ED2E00FA3073 /* CCResetPayPwdRequest.m in Sources */,
