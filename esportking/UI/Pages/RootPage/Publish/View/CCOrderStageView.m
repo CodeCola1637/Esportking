@@ -8,14 +8,17 @@
 
 #import "CCOrderStageView.h"
 
+#define kNormalColor    [UIColor colorWithRGBHex:0xb4becc]
+#define kHighlightColor [UIColor colorWithRGBHex:0xffae00]
+
 @interface CCOrderStageView ()
 
 @property (assign, nonatomic) ORDERSTAGE currentStage;
 
-@property (strong, nonatomic) UIImageView *firstStageImgView;
-@property (strong, nonatomic) UIImageView *secondStageImgView;
-@property (strong, nonatomic) UIImageView *thirdStageImgView;
-@property (strong, nonatomic) UIImageView *fourthStageImgView;
+@property (strong, nonatomic) UILabel *firstStageImgView;
+@property (strong, nonatomic) UILabel *secondStageImgView;
+@property (strong, nonatomic) UILabel *thirdStageImgView;
+@property (strong, nonatomic) UILabel *fourthStageImgView;
 
 @property (strong, nonatomic) UILabel *firstStageLabel;
 @property (strong, nonatomic) UILabel *secondStageLabel;
@@ -131,73 +134,76 @@
 {
     _currentStage = stage;
     
+    [self.firstStageImgView setTextColor:kNormalColor];
+    [self.secondStageImgView setTextColor:kNormalColor];
+    [self.thirdStageImgView setTextColor:kNormalColor];
+    [self.fourthStageImgView setTextColor:kNormalColor];
+    
+    [self.firstStageImgView.layer setBorderColor:kNormalColor.CGColor];
+    [self.secondStageImgView.layer setBorderColor:kNormalColor.CGColor];
+    [self.thirdStageImgView.layer setBorderColor:kNormalColor.CGColor];
+    [self.fourthStageImgView.layer setBorderColor:kNormalColor.CGColor];
+    
+    [self.firstStageLabel setTextColor:kNormalColor];
+    [self.secondStageLabel setTextColor:kNormalColor];
+    [self.thirdStageLabel setTextColor:kNormalColor];
+    [self.fourthStageLabel setTextColor:kNormalColor];
+    
+    [self.secondStageLine setBackgroundColor:kNormalColor];
+    [self.thirdStageLine setBackgroundColor:kNormalColor];
+    [self.fourthStageLine setBackgroundColor:kNormalColor];
+    
     switch (stage) {
         case ORDERSTAGE_SEARCH:
         {
-            [self.firstStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.secondStageImgView setTintColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.thirdStageImgView setTintColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageImgView setTintColor:[UIColor colorWithRGBHex:0xb4becc]];
-            
-            [self.firstStageLabel setTextColor:[UIColor colorWithRGBHex:0xff5000]];
-            [self.secondStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.thirdStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            
-            [self.secondStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.thirdStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.firstStageImgView setTextColor:kHighlightColor];
+            [self.firstStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.firstStageLabel setTextColor:kHighlightColor];
         }
             break;
         case ORDERSTAGE_WAIT:
         {
-            [self.firstStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.secondStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageImgView setTintColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageImgView setTintColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.firstStageImgView setTextColor:kHighlightColor];
+            [self.firstStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.secondStageImgView setTextColor:kHighlightColor];
+            [self.secondStageImgView.layer setBorderColor:kHighlightColor.CGColor];
             
-            [self.firstStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.secondStageLabel setTextColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.secondStageLabel setTextColor:kHighlightColor];
             
-            [self.secondStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.secondStageLine setBackgroundColor:kHighlightColor];
         }
             break;
         case ORDERSTAGE_START:
         {
-            [self.firstStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.secondStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.fourthStageImgView setTintColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.firstStageImgView setTextColor:kHighlightColor];
+            [self.firstStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.secondStageImgView setTextColor:kHighlightColor];
+            [self.secondStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.thirdStageImgView setTextColor:kHighlightColor];
+            [self.thirdStageImgView.layer setBorderColor:kHighlightColor.CGColor];
             
-            [self.firstStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.secondStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.thirdStageLabel setTextColor:[UIColor colorWithRGBHex:0xff5000]];
-            [self.fourthStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.thirdStageLabel setTextColor:kHighlightColor];
             
-            [self.secondStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.fourthStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xb4becc]];
+            [self.secondStageLine setBackgroundColor:kHighlightColor];
+            [self.thirdStageLine setBackgroundColor:kHighlightColor];
         }
             break;
         case ORDERSTAGE_FINISH:
         {
-            [self.firstStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.secondStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.fourthStageImgView setTintColor:[UIColor colorWithRGBHex:0xffae00]];
+            [self.firstStageImgView setTextColor:kHighlightColor];
+            [self.firstStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.secondStageImgView setTextColor:kHighlightColor];
+            [self.secondStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.thirdStageImgView setTextColor:kHighlightColor];
+            [self.thirdStageImgView.layer setBorderColor:kHighlightColor.CGColor];
+            [self.fourthStageImgView setTextColor:kHighlightColor];
+            [self.fourthStageImgView.layer setBorderColor:kHighlightColor.CGColor];
             
-            [self.firstStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.secondStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.thirdStageLabel setTextColor:[UIColor colorWithRGBHex:0xb4becc]];
-            [self.fourthStageLabel setTextColor:[UIColor colorWithRGBHex:0xffae00]];
+            [self.fourthStageLabel setTextColor:kHighlightColor];
             
-            [self.secondStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.thirdStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xffae00]];
-            [self.fourthStageLine setBackgroundColor:[UIColor colorWithRGBHex:0xffae00]];
+            [self.secondStageLine setBackgroundColor:kHighlightColor];
+            [self.thirdStageLine setBackgroundColor:kHighlightColor];
+            [self.fourthStageLine setBackgroundColor:kHighlightColor];
         }
             break;
             
@@ -212,42 +218,54 @@
 }
 
 #pragma mark - getter
-- (UIImageView *)firstStageImgView
+- (UILabel *)firstStageImgView
 {
     if (!_firstStageImgView)
     {
-        _firstStageImgView = [UIImageView scaleFillImageView];
-        [_firstStageImgView setImage:CCIMG(@"")];
+        _firstStageImgView = [UILabel createOneLineLabelWithFont:Font_Middle color:kNormalColor];
+        [_firstStageImgView setText:@"1"];
+        [_firstStageImgView.layer setCornerRadius:CCPXToPoint(40)/2.f];
+        [_firstStageImgView.layer setBorderWidth:CCOnePoint];
+        [_firstStageImgView.layer setBorderColor:kNormalColor.CGColor];
     }
     return _firstStageImgView;
 }
 
-- (UIImageView *)secondStageImgView
+- (UILabel *)secondStageImgView
 {
     if (!_secondStageImgView)
     {
-        _secondStageImgView = [UIImageView scaleFillImageView];
-        [_secondStageImgView setImage:CCIMG(@"")];
+        _secondStageImgView = [UILabel createOneLineLabelWithFont:Font_Middle color:kNormalColor];
+        [_secondStageImgView setText:@"2"];
+        [_secondStageImgView.layer setCornerRadius:CCPXToPoint(40)/2.f];
+        [_secondStageImgView.layer setBorderWidth:CCOnePoint];
+        [_secondStageImgView.layer setBorderColor:kNormalColor.CGColor];
     }
     return _secondStageImgView;
 }
 
-- (UIImageView *)thirdStageImgView
+- (UILabel *)thirdStageImgView
 {
     if (!_thirdStageImgView)
     {
-        _thirdStageImgView = [UIImageView scaleFillImageView];
-        [_thirdStageImgView setImage:CCIMG(@"")];
+        _thirdStageImgView = [UILabel createOneLineLabelWithFont:Font_Middle color:kNormalColor];
+        [_thirdStageImgView setText:@"3"];
+        [_thirdStageImgView.layer setCornerRadius:CCPXToPoint(40)/2.f];
+        [_thirdStageImgView.layer setBorderWidth:CCOnePoint];
+        [_thirdStageImgView.layer setBorderColor:kNormalColor.CGColor];
     }
     return _thirdStageImgView;
 }
 
-- (UIImageView *)fourthStageImgView
+- (UILabel *)fourthStageImgView
 {
     if (!_fourthStageImgView)
     {
-        _fourthStageImgView = [UIImageView scaleFillImageView];
-        [_fourthStageImgView setImage:CCIMG(@"")];
+        _fourthStageImgView = [UILabel createOneLineLabelWithFont:Font_Middle color:kNormalColor];
+        [_fourthStageImgView setText:@"4"];
+        [_fourthStageImgView.layer setCornerRadius:CCPXToPoint(40)/2.f];
+        [_fourthStageImgView.layer setBorderWidth:CCOnePoint];
+        [_fourthStageImgView.layer setBorderColor:kNormalColor.CGColor];
     }
     return _fourthStageImgView;
 }
