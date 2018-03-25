@@ -64,7 +64,7 @@
 #pragma mark - Action
 - (void)onClickAddButton:(UIButton *)button
 {
-    TKTextFieldAlertViewController *textFieldAlertView = [[TKTextFieldAlertViewController alloc] initWithTitle:@"昵称" placeholder:@"请输入昵称"];
+    TKTextFieldAlertViewController *textFieldAlertView = [[TKTextFieldAlertViewController alloc] initWithTitle:@"添加体验卡" placeholder:@"请输入体验卡ID"];
     
     CCWeakSelf(weakSelf);
     __weak typeof(textFieldAlertView) weakAlertView = textFieldAlertView;

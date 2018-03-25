@@ -347,6 +347,10 @@
     {
         return @"找回密码";
     }
+    else if (self.type == REGISTERTYPE_BINDACCOUNT)
+    {
+        return @"绑定手机号";
+    }
     return nil;
 }
 
@@ -359,6 +363,10 @@
     else if (self.type == REGISTERTYPE_RESETPWD)
     {
         return @"立即修改";
+    }
+    else if (self.type == REGISTERTYPE_BINDACCOUNT)
+    {
+        return @"立即绑定";
     }
     return nil;
 }
