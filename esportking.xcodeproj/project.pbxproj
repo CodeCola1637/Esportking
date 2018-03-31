@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		020EE795E4898BF9CD4E194D /* libPods-esportkingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */; };
+		BE3C2ADE20674C8F001AACB3 /* CCSetPayPwdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3C2ADD20674C8F001AACB3 /* CCSetPayPwdRequest.m */; };
 		BE41B609205564110084320C /* CCNearbyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B608205564110084320C /* CCNearbyRequest.m */; };
 		BE41B60D2055661B0084320C /* CCNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60C2055661B0084320C /* CCNearbyViewController.m */; };
 		BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */; };
@@ -195,6 +196,8 @@
 		7FF25FBEB3799DB5CF7C6023 /* Pods-esportking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportking.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportking/Pods-esportking.release.xcconfig"; sourceTree = "<group>"; };
 		B20808B77B95339B008DA989 /* Pods-esportkingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.release.xcconfig"; sourceTree = "<group>"; };
 		B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BE3C2ADC20674C8F001AACB3 /* CCSetPayPwdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSetPayPwdRequest.h; sourceTree = "<group>"; };
+		BE3C2ADD20674C8F001AACB3 /* CCSetPayPwdRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSetPayPwdRequest.m; sourceTree = "<group>"; };
 		BE41B607205564110084320C /* CCNearbyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyRequest.h; sourceTree = "<group>"; };
 		BE41B608205564110084320C /* CCNearbyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyRequest.m; sourceTree = "<group>"; };
 		BE41B60B2055661B0084320C /* CCNearbyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyViewController.h; sourceTree = "<group>"; };
@@ -1216,6 +1219,8 @@
 				C03B792A2060ED1600FA3073 /* CCPayForOrderRequest.m */,
 				C03B792C2060ED2E00FA3073 /* CCResetPayPwdRequest.h */,
 				C03B792D2060ED2E00FA3073 /* CCResetPayPwdRequest.m */,
+				BE3C2ADC20674C8F001AACB3 /* CCSetPayPwdRequest.h */,
+				BE3C2ADD20674C8F001AACB3 /* CCSetPayPwdRequest.m */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -1835,6 +1840,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-esportking/Pods-esportking-resources.sh",
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
+				"${PODS_ROOT}/CYPasswordView/CYPasswordView/CYPasswordView.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle",
 				"${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle",
@@ -1847,6 +1853,7 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AMap.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CYPasswordView.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitEmoticon.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NIMKitResource.bundle",
@@ -2049,6 +2056,7 @@
 				BE49C9E820427C0D00B0E34A /* CCUserCommentTableViewCell.m in Sources */,
 				BE45141E2058D41000EB707E /* CCPayItemView.m in Sources */,
 				C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */,
+				BE3C2ADE20674C8F001AACB3 /* CCSetPayPwdRequest.m in Sources */,
 				C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */,
 				C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */,
 				C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */,

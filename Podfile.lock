@@ -22,6 +22,7 @@ PODS:
   - AMapLocation (2.6.0):
     - AMapFoundation (~> 1.4)
   - CWLateralSlide (1.5.7)
+  - CYPasswordView (0.0.4)
   - M80AttributedLabel (1.6.3)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
@@ -67,6 +68,7 @@ DEPENDENCIES:
   - AMap3DMap
   - AMapLocation
   - CWLateralSlide (~> 1.5.7)
+  - CYPasswordView
   - Masonry (~> 1.1.0)
   - MJRefresh (~> 3.1.15.3)
   - mob_sharesdk
@@ -86,6 +88,7 @@ SPEC CHECKSUMS:
   AMapFoundation: 973682cfe60b92efd73a8ef8f1144fa0fa8e1296
   AMapLocation: 55116a2c8956eab7550cbb56e989aa5cdcc424e3
   CWLateralSlide: cf07de13cc00d29b1a47c4ca77619a17fe1e3464
+  CYPasswordView: 0656dc98f1e81d003c5a7289b29e6288d78054a3
   M80AttributedLabel: d06543195d3e451d2ea62ad76d04aa9cea7661d4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
@@ -99,6 +102,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: d5d2fa1a8e4d93ab0ada161db5beba60b2294d99
   zhPopupController: 411af38e63764130e4ae4ba5cde12c776dc84824
 
-PODFILE CHECKSUM: 056e83b7901ca5ace0388abfa391ae9fe2738a05
+PODFILE CHECKSUM: b720b17826783c835196bceadbfec62882f5faef
 
 COCOAPODS: 1.4.0

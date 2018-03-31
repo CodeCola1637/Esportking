@@ -13,8 +13,10 @@
 
 #import "CCGetMyBindRequest.h"
 #import "CCBindThirdRequest.h"
+#import "CCSetPayPwdRequest.h"
 
 #import <ShareSDK/ShareSDK.h>
+#import <CYPasswordView/CYPasswordView.h>
 
 @interface CCAccountViewController ()<CCTitleItemDelegate, CCRegisterViewControllerDelegate, CCRequestDelegate>
 
@@ -26,6 +28,7 @@
 @property (strong, nonatomic) UIView *secondDevideView;
 @property (strong, nonatomic) CCTitleItem *wxBindItem;
 @property (strong, nonatomic) CCTitleItem *qqBindItem;
+@property (strong, nonatomic) CYPasswordView *passView;
 
 @end
 
@@ -102,7 +105,18 @@
     }
     else if (sender == self.passwordItem)
     {
-        
+        if (!CCAccountServiceInstance.hasSetPayPwd)
+        {
+            CCWeakSelf(weakSelf);
+            self.passView.finish = ^(NSString *password) {
+                [weakSelf onSetPayPwd:password];
+            };
+            [self.passView showInView:self.view.window];
+        }
+        else
+        {
+            [self showToast:@"暂不支持修改支付密码"];
+        }
     }
     else if (sender == self.wxBindItem)
     {
@@ -193,6 +207,12 @@
             [self.wxBindItem changeSubTitle:@"已绑定" subTitleColor:FontColor_Black];
         }
     }
+    else if ([sender isKindOfClass:[CCSetPayPwdRequest class]])
+    {
+        [self.passView stopLoading];
+        [self.passView requestComplete:YES message:@"支付密码设置成功"];
+        CCAccountServiceInstance.hasSetPayPwd = YES;
+    }
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
@@ -202,8 +222,27 @@
         return;
     }
     self.request = nil;
-    [self endLoading];
-    [self showToast:msg];
+    
+    if ([sender isKindOfClass:[CCSetPayPwdRequest class]])
+    {
+        [self.passView stopLoading];
+        [self.passView requestComplete:NO message:@"设置支付密码失败，请重试"];
+    }
+    else
+    {
+        [self endLoading];
+        [self showToast:msg];
+    }
+}
+#pragma mark - private
+- (void)onSetPayPwd:(NSString *)pwd
+{
+    [self.passView hideKeyboard];
+    [self.passView startLoading];
+    CCSetPayPwdRequest *req = [CCSetPayPwdRequest new];
+    req.payPwd = pwd;
+    self.request = req;
+    [self.request startPostRequestWithDelegate:self];
 }
 
 #pragma mark - getter
@@ -261,6 +300,17 @@
         _qqBindItem = [[CCTitleItem alloc] initWithTitle:@"QQ" subTitle:@"未绑定" subTitleColor:FontColor_Gray delegate:self];
     }
     return _qqBindItem;
+}
+
+- (CYPasswordView *)passView
+{
+    if (!_passView)
+    {
+        _passView = [CYPasswordView new];
+        _passView.title =@"设置支付密码";
+        _passView.loadingText = @"提交中……";
+    }
+    return _passView;
 }
 
 @end

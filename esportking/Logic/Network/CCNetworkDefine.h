@@ -47,6 +47,7 @@
 #define FetchUserInfo   @"/app/user/getOther"
 
 #define PayForOrder     @"/app/order/payment"
+#define PayPwdSet       @"/app/user/paymentPass"
 
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"

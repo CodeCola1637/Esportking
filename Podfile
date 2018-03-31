@@ -31,6 +31,7 @@ target 'esportking' do
   pod 'zhPopupController', '~> 1.0.2'
   pod 'TKAlert&TKActionSheet'
   pod 'CWLateralSlide', '~> 1.5.7'
+  pod 'CYPasswordView'
   
   target 'esportkingTests' do
     inherit! :search_paths

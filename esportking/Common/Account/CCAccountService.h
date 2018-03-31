@@ -14,6 +14,8 @@
 
 + (instancetype)shareInstance;
 
+@property (assign, nonatomic) BOOL hasSetPayPwd;
+
 @property (assign, nonatomic) uint64_t userID;
 @property (strong, nonatomic) NSString *name;
 @property (assign, nonatomic) GENDER gender;

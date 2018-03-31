@@ -45,6 +45,12 @@
 
 - (void)setUserInfo:(NSDictionary *)dict
 {
+    NSArray *allKeys = [dict allKeys];
+    if ([allKeys containsObject:@"pay_pass"])
+    {
+        _hasSetPayPwd = [dict[@"pay_pass"] boolValue];
+    }
+    
     _userID = [dict[@"userid"] unsignedIntegerValue]?:_userID;
     _name = CCIsNotNullObj(dict[@"userName"])?dict[@"userName"]:_name;
     _star = CCIsNotNullObj(dict[@"star"])?dict[@"star"]:_star;

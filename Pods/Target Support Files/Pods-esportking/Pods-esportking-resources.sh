@@ -85,6 +85,7 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle"
+  install_resource "${PODS_ROOT}/CYPasswordView/CYPasswordView/CYPasswordView.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle"
   install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle"
@@ -96,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle"
+  install_resource "${PODS_ROOT}/CYPasswordView/CYPasswordView/CYPasswordView.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitEmoticon.bundle"
   install_resource "${PODS_ROOT}/NIMKit/NIMKit/Resources/NIMKitResource.bundle"
