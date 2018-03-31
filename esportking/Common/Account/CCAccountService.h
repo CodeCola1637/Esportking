@@ -14,6 +14,8 @@
 
 + (instancetype)shareInstance;
 
+@property (assign, nonatomic) BOOL hasDoingOrder;
+
 @property (assign, nonatomic) BOOL hasSetPayPwd;
 
 @property (assign, nonatomic) uint64_t userID;

@@ -10,12 +10,18 @@
 #import "CCHomeViewController.h"
 #import "CCScoreViewController.h"
 #import "CCMessageViewController.h"
+#import "CCShowView.h"
+#import "CCScoreWaitViewController.h"
+#import "CCOrderRequest.h"
 
-@interface CCRootViewController ()
+@interface CCRootViewController ()<CCShowViewDelegate, CCRequestDelegate>
 
 @property (strong, nonatomic) CCHomeViewController      *homeController;
 @property (strong, nonatomic) CCScoreViewController     *scoreController;
 @property (strong, nonatomic) CCMessageViewController   *messageController;
+
+@property (strong, nonatomic) CCOrderRequest *request;
+@property (strong, nonatomic) CCShowView *showView;
 
 @end
 
@@ -25,6 +31,16 @@
 {
     [super viewDidLoad];
     [self configTabBar];
+    
+    [self.view addSubview:self.showView];
+    [self.showView setCurrentStatus:SHOWSTATUS_UP location:CGPointMake(self.view.width-CCPXToPoint(116), self.view.height-CCPXToPoint(204)) animated:NO];
+    [self refreshShowViewState];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self startRequestDoingOrder];
 }
 
 - (void)configTabBar
@@ -72,6 +88,81 @@
     [spaceItem setTitlePositionAdjustment:UIOffsetMake(0, -2.f)];
     [browserItem setTitlePositionAdjustment:UIOffsetMake(0, -2.f)];
     [settingItem setTitlePositionAdjustment:UIOffsetMake(0, -2.f)];
+}
+
+#pragma mark - CCShowViewDelegate
+- (void)didClickShowView:(SHOWSTATUS)status
+{
+    CCScoreWaitViewController *vc = [CCScoreWaitViewController new];
+    
+    //修改push方向
+    CATransition* transition = [CATransition animation];
+    transition.type          = kCATransitionMoveIn;//可更改为其他方式
+    transition.subtype       = kCATransitionFromTop;//可更改为其他方式
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (self.request != sender)
+    {
+        return;
+    }
+    
+    if (self.request.orderList && self.request.orderList.count>0)
+    {
+        CCAccountServiceInstance.hasDoingOrder = YES;
+    }
+    else
+    {
+        CCAccountServiceInstance.hasDoingOrder = NO;
+    }
+    self.request = nil;
+    [self refreshShowViewState];
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (self.request != sender)
+    {
+        return;
+    }
+    self.request = nil;
+}
+
+#pragma mark - private
+- (void)startRequestDoingOrder
+{
+    if (self.request)
+    {
+        return;
+    }
+    
+    self.request = [CCOrderRequest new];
+    self.request.type = ORDERSOURCE_DOING;
+    self.request.gameID = GAMEID_WANGZHE;
+    self.request.pageNum = 1;
+    self.request.pageSize = 20;
+    self.request.status = 2;
+    [self.request startPostRequestWithDelegate:self];
+}
+
+- (void)refreshShowViewState
+{
+    [self.showView setHidden:!CCAccountServiceInstance.hasDoingOrder];
+}
+
+#pragma mark - getter
+- (CCShowView *)showView
+{
+    if (!_showView)
+    {
+        _showView = [CCShowView new];
+        [_showView setDelegate:self];
+    }
+    return _showView;
 }
 
 @end

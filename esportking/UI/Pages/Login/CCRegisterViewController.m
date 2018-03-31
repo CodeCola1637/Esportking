@@ -13,6 +13,7 @@
 
 #import "CCBigTextFieldView.h"
 #import "CCBigButton.h"
+#import "CCCommitButton.h"
 #import "NSString+Check.h"
 #import "CCLoginImgUtil.h"
 
@@ -27,7 +28,7 @@
 
 @property (strong, nonatomic) UIView                *devideView;
 @property (strong, nonatomic) CCTextField           *mobileField;
-@property (strong, nonatomic) UIButton              *getSMSCodeButton;
+@property (strong, nonatomic) CCCommitButton        *getSMSCodeButton;
 @property (strong, nonatomic) UIView                *lineView;
 @property (strong, nonatomic) CCBigTextFieldView    *verfyTextField;
 @property (strong, nonatomic) CCBigTextFieldView    *pwdTextField;
@@ -98,6 +99,8 @@
     [self.getSMSCodeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mobileField);
         make.right.equalTo(self.contentView).offset(-CCHorMargin);
+        make.height.mas_equalTo(CCPXToPoint(60));
+        make.width.mas_equalTo(CCPXToPoint(200));
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mobileField.mas_bottom).offset(CCPXToPoint(40));
@@ -177,7 +180,7 @@
 - (void)startSMSTimer
 {
     [self stopSMSTimer];
-    _smsTimer = [NSTimer timerWithTimeInterval:1.f target:self selector:@selector(onSMSTimer) userInfo:nil repeats:YES];
+    _smsTimer = [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(onSMSTimer) userInfo:nil repeats:YES];
 }
 
 - (void)stopSMSTimer
@@ -201,7 +204,7 @@
     else
     {
         [self.getSMSCodeButton setEnabled:NO];
-        [self.getSMSCodeButton setTitle:[NSString stringWithFormat:@"%d", 60-_fireCount] forState:UIControlStateNormal];
+        [self.getSMSCodeButton setTitle:[NSString stringWithFormat:@"再次：%ds", 60-_fireCount] forState:UIControlStateNormal];
     }
 }
 
@@ -268,8 +271,8 @@
 {
     if (!_getSMSCodeButton)
     {
-        _getSMSCodeButton = [UIButton new];
-        [_getSMSCodeButton.layer setCornerRadius:3];
+        _getSMSCodeButton = [CCCommitButton new];
+        [_getSMSCodeButton.layer setCornerRadius:CCPXToPoint(30)];
         [_getSMSCodeButton setBackgroundColor:BgColor_Yellow];
         [_getSMSCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
         [_getSMSCodeButton.titleLabel setFont:Font_Big];

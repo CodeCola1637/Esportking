@@ -53,8 +53,8 @@
         make.top.equalTo(self.titleLabel.mas_bottom).offset(CCPXToPoint(10));
     }];
     [self.headItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.itemBGView).offset(CCPXToPoint(20));
-        make.right.equalTo(self.itemBGView).offset(-CCPXToPoint(20));
+        make.left.equalTo(self.itemBGView).offset(CCPXToPoint(0));
+        make.right.equalTo(self.itemBGView).offset(-CCPXToPoint(0));
         make.top.bottom.equalTo(self.itemBGView);
         make.bottom.equalTo(self).offset(-CCPXToPoint(10));
     }];

@@ -14,8 +14,11 @@
 #import "CCScoreModel.h"
 
 #import "CCPayForOrderRequest.h"
+#import <CYPasswordView/CYPasswordView.h>
 
 @interface CCPayViewController ()<CCTitleItemDelegate, CCPayItemDelegate, CCRequestDelegate>
+
+@property (assign, nonatomic) PAYWAY currentWay;
 
 @property (strong, nonatomic) CCOrderModel *orderModel;
 @property (strong, nonatomic) CCPayForOrderRequest *request;
@@ -35,6 +38,7 @@
 @property (strong, nonatomic) CCPayItemView *cardPayItem;
 
 @property (strong, nonatomic) UIButton *bottomButton;
+@property (strong, nonatomic) CYPasswordView *passView;
 
 @end
 
@@ -86,8 +90,8 @@
     }];
     [self.styleItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.topBGView.mas_bottom);
-        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
-        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(0));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(0));
     }];
     [self.locationItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.styleItem.mas_bottom);
@@ -142,16 +146,43 @@
 #pragma mark - action
 - (void)onClickBottomButton:(UIButton *)button
 {
-    if (self.request)
+    switch (_currentWay)
     {
-        return;
+        case PAYWAY_WX:
+        {
+            
+        }
+            break;
+        case PAYWAY_ZFB:
+        {
+            
+        }
+            break;
+        case PAYWAY_CARD:
+        {
+            
+        }
+            break;
+        case PAYWAY_ZHYE:
+        {
+            if (!CCAccountServiceInstance.hasSetPayPwd)
+            {
+                [self showToast:@"尚未设置支付密码，请到设置中进行设置"];
+                return;
+            }
+            
+            CCWeakSelf(weakSelf);
+            self.passView = [self createPassView];
+            self.passView.finish = ^(NSString *password) {
+                [weakSelf onEnterPayPwd:password];
+            };
+            [self.passView showInView:self.view.window];
+        }
+            break;
+            
+        default:
+            break;
     }
-    
-    self.request = [CCPayForOrderRequest new];
-    self.request.orderID = self.orderModel.orderID;
-    self.request.money = self.orderModel.money;
-    self.request.payPwd = 0;
-    [self.request startPostRequestWithDelegate:self];
 }
 
 #pragma mark - CCTitleItemDelegate
@@ -163,6 +194,8 @@
 #pragma mark - CCPayItemDelegate
 - (void)onSelectPayItem:(PAYWAY)way
 {
+    _currentWay = way;
+    
     [self.wxPayItem setSelected:(way == PAYWAY_WX)];
     [self.zfbPayItem setSelected:(way == PAYWAY_ZFB)];
     [self.zhyePayItem setSelected:(way == PAYWAY_ZHYE)];
@@ -177,12 +210,26 @@
         return;
     }
     self.request = nil;
-    [self endLoading];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSMutableArray *vcs = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
-        [vcs removeObject:sender];
-        [self.navigationController setViewControllers:vcs];
+    [self.passView stopLoading];
+    [self.passView requestComplete:YES message:@"支付成功"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.passView hide];
+        
+        CCScoreWaitViewController *vc = [CCScoreWaitViewController new];
+        
+        //修改push方向
+        CATransition* transition = [CATransition animation];
+        transition.type          = kCATransitionMoveIn;//可更改为其他方式
+        transition.subtype       = kCATransitionFromTop;//可更改为其他方式
+        [self.navigationController.view.layer addAnimation:transition forKey:nil];
+        [self.navigationController pushViewController:vc animated:NO];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSMutableArray *vcs = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+            [vcs removeObject:sender];
+            [self.navigationController setViewControllers:vcs];
+        });
     });
 }
 
@@ -193,8 +240,29 @@
         return;
     }
     self.request = nil;
-    [self endLoading];
-    [self showToast:msg];
+    [self.passView stopLoading];
+    [self.passView requestComplete:YES message:msg];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.passView hide];
+    });
+}
+
+#pragma mark - private
+- (void)onEnterPayPwd:(NSString *)pwd
+{
+    if (self.request)
+    {
+        return;
+    }
+    [self.passView hideKeyboard];
+    [self.passView startLoading];
+    
+    self.request = [CCPayForOrderRequest new];
+    self.request.orderID = self.orderModel.orderID;
+    self.request.money = self.orderModel.money;
+    self.request.payPwd = pwd;
+    [self.request startPostRequestWithDelegate:self];
 }
 
 #pragma mark - getter
@@ -313,6 +381,14 @@
         [_bottomButton addTarget:self action:@selector(onClickBottomButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _bottomButton;
+}
+
+- (CYPasswordView *)createPassView
+{
+    CYPasswordView *passView = [CYPasswordView new];
+    passView.title =@"设置支付密码";
+    passView.loadingText = @"提交中……";
+    return passView;
 }
 
 @end

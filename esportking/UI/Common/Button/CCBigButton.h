@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CCCommitButton.h"
 
 #define BigButtonSize   CGSizeMake(CCPXToPoint(544), CCPXToPoint(88))
 
-@interface CCBigButton : UIButton
+@interface CCBigButton : CCCommitButton
 
 @end

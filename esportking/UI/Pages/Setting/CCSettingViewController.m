@@ -54,8 +54,8 @@
     [self.contentView addSubview:self.logoutButton];
     
     [self.accountItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
-        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(0));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(0));
         make.top.equalTo(self.contentView);
     }];
     [self.messageItem mas_makeConstraints:^(MASConstraintMaker *make) {

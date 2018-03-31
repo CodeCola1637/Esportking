@@ -179,6 +179,18 @@
 {
     if (self.request == sender)
     {
+        if (self.request.orderList && self.request.orderList.count>0)
+        {
+            CCAccountServiceInstance.hasDoingOrder = YES;
+        }
+        else
+        {
+            CCAccountServiceInstance.hasDoingOrder = NO;
+            [self didClickShowView:SHOWSTATUS_DOWN];
+            [self showToast:@"暂无正在进行订单"];
+            return;
+        }
+        
         self.orderModel = [self.request.orderList firstObject];
         [self refreshUIData];
         

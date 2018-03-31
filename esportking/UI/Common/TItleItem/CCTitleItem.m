@@ -29,7 +29,7 @@
         }];
         [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self);
-            make.left.equalTo(self).offset(CCPXToPoint(12));
+            make.left.equalTo(self).offset(CCPXToPoint(32));
         }];
         [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self);
@@ -37,10 +37,12 @@
         }];
         [self.arrowImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self);
-            make.right.equalTo(self).offset(-CCPXToPoint(12));;
+            make.right.equalTo(self).offset(-CCPXToPoint(32));;
         }];
         [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(self);
+            make.bottom.equalTo(self);
+            make.left.equalTo(self).offset(CCPXToPoint(20));
+            make.right.equalTo(self).offset(-CCPXToPoint(20));
             make.height.mas_equalTo(CCOnePoint);
         }];
         

@@ -14,7 +14,6 @@
 #import "CCNearbyViewController.h"
 #import "CCScoreWaitViewController.h"
 
-#import "CCShowView.h"
 #import "CCRefreshCollectionView.h"
 #import "CCBannerCollectionViewCell.h"
 #import "CCNavigationCollectionViewCell.h"
@@ -31,7 +30,7 @@
 #define kSecondSection  @"second"
 #define kThirdSection   @"third"
 
-@interface CCHomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, CCHomePageDelegate, CCRefreshDelegate, CCBannerDelegate, CCNavigationDelegate, CCShowViewDelegate>
+@interface CCHomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, CCHomePageDelegate, CCRefreshDelegate, CCBannerDelegate, CCNavigationDelegate>
 
 @property (strong, nonatomic) CCLeftViewController *leftVC;
 
@@ -39,7 +38,6 @@
 @property (strong, nonatomic) CCHomePageManager *manager;
 @property (strong, nonatomic) UIButton *userButton;
 @property (strong, nonatomic) UIButton *searchButton;
-@property (strong, nonatomic) CCShowView *showView;
 
 @end
 
@@ -94,12 +92,10 @@
     [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:0];
     
     [self.contentView addSubview:self.collectionView];
-    [self.contentView addSubview:self.showView];
     
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.contentView);
     }];
-    [self.showView setCurrentStatus:SHOWSTATUS_UP location:CGPointMake(self.contentView.width-CCPXToPoint(116), self.contentView.height-CCPXToPoint(204)) animated:NO];
 }
 
 #pragma mark - Action
@@ -116,19 +112,6 @@
 - (void)onClickSearchButton:(id)sender
 {
     CCSearchViewController *vc = [CCSearchViewController new];
-    
-    //修改push方向
-    CATransition* transition = [CATransition animation];
-    transition.type          = kCATransitionMoveIn;//可更改为其他方式
-    transition.subtype       = kCATransitionFromTop;//可更改为其他方式
-    [self.navigationController.view.layer addAnimation:transition forKey:nil];
-    [self.navigationController pushViewController:vc animated:NO];
-}
-
-#pragma mark - CCShowViewDelegate
-- (void)didClickShowView:(SHOWSTATUS)status
-{
-    CCScoreWaitViewController *vc = [CCScoreWaitViewController new];
     
     //修改push方向
     CATransition* transition = [CATransition animation];
@@ -368,16 +351,6 @@
         [_searchButton addTarget:self action:@selector(onClickSearchButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _searchButton;
-}
-
-- (CCShowView *)showView
-{
-    if (!_showView)
-    {
-        _showView = [CCShowView new];
-        [_showView setDelegate:self];
-    }
-    return _showView;
 }
 
 @end

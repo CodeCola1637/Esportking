@@ -61,8 +61,8 @@
     
     [self.phoneBindItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView);
-        make.left.equalTo(self.contentView).offset(CCPXToPoint(20));
-        make.right.equalTo(self.contentView).offset(-CCPXToPoint(20));
+        make.left.equalTo(self.contentView).offset(CCPXToPoint(0));
+        make.right.equalTo(self.contentView).offset(-CCPXToPoint(0));
     }];
     [self.firstDevideView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentView);
@@ -108,6 +108,7 @@
         if (!CCAccountServiceInstance.hasSetPayPwd)
         {
             CCWeakSelf(weakSelf);
+            self.passView = [self createPassView];
             self.passView.finish = ^(NSString *password) {
                 [weakSelf onSetPayPwd:password];
             };
@@ -212,6 +213,9 @@
         [self.passView stopLoading];
         [self.passView requestComplete:YES message:@"支付密码设置成功"];
         CCAccountServiceInstance.hasSetPayPwd = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.passView hide];
+        });
     }
 }
 
@@ -226,7 +230,7 @@
     if ([sender isKindOfClass:[CCSetPayPwdRequest class]])
     {
         [self.passView stopLoading];
-        [self.passView requestComplete:NO message:@"设置支付密码失败，请重试"];
+        [self.passView requestComplete:NO message:[NSString stringWithFormat:@"设置支付密码失败:%@", msg]];
     }
     else
     {
@@ -302,15 +306,12 @@
     return _qqBindItem;
 }
 
-- (CYPasswordView *)passView
+- (CYPasswordView *)createPassView
 {
-    if (!_passView)
-    {
-        _passView = [CYPasswordView new];
-        _passView.title =@"设置支付密码";
-        _passView.loadingText = @"提交中……";
-    }
-    return _passView;
+    CYPasswordView *passView = [CYPasswordView new];
+    passView.title =@"设置支付密码";
+    passView.loadingText = @"提交中……";
+    return passView;
 }
 
 @end
