@@ -204,7 +204,7 @@
     else
     {
         [self.getSMSCodeButton setEnabled:NO];
-        [self.getSMSCodeButton setTitle:[NSString stringWithFormat:@"再次：%ds", 60-_fireCount] forState:UIControlStateNormal];
+        [self.getSMSCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重试", 60-_fireCount] forState:UIControlStateNormal];
     }
 }
 
@@ -272,8 +272,10 @@
     if (!_getSMSCodeButton)
     {
         _getSMSCodeButton = [CCCommitButton new];
+        [_getSMSCodeButton setEnableTitleColor:FontColor_Black];
+        [_getSMSCodeButton setEnableTitleColor:FontColor_White];
+        [_getSMSCodeButton setDisableColor:BgColor_Gray];
         [_getSMSCodeButton.layer setCornerRadius:CCPXToPoint(30)];
-        [_getSMSCodeButton setBackgroundColor:BgColor_Yellow];
         [_getSMSCodeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
         [_getSMSCodeButton.titleLabel setFont:Font_Big];
         [_getSMSCodeButton.titleLabel setTextColor:FontColor_White];
