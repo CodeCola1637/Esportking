@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define CCShowViewSize  CGSizeMake(CCPXToPoint(96), CCPXToPoint(96))
+#define CCShowViewSize  CGSizeMake(CCPXToPoint(160), CCPXToPoint(160))
 
 typedef enum : NSUInteger {
     SHOWSTATUS_UP = 1,

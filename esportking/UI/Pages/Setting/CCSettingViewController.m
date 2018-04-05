@@ -9,6 +9,7 @@
 #import "CCSettingViewController.h"
 #import "CCAccountViewController.h"
 #import "CCBlackListViewController.h"
+#import "CCHelpWebViewController.h"
 
 #import "AppDelegate.h"
 
@@ -106,7 +107,8 @@
     }
     else if (sender == self.helpItem)
     {
-        
+        CCHelpWebViewController *vc = [CCHelpWebViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (sender == self.aboutItem)
     {

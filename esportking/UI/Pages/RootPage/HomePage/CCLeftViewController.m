@@ -13,6 +13,7 @@
 #import "CCComeInViewController.h"
 #import "CCTryCardViewController.h"
 #import "CCWalletViewController.h"
+#import "CCComeInWebViewController.h"
 #import "CCInviteCodeViewController.h"
 #import "CCSettingViewController.h"
 
@@ -134,8 +135,8 @@ typedef enum : NSUInteger {
             break;
         case ITEM_COMEIN:
         {
-//            CCComeInViewController *vc = [CCComeInViewController new];
-//            [self cw_pushViewController:vc];
+            CCComeInWebViewController *vc = [CCComeInWebViewController new];
+            [self cw_pushViewController:vc];
         }
             break;
         case ITEM_INVITE:

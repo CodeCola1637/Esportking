@@ -77,6 +77,7 @@ typedef enum : NSUInteger {
 } LEVEL;
 
 typedef enum : NSUInteger {
-    PLATFORM_QQ = 1,
+    PLATFORM_UNKNOWN = 0,
+    PLATFORM_QQ,
     PLATFORM_WX,
 } PLATFORM;

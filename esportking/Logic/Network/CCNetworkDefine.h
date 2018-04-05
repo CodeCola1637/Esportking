@@ -16,6 +16,8 @@
 #define ChangePwd       @"/app/user/changePassword"
 #define ModifyUser      @"/app/user/updateInfo"
 
+#define ComeInGame      @"/app/game/gameJoin"
+
 #define GetDetailInfo   @"/app/home/detail"
 #define HomePage        @"/app/home"
 #define Search          @"/app/home/search"
@@ -55,5 +57,10 @@
 #define GetBalance      @"/app/account/getBalance"
 #define GetMyBind       @"/app/user/getMyBind"
 #define GetMyBlackList  @"/app/user/getMyBlackList"
+
+
+#pragma mark - Http
+#define ComeInHtml      [NSString stringWithFormat:@"%@/approve/approve.htm", RootAddress]
+#define HelpHtml        [NSString stringWithFormat:@"%@/help/help.htm", RootAddress]
 
 #define Error_UnKnown   333

@@ -49,21 +49,31 @@
 {
     _currentStatus = status;
     UIImage *image = nil;
+    NSString *title = nil;
     switch (status) {
         case SHOWSTATUS_UP:
         {
             image = CCIMG(@"Select_Up");
+            title = @"待处理\n订单";
         }
             break;
         case SHOWSTATUS_DOWN:
         {
             image = CCIMG(@"Select_Down");
+            title = @"收起";
         }
             break;
         default:
             break;
     }
     [self.button setImage:image forState:UIControlStateNormal];
+    [self.button setTitle:title forState:UIControlStateNormal];
+    
+    CGSize imgSize = image.size;
+    CGSize titleSize = [title boundingRectWithSize:CCShowViewSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.button.titleLabel.font} context:nil].size;
+    
+    [self.button setTitleEdgeInsets:UIEdgeInsetsMake(imgSize.height ,-imgSize.width, 0.0,0.0)];
+    [self.button setImageEdgeInsets:UIEdgeInsetsMake(-titleSize.height, 0.0, 0, -titleSize.width)];
     if (animated)
     {
         [UIView animateWithDuration:.3f animations:^{
@@ -88,6 +98,10 @@
     if (!_button)
     {
         _button = [UIButton new];
+        [_button.titleLabel setFont:Font_Small];
+        [_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+        [_button.titleLabel setNumberOfLines:2];
+        [_button setTitleColor:FontColor_Black forState:UIControlStateNormal];
         [_button setBackgroundImage:CCIMG(@"Select_BG") forState:UIControlStateNormal];
         [_button addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
     }

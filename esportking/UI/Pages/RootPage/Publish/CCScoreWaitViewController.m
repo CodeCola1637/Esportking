@@ -147,7 +147,7 @@
     [self.contactButton setHidden:YES];
     [self.userView setHidden:YES];
     
-    [self.showView setCurrentStatus:SHOWSTATUS_DOWN location:CGPointMake(self.contentView.width-CCPXToPoint(116), 0) animated:NO];
+    [self.showView setCurrentStatus:SHOWSTATUS_DOWN location:CGPointMake(self.contentView.width-CCPXToPoint(170), 0) animated:NO];
 }
 
 #pragma mark - action

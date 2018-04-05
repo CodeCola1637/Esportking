@@ -33,7 +33,7 @@
     [self configTabBar];
     
     [self.view addSubview:self.showView];
-    [self.showView setCurrentStatus:SHOWSTATUS_UP location:CGPointMake(self.view.width-CCPXToPoint(116), self.view.height-CCPXToPoint(204)) animated:NO];
+    [self.showView setCurrentStatus:SHOWSTATUS_UP location:CGPointMake(self.view.width-CCPXToPoint(170), self.view.height-CCPXToPoint(260)) animated:NO];
     [self refreshShowViewState];
 }
 

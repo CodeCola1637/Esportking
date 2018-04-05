@@ -98,6 +98,7 @@
     
     [self.tableView endRefresh];
     [self showToast:msg];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -133,7 +134,6 @@
         [_tableView setRefreshDelegate:self];
         [_tableView.tableView setDataSource:self];
         [_tableView.tableView setDelegate:self];
-        [_tableView.tableView setBackgroundColor:BgColor_Gray];
         [_tableView.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView.tableView registerClass:[CCMoneyTableViewCell class] forCellReuseIdentifier:kIdentify];
     }
