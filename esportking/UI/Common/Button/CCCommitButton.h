@@ -10,4 +10,10 @@
 
 @interface CCCommitButton : UIButton
 
+@property (strong, nonatomic) UIColor *enableColor;
+@property (strong, nonatomic) UIColor *disableColor;
+
+@property (strong, nonatomic) UIColor *enableTitleColor;
+@property (strong, nonatomic) UIColor *disableTitleColor;
+
 @end

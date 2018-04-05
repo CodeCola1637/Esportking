@@ -21,15 +21,25 @@
     return self;
 }
 
+- (void)setEnableTitleColor:(UIColor *)enableTitleColor
+{
+    [self setTitleColor:enableTitleColor?:FontColor_Black forState:UIControlStateNormal];
+}
+
+- (void)setDisableTitleColor:(UIColor *)disableTitleColor
+{
+    [self setTitleColor:disableTitleColor?:FontColor_Gray forState:UIControlStateDisabled];
+}
+
 - (void)setEnabled:(BOOL)enabled
 {
     if (enabled)
     {
-        [self setBackgroundColor:BgColor_Yellow];
+        [self setBackgroundColor:self.enableColor?:BgColor_Yellow];
     }
     else
     {
-        [self setBackgroundColor:BgColor_SuperLightGray];
+        [self setBackgroundColor:self.disableColor?:BgColor_SuperLightGray];
     }
 }
 
