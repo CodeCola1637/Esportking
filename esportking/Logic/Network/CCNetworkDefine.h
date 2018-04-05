@@ -51,6 +51,8 @@
 #define PayForOrder     @"/app/order/payment"
 #define PayPwdSet       @"/app/user/paymentPass"
 
+#define GainMoney       @"/app/account/withdraw"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 #define GetInviteCode   @"/app/user/getInvitationCode"

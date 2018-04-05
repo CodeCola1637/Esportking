@@ -77,6 +77,7 @@
 		BEBEB692207618EA0017EB4E /* CCComeInModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBEB691207618EA0017EB4E /* CCComeInModel.m */; };
 		BEBEB69620761A170017EB4E /* CCComeInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBEB69520761A170017EB4E /* CCComeInRequest.m */; };
 		BEBEB69B20761F790017EB4E /* CCPicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBEB69A20761F790017EB4E /* CCPicTableViewCell.m */; };
+		BEBEB69F20763DCA0017EB4E /* CCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEBEB69E20763DCA0017EB4E /* CCAboutViewController.m */; };
 		BEE005AC2025793B006813E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AB2025793B006813E3 /* main.m */; };
 		BEE005AF2025793B006813E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE005AE2025793B006813E3 /* AppDelegate.m */; };
 		BEE005B52025793B006813E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE005B32025793B006813E3 /* Main.storyboard */; };
@@ -343,6 +344,8 @@
 		BEBEB69520761A170017EB4E /* CCComeInRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCComeInRequest.m; sourceTree = "<group>"; };
 		BEBEB69920761F790017EB4E /* CCPicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPicTableViewCell.h; sourceTree = "<group>"; };
 		BEBEB69A20761F790017EB4E /* CCPicTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCPicTableViewCell.m; sourceTree = "<group>"; };
+		BEBEB69D20763DCA0017EB4E /* CCAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAboutViewController.h; sourceTree = "<group>"; };
+		BEBEB69E20763DCA0017EB4E /* CCAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAboutViewController.m; sourceTree = "<group>"; };
 		BEE005A72025793B006813E3 /* esportking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = esportking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEE005AB2025793B006813E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BEE005AD2025793B006813E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1038,6 +1041,15 @@
 			path = PicTableCell;
 			sourceTree = "<group>";
 		};
+		BEBEB69C20763DB20017EB4E /* About */ = {
+			isa = PBXGroup;
+			children = (
+				BEBEB69D20763DCA0017EB4E /* CCAboutViewController.h */,
+				BEBEB69E20763DCA0017EB4E /* CCAboutViewController.m */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		BEE0059E2025793B006813E3 = {
 			isa = PBXGroup;
 			children = (
@@ -1400,6 +1412,7 @@
 		C09A654C205BA1B300FB1B44 /* SubVC */ = {
 			isa = PBXGroup;
 			children = (
+				BEBEB69C20763DB20017EB4E /* About */,
 				BEBEB68B207616050017EB4E /* Help */,
 				C09A654D205BA1CA00FB1B44 /* CCAccountViewController.h */,
 				C09A654E205BA1CA00FB1B44 /* CCAccountViewController.m */,
@@ -2010,6 +2023,7 @@
 				BEFC9BB620259E31002CE000 /* UILabel+Create.m in Sources */,
 				BE45F9622029F17800482824 /* CCRegisterRequest.m in Sources */,
 				BEAFE5722058015B00ED6B5A /* CCSettingViewController.m in Sources */,
+				BEBEB69F20763DCA0017EB4E /* CCAboutViewController.m in Sources */,
 				BEAFDA5120274A6000ED4E2D /* CCLoginRequest.m in Sources */,
 				BEFC9BAA20259546002CE000 /* CCBaseViewController.m in Sources */,
 				C0606D9620528D9F0007B772 /* CCEvaluateUserModel.m in Sources */,

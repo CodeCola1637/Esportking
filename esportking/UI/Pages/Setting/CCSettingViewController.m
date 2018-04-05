@@ -10,6 +10,7 @@
 #import "CCAccountViewController.h"
 #import "CCBlackListViewController.h"
 #import "CCHelpWebViewController.h"
+#import "CCAboutViewController.h"
 
 #import "AppDelegate.h"
 
@@ -112,7 +113,8 @@
     }
     else if (sender == self.aboutItem)
     {
-        
+        CCAboutViewController *vc = [CCAboutViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
