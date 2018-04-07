@@ -197,11 +197,18 @@
         {
             [self.statusLabel setText:@"进行中"];
             [self.cancelButton setHidden:YES];
-            [self.confirmButton setHidden:NO];
-            [self.confirmButton setTitle:@"确认完成" forState:UIControlStateNormal];
-            [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.width.mas_equalTo(CCPXToPoint(144));
-            }];
+            if (source == ORDERSOURCE_SEND)
+            {
+                [self.confirmButton setHidden:NO];
+                [self.confirmButton setTitle:@"确认完成" forState:UIControlStateNormal];
+                [self.confirmButton mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.width.mas_equalTo(CCPXToPoint(144));
+                }];
+            }
+            else
+            {
+                [self.confirmButton setHidden:YES];
+            }
         }
             break;
         case ORDERDISPLAYSTATUS_WAITCOMMENT:

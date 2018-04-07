@@ -11,6 +11,7 @@
 #import "CCOrderTableViewCell.h"
 #import "CCDevideTableViewCell.h"
 #import "CCJudgeViewController.h"
+#import "CCPayViewController.h"
 
 #import "CCOrderRequest.h"
 #import "CCCancelOrderRequest.h"
@@ -115,7 +116,8 @@
         if (orderModel.displayStatus==ORDERDISPLAYSTATUS_WAITPAY || orderModel.displayStatus==ORDERDISPLAYSTATUS_FIALPAY)
         {
             // 支付
-            
+            CCPayViewController *vc = [[CCPayViewController alloc] initWithOrderModel:orderModel];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else if (orderModel.displayStatus == ORDERDISPLAYSTATUS_ONDOING)
         {
