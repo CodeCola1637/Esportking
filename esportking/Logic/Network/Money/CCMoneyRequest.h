@@ -11,5 +11,8 @@
 @interface CCMoneyRequest : CCBaseRequest
 
 @property (assign, nonatomic) MONEYTYPE type;
+@property (assign, nonatomic) uint32_t pageIndex;
+
+@property (strong, nonatomic) NSArray *moneyList;
 
 @end

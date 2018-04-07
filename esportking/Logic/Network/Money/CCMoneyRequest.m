@@ -12,12 +12,21 @@
 
 - (NSString *)subAddress
 {
-    return nil;
+    return QueryMoney;
 }
 
 - (NSDictionary *)requestParam
 {
-    return nil;
+    return @{
+             @"type":@(self.type),
+             @"pageNumber":@(self.pageIndex),
+             @"pageSize":@(20)
+             };
+}
+
+- (void)decodeData:(NSDictionary *)resp
+{
+    self.moneyList = resp[@"data"];
 }
 
 @end

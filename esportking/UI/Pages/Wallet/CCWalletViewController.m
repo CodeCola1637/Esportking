@@ -85,7 +85,7 @@
     CCMoneyViewController *vc1 = [[CCMoneyViewController alloc] initWithMoneyType:MONEYTYPE_OUT];
     CCMoneyViewController *vc2 = [[CCMoneyViewController alloc] initWithMoneyType:MONEYTYPE_IN];
     
-    CCPageContainerViewController *pageVC = [[CCPageContainerViewController alloc] initWithVCs:@[vc0, vc1, vc2] subTitles:@[@"全部", @"支出", @"收入"] andTitle:@"收支记录"];
+    CCPageContainerViewController *pageVC = [[CCPageContainerViewController alloc] initWithVCs:@[vc0, vc1, vc2] subTitles:@[@"全部", @"支出记录", @"提现记录"] andTitle:@"收支记录"];
     [self.navigationController pushViewController:pageVC animated:YES];
 }
 

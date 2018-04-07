@@ -140,7 +140,7 @@
             break;
         case CATEGORY_CAR:
         {
-            
+            [((UITabBarController *)self.parentViewController) setSelectedIndex:1];
         }
             break;
         case CATEGORY_BEAUTY:

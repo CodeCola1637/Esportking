@@ -51,6 +51,7 @@
 #define PayForOrder     @"/app/order/payment"
 #define PayPwdSet       @"/app/user/paymentPass"
 
+#define QueryMoney      @"/app/account/getAccountRecord"
 #define GainMoney       @"/app/account/withdraw"
 
 #pragma mark - Get

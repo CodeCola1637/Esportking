@@ -20,6 +20,7 @@
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 
 @property (assign, nonatomic) MONEYTYPE moneyType;
+@property (assign, nonatomic) uint32_t pageIndex;
 @property (strong, nonatomic) CCMoneyRequest *request;
 @property (strong, nonatomic) NSMutableArray<NSDictionary *> *moneyList;
 
@@ -32,6 +33,7 @@
     if (self = [super init])
     {
         self.moneyType = type;
+        self.pageIndex = 1;
     }
     return self;
 }
@@ -60,13 +62,20 @@
     {
         self.request = [CCMoneyRequest new];
         self.request.type = self.moneyType;
+        self.request.pageIndex = 1;
         [self.request startPostRequestWithDelegate:self];
     }
 }
 
 - (void)onFooterRefresh
 {
-    
+    if (!self.request)
+    {
+        self.request = [CCMoneyRequest new];
+        self.request.type = self.moneyType;
+        self.request.pageIndex = self.pageIndex;
+        [self.request startPostRequestWithDelegate:self];
+    }
 }
 
 #pragma mark - UITableViewDelegate
@@ -82,9 +91,18 @@
     {
         return;
     }
-    self.request = nil;
+    if (self.request.pageIndex == 0)
+    {
+        self.moneyList = [[NSMutableArray alloc] initWithArray:self.request.moneyList];
+        self.pageIndex = 2;
+    }
+    else
+    {
+        [self.moneyList addObjectsFromArray:self.request.moneyList];
+        self.pageIndex += 1;
+    }
     
-    self.moneyList = dict[@"data"];
+    self.request = nil;
     [self.tableView reloadData];
 }
 
@@ -94,10 +112,8 @@
     {
         return;
     }
-    self.request = nil;
-    
-    [self.tableView endRefresh];
     [self showToast:msg];
+    self.request = nil;
     [self.tableView reloadData];
 }
 

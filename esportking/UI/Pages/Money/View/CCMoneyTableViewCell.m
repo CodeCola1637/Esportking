@@ -60,7 +60,54 @@
 
 - (void)setMoneyDict:(NSDictionary *)dict
 {
+    uint32_t type = [dict[@"type"] intValue];
+    CGFloat money = [dict[@"amount"] floatValue];
+    uint32_t status = [dict[@"status"] intValue];
+    NSString *time = dict[@"create_time"];
     
+    [self.statusLabel setText:time];
+    [self.timeLabel setText:time];
+    switch (type)
+    {
+        case 1:
+        {
+            [self.titleLabel setText:@"订单收入"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"+%.2f", money]];
+        }
+            break;
+        case 2:
+        {
+            [self.titleLabel setText:@"红包收入"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"+%.2f", money]];
+        }
+            break;
+        case 3:
+        {
+            [self.titleLabel setText:@"费用支出"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"-%.2f", money]];
+        }
+            break;
+        case 4:
+        {
+            [self.titleLabel setText:@"提现"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"-%.2f", money]];
+            if (status == 1)
+            {
+                [self.statusLabel setText:@"提现中"];
+            }
+            else if (status == 2)
+            {
+                [self.statusLabel setText:@"提现失败"];
+            }
+            else if (status == 2)
+            {
+                [self.statusLabel setText:@"提现成功"];
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - getter
