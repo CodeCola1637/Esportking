@@ -7,10 +7,10 @@
 //
 
 #import "CCComeInViewController.h"
+#import "CCComeInStep2ViewController.h"
 
 #import "CCComeInModel.h"
 #import "CCScoreModel.h"
-#import "CCComeInRequest.h"
 
 #import "CCRefreshTableView.h"
 #import "CCTitleTableViewCell.h"
@@ -23,6 +23,7 @@
 
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "CCUploadImgRequest.h"
+#import "CCNetworkDefine.h"
 
 #define kDevideIndentify    @"devide_identify"
 #define kTitleIndentify     @"title_identify"
@@ -37,10 +38,10 @@ typedef enum : NSUInteger {
     ITEMTYPE_GENDER
 } ITEMTYPE;
 
-@interface CCComeInViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CCComeInViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CCUploadImgDelegate>
 
 @property (strong, nonatomic) CCComeInModel *model;
-@property (strong, nonatomic) CCComeInRequest *request;
+@property (strong, nonatomic) CCUploadImgRequest *uploadReq;
 @property (strong, nonatomic) CCRefreshTableView *tableView;
 @property (strong, nonatomic) CCCommitButton *commitButton;
 
@@ -81,12 +82,8 @@ typedef enum : NSUInteger {
 #pragma mark - action
 - (void)onClickCommitButton:(id)sender
 {
-    if (!self.request)
-    {
-        self.request = [[CCComeInRequest alloc] init];
-        self.request.model = self.model;
-        [self.request startPostRequestWithDelegate:self];
-    }
+    CCComeInStep2ViewController *vc = [[CCComeInStep2ViewController alloc] initWithComeInModel:self.model];
+    [self pushViewController:vc andRemoveSelf:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -210,25 +207,16 @@ typedef enum : NSUInteger {
     }
 }
 
-#pragma mark - CCRequestDelegate
-- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+#pragma mark - CCUploadImgDelegate
+- (void)onUploadSuccess:(NSDictionary *)dict
 {
-    if (sender != self.request)
-    {
-        return;
-    }
-    self.request = nil;
     [self endLoading];
+    self.model.danImg = self.uploadReq.uploadImage;
+    [self reloadData];
 }
 
-- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+- (void)onUploadFailed:(NSInteger)errCode errMsg:(NSString *)msg
 {
-    if (sender != self.request)
-    {
-        return;
-    }
-    
-    self.request = nil;
     [self endLoading];
     [self showToast:msg];
 }
@@ -293,15 +281,13 @@ typedef enum : NSUInteger {
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    self.model.danImg = image;
-    [self reloadData];
-//    CCUploadImgRequest *uploadReq = [CCUploadImgRequest new];
-//    uploadReq.uploadKey = @"files";
-//    uploadReq.uploadImage = image;
-//    [uploadReq startUploadWithUrl:[NSString stringWithFormat:@"%@%@", RootAddress, ModifyUser] andDelegate:self];
-//    self.uploadRequest = uploadReq;
-//
-//    [self.parentVC beginLoading];
+    
+    CCUploadImgRequest *uploadReq = [CCUploadImgRequest new];
+    uploadReq.uploadKey = @"military_succ";
+    uploadReq.uploadImage = image;
+    [uploadReq startUploadWithUrl:[NSString stringWithFormat:@"%@%@", RootAddress, ComeInGame] andDelegate:self];
+    self.uploadReq = uploadReq;
+    [self beginLoading];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -313,7 +299,7 @@ typedef enum : NSUInteger {
 - (void)reloadData
 {
     [self.tableView reloadData];
-    [self.commitButton setEnabled:[self.model checkInfoComplete]];
+    [self.commitButton setEnabled:[self.model checkStep1InfoComplete]];
 }
 
 - (void)setupTitleCell:(CCTitleTableViewCell *)cell withType:(ITEMTYPE)type

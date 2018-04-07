@@ -10,9 +10,14 @@
 
 @implementation CCComeInModel
 
-- (BOOL)checkInfoComplete
+- (BOOL)checkStep1InfoComplete
 {
     return self.maxDan && self.skilled && self.honour && self.platformType!=0 && self.clientType!=0 && self.gender!=0 && self.danImg;
+}
+
+- (BOOL)checkStep2InfoComplete
+{
+    return [self checkStep1InfoComplete] && self.contact && self.identifyImg;
 }
 
 @end

@@ -27,7 +27,7 @@
              @"honour":CCNoNilStr(self.model.honour),
              //@"order_type":@(1),
              //@"deposit":@(10),
-             //@"contact":CCNoNilStr(self.model.contact),
+             @"contact":CCNoNilStr(self.model.contact),
              @"max_dan":CCNoNilStr(self.model.maxDan),
              };
 }

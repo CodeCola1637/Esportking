@@ -17,9 +17,12 @@
 @property (strong, nonatomic) NSString *position;
 @property (strong, nonatomic) NSString *honour;
 @property (assign, nonatomic) GENDER gender;
+@property (strong, nonatomic) NSString *contact;
 
 @property (strong, nonatomic) UIImage *danImg;
+@property (strong, nonatomic) UIImage *identifyImg;
 
-- (BOOL)checkInfoComplete;
+- (BOOL)checkStep1InfoComplete;
+- (BOOL)checkStep2InfoComplete;
 
 @end

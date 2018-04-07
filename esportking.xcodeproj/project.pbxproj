@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		020EE795E4898BF9CD4E194D /* libPods-esportkingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */; };
 		BE3C2ADE20674C8F001AACB3 /* CCSetPayPwdRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3C2ADD20674C8F001AACB3 /* CCSetPayPwdRequest.m */; };
+		BE3EDA6D2079036F0083D2D7 /* CCComeInStep2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EDA6C2079036F0083D2D7 /* CCComeInStep2ViewController.m */; };
+		BE3EDA70207908110083D2D7 /* UViewController+Push.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3EDA6F207908110083D2D7 /* UViewController+Push.m */; };
 		BE41B609205564110084320C /* CCNearbyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B608205564110084320C /* CCNearbyRequest.m */; };
 		BE41B60D2055661B0084320C /* CCNearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60C2055661B0084320C /* CCNearbyViewController.m */; };
 		BE41B61020556C380084320C /* CCNearbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE41B60F20556C380084320C /* CCNearbyTableViewCell.m */; };
@@ -204,6 +206,10 @@
 		B992D5300EC7ADFAD0C4BA1B /* Pods-esportkingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-esportkingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-esportkingTests/Pods-esportkingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE3C2ADC20674C8F001AACB3 /* CCSetPayPwdRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSetPayPwdRequest.h; sourceTree = "<group>"; };
 		BE3C2ADD20674C8F001AACB3 /* CCSetPayPwdRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSetPayPwdRequest.m; sourceTree = "<group>"; };
+		BE3EDA6B2079036F0083D2D7 /* CCComeInStep2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCComeInStep2ViewController.h; sourceTree = "<group>"; };
+		BE3EDA6C2079036F0083D2D7 /* CCComeInStep2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCComeInStep2ViewController.m; sourceTree = "<group>"; };
+		BE3EDA6E207908110083D2D7 /* UViewController+Push.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UViewController+Push.h"; sourceTree = "<group>"; };
+		BE3EDA6F207908110083D2D7 /* UViewController+Push.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UViewController+Push.m"; sourceTree = "<group>"; };
 		BE41B607205564110084320C /* CCNearbyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyRequest.h; sourceTree = "<group>"; };
 		BE41B608205564110084320C /* CCNearbyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNearbyRequest.m; sourceTree = "<group>"; };
 		BE41B60B2055661B0084320C /* CCNearbyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNearbyViewController.h; sourceTree = "<group>"; };
@@ -970,6 +976,8 @@
 				BEAFE56220577A9100ED6B5A /* CCComeInViewController.m */,
 				BEBEB688207615530017EB4E /* CCComeInWebViewController.h */,
 				BEBEB689207615530017EB4E /* CCComeInWebViewController.m */,
+				BE3EDA6B2079036F0083D2D7 /* CCComeInStep2ViewController.h */,
+				BE3EDA6C2079036F0083D2D7 /* CCComeInStep2ViewController.m */,
 			);
 			path = ComeIn;
 			sourceTree = "<group>";
@@ -1378,6 +1386,8 @@
 				C0A1749B204D27CA000B71F3 /* UIImageView+Create.m */,
 				C0148A3E20512EB60055D545 /* UIView+Wave.h */,
 				C0148A3F20512EB60055D545 /* UIView+Wave.m */,
+				BE3EDA6E207908110083D2D7 /* UViewController+Push.h */,
+				BE3EDA6F207908110083D2D7 /* UViewController+Push.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2046,6 +2056,7 @@
 				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
 				C05D4C502056847300D9F650 /* CCChangeHeadView.m in Sources */,
 				C0606D92205278200007B772 /* CCScoreModel.m in Sources */,
+				BE3EDA70207908110083D2D7 /* UViewController+Push.m in Sources */,
 				BEBEB69B20761F790017EB4E /* CCPicTableViewCell.m in Sources */,
 				C0540A01204E83C500C8154E /* NSString+zh_SafeAccess.m in Sources */,
 				C05409FA204E763200C8154E /* zhAlertView.m in Sources */,
@@ -2133,6 +2144,7 @@
 				BE45141E2058D41000EB707E /* CCPayItemView.m in Sources */,
 				C0A17499204D20BD000B71F3 /* LMSearchBarView.m in Sources */,
 				BE3C2ADE20674C8F001AACB3 /* CCSetPayPwdRequest.m in Sources */,
+				BE3EDA6D2079036F0083D2D7 /* CCComeInStep2ViewController.m in Sources */,
 				C0148A39205116A00055D545 /* CCOrderStageView.m in Sources */,
 				C0540A0F204EB8E000C8154E /* CCShowView.m in Sources */,
 				C0D4F899204656BC00258CC6 /* UIViewController+ZJScrollPageController.m in Sources */,

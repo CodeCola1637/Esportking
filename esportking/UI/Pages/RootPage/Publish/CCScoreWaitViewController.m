@@ -314,7 +314,7 @@
 - (void)changeToSearchStatus
 {
     NSMutableAttributedString *artStr = [[NSMutableAttributedString alloc] initWithString:@"已通知\n" attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:BoldFont_Big}];
-    [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d\n", arc4random()%30] attributes:@{NSForegroundColorAttributeName:FontColor_Red, NSFontAttributeName:BoldFont_Large}]];
+    [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d+\n", 99] attributes:@{NSForegroundColorAttributeName:FontColor_Red, NSFontAttributeName:BoldFont_Large}]];
     [artStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"位大神" attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:BoldFont_Big}]];
     [self.displayLabel setAttributedText:artStr];
     
