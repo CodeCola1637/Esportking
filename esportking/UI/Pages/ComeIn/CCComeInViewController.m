@@ -262,7 +262,7 @@ typedef enum : NSUInteger {
     else if (indexPath.row == 7)
     {
         CCPicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kPicIdentify];
-        [cell.imgView setImage:self.model.danImg?:CCIMG(@"")];
+        [cell.imgView setImage:self.model.danImg?:CCIMG(@"Wangzhe_Placeholder")];
         rstCell = cell;
     }
     else
