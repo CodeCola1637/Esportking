@@ -17,6 +17,7 @@
 
 @interface CCBlackListViewController ()<UITableViewDelegate, UITableViewDataSource, CCRefreshDelegate, CCRequestDelegate>
 
+@property (assign, nonatomic) uint32_t currentIndex;
 @property (strong, nonatomic) CCBaseRequest *request;
 @property (strong, nonatomic) NSMutableArray<CCUserModel *> *userList;
 
@@ -55,16 +56,27 @@
 {
     if (self.request)
     {
-        [self.tableView endRefresh];
         return;
     }
     
     CCGetBlackListRequest *req = [CCGetBlackListRequest new];
-    [req startGetRequestWithDelegate:self];
+    req.pageIndex = 1;
+    [req startPostRequestWithDelegate:self];
     self.request = req;
 }
 
-- (void)onFooterRefresh {}
+- (void)onFooterRefresh
+{
+    if (self.request)
+    {
+        return;
+    }
+    
+    CCGetBlackListRequest *req = [CCGetBlackListRequest new];
+    req.pageIndex = self.currentIndex+1;
+    [req startPostRequestWithDelegate:self];
+    self.request = req;
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -128,7 +140,15 @@
     if ([sender isKindOfClass:[CCGetBlackListRequest class]])
     {
         CCGetBlackListRequest *req = sender;
-        self.userList = req.userList;
+        if (req.pageIndex == 1)
+        {
+            self.userList = [NSMutableArray arrayWithArray:req.userList];
+        }
+        else
+        {
+            [self.userList addObjectsFromArray:req.userList];
+        }
+        self.currentIndex = req.pageIndex;
         [self.tableView reloadData];
     }
     else if ([sender isKindOfClass:[CCDeleteBlackUserRequest class]])

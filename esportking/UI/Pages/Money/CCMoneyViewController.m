@@ -73,7 +73,7 @@
     {
         self.request = [CCMoneyRequest new];
         self.request.type = self.moneyType;
-        self.request.pageIndex = self.pageIndex;
+        self.request.pageIndex = self.pageIndex+1;
         [self.request startPostRequestWithDelegate:self];
     }
 }
@@ -91,16 +91,15 @@
     {
         return;
     }
-    if (self.request.pageIndex == 0)
+    if (self.request.pageIndex == 1)
     {
         self.moneyList = [[NSMutableArray alloc] initWithArray:self.request.moneyList];
-        self.pageIndex = 2;
     }
     else
     {
         [self.moneyList addObjectsFromArray:self.request.moneyList];
-        self.pageIndex += 1;
     }
+    self.pageIndex = self.request.pageIndex;
     
     self.request = nil;
     [self.tableView reloadData];
@@ -130,7 +129,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CCPXToPoint(200);
+    return CCPXToPoint(144);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

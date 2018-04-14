@@ -54,12 +54,13 @@
 #define QueryMoney      @"/app/account/getAccountRecord"
 #define GainMoney       @"/app/account/withdraw"
 
+#define GetMyBlackList  @"/app/user/getMyBlackList"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 #define GetInviteCode   @"/app/user/getInvitationCode"
 #define GetBalance      @"/app/account/getBalance"
 #define GetMyBind       @"/app/user/getMyBind"
-#define GetMyBlackList  @"/app/user/getMyBlackList"
 
 
 #pragma mark - Http

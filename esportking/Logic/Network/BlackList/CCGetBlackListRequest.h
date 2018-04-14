@@ -11,6 +11,8 @@
 
 @interface CCGetBlackListRequest : CCBaseRequest
 
+@property (assign, nonatomic) uint32_t pageIndex;
+
 // resp
 @property (strong, nonatomic) NSMutableArray<CCUserModel *> *userList;
 

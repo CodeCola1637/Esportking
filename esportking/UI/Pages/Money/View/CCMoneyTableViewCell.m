@@ -45,7 +45,7 @@
         make.right.equalTo(self.contentView).offset(-CCPXToPoint(32));
     }];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(CCPXToPoint(20));
+        make.bottom.equalTo(self.contentView).offset(-CCPXToPoint(32));
         make.left.equalTo(self.titleLabel);
     }];
     [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,7 +53,9 @@
         make.bottom.equalTo(self.timeLabel);
     }];
     [self.bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.bottom.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView);
+        make.left.equalTo(self.titleLabel);
+        make.right.equalTo(self.moneyLabel);
         make.height.mas_equalTo(CCOnePoint);
     }];
 }
@@ -133,7 +135,7 @@
 {
     if (!_timeLabel)
     {
-        _timeLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _timeLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Dark];
     }
     return _timeLabel;
 }
@@ -142,7 +144,7 @@
 {
     if (!_statusLabel)
     {
-        _statusLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Black];
+        _statusLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Dark];
     }
     return _statusLabel;
 }
@@ -152,7 +154,7 @@
     if (!_bottomLineView)
     {
         _bottomLineView = [UIView new];
-        [_bottomLineView setBackgroundColor:BgColor_Gray];
+        [_bottomLineView setBackgroundColor:BgColor_SuperLightGray];
     }
     return _bottomLineView;
 }

@@ -15,6 +15,14 @@
     return GetMyBlackList;
 }
 
+- (NSDictionary *)requestParam
+{
+    return @{
+             @"pageNumber":@(self.pageIndex),
+             @"pageSize":@(20)
+             };
+}
+
 - (void)decodeData:(NSDictionary *)resp
 {
     NSArray *list = resp[@"data"];
