@@ -49,7 +49,7 @@
     [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:LMLayoutAreaBottomHeight];
     
     [self.contentView addSubview:self.accountItem];
-    [self.contentView addSubview:self.messageItem];
+//    [self.contentView addSubview:self.messageItem];
     [self.contentView addSubview:self.blackUserItem];
     [self.contentView addSubview:self.helpItem];
     [self.contentView addSubview:self.aboutItem];
@@ -60,13 +60,13 @@
         make.right.equalTo(self.contentView).offset(-CCPXToPoint(0));
         make.top.equalTo(self.contentView);
     }];
-    [self.messageItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.accountItem);
-        make.top.equalTo(self.accountItem.mas_bottom);
-    }];
+//    [self.messageItem mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.equalTo(self.accountItem);
+//        make.top.equalTo(self.accountItem.mas_bottom);
+//    }];
     [self.blackUserItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.accountItem);
-        make.top.equalTo(self.messageItem.mas_bottom);
+        make.top.equalTo(self.accountItem.mas_bottom);
     }];
     [self.helpItem mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.accountItem);

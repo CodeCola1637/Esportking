@@ -52,6 +52,7 @@
 		BE4A1BD02038507F00890485 /* CCHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BCF2038507F00890485 /* CCHeadTableViewCell.m */; };
 		BE4A1BD32038509000890485 /* CCImgTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD22038509000890485 /* CCImgTitleTableViewCell.m */; };
 		BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */; };
+		BE4EFE9220834DBB00E8DB35 /* CCMessageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */; };
 		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
 		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
 		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
@@ -293,6 +294,8 @@
 		BE4A1BD22038509000890485 /* CCImgTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCImgTitleTableViewCell.m; sourceTree = "<group>"; };
 		BE4A1BD5203854CD00890485 /* CCBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBaseTableViewCell.h; sourceTree = "<group>"; };
 		BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBaseTableViewCell.m; sourceTree = "<group>"; };
+		BE4EFE9020834DBB00E8DB35 /* CCMessageSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageSettingViewController.h; sourceTree = "<group>"; };
+		BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageSettingViewController.m; sourceTree = "<group>"; };
 		BE78493320394D90000E7C00 /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
 		BE78493420394D90000E7C00 /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
 		BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -827,6 +830,15 @@
 				BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */,
 			);
 			path = BaseTableCell;
+			sourceTree = "<group>";
+		};
+		BE4EFE8F20834CE500E8DB35 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BE4EFE9020834DBB00E8DB35 /* CCMessageSettingViewController.h */,
+				BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		BE78493220394D7C000E7C00 /* Search */ = {
@@ -1422,6 +1434,7 @@
 		C09A654C205BA1B300FB1B44 /* SubVC */ = {
 			isa = PBXGroup;
 			children = (
+				BE4EFE8F20834CE500E8DB35 /* Message */,
 				BEBEB69C20763DB20017EB4E /* About */,
 				BEBEB68B207616050017EB4E /* Help */,
 				C09A654D205BA1CA00FB1B44 /* CCAccountViewController.h */,
@@ -2085,6 +2098,7 @@
 				C05D4C462056660400D9F650 /* CCChangeUserInfoViewController.m in Sources */,
 				BE49C9E520427C0000B0E34A /* CCUserTagTableViewCell.m in Sources */,
 				BEFC9BAE20259A30002CE000 /* CCRootViewController.m in Sources */,
+				BE4EFE9220834DBB00E8DB35 /* CCMessageSettingViewController.m in Sources */,
 				BEFF95CA202D82D70081D88B /* CCAccountService.m in Sources */,
 				C09A658F205BD0F100FB1B44 /* WEPopoverContainerView.m in Sources */,
 				C0A1749420494449000B71F3 /* CCTitleTableViewCell.m in Sources */,
