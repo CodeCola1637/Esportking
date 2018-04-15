@@ -85,7 +85,7 @@
             break;
         case 3:
         {
-            [self.titleLabel setText:@"费用支出"];
+            [self.titleLabel setText:@"订单支出"];
             [self.moneyLabel setText:[NSString stringWithFormat:@"-%.2f", money]];
         }
             break;
@@ -101,10 +101,32 @@
             {
                 [self.statusLabel setText:@"提现失败"];
             }
-            else if (status == 2)
+            else if (status == 3)
             {
                 [self.statusLabel setText:@"提现成功"];
             }
+            else if (status == 4)
+            {
+                [self.statusLabel setText:@"退款成功"];
+            }
+        }
+            break;
+        case 5:
+        {
+            [self.titleLabel setText:@"充值"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"+%.2f", money]];
+        }
+            break;
+        case 6:
+        {
+            [self.titleLabel setText:@"订单退款"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"+%.2f", money]];
+        }
+            break;
+        case 7:
+        {
+            [self.titleLabel setText:@"提现退款"];
+            [self.moneyLabel setText:[NSString stringWithFormat:@"+%.2f", money]];
         }
             break;
         default:
