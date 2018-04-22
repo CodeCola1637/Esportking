@@ -11,9 +11,9 @@
 
 @interface CCScoreModel()<CCRequestDelegate>
 
-@property (strong, nonatomic) void(^calBlock)(BOOL, uint32_t);
+@property (strong, nonatomic) void(^calBlock)(BOOL, CGFloat);
 @property (strong, nonatomic) CCCalculateRequest *request;
-@property (assign, nonatomic) uint32_t money;
+@property (assign, nonatomic) CGFloat money;
 
 @end
 
@@ -68,7 +68,7 @@
     return YES;
 }
 
-- (void)calCulateMoney:(void(^)(BOOL, uint32_t))calculateBlock;
+- (void)calCulateMoney:(void(^)(BOOL, CGFloat))calculateBlock;
 {
     if ([self checkInfoCompleted])
     {
@@ -114,7 +114,7 @@
     _request = nil;
     
     _needReCaculate = NO;
-    _money = (uint32_t)[dict[@"data"] unsignedIntegerValue];
+    _money = [dict[@"data"] floatValue];
     if (_calBlock)
     {
         _calBlock(YES, _money);

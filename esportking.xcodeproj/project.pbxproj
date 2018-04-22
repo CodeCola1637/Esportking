@@ -69,6 +69,7 @@
 		BE6F5910208C8BE9008FDFA1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590F208C8BE9008FDFA1 /* CoreMotion.framework */; };
 		BE6F5913208C99B2008FDFA1 /* CCGainMoneyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F5912208C99B2008FDFA1 /* CCGainMoneyRequest.m */; };
 		BE6F5916208CA2BB008FDFA1 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F5915208CA2BB008FDFA1 /* NSString+MD5.m */; };
+		BE6F591A208CA943008FDFA1 /* CCFetchOrderStrRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F5919208CA943008FDFA1 /* CCFetchOrderStrRequest.m */; };
 		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
 		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
 		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
@@ -331,6 +332,8 @@
 		BE6F5912208C99B2008FDFA1 /* CCGainMoneyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGainMoneyRequest.m; sourceTree = "<group>"; };
 		BE6F5914208CA2BB008FDFA1 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		BE6F5915208CA2BB008FDFA1 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		BE6F5918208CA943008FDFA1 /* CCFetchOrderStrRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCFetchOrderStrRequest.h; sourceTree = "<group>"; };
+		BE6F5919208CA943008FDFA1 /* CCFetchOrderStrRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCFetchOrderStrRequest.m; sourceTree = "<group>"; };
 		BE78493320394D90000E7C00 /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
 		BE78493420394D90000E7C00 /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
 		BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -1739,6 +1742,8 @@
 				C0C6AF8D205A6E7B00658722 /* CCFinishOrderRequest.m */,
 				C03B792F2060F1D600FA3073 /* CCOrderDetailRequest.h */,
 				C03B79302060F1D600FA3073 /* CCOrderDetailRequest.m */,
+				BE6F5918208CA943008FDFA1 /* CCFetchOrderStrRequest.h */,
+				BE6F5919208CA943008FDFA1 /* CCFetchOrderStrRequest.m */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -2188,6 +2193,7 @@
 				BEAFDA3C202718B000ED4E2D /* CCTextField.m in Sources */,
 				C0A174A0204D34D5000B71F3 /* CCHistoryService.m in Sources */,
 				BEBEB68A207615530017EB4E /* CCComeInWebViewController.m in Sources */,
+				BE6F591A208CA943008FDFA1 /* CCFetchOrderStrRequest.m in Sources */,
 				BEAFDA172027020800ED4E2D /* CCRefreshCollectionView.m in Sources */,
 				C0D4F8A220465ABA00258CC6 /* CCPageContainerViewController.m in Sources */,
 				BEAC5D8F202C4031000BF808 /* CCModifyUserInfoRequest.m in Sources */,

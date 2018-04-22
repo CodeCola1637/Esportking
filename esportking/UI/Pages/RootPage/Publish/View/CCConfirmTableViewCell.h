@@ -16,6 +16,6 @@
 
 @interface CCConfirmTableViewCell : UITableViewCell
 
-- (void)setPrice:(uint64_t)price andDelegate:(id<CCConfirmTableViewCellDelegate>)del;
+- (void)setPrice:(CGFloat)price andDelegate:(id<CCConfirmTableViewCellDelegate>)del;
 
 @end

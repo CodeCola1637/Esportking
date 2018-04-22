@@ -277,7 +277,7 @@
     {
         CCConfirmTableViewCell *tableCell = [tableView dequeueReusableCellWithIdentifier:kForthIdentify];
         [tableCell setPrice:0 andDelegate:nil];
-        [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
+        [self.scoreModel calCulateMoney:^(BOOL success, CGFloat money) {
             [tableCell setPrice:money andDelegate:self];
         }];
         cell = tableCell;
@@ -364,7 +364,7 @@
     model.receiverName = self.userModel.name;
     model.danStr = self.orderRequest.danStr;
     
-    [self.scoreModel calCulateMoney:^(BOOL success, uint32_t money) {
+    [self.scoreModel calCulateMoney:^(BOOL success, CGFloat money) {
         model.money = money;
     }];
     

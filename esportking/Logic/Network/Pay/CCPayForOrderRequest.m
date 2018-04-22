@@ -17,9 +17,10 @@
 
 - (NSDictionary *)requestParam
 {
+    NSString *moneyStr = [NSString stringWithFormat:@"%.2f", self.money];
     return @{
              @"order_number":CCNoNilStr(self.orderID),
-             @"amount":@(self.money),
+             @"amount":CCNoNilStr(moneyStr),
              @"pay_pass":CCNoNilStr(self.payPwd)
              };
 }

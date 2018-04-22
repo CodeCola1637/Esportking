@@ -13,16 +13,18 @@
 #import "CCPayItemView.h"
 #import "CCScoreModel.h"
 
+#import "CCFetchOrderStrRequest.h"
 #import "CCPayForOrderRequest.h"
 #import <CYPasswordView/CYPasswordView.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import "NSString+MD5.h"
 
 @interface CCPayViewController ()<CCTitleItemDelegate, CCPayItemDelegate, CCRequestDelegate>
 
 @property (assign, nonatomic) PAYWAY currentWay;
 
 @property (strong, nonatomic) CCOrderModel *orderModel;
-@property (strong, nonatomic) CCPayForOrderRequest *request;
+@property (strong, nonatomic) CCBaseRequest *request;
 
 @property (strong, nonatomic) UIView *topBGView;
 @property (strong, nonatomic) UIView *centerBGView;
@@ -54,12 +56,18 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self configTopbar];
     [self configContent];
     [self configData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceiveZFBPayNotification:) name:CCZFBPayCallNotification object:nil];
 }
 
 - (void)configTopbar
@@ -140,7 +148,7 @@
 
 - (void)configData
 {
-    [self.bottomButton setTitle:[NSString stringWithFormat:@"确认支付%d元", self.orderModel.money] forState:UIControlStateNormal];
+    [self.bottomButton setTitle:[NSString stringWithFormat:@"确认支付%.2f元", self.orderModel.money] forState:UIControlStateNormal];
     [self onSelectPayItem:PAYWAY_WX];
 }
 
@@ -156,7 +164,13 @@
             break;
         case PAYWAY_ZFB:
         {
-//            [AlipaySDK defaultService] payOrder:<#(NSString *)#> fromScheme:<#(NSString *)#> callback:<#^(NSDictionary *resultDic)completionBlock#>
+            CCFetchOrderStrRequest *req = [CCFetchOrderStrRequest new];
+            req.amount =[NSString stringWithFormat:@"%.2f", self.orderModel.money];
+            req.orderID = self.orderModel.orderID;
+            req.payType = 2;
+            req.typeWay = 1;
+            self.request = req;
+            [self.request startPostRequestWithDelegate:self];
         }
             break;
         case PAYWAY_CARD:
@@ -210,28 +224,25 @@
     {
         return;
     }
-    self.request = nil;
-    
-    [self.passView stopLoading];
-    [self.passView requestComplete:YES message:@"支付成功"];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.passView hide];
-        
-        CCScoreWaitViewController *vc = [CCScoreWaitViewController new];
-        
-        //修改push方向
-        CATransition* transition = [CATransition animation];
-        transition.type          = kCATransitionMoveIn;//可更改为其他方式
-        transition.subtype       = kCATransitionFromTop;//可更改为其他方式
-        [self.navigationController.view.layer addAnimation:transition forKey:nil];
-        [self.navigationController pushViewController:vc animated:NO];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSMutableArray *vcs = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
-            [vcs removeObject:sender];
-            [self.navigationController setViewControllers:vcs];
+    if ([sender isKindOfClass:[CCPayForOrderRequest class]])
+    {
+        [self.passView stopLoading];
+        [self.passView requestComplete:YES message:@"支付成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.passView hide];
+            [self onPaySuccess];
         });
-    });
+    }
+    else if ([sender isKindOfClass:[CCFetchOrderStrRequest class]])
+    {
+        [self endLoading];
+        CCWeakSelf(weakSelf);
+        NSString *str = dict[@"data"];
+        [[AlipaySDK defaultService] payOrder:str fromScheme:@"esportking.pay.zfb" callback:^(NSDictionary *resultDic) {
+            [weakSelf onZFBPayCallBack:resultDic];
+        }];
+    }
+    self.request = nil;
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
@@ -240,13 +251,28 @@
     {
         return;
     }
+    if ([sender isKindOfClass:[CCPayForOrderRequest class]])
+    {
+        [self.passView stopLoading];
+        [self.passView requestComplete:NO message:msg];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.passView hide];
+        });
+    }
+    else if ([sender isKindOfClass:[CCFetchOrderStrRequest class]])
+    {
+        [self endLoading];
+        [self showToast:msg];
+    }
     self.request = nil;
-    [self.passView stopLoading];
-    [self.passView requestComplete:YES message:msg];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.passView hide];
-    });
+}
+
+#pragma mark - CCZFBPayCallNotification
+- (void)onReceiveZFBPayNotification:(NSNotification *)notify
+{
+    NSDictionary *resultDict = [notify object];
+    [self onZFBPayCallBack:resultDict];
 }
 
 #pragma mark - private
@@ -259,11 +285,42 @@
     [self.passView hideKeyboard];
     [self.passView startLoading];
     
-    self.request = [CCPayForOrderRequest new];
-    self.request.orderID = self.orderModel.orderID;
-    self.request.money = self.orderModel.money;
-    self.request.payPwd = pwd;
+    CCPayForOrderRequest *req = [CCPayForOrderRequest new];
+    req.orderID = self.orderModel.orderID;
+    req.money = self.orderModel.money;
+    req.payPwd = [pwd md5Str];
+    self.request = req;
     [self.request startPostRequestWithDelegate:self];
+}
+
+- (void)onZFBPayCallBack:(NSDictionary *)result
+{
+    if ([result[@"resultStatus"] isEqual:@"9000"])
+    {
+        [self onPaySuccess];
+    }
+    else
+    {
+        [self showToast:@"支付失败"];
+    }
+}
+
+- (void)onPaySuccess
+{
+    CCScoreWaitViewController *vc = [CCScoreWaitViewController new];
+    
+    //修改push方向
+    CATransition* transition = [CATransition animation];
+    transition.type          = kCATransitionMoveIn;//可更改为其他方式
+    transition.subtype       = kCATransitionFromTop;//可更改为其他方式
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController pushViewController:vc animated:NO];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray *vcs = [[NSMutableArray alloc] initWithArray:self.navigationController.viewControllers];
+        [vcs removeObject:self];
+        [self.navigationController setViewControllers:vcs];
+    });
 }
 
 #pragma mark - getter

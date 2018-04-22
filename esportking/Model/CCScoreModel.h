@@ -25,7 +25,7 @@
 @property (assign, nonatomic) uint32_t count;
 
 - (BOOL)checkInfoCompleted;
-- (void)calCulateMoney:(void(^)(BOOL, uint32_t))calculateBlock;
+- (void)calCulateMoney:(void(^)(BOOL, CGFloat))calculateBlock;
 
 + (NSString *)getSytleStr:(SCORESTYLE)style;
 + (NSString *)getSystemStr:(CLIENTTYPE)system;

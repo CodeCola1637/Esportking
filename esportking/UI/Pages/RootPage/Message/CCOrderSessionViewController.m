@@ -127,7 +127,7 @@
     [self.finishButton setHidden:YES];
     [self.headImgView setImageWithUrl:self.receiver.headUrl placeholder:CCIMG(@"Default_Header")];
     [self.descLabel setText:self.orderModel.danStr];
-    [self.moneyLabel setText:[NSString stringWithFormat:@"¥%d", self.orderModel.money]];
+    [self.moneyLabel setText:[NSString stringWithFormat:@"¥%.2f", self.orderModel.money]];
     
     switch (self.orderModel.displayStatus)
     {

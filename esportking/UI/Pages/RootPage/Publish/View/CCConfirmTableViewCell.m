@@ -44,10 +44,10 @@
     }];
 }
 
-- (void)setPrice:(uint64_t)price andDelegate:(id<CCConfirmTableViewCellDelegate>)del
+- (void)setPrice:(CGFloat)price andDelegate:(id<CCConfirmTableViewCellDelegate>)del
 {
     self.delegate = del;
-    [self.priceLabel setText:[NSString stringWithFormat:@"¥%ld元", price]];
+    [self.priceLabel setText:[NSString stringWithFormat:@"¥%.2f元", price]];
 }
 
 #pragma mark - action

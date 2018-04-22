@@ -47,6 +47,7 @@
 #define AddComment      @"/app/comment/add"
 
 #define FetchUserInfo   @"/app/user/getOther"
+#define FetchOrderStr   @"/app/pay/getPayOrderStr"
 
 #define PayForOrder     @"/app/order/payment"
 #define PayPwdSet       @"/app/user/paymentPass"

@@ -11,7 +11,7 @@
 @interface CCPayForOrderRequest : CCBaseRequest
 
 @property (strong, nonatomic) NSString *orderID;
-@property (assign, nonatomic) uint32_t money;
+@property (assign, nonatomic) CGFloat money;
 @property (strong, nonatomic) NSString *payPwd;
 
 @end

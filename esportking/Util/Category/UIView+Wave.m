@@ -18,7 +18,8 @@
     CALayer *waveLayer = [CALayer layer];
     waveLayer.bounds = CGRectMake(0, 0, diameter, diameter);
     waveLayer.cornerRadius = diameter / 2; //设置圆角变为圆形
-    waveLayer.position = self.center;
+    waveLayer.position = CGPointMake(self.center.x, self.origin.y);
+    waveLayer.anchorPoint = CGPointMake(0.5, 0.5);
     waveLayer.backgroundColor = [color CGColor];
     [self.superview.layer insertSublayer:waveLayer below:self.layer];//把扩散层放到播放按钮下面
     

@@ -30,7 +30,7 @@ typedef enum : NSUInteger {
 @property (strong, nonatomic) NSString *orderID;
 @property (assign, nonatomic) ORDERSTAUTS status;
 @property (assign, nonatomic) ORDERPAYSTAUTS payStatus;
-@property (assign, nonatomic) uint32_t money;
+@property (assign, nonatomic) CGFloat money;
 
 @property (assign, nonatomic) SCORESTYLE style;
 @property (assign, nonatomic) CLIENTTYPE clientType;

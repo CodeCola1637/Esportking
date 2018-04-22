@@ -20,6 +20,7 @@
 
 #import "CCOrderRequest.h"
 #import "CCUserDetailRequest.h"
+#import "CCCancelOrderRequest.h"
 
 #define kRoundWidth CCPXToPoint(164)
 
@@ -27,6 +28,7 @@
 
 @property (strong, nonatomic) CCOrderRequest *request;
 @property (strong, nonatomic) CCUserDetailRequest *userReq;
+@property (strong, nonatomic) CCCancelOrderRequest *cancelReq;
 
 @property (strong, nonatomic) CCOrderModel *orderModel;
 @property (strong, nonatomic) CCGameModel *userModel;
@@ -109,6 +111,12 @@
         make.right.lessThanOrEqualTo(self.contentView).offset(-CCHorMargin);
         make.top.equalTo(self.danLabel.mas_bottom).offset(CCPXToPoint(28));
     }];
+    [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView).offset(-CCHorMargin);
+        make.bottom.equalTo(self.moneyLabel);
+        make.height.mas_equalTo(CCPXToPoint(60));
+        make.width.mas_equalTo(CCPXToPoint(150));
+    }];
     
     [self.stageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentView);
@@ -153,7 +161,10 @@
 #pragma mark - action
 - (void)onClickCancelButton:(UIButton *)button
 {
-    
+    [self beginLoading];
+    self.cancelReq = [CCCancelOrderRequest new];
+    self.cancelReq.orderID = self.orderModel.orderID;
+    [self.cancelReq startPostRequestWithDelegate:self];
 }
 
 - (void)onClickContactButton:(UIButton *)button
@@ -221,6 +232,11 @@
         [self refreshUIData];
         self.userReq = nil;
     }
+    else if (self.cancelReq == sender)
+    {
+        [self endLoading];
+        [self didClickShowView:SHOWSTATUS_DOWN];
+    }
 }
 
 - (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
@@ -233,6 +249,11 @@
     else if (self.userReq == sender)
     {
         self.userReq = nil;
+        [self showToast:msg];
+    }
+    else if (self.cancelReq == sender)
+    {
+        [self endLoading];
         [self showToast:msg];
     }
 }
@@ -274,7 +295,7 @@
     [_danLabel setAttributedText:danStr];
     
     NSMutableAttributedString *monStr = [[NSMutableAttributedString alloc] initWithString:@"订单金额：" attributes:@{NSForegroundColorAttributeName:FontColor_DeepDark, NSFontAttributeName:Font_Big}];
-    [monStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%d", self.orderModel.money] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
+    [monStr appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥%.2f", self.orderModel.money] attributes:@{NSForegroundColorAttributeName:FontColor_Black, NSFontAttributeName:Font_Big}]];
     [_moneyLabel setAttributedText:monStr];
     
     switch (self.orderModel.displayStatus)
@@ -409,7 +430,9 @@
     if (!_cancelButton)
     {
         _cancelButton = [UIButton new];
-        [_cancelButton setBackgroundColor:BgColor_Yellow];
+        [_cancelButton setBackgroundColor:BgColor_Gold];
+        [_cancelButton.titleLabel setFont:Font_Middle];
+        [_cancelButton.layer setCornerRadius:CCPXToPoint(30)];
         [_cancelButton setTitle:@"取消订单" forState:UIControlStateNormal];
         [_cancelButton setTitleColor:FontColor_Black forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(onClickCancelButton:) forControlEvents:UIControlEventTouchUpInside];
