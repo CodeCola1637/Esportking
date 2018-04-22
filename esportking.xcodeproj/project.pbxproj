@@ -53,6 +53,7 @@
 		BE4A1BD32038509000890485 /* CCImgTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD22038509000890485 /* CCImgTitleTableViewCell.m */; };
 		BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */; };
 		BE4EFE9220834DBB00E8DB35 /* CCMessageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */; };
+		BE4EFE95208362AD00E8DB35 /* CCGainMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EFE94208362AD00E8DB35 /* CCGainMoneyViewController.m */; };
 		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
 		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
 		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
@@ -296,6 +297,8 @@
 		BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCBaseTableViewCell.m; sourceTree = "<group>"; };
 		BE4EFE9020834DBB00E8DB35 /* CCMessageSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCMessageSettingViewController.h; sourceTree = "<group>"; };
 		BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageSettingViewController.m; sourceTree = "<group>"; };
+		BE4EFE93208362AD00E8DB35 /* CCGainMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGainMoneyViewController.h; sourceTree = "<group>"; };
+		BE4EFE94208362AD00E8DB35 /* CCGainMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGainMoneyViewController.m; sourceTree = "<group>"; };
 		BE78493320394D90000E7C00 /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
 		BE78493420394D90000E7C00 /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
 		BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -1708,6 +1711,8 @@
 			children = (
 				C0D4F8BF2046AB9000258CC6 /* CCWalletViewController.h */,
 				C0D4F8C02046AB9000258CC6 /* CCWalletViewController.m */,
+				BE4EFE93208362AD00E8DB35 /* CCGainMoneyViewController.h */,
+				BE4EFE94208362AD00E8DB35 /* CCGainMoneyViewController.m */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2120,6 +2125,7 @@
 				C0F04145205FAFCB00FF5F78 /* CCFetchTagRequest.m in Sources */,
 				BEBEB692207618EA0017EB4E /* CCComeInModel.m in Sources */,
 				C0A174812048FA8B000B71F3 /* CCUploadImgRequest.m in Sources */,
+				BE4EFE95208362AD00E8DB35 /* CCGainMoneyViewController.m in Sources */,
 				BE451469204451880096A8CC /* CCSessionListViewController.m in Sources */,
 				BEAFDA4D2027416800ED4E2D /* CCBaseRequest.m in Sources */,
 				C0A1748620493B72000B71F3 /* CCScoreBannerTableViewCell.m in Sources */,

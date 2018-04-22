@@ -9,8 +9,9 @@
 #import "CCWalletViewController.h"
 #import "CCMoneyViewController.h"
 #import "CCPageContainerViewController.h"
-
+#import "CCCommitButton.h"
 #import "CCGetBalanceRequest.h"
+#import "CCGainMoneyViewController.h"
 
 @interface CCWalletViewController ()<CCRequestDelegate>
 
@@ -21,7 +22,7 @@
 @property (strong, nonatomic) UILabel *moneyLabel;
 @property (strong, nonatomic) UILabel *tipsLabel;
 @property (strong, nonatomic) UILabel *alertLabel;
-@property (strong, nonatomic) UIButton *getMoneyButton;
+@property (strong, nonatomic) CCCommitButton *getMoneyButton;
 
 @end
 
@@ -91,7 +92,13 @@
 
 - (void)onClickGetMoneyButton:(UIButton *)button
 {
-    
+    if (self.balance < 100)
+    {
+        [self showToast:@"金额小于100元无法提现"];
+        return;
+    }
+    CCGainMoneyViewController *vc = [[CCGainMoneyViewController alloc] initWithMoney:self.balance];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - CCRequestDelegate
@@ -176,15 +183,14 @@
     return _alertLabel;
 }
 
-- (UIButton *)getMoneyButton
+- (CCCommitButton *)getMoneyButton
 {
     if (!_getMoneyButton)
     {
-        _getMoneyButton = [UIButton new];
-        [_getMoneyButton setEnabled:NO];
-        [_getMoneyButton setBackgroundColor:BgColor_Yellow];
+        _getMoneyButton = [CCCommitButton new];
         [_getMoneyButton setTitle:@"马上提现" forState:UIControlStateNormal];
-        [_getMoneyButton setTitleColor:FontColor_White forState:UIControlStateNormal];
+        _getMoneyButton.enableTitleColor = FontColor_White;
+        _getMoneyButton.enabled = NO;
         [_getMoneyButton addTarget:self action:@selector(onClickGetMoneyButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _getMoneyButton;
