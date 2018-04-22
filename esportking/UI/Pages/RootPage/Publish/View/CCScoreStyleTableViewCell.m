@@ -32,6 +32,7 @@
 - (void)setupUI
 {
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [self setClipsToBounds:YES];
     
     [self.contentView addSubview:self.scoreButton];
     [self.contentView addSubview:self.gameButton];
