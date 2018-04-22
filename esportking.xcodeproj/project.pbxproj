@@ -67,6 +67,8 @@
 		BE6F590C208C8BD9008FDFA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590B208C8BD9008FDFA1 /* Foundation.framework */; };
 		BE6F590E208C8BE1008FDFA1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590D208C8BE1008FDFA1 /* CFNetwork.framework */; };
 		BE6F5910208C8BE9008FDFA1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590F208C8BE9008FDFA1 /* CoreMotion.framework */; };
+		BE6F5913208C99B2008FDFA1 /* CCGainMoneyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F5912208C99B2008FDFA1 /* CCGainMoneyRequest.m */; };
+		BE6F5916208CA2BB008FDFA1 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6F5915208CA2BB008FDFA1 /* NSString+MD5.m */; };
 		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
 		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
 		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
@@ -325,6 +327,10 @@
 		BE6F590B208C8BD9008FDFA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE6F590D208C8BE1008FDFA1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BE6F590F208C8BE9008FDFA1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		BE6F5911208C99B2008FDFA1 /* CCGainMoneyRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGainMoneyRequest.h; sourceTree = "<group>"; };
+		BE6F5912208C99B2008FDFA1 /* CCGainMoneyRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGainMoneyRequest.m; sourceTree = "<group>"; };
+		BE6F5914208CA2BB008FDFA1 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		BE6F5915208CA2BB008FDFA1 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		BE78493320394D90000E7C00 /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
 		BE78493420394D90000E7C00 /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
 		BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -1462,6 +1468,8 @@
 				C0148A3F20512EB60055D545 /* UIView+Wave.m */,
 				BE3EDA6E207908110083D2D7 /* UViewController+Push.h */,
 				BE3EDA6F207908110083D2D7 /* UViewController+Push.m */,
+				BE6F5914208CA2BB008FDFA1 /* NSString+MD5.h */,
+				BE6F5915208CA2BB008FDFA1 /* NSString+MD5.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1761,6 +1769,8 @@
 				C0D4F8BC2046AA1A00258CC6 /* CCMoneyRequest.m */,
 				C0C6AF8F205A702200658722 /* CCGetBalanceRequest.h */,
 				C0C6AF90205A702200658722 /* CCGetBalanceRequest.m */,
+				BE6F5911208C99B2008FDFA1 /* CCGainMoneyRequest.h */,
+				BE6F5912208C99B2008FDFA1 /* CCGainMoneyRequest.m */,
 			);
 			path = Money;
 			sourceTree = "<group>";
@@ -2130,6 +2140,7 @@
 				C0F04141205FA45C00FF5F78 /* CCCommitButton.m in Sources */,
 				C0540A07204E846300C8154E /* NSArray+zh_SafeAccess.m in Sources */,
 				BEFF95CD202D91C90081D88B /* CCHomePageRequest.m in Sources */,
+				BE6F5916208CA2BB008FDFA1 /* NSString+MD5.m in Sources */,
 				C0A174A3204D3792000B71F3 /* CCSearchHistoryView.m in Sources */,
 				BE4A1BB520307E7200890485 /* HomeCollectionLayout.m in Sources */,
 				C05D4C502056847300D9F650 /* CCChangeHeadView.m in Sources */,
@@ -2154,6 +2165,7 @@
 				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
 				BEAFE56B2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m in Sources */,
 				BEBEB68E207616150017EB4E /* CCHelpWebViewController.m in Sources */,
+				BE6F5913208C99B2008FDFA1 /* CCGainMoneyRequest.m in Sources */,
 				C09A6564205BC43900FB1B44 /* CCBlackUserTableViewCell.m in Sources */,
 				BEAFDA0E2026FABC00ED4E2D /* CCTopbarView.m in Sources */,
 				BEAFDA39202711EF00ED4E2D /* CCLoginViewController.m in Sources */,

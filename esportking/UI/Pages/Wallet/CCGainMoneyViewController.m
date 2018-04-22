@@ -7,16 +7,23 @@
 //
 
 #import "CCGainMoneyViewController.h"
-#import "CCPayItemView.h"
 #import "CCCommitButton.h"
+#import <CYPasswordView/CYPasswordView.h>
+#import <TKAlert&TKActionSheet/TKAlert&TKActionSheet.h>
+#import "NSString+MD5.h"
+#import "CCGainMoneyRequest.h"
 
-@interface CCGainMoneyViewController ()<CCPayItemDelegate>
+@interface CCGainMoneyViewController ()<CCRequestDelegate>
 
 @property (assign, nonatomic) CGFloat totalMoney;
+@property (strong, nonatomic) CCGainMoneyRequest *request;
+
+@property (strong, nonatomic) UIView *keyboardBGView;
+@property (strong, nonatomic) CYPasswordView *passView;
 
 @property (strong, nonatomic) UILabel *topLabel;
-@property (strong, nonatomic) CCPayItemView *wxPayItem;
-@property (strong, nonatomic) CCPayItemView *zfbPayItem;
+@property (strong, nonatomic) UIView *accountBGView;
+@property (strong, nonatomic) UITextField *accountField;
 @property (strong, nonatomic) UILabel *tipsLabel;
 @property (strong, nonatomic) UIView *centerView;
 @property (strong, nonatomic) UILabel *moneyLabel;
@@ -38,11 +45,24 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self configTopbar];
     [self configContent];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
 }
 
 - (void)configTopbar
@@ -56,9 +76,9 @@
     [self setContentWithTopOffset:LMStatusBarHeight+LMTopBarHeight bottomOffset:LMLayoutAreaBottomHeight];
     [self.contentView setBackgroundColor:BgColor_SuperLightGray];
     
-    [self.contentView addSubview:self.tipsLabel];
-    [self.contentView addSubview:self.wxPayItem];
-    [self.contentView addSubview:self.zfbPayItem];
+    [self.contentView addSubview:self.topLabel];
+    [self.contentView addSubview:self.accountBGView];
+    [self.contentView addSubview:self.accountField];
     [self.contentView addSubview:self.tipsLabel];
     [self.contentView addSubview:self.centerView];
     [self.contentView addSubview:self.commitButton];
@@ -68,25 +88,29 @@
     [self.centerView addSubview:self.lineView];
     [self.centerView addSubview:self.bottomLabel];
     
+    [self.contentView addSubview:self.keyboardBGView];
+    
     [self.topLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(CCPXToPoint(40));
         make.left.equalTo(self.contentView).offset(CCHorMargin);
     }];
-    [self.wxPayItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tipsLabel.mas_bottom).offset(CCPXToPoint(10));
+    [self.accountBGView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.topLabel.mas_bottom).offset(CCPXToPoint(20));
         make.left.right.equalTo(self.contentView);
+        make.height.mas_equalTo(CCPXToPoint(96));
     }];
-    [self.zfbPayItem mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.wxPayItem.mas_bottom);
-        make.left.right.equalTo(self.wxPayItem);
+    [self.accountField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.accountBGView);
+        make.left.equalTo(self.accountBGView).offset(CCHorMargin);
+        make.right.equalTo(self.accountBGView).offset(-CCHorMargin);
     }];
     [self.tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.zfbPayItem.mas_bottom).offset(CCPXToPoint(40));
+        make.top.equalTo(self.accountField.mas_bottom).offset(CCPXToPoint(40));
         make.left.equalTo(self.topLabel);
     }];
     [self.centerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tipsLabel.mas_bottom).offset(CCPXToPoint(10));
-        make.left.right.equalTo(self.contentView);
+        make.top.equalTo(self.tipsLabel.mas_bottom).offset(CCPXToPoint(20));
+        make.left.right.bottom.equalTo(self.contentView);
     }];
     [self.commitButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.contentView);
@@ -99,32 +123,107 @@
     }];
     [self.moneyField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.moneyLabel);
-        make.left.equalTo(self.moneyLabel);
+        make.left.equalTo(self.moneyLabel).offset(CCPXToPoint(40));
         make.right.equalTo(self.centerView).offset(-CCHorMargin);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.moneyLabel).offset(CCPXToPoint(20));
+        make.top.equalTo(self.moneyLabel.mas_bottom).offset(CCPXToPoint(20));
         make.left.right.equalTo(self.centerView);
         make.height.mas_equalTo(CCOnePoint);
     }];
     [self.bottomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.lineView.mas_bottom);
-        make.bottom.equalTo(self.centerView);
         make.left.equalTo(self.centerView).offset(CCHorMargin);
         make.right.equalTo(self.centerView).offset(-CCHorMargin);
     }];
-}
-
-#pragma mark - CCPayItemDelegate
-- (void)onSelectPayItem:(PAYWAY)way
-{
     
+    [self.keyboardBGView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+    [self.keyboardBGView setHidden:YES];
 }
 
 #pragma mark - Action
 - (void)onClickCommitButton:(id)sender
 {
+    CCWeakSelf(weakSelf);
+    TKAlertViewController *vc = [TKAlertViewController alertWithTitle:@"" message:[NSString stringWithFormat:@"确认提现%.2f元到支付宝账户（%@）中吗？", [self.moneyField.text floatValue], self.accountField.text]];
+    [vc addCancelButtonWithTitle:@"取消" block:^(NSUInteger index) {
+        
+    }];
+    [vc addButtonWithTitle:@"确定" block:^(NSUInteger index) {
+        [weakSelf showPayPassView];
+    }];
+    [vc show];
+}
+
+- (void)showPayPassView
+{
+    CCWeakSelf(weakSelf);
+    self.passView = [self createPassView];
+    self.passView.finish = ^(NSString *password) {
+        [weakSelf requestForGainMoney:password];
+    };
+    [self.passView showInView:self.view.window];
+}
+
+- (void)requestForGainMoney:(NSString *)paypass
+{
+    if (self.request)
+    {
+        return;
+    }
     
+    self.request = [[CCGainMoneyRequest alloc] init];
+    self.request.account = self.accountField.text;
+    self.request.amount = self.moneyField.text;
+    self.request.payPass = [paypass md5Str];
+    [self.request startPostRequestWithDelegate:self];
+}
+
+- (void)onTapKeyboardBGView:(id)sender
+{
+    [self.accountField resignFirstResponder];
+    [self.moneyField resignFirstResponder];
+}
+
+#pragma mark - NSNotification
+//当键盘出现
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    [self.keyboardBGView setHidden:NO];
+}
+
+//当键退出
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    [self.keyboardBGView setHidden:YES];
+}
+
+#pragma mark - CCRequestDelegate
+- (void)onRequestSuccess:(NSDictionary *)dict sender:(id)sender
+{
+    if (sender != self.request)
+    {
+        return;
+    }
+    [self showToast:@"您的申请已提交，我们会尽快为您处理"];
+    [self.passView stopLoading];
+    [self.passView hide];
+    [self.navigationController popViewControllerAnimated:YES];
+    self.request = nil;
+}
+
+- (void)onRequestFailed:(NSInteger)errorCode errorMsg:(NSString *)msg sender:(id)sender
+{
+    if (sender != self.request)
+    {
+        return;
+    }
+    [self.passView stopLoading];
+    [self.passView hide];
+    [self showToast:msg];
+    self.request = nil;
 }
 
 #pragma mark - getter
@@ -132,38 +231,41 @@
 {
     if (!_topLabel)
     {
-        _topLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Dark];
-        [_topLabel setText:@"提现渠道"];
+        _topLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_LightDark];
+        [_topLabel setText:@"请输入提现支付宝账号"];
     }
     return _topLabel;
 }
 
-- (CCPayItemView *)wxPayItem
+- (UIView *)accountBGView
 {
-    if (!_wxPayItem)
+    if (!_accountBGView)
     {
-        _wxPayItem = [[CCPayItemView alloc] initWithPayWay:PAYWAY_WX del:self];
-        [_wxPayItem setBackgroundColor:BgColor_White];
+        _accountBGView = [UIView new];
+        [_accountBGView setBackgroundColor:BgColor_White];
     }
-    return _wxPayItem;
+    return _accountBGView;
 }
 
-- (CCPayItemView *)zfbPayItem
+- (UITextField *)accountField
 {
-    if (!_zfbPayItem)
+    if (!_accountField)
     {
-        _zfbPayItem = [[CCPayItemView alloc] initWithPayWay:PAYWAY_ZFB del:self];
-        [_zfbPayItem setBackgroundColor:BgColor_White];
+        _accountField = [UITextField new];
+        [_accountField setBackgroundColor:BgColor_White];
+        [_accountField setFont:Font_Large];
+        [_accountField setTextColor:FontColor_Black];
+        [_accountField setAttributedPlaceholder:[[NSAttributedString alloc] initWithString:@"支付宝邮箱或手机号" attributes:@{NSForegroundColorAttributeName:FontColor_LightDark}]];
     }
-    return _zfbPayItem;
+    return _accountField;
 }
 
 - (UILabel *)tipsLabel
 {
     if (!_tipsLabel)
     {
-        _tipsLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Dark];
-        [_tipsLabel setText:@"输入提现金额"];
+        _tipsLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_LightDark];
+        [_tipsLabel setText:@"请输入提现金额"];
     }
     return _tipsLabel;
 }
@@ -213,7 +315,7 @@
 {
     if (!_bottomLabel)
     {
-        _bottomLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_Dark];
+        _bottomLabel = [UILabel createOneLineLabelWithFont:Font_Middle color:FontColor_LightDark];
         [_bottomLabel setTextAlignment:NSTextAlignmentLeft];
         [_bottomLabel setText:[NSString stringWithFormat:@"可用余额%.2f元", self.totalMoney]];
     }
@@ -225,10 +327,31 @@
     if (!_commitButton)
     {
         _commitButton = [CCCommitButton new];
-        [_commitButton setTitle:@"提现" forState:UIControlStateNormal];
+        [_commitButton setTitle:@"确认提现" forState:UIControlStateNormal];
         [_commitButton addTarget:self action:@selector(onClickCommitButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _commitButton;
+}
+
+- (UIView *)keyboardBGView
+{
+    if (!_keyboardBGView)
+    {
+        _keyboardBGView = [UIView new];
+        [_keyboardBGView setBackgroundColor:BgColor_Clear];
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(onTapKeyboardBGView:)];
+        [_keyboardBGView addGestureRecognizer:gesture];
+    }
+    return _keyboardBGView;
+}
+
+- (CYPasswordView *)createPassView
+{
+    CYPasswordView *passView = [CYPasswordView new];
+    passView.title =@"输入支付密码";
+    passView.loadingText = @"提交中……";
+    return passView;
 }
 
 @end
