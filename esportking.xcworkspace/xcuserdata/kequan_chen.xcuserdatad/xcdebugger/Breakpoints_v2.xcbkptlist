@@ -52,12 +52,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "esportking/UI/Pages/Wallet/CCGainMoneyViewController.m"
-            timestampString = "546088283.0446399"
+            timestampString = "546089125.168564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "-onRequestFailed:errorMsg:sender:"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-onRequestSuccess:sender:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "esportking/UI/Pages/Wallet/CCGainMoneyViewController.m"
-            timestampString = "546088283.045189"
+            timestampString = "546089125.168636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "-onRequestSuccess:sender:"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "-onRequestFailed:errorMsg:sender:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -25,7 +25,7 @@
         // 两位, 前面不足位, 用0补齐
         [finalString appendFormat:@"%02x", bytes[i]];
     }
-    return finalString;
+    return [finalString uppercaseString];
 }
 
 @end

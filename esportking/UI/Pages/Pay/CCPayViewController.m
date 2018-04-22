@@ -15,6 +15,7 @@
 
 #import "CCPayForOrderRequest.h"
 #import <CYPasswordView/CYPasswordView.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface CCPayViewController ()<CCTitleItemDelegate, CCPayItemDelegate, CCRequestDelegate>
 
@@ -155,7 +156,7 @@
             break;
         case PAYWAY_ZFB:
         {
-            
+//            [AlipaySDK defaultService] payOrder:<#(NSString *)#> fromScheme:<#(NSString *)#> callback:<#^(NSDictionary *resultDic)completionBlock#>
         }
             break;
         case PAYWAY_CARD:

@@ -104,10 +104,11 @@
     {
         _toastLabel = [UILabel createOneLineLabelWithFont:Font_Big color:FontColor_White];
         [_toastLabel setBackgroundColor:BgColor_Black];
-        [self.view addSubview:_toastLabel];
+        [self.view.window addSubview:_toastLabel];
         
         [_toastLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.view);
+            make.centerX.equalTo(self.view.window);
+            make.centerY.equalTo(self.view.window).multipliedBy(3.0/2);
         }];
     }
     return _toastLabel;
