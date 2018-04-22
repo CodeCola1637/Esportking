@@ -54,6 +54,19 @@
 		BE4A1BD7203854CD00890485 /* CCBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4A1BD6203854CD00890485 /* CCBaseTableViewCell.m */; };
 		BE4EFE9220834DBB00E8DB35 /* CCMessageSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */; };
 		BE4EFE95208362AD00E8DB35 /* CCGainMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE4EFE94208362AD00E8DB35 /* CCGainMoneyViewController.m */; };
+		BE6F58F9208C8B4F008FDFA1 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE6F58F7208C8B4F008FDFA1 /* AlipaySDK.bundle */; };
+		BE6F58FA208C8B4F008FDFA1 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F58F8208C8B4F008FDFA1 /* AlipaySDK.framework */; };
+		BE6F58FC208C8B64008FDFA1 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F58FB208C8B64008FDFA1 /* libc++.tbd */; };
+		BE6F58FE208C8B99008FDFA1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F58FD208C8B99008FDFA1 /* libz.tbd */; };
+		BE6F5900208C8BA5008FDFA1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F58FF208C8BA4008FDFA1 /* SystemConfiguration.framework */; };
+		BE6F5902208C8BAD008FDFA1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F5901208C8BAD008FDFA1 /* CoreTelephony.framework */; };
+		BE6F5904208C8BB6008FDFA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F5903208C8BB6008FDFA1 /* QuartzCore.framework */; };
+		BE6F5906208C8BBF008FDFA1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F5905208C8BBF008FDFA1 /* CoreText.framework */; };
+		BE6F5908208C8BC7008FDFA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F5907208C8BC6008FDFA1 /* CoreGraphics.framework */; };
+		BE6F590A208C8BCF008FDFA1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F5909208C8BCF008FDFA1 /* UIKit.framework */; };
+		BE6F590C208C8BD9008FDFA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590B208C8BD9008FDFA1 /* Foundation.framework */; };
+		BE6F590E208C8BE1008FDFA1 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590D208C8BE1008FDFA1 /* CFNetwork.framework */; };
+		BE6F5910208C8BE9008FDFA1 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE6F590F208C8BE9008FDFA1 /* CoreMotion.framework */; };
 		BE78493520394D90000E7C00 /* CCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493420394D90000E7C00 /* CCSearchViewController.m */; };
 		BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493820394DB8000E7C00 /* CCSearchTableViewCell.m */; };
 		BE78493D20394FBC000E7C00 /* CCSearchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE78493C20394FBC000E7C00 /* CCSearchRequest.m */; };
@@ -299,6 +312,19 @@
 		BE4EFE9120834DBB00E8DB35 /* CCMessageSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCMessageSettingViewController.m; sourceTree = "<group>"; };
 		BE4EFE93208362AD00E8DB35 /* CCGainMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGainMoneyViewController.h; sourceTree = "<group>"; };
 		BE4EFE94208362AD00E8DB35 /* CCGainMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGainMoneyViewController.m; sourceTree = "<group>"; };
+		BE6F58F7208C8B4F008FDFA1 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		BE6F58F8208C8B4F008FDFA1 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		BE6F58FB208C8B64008FDFA1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		BE6F58FD208C8B99008FDFA1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		BE6F58FF208C8BA4008FDFA1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BE6F5901208C8BAD008FDFA1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BE6F5903208C8BB6008FDFA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE6F5905208C8BBF008FDFA1 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		BE6F5907208C8BC6008FDFA1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BE6F5909208C8BCF008FDFA1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BE6F590B208C8BD9008FDFA1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BE6F590D208C8BE1008FDFA1 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		BE6F590F208C8BE9008FDFA1 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		BE78493320394D90000E7C00 /* CCSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchViewController.h; sourceTree = "<group>"; };
 		BE78493420394D90000E7C00 /* CCSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSearchViewController.m; sourceTree = "<group>"; };
 		BE78493720394DB8000E7C00 /* CCSearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -568,6 +594,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6F58FA208C8B4F008FDFA1 /* AlipaySDK.framework in Frameworks */,
+				BE6F5910208C8BE9008FDFA1 /* CoreMotion.framework in Frameworks */,
+				BE6F590E208C8BE1008FDFA1 /* CFNetwork.framework in Frameworks */,
+				BE6F590C208C8BD9008FDFA1 /* Foundation.framework in Frameworks */,
+				BE6F590A208C8BCF008FDFA1 /* UIKit.framework in Frameworks */,
+				BE6F5908208C8BC7008FDFA1 /* CoreGraphics.framework in Frameworks */,
+				BE6F5906208C8BBF008FDFA1 /* CoreText.framework in Frameworks */,
+				BE6F5904208C8BB6008FDFA1 /* QuartzCore.framework in Frameworks */,
+				BE6F5902208C8BAD008FDFA1 /* CoreTelephony.framework in Frameworks */,
+				BE6F5900208C8BA5008FDFA1 /* SystemConfiguration.framework in Frameworks */,
+				BE6F58FE208C8B99008FDFA1 /* libz.tbd in Frameworks */,
+				BE6F58FC208C8B64008FDFA1 /* libc++.tbd in Frameworks */,
 				C16171E712D307C824E94520 /* libPods-esportking.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +624,17 @@
 		10378A7DD0D99825B70D26ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE6F590F208C8BE9008FDFA1 /* CoreMotion.framework */,
+				BE6F590D208C8BE1008FDFA1 /* CFNetwork.framework */,
+				BE6F590B208C8BD9008FDFA1 /* Foundation.framework */,
+				BE6F5909208C8BCF008FDFA1 /* UIKit.framework */,
+				BE6F5907208C8BC6008FDFA1 /* CoreGraphics.framework */,
+				BE6F5905208C8BBF008FDFA1 /* CoreText.framework */,
+				BE6F5903208C8BB6008FDFA1 /* QuartzCore.framework */,
+				BE6F5901208C8BAD008FDFA1 /* CoreTelephony.framework */,
+				BE6F58FF208C8BA4008FDFA1 /* SystemConfiguration.framework */,
+				BE6F58FD208C8B99008FDFA1 /* libz.tbd */,
+				BE6F58FB208C8B64008FDFA1 /* libc++.tbd */,
 				794446AB076BD7FEE1438A20 /* libPods-esportking.a */,
 				23AE8F6DA1609C87255D1B9C /* libPods-esportkingTests.a */,
 			);
@@ -844,6 +893,15 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		BE6F58F6208C8B4F008FDFA1 /* ZFB */ = {
+			isa = PBXGroup;
+			children = (
+				BE6F58F7208C8B4F008FDFA1 /* AlipaySDK.bundle */,
+				BE6F58F8208C8B4F008FDFA1 /* AlipaySDK.framework */,
+			);
+			path = ZFB;
+			sourceTree = "<group>";
+		};
 		BE78493220394D7C000E7C00 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -879,6 +937,7 @@
 		BEAC5D6D202C3689000BF808 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				BE6F58F6208C8B4F008FDFA1 /* ZFB */,
 				C09A6570205BD0F100FB1B44 /* PopupListComponent */,
 				C05409F2204E763200C8154E /* zhPopUpController */,
 				C0D4F888204656BB00258CC6 /* ZJScrollPageView */,
@@ -1875,6 +1934,7 @@
 				C09A658B205BD0F100FB1B44 /* popoverArrowUp.png in Resources */,
 				C09A658E205BD0F100FB1B44 /* popoverBg@2x.png in Resources */,
 				C09A6587205BD0F100FB1B44 /* popoverArrowLeft.png in Resources */,
+				BE6F58F9208C8B4F008FDFA1 /* AlipaySDK.bundle in Resources */,
 				C09A658A205BD0F100FB1B44 /* popoverArrowRight@2x.png in Resources */,
 				C09A6588205BD0F100FB1B44 /* popoverArrowLeft@2x.png in Resources */,
 				C09A6585205BD0F100FB1B44 /* popoverArrowDown.png in Resources */,
@@ -2316,6 +2376,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = AKW4R9EB5U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/esportking/Third/ZFB",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
 				INFOPLIST_FILE = esportking/Info.plist;
@@ -2333,6 +2397,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = AKW4R9EB5U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/esportking/Third/ZFB",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = esportking/CCEsportking.pch;
 				INFOPLIST_FILE = esportking/Info.plist;
