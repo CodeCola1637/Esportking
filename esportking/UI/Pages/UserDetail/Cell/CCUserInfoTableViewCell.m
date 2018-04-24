@@ -86,6 +86,7 @@
         make.left.right.bottom.equalTo(self.contentView);
         make.height.mas_equalTo(CCPXToPoint(16));
     }];
+    [self.followButton setHidden:YES];
 }
 
 - (void)setGameModel:(CCGameModel *)model

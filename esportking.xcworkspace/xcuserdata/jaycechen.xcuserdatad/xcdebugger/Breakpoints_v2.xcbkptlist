@@ -67,22 +67,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "esportking/Logic/Network/CCBaseRequest.m"
-            timestampString = "545376121.651224"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-onResponse:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "esportking/UI/Pages/Money/CCMoneyViewController.m"
             timestampString = "545376659.9434381"
             startingColumnNumber = "9223372036854775807"
@@ -122,6 +106,22 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "-setMoneyDict:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "esportking/UI/Pages/User/View/CCAddImageView.m"
+            timestampString = "546268644.1450289"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-onTapContent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

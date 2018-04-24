@@ -57,6 +57,8 @@
 
 #define GetMyBlackList  @"/app/user/getMyBlackList"
 
+#define DeleteCover     @"/app/user/delCover"
+
 #pragma mark - Get
 #define GetGameInfo     @"/app/game/getSysGames"
 #define GetInviteCode   @"/app/user/getInvitationCode"

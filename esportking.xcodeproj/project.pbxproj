@@ -197,6 +197,7 @@
 		C0D4F8C12046AB9000258CC6 /* CCWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C02046AB9000258CC6 /* CCWalletViewController.m */; };
 		C0D4F8C52046DDF000258CC6 /* CCTryCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C42046DDF000258CC6 /* CCTryCardViewController.m */; };
 		C0D4F8C92046DE0900258CC6 /* CCTryCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C0D4F8C82046DE0900258CC6 /* CCTryCardTableViewCell.m */; };
+		C0E34E15208F646A007A4173 /* CCDeleteCoverRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0E34E14208F646A007A4173 /* CCDeleteCoverRequest.m */; };
 		C0F0413C205F935B00FF5F78 /* CCJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F0413B205F935B00FF5F78 /* CCJudgeViewController.m */; };
 		C0F04141205FA45C00FF5F78 /* CCCommitButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F04140205FA45C00FF5F78 /* CCCommitButton.m */; };
 		C0F04145205FAFCB00FF5F78 /* CCFetchTagRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F04144205FAFCB00FF5F78 /* CCFetchTagRequest.m */; };
@@ -586,6 +587,8 @@
 		C0D4F8C42046DDF000258CC6 /* CCTryCardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardViewController.m; sourceTree = "<group>"; };
 		C0D4F8C72046DE0900258CC6 /* CCTryCardTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTryCardTableViewCell.h; sourceTree = "<group>"; };
 		C0D4F8C82046DE0900258CC6 /* CCTryCardTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTryCardTableViewCell.m; sourceTree = "<group>"; };
+		C0E34E13208F646A007A4173 /* CCDeleteCoverRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCDeleteCoverRequest.h; sourceTree = "<group>"; };
+		C0E34E14208F646A007A4173 /* CCDeleteCoverRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCDeleteCoverRequest.m; sourceTree = "<group>"; };
 		C0F0413A205F935B00FF5F78 /* CCJudgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCJudgeViewController.h; sourceTree = "<group>"; };
 		C0F0413B205F935B00FF5F78 /* CCJudgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCJudgeViewController.m; sourceTree = "<group>"; };
 		C0F0413F205FA45C00FF5F78 /* CCCommitButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCCommitButton.h; sourceTree = "<group>"; };
@@ -1213,6 +1216,7 @@
 		BEFC9B9F20257E29002CE000 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C0E34E12208F6455007A4173 /* Cover */,
 				BEBEB69320761A050017EB4E /* ComeIn */,
 				C03B79282060ED0100FA3073 /* Pay */,
 				C0F04146205FB13000FF5F78 /* Comment */,
@@ -1810,6 +1814,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C0E34E12208F6455007A4173 /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				C0E34E13208F646A007A4173 /* CCDeleteCoverRequest.h */,
+				C0E34E14208F646A007A4173 /* CCDeleteCoverRequest.m */,
+			);
+			path = Cover;
+			sourceTree = "<group>";
+		};
 		C0F04139205F932500FF5F78 /* Judge */ = {
 			isa = PBXGroup;
 			children = (
@@ -2169,6 +2182,7 @@
 				BE4A1BBE2030800B00890485 /* CCGameItemCollectionViewCell.m in Sources */,
 				BE78493920394DB8000E7C00 /* CCSearchTableViewCell.m in Sources */,
 				BEAFE56B2057CFCF00ED6B5A /* CCGetInviteCodeRequest.m in Sources */,
+				C0E34E15208F646A007A4173 /* CCDeleteCoverRequest.m in Sources */,
 				BEBEB68E207616150017EB4E /* CCHelpWebViewController.m in Sources */,
 				BE6F5913208C99B2008FDFA1 /* CCGainMoneyRequest.m in Sources */,
 				C09A6564205BC43900FB1B44 /* CCBlackUserTableViewCell.m in Sources */,

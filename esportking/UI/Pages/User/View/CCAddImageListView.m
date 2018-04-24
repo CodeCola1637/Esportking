@@ -10,6 +10,7 @@
 #import "CCAddImageView.h"
 #import "CCAccountService.h"
 #import "CCUploadImgRequest.h"
+#import "CCDeleteCoverRequest.h"
 
 #import "CCNetworkDefine.h"
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -22,6 +23,7 @@
 @interface CCAddImageListView ()<CCAddImageViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CCUploadImgDelegate>
 
 @property (strong, nonatomic) CCUploadImgRequest *uploadRequest;
+@property (strong, nonatomic) CCDeleteCoverRequest *deleteRequest;
 
 @property (strong, nonatomic) UIView *topView;
 @property (strong, nonatomic) UILabel *titleLabel;
@@ -168,7 +170,13 @@
             break;
         case ADDIMGSTATUS_DELETE:
         {
-            
+            CCAddImageView *imgView = sender;
+            self.deleteRequest = [CCDeleteCoverRequest new];
+            self.deleteRequest.coverUrl = imgView.coverUrl;
+            [self.deleteRequest startPostRequestWithDelegate:nil];
+            imgView.currentStatus = ADDIMGSTATUS_EMPTY;
+            imgView.coverUrl = nil;
+            [imgView setImage:CCIMG(@"Add_Icon")];
         }
             break;
             

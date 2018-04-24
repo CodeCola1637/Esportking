@@ -57,7 +57,7 @@
     _headUrl = CCIsNotNullObj(dict[@"picture"])?dict[@"picture"]:_headUrl;
     _age = [dict[@"age"] unsignedIntValue]?:_age;
     NSString *str = CCIsNotNullObj(dict[@"cover"])?dict[@"cover"]:@"";
-    _coverUrlList = [str componentsSeparatedByString:@","];
+    _coverUrlList = (str && ![str isEqualToString:@""])?[str componentsSeparatedByString:@","]:nil;
     _area = CCIsNotNullObj(dict[@"area"])?dict[@"area"]:_area;
     
     _mobile = CCIsNotNullObj(dict[@"mobile"])?dict[@"mobile"]:_mobile;
