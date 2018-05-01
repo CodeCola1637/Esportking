@@ -12,8 +12,7 @@
 #import "CCTitleItem.h"
 #import "CCPayItemView.h"
 #import "CCScoreModel.h"
-
-#import "CCFetchOrderStrRequest.h"
+#import "CCPayManager.h"
 #import "CCPayForOrderRequest.h"
 #import <CYPasswordView/CYPasswordView.h>
 #import <AlipaySDK/AlipaySDK.h>
@@ -67,7 +66,6 @@
     [self configTopbar];
     [self configContent];
     [self configData];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onReceiveZFBPayNotification:) name:CCZFBPayCallNotification object:nil];
 }
 
 - (void)configTopbar
@@ -155,22 +153,27 @@
 #pragma mark - action
 - (void)onClickBottomButton:(UIButton *)button
 {
+    CCWeakSelf(weakSelf);
     switch (_currentWay)
     {
         case PAYWAY_WX:
         {
-            
+            [[CCPayManager shareInstance] wxPayWithPayOrderID:self.orderModel.orderID moneyStr:[NSString stringWithFormat:@"%.2f", self.orderModel.money] success:^{
+                [weakSelf onPaySuccess];
+            } failure:^(NSString *errMsg) {
+                [weakSelf onPayFail:errMsg];
+            }];
+            [self beginLoading];
         }
             break;
         case PAYWAY_ZFB:
         {
-            CCFetchOrderStrRequest *req = [CCFetchOrderStrRequest new];
-            req.amount =[NSString stringWithFormat:@"%.2f", self.orderModel.money];
-            req.orderID = self.orderModel.orderID;
-            req.payType = 2;
-            req.typeWay = 1;
-            self.request = req;
-            [self.request startPostRequestWithDelegate:self];
+            [[CCPayManager shareInstance] aliPayWithPayOrderID:self.orderModel.orderID moneyStr:[NSString stringWithFormat:@"%.2f", self.orderModel.money] success:^{
+                [weakSelf onPaySuccess];
+            } failure:^(NSString *errMsg) {
+                [weakSelf onPayFail:errMsg];
+            }];
+            [self beginLoading];
         }
             break;
         case PAYWAY_CARD:
@@ -233,15 +236,6 @@
             [self onPaySuccess];
         });
     }
-    else if ([sender isKindOfClass:[CCFetchOrderStrRequest class]])
-    {
-        [self endLoading];
-        CCWeakSelf(weakSelf);
-        NSString *str = dict[@"data"];
-        [[AlipaySDK defaultService] payOrder:str fromScheme:@"esportking.pay.zfb" callback:^(NSDictionary *resultDic) {
-            [weakSelf onZFBPayCallBack:resultDic];
-        }];
-    }
     self.request = nil;
 }
 
@@ -260,19 +254,7 @@
             [self.passView hide];
         });
     }
-    else if ([sender isKindOfClass:[CCFetchOrderStrRequest class]])
-    {
-        [self endLoading];
-        [self showToast:msg];
-    }
     self.request = nil;
-}
-
-#pragma mark - CCZFBPayCallNotification
-- (void)onReceiveZFBPayNotification:(NSNotification *)notify
-{
-    NSDictionary *resultDict = [notify object];
-    [self onZFBPayCallBack:resultDict];
 }
 
 #pragma mark - private
@@ -293,18 +275,6 @@
     [self.request startPostRequestWithDelegate:self];
 }
 
-- (void)onZFBPayCallBack:(NSDictionary *)result
-{
-    if ([result[@"resultStatus"] isEqual:@"9000"])
-    {
-        [self onPaySuccess];
-    }
-    else
-    {
-        [self showToast:@"支付失败"];
-    }
-}
-
 - (void)onPaySuccess
 {
     CCScoreWaitViewController *vc = [CCScoreWaitViewController new];
@@ -321,6 +291,12 @@
         [vcs removeObject:self];
         [self.navigationController setViewControllers:vcs];
     });
+}
+
+- (void)onPayFail:(NSString *)errMsg
+{
+    [self endLoading];
+    [self showToast:errMsg];
 }
 
 #pragma mark - getter

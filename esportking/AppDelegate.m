@@ -12,7 +12,7 @@
 #import "CCRootViewController.h"
 #import "CCLoginViewController.h"
 
-#import <AlipaySDK/AlipaySDK.h>
+#import "CCPayManager.h"
 
 @interface AppDelegate ()
 
@@ -37,14 +37,7 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
-    if ([url.host isEqualToString:@"safepay"])
-    {
-        //跳转支付宝钱包进行支付，处理支付结果
-        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:CCZFBPayCallNotification object:resultDic];
-        }];
-    }
-    return YES;
+    return [[CCPayManager shareInstance] handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

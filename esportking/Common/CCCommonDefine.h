@@ -9,7 +9,6 @@
 #pragma mark - Notification
 #define CCLoginNotification         @"cc_login"
 #define CCInfoChangeNotification    @"cc_user_info_change"
-#define CCZFBPayCallNotification    @"zfb_pay_callback"
 
 #pragma mark - Utils
 #define CCWeakSelf(weakSelf) __weak typeof(self) weakSelf = self
