@@ -127,9 +127,10 @@
     if (self.request.typeWay == 1)
     {
         CCWeakSelf(weakSelf);
-        NSString *str = dict[@"data"];
+        NSString *str = dict[@"data"][@"order_str"];
         [[AlipaySDK defaultService] payOrder:str fromScheme:@"esportking.pay.zfb" callback:^(NSDictionary *resultDic) {
-            if ([resultDic[@"resultStatus"] isEqual:@"9000"])
+            NSString *retStr = resultDic[@"resultStatus"];
+            if ([retStr isEqualToString:@"9000"])
             {
                 weakSelf.PaySuccess();
             }
@@ -144,13 +145,14 @@
         //发起微信支付
         PayReq* req   = [[PayReq alloc] init];
         req.partnerId = @"1494148072";
-        req.prepayId  = dict[@"data"];
-        req.nonceStr  = [NSString stringWithFormat:@"%d", arc4random()];
-        req.timeStamp = (int)[[NSDate date] timeIntervalSince1970];
+        req.prepayId  = dict[@"data"][@"prepay_id"];
+        req.nonceStr  = dict[@"data"][@"nonce_str"];
+        req.timeStamp = [dict[@"data"][@"timestamp"] unsignedIntValue];
         req.package   = @"Sign=WXPay";
         
-        NSString *totalStr = [NSString stringWithFormat:@"noncestr=%@&package=%@&partnerid=%@&prepayid=%@&timestamp=%d&key=%@", req.nonceStr, req.package, req.partnerId, req.prepayId, req.timeStamp, @"djw336d0df1342312922d119c7285djw"];
-        req.sign      = [totalStr md5Str];
+//        NSString *totalStr = [NSString stringWithFormat:@"noncestr=%@&package=%@&partnerid=%@&prepayid=%@&timestamp=%d&key=%@", req.nonceStr, req.package, req.partnerId, req.prepayId, req.timeStamp, @"djw336d0df1342312922d119c7285djw"];
+//        req.sign      = [totalStr md5Str];
+        req.sign      = dict[@"data"][@"sign"];
         BOOL success = [WXApi sendReq:req];
         NSLog(@"sendReq = %i", success);
     }
