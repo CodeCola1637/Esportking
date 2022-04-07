@@ -12,7 +12,7 @@ static NSString *M80URLExpression = @"((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\
 
 static M80CustomDetectLinkBlock customDetectBlock = nil;
 
-static NSString *M80URLExpressionKey = @"M80URLExpressionKey";
+static NSString *M80URLExpressionKey = @"";
 
 
 @implementation M80AttributedLabelURL
