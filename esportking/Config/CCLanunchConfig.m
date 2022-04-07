@@ -21,8 +21,8 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 
-#define kNetEaseIMKey   @"68aff658e680c288555f2b42c1286b99"
-#define kGaoDeMapKey    @"849552e95b2953b953747cb113db4dbb"
+#define kNetEaseIMKey   @""
+#define kGaoDeMapKey    @""
 
 @implementation CCLanunchConfig
 
